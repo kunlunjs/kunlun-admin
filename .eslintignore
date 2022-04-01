@@ -1,0 +1,16 @@
+*.min.css
+*.min.js
+*.conf
+!.commitlintrc.js
+!.prettierrc.js
+!.stylelintrc.json
+.yarnrc
+.svgrc
+*.xls
+*.xlsx
+
+dist
+packages/*/public
+packages/server/static
+packages/server/**/*.graphql
+!packages/server/src/@generated

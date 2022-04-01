@@ -1,0 +1,12 @@
+{
+  "name": "@kunlun-admin/server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

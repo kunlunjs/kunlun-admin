@@ -1,0 +1,122 @@
+{
+  "include": [
+    "scripts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    /* Type Checking */
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": true,
+    // "alwaysStrict": true,
+    // "exactOptionalPropertyTypes": false,
+    // "noFallthroughCasesInSwitch": false,
+    // "noImplicitAny": true,
+    // "noImplicitOverride": false,
+    // "noImplicitReturns": false,
+    // "noImplicitThis": false,
+    // "noPropertyAccessFromIndexSignature": false,
+    // "noUncheckedIndexedAccess": false,
+    // "noUnusedLocals": false,
+    // "noUnusedParameters": false,
+    "strict": true,
+    // "strictBindCallApply": true,
+    // "strictFunctionTypes": true,
+    // "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    // "useUnknownInCatchVariables": true,
+    /* Modules */
+    "allowUmdGlobalAccess": true,
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    // "noResolve": false,
+    // "paths": {},
+    "resolveJsonModule": true,
+    // "rootDir": "",
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": [],
+    /* Emit */
+    // "declaration": false,
+    // "declarationDir": "",
+    // "declarationMap": false,
+    // "downlevelIteration": false,
+    // "emitBOM": false,
+    // "emitDeclarationOnly": false,
+    // "importHelpers": false,
+    // "importsNotUsedAsValues": "remove",
+    // "inlineSourceMap": false,
+    // "inlineSources": false,
+    // "mapRoot": "",
+    // "newLine": "",
+    // "noEmit": false,
+    // "noEmitHelpers": false,
+    // "noEmitOnError": false,
+    // "outDir": "dist",
+    // "outFile": "",
+    // "preserveConstEnums": true,
+    // "preserveValueImports": false,
+    // "removeComments": false,
+    "sourceMap": true,
+    // "sourceRoot": "",
+    // "stripInternal": false,
+    /* JavaScript Support */
+    "allowJs": true,
+    // "checkJs": false,
+    // "maxNodeModuleJsDepth": 0,
+    /* Editor Support */
+    // "disableSizeLimit": false,
+    // "plugins": [],
+    /* Interop Constraints */
+    // "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "forceConsistentCasingInFileNames": false,
+    "isolatedModules": false,
+    // "preserveSymlinks": false,
+    /* Backwards Compatibility */
+    // "charset": "urf8",
+    // "keyofStringsOnly": false,
+    // "noImplicitUseStrict": false,
+    // "noStrictGenericChecks": false,
+    // "suppressExcessPropertyErrors": false,
+    // "suppressImplicitAnyIndexErrors": false,
+    /* Language and Environment */
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "react-jsx", // @see "react"|"react-jsx"|"react-jsxdev"|"preserve"|"react-native"
+    // "jsxFactory": "React.createElement",
+    // "jsxFragmentFactory": "",
+    // "jsxImportSource": "React",
+    // "lib": "",
+    // "noLib": false,
+    // "reactNamespace": "React",
+    "target": "ESNext" // @default "ES3"
+    // "useDefineForClassFields": true,
+    /* Compiler Diagnostics */
+    // "diagnostics": true,
+    // "explainFiles": false,
+    // "extendedDiagnostics": false,
+    // "generateCpuProfile": "profile.cpuprofile",
+    // "listEmittedFiles": false,
+    // "listFiles": false,
+    // "traceResolution": false,
+    /* Projects */
+    // "composite": true,
+    // "disableReferencedProjectLoad": false,
+    // "disableSolutionSearching": false,
+    // "disableSourceOfProjectReferenceRedirect": false,
+    // "incremental": true,
+    // "tsBuildInfoFile": ".tsbuildinfo",
+    /* Output Formatting */
+    // "noErrorTruncation": false,
+    // "preserveWatchOutput": false,
+    // "pretty": true,
+    /* Completeness */
+    // "skipDefaultLibCheck": false,
+    // "skipLibCheck": false,
+    /* Command Line*/
+    /* Watch Options */
+  }
+}

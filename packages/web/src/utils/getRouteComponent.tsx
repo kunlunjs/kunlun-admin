@@ -30,7 +30,7 @@ export function getRouteComponent({ path, element, factory }: RouteItem) {
     const Factory = loadable(
       () =>
         import(
-          /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/Factories/KL${factory.type}Factory`
+          /* @vite-ignore */ /* webpackChunkName: "[request]" */ `@/components/Factories/KL${factory.type}Factory`
         )
     )
     return isValidElementType(Factory)
@@ -46,7 +46,7 @@ export function getRouteComponent({ path, element, factory }: RouteItem) {
     const Component = loadable(
       () =>
         import(
-          /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/features/${p}`
+          /* @vite-ignore */ /* webpackChunkName: "[request]" */ `@/features/${p}`
         )
     )
     return isValidElementType(Component)

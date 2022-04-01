@@ -9,6 +9,9 @@ export default defineConfig({
         globalVars: {}
       }
     },
+    plugins: {
+      copy: true
+    },
     devServer: {
       proxy: {
         '/api': {

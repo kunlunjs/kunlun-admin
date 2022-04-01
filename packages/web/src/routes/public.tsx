@@ -7,57 +7,55 @@ import { lazyImport } from '@/utils/lazyImport'
 
 const { AuthRoutes } = lazyImport(
   () =>
-    import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/auth'
-    ),
+    import(/* @vite-ignore */ /* webpackChunkName: "auth" */ '@/features/auth'),
   'AuthRoutes'
 )
 const { KLTableFactory } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/factories/KLTableFactory'
+      /* @vite-ignore */ /* webpackChunkName: "KLTableFactory" */ '@/features/factories/KLTableFactory'
     ),
   'KLTableFactory'
 )
 const { KLDescriptionFactory } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/factories/KLDescriptionFactory'
+      /* @vite-ignore */ /* webpackChunkName: "KLDescriptionFactory" */ '@/features/factories/KLDescriptionFactory'
     ),
   'KLDescriptionFactory'
 )
 const { Templates } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/templates'
+      /* @vite-ignore */ /* webpackChunkName: "templates" */ '@/features/templates'
     ),
   'Templates'
 )
 const { Assemble } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/assemble'
+      /* @vite-ignore */ /* webpackChunkName: "assemble" */ '@/features/assemble'
     ),
   'Assemble'
 )
 const { Charts } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/charts'
+      /* @vite-ignore */ /* webpackChunkName: "charts" */ '@/features/charts'
     ),
   'Charts'
 )
 const { Datas } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/datas'
+      /* @vite-ignore */ /* webpackChunkName: "datas" */ '@/features/datas'
     ),
   'Datas'
 )
 const { Icons } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/icons'
+      /* @vite-ignore */ /* webpackChunkName: "icons" */ '@/features/icons'
     ),
   'Icons'
 )

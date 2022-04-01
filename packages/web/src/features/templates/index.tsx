@@ -1,5 +1,5 @@
-import type { MouseEvent } from 'react'
-import { Component, createRef } from 'react'
+import type { FC, MouseEvent } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Frame from 'react-frame-component'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
@@ -88,78 +88,44 @@ const viewList = [
 
 interface TemplatesState {
   ready: boolean
+  theme: 'indigo'
   sidebar: boolean
   darkMode: boolean
   blockType: string
   blockName: string
-  theme: 'indigo'
   copied: boolean
   codeView: boolean
-  markup: string
+  markup: string | undefined
   currentKeyCode: number | null
   view: 'desktop' | 'tablet' | 'mobile'
 }
 
-export class Templates extends Component<any, TemplatesState> {
-  markupRef: any
-  textareaRef: any
-  sidebarRef: any
-  openerRef: any
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      ready: false,
-      darkMode: false,
-      copied: false,
-      sidebar: true,
-      codeView: false,
-      currentKeyCode: null,
-      view: 'desktop',
-      theme: 'indigo',
-      blockType: 'Block',
-      blockName: 'Marketing',
-      markup: ''
-    }
+interface TemplatesProps {}
+let timeout: ReturnType<typeof setTimeout>
 
-    this.changeMode = this.changeMode.bind(this)
-    this.changeTheme = this.changeTheme.bind(this)
-    this.changeBlock = this.changeBlock.bind(this)
-    this.handleContentDidMount = this.handleContentDidMount.bind(this)
-    this.changeView = this.changeView.bind(this)
-    this.toggleSidebar = this.toggleSidebar.bind(this)
-    this.toggleView = this.toggleView.bind(this)
-    this.copyToClipboard = this.copyToClipboard.bind(this)
-    this.keyboardNavigation = this.keyboardNavigation.bind(this)
-    this.markupRef = createRef()
-    this.textareaRef = createRef()
-    this.sidebarRef = createRef()
-    this.openerRef = createRef()
-  }
+export const Templates: FC<TemplatesProps> = () => {
+  const sidebarRef = useRef<HTMLElement>(null)
+  const markupRef = useRef<HTMLDivElement>(null)
+  const openerRef = useRef<HTMLButtonElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const [state, setState] = useState<TemplatesState>({
+    ready: false,
+    sidebar: false,
+    darkMode: false,
+    blockType: 'Block',
+    blockName: 'Marketing',
+    view: 'desktop',
+    theme: 'indigo',
+    copied: false,
+    markup: '',
+    codeView: false,
+    currentKeyCode: null
+  })
 
-  componentDidMount() {
-    document.addEventListener('keydown', this.keyboardNavigation)
-  }
-
-  hideSidebar() {
-    const sidebar = this.sidebarRef.current
-    const opener = this.openerRef.current
-
-    document.addEventListener('click', e => {
-      if (e.target === opener) {
-        return
-      }
-
-      if (!e.target === sidebar || !sidebar.contains(e.target)) {
-        this.setState({ sidebar: false })
-      }
-    })
-  }
-
-  keyboardNavigation(e: KeyboardEvent | React.KeyboardEvent) {
-    const { blockType, blockName } = this.state
+  const keyboardNavigation = (e: KeyboardEvent | React.KeyboardEvent) => {
+    const { blockType, blockName } = state
     const blockStringFormat = `${blockName},${blockType}`
     const keyCode = e.which || e.keyCode
-
     switch (keyCode) {
       case 40: // Down
         e.preventDefault()
@@ -175,22 +141,23 @@ export class Templates extends Component<any, TemplatesState> {
               `.block-item[block-name="${newBlockName}"]`
             ) as HTMLElement
             if (newBlockNode) newBlockNode.focus()
-            this.setState({
-              blockType: newBlockType,
-              blockName: newBlockName,
+            setState({
+              ...state,
               codeView: false,
-              currentKeyCode: 40
+              currentKeyCode: 40,
+              blockType: newBlockType,
+              blockName: newBlockName
             })
           }
         })
         break
       case 37: // Left
         e.preventDefault()
-        this.setState({ sidebar: false, currentKeyCode: 37 })
+        setState({ ...state, sidebar: false, currentKeyCode: 37 })
         break
       case 39: // Right
         e.preventDefault()
-        this.setState({ sidebar: true, currentKeyCode: 39 })
+        setState({ ...state, sidebar: true, currentKeyCode: 39 })
         break
       case 38: // Up
         e.preventDefault()
@@ -206,12 +173,12 @@ export class Templates extends Component<any, TemplatesState> {
               `.block-item[block-name="${newBlockName}"]`
             ) as HTMLElement
             if (newBlockNode) newBlockNode.focus()
-
-            this.setState({
-              blockType: newBlockType,
-              blockName: newBlockName,
+            setState({
+              ...state,
               codeView: false,
-              currentKeyCode: 38
+              currentKeyCode: 38,
+              blockType: newBlockType,
+              blockName: newBlockName
             })
           }
         })
@@ -220,41 +187,72 @@ export class Templates extends Component<any, TemplatesState> {
         return
     }
 
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       if (
         keyCode === 37 ||
         keyCode === 38 ||
         keyCode === 39 ||
         keyCode === 40
       ) {
-        this.setState({ currentKeyCode: null })
+        setState({ ...state, currentKeyCode: null })
       }
     }, 200)
   }
 
-  changeMode() {
-    this.setState({ darkMode: !this.state.darkMode })
+  useEffect(() => {
+    document.addEventListener('keydown', keyboardNavigation)
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const hideSidebar = () => {
+    const sidebar = sidebarRef.current!
+    const opener = openerRef.current!
+
+    document.addEventListener('click', e => {
+      if (e.target === opener) {
+        return
+      }
+      // @ts-ignore
+      if (!e.target === sidebar || !sidebar.contains(e.target)) {
+        setState({ ...state, sidebar: false })
+      }
+    })
   }
 
-  handleContentDidMount() {
+  const changeMode = () => {
+    setState({ ...state, darkMode: !state.darkMode })
+  }
+
+  const handleContentDidMount = () => {
     const iframe = document.querySelector('iframe') as HTMLIFrameElement
     iframe.contentWindow?.document.addEventListener(
       'keydown',
-      this.keyboardNavigation
+      keyboardNavigation
     )
-    iframe.contentWindow?.document.addEventListener('click', () =>
-      this.setState({ sidebar: false })
-    )
-
-    setTimeout(() => {
-      this.setState({
-        ready: true,
-        markup: this.markupRef.current.innerHTML
-      })
-    }, 400)
+    iframe.contentWindow?.document.addEventListener('click', () => {
+      setState({ ...state, sidebar: false })
+    })
+    setState({
+      ...state,
+      ready: true,
+      markup: markupRef.current?.innerHTML
+    })
   }
 
-  beautifyHTML(codeStr: string) {
+  const handleContentDidUpdate = () => {
+    setState({
+      ...state,
+      ready: true,
+      markup: markupRef.current?.innerHTML
+    })
+  }
+
+  const beautifyHTML = (codeStr: string) => {
     const process = (str: string) => {
       const div = document.createElement('div')
       div.innerHTML = str.trim()
@@ -283,56 +281,58 @@ export class Templates extends Component<any, TemplatesState> {
     return process(codeStr)
   }
 
-  changeBlock(e: MouseEvent) {
+  const changeBlock = (e: MouseEvent) => {
     const { currentTarget } = e
     const blockType = currentTarget.getAttribute('block-type') as string
     const blockName = currentTarget.getAttribute('block-name') as string
-    this.setState({
+    setState({
+      ...state,
       blockType,
       blockName,
       codeView: false
     })
   }
 
-  changeTheme(e: MouseEvent<HTMLButtonElement>) {
+  const changeTheme = (e: MouseEvent<HTMLButtonElement>) => {
     const { currentTarget } = e
     const theme = currentTarget.getAttribute(
       'data-theme'
     ) as TemplatesState['theme']
-    this.setState({ theme })
+    setState({ ...state, theme })
   }
 
-  changeView(e: MouseEvent) {
+  const changeView = (e: MouseEvent) => {
     const { currentTarget } = e
     const view = currentTarget.getAttribute(
       'data-view'
     ) as TemplatesState['view']
-    this.setState({ view, codeView: false })
+    setState({ ...state, view, codeView: false })
   }
 
-  toggleView() {
-    this.setState({
-      codeView: !this.state.codeView,
+  const toggleView = () => {
+    setState({
+      ...state,
+      codeView: !state.codeView,
       view: 'desktop',
-      markup: this.markupRef.current.innerHTML
+      markup: markupRef.current?.innerHTML
     })
   }
 
-  themeListRenderer() {
-    const { theme } = this.state
+  const themeListRenderer = () => {
+    const { theme } = state
     return themeList.map((t, k) => (
       <button
         key={k}
         data-theme={t}
-        onKeyDown={this.keyboardNavigation}
+        onKeyDown={keyboardNavigation}
         className={`theme-button bg-${t}-500${theme === t ? ' is-active' : ''}`}
-        onClick={this.changeTheme}
+        onClick={changeTheme}
       ></button>
     ))
   }
 
-  listRenderer() {
-    const { blockName } = this.state
+  const listRenderer = () => {
+    const { blockName } = state
     return Object.entries(iconList).map(([type, icons]) => (
       <div className="blocks" key={type}>
         <div className="block-category">{type}</div>
@@ -341,7 +341,7 @@ export class Templates extends Component<any, TemplatesState> {
             <button
               key={icon[0]}
               tabIndex={0}
-              onClick={this.changeBlock}
+              onClick={changeBlock}
               className={`block-item${
                 icon[0] === blockName ? ' is-active' : ''
               }`}
@@ -356,164 +356,159 @@ export class Templates extends Component<any, TemplatesState> {
     ))
   }
 
-  viewModeRenderer() {
-    const { view } = this.state
+  const viewModeRenderer = () => {
+    const { view } = state
     return viewList.map((v, k) => (
       <button
         key={k}
         className={`device${view === v.name ? ' is-active' : ''}`}
         data-view={v.name}
-        onClick={this.changeView}
+        onClick={changeView}
       >
         {v.icon}
       </button>
     ))
   }
 
-  toggleSidebar() {
-    this.setState({ sidebar: !this.state.sidebar })
+  const toggleSidebar = () => {
+    setState({ ...state, sidebar: !state.sidebar })
   }
 
-  copyToClipboard() {
-    const code = this.beautifyHTML(this.state.markup)
+  const copyToClipboard = () => {
+    const code = beautifyHTML(state.markup!)
     const input = document.createElement('textarea')
     input.innerHTML = code
     document.body.appendChild(input)
     input.select()
     document.execCommand('copy')
     document.body.removeChild(input)
-    this.setState({ copied: true })
-    setTimeout(() => {
-      this.setState({
+    setState({ ...state, copied: true })
+    timeout = setTimeout(() => {
+      setState({
+        ...state,
         copied: false
       })
     }, 2000)
   }
 
-  render() {
-    const {
-      darkMode,
-      theme,
-      blockName,
-      blockType,
-      sidebar,
-      view,
-      copied,
-      currentKeyCode
-    } = this.state
-    return (
-      <div
-        className={`app${darkMode ? ' dark-mode' : ''}${
-          sidebar ? ' has-sidebar' : ''
-        } ${theme} ${view}`}
-      >
-        <textarea className="copy-textarea" ref={this.textareaRef} />
-        <aside className="sidebar" ref={this.sidebarRef}>
-          {this.listRenderer()}
-        </aside>
-        <div className="toolbar">
-          <button
-            className="opener"
-            onClick={this.toggleSidebar}
-            ref={this.openerRef}
-          >
-            组件/模板
-          </button>
-          {this.state.codeView && (
-            <div className="clipboard-wrapper">
-              <button
-                className="copy-the-block copy-to-clipboard"
-                onClick={this.copyToClipboard}
-              >
-                {clipboardIcon}
-                <span>复制到剪切板</span>
-              </button>
-              <span
-                className={`clipboard-tooltip${copied ? ' is-copied ' : ''}`}
-              >
-                已复制!
-              </span>
-            </div>
+  const {
+    darkMode,
+    theme,
+    blockName,
+    blockType,
+    sidebar,
+    view,
+    copied,
+    currentKeyCode
+  } = state
+
+  return (
+    <div
+      className={`app${darkMode ? ' dark-mode' : ''}${
+        sidebar ? ' has-sidebar' : ''
+      } ${theme} ${view}`}
+    >
+      <textarea className="copy-textarea" ref={textareaRef} />
+      <aside className="sidebar" ref={sidebarRef}>
+        {listRenderer()}
+      </aside>
+      <div className="toolbar">
+        <button className="opener" onClick={toggleSidebar} ref={openerRef}>
+          组件/模板
+        </button>
+        {state.codeView && (
+          <div className="clipboard-wrapper">
+            <button
+              className="copy-the-block copy-to-clipboard"
+              onClick={copyToClipboard}
+            >
+              {clipboardIcon}
+              <span>复制到剪切板</span>
+            </button>
+            <span className={`clipboard-tooltip${copied ? ' is-copied ' : ''}`}>
+              已复制!
+            </span>
+          </div>
+        )}
+        <button className="copy-the-block" onClick={toggleView}>
+          {!state.codeView ? (
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M16 18L22 12 16 6"></path>
+              <path d="M8 6L2 12 8 18"></path>
+            </svg>
+          ) : (
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="css-i6dzq1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
           )}
-          <button className="copy-the-block" onClick={this.toggleView}>
-            {!this.state.codeView ? (
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M16 18L22 12 16 6"></path>
-                <path d="M8 6L2 12 8 18"></path>
-              </svg>
-            ) : (
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="css-i6dzq1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-            )}
-            <span>{!this.state.codeView ? '代码' : '预览'}</span>
-          </button>
-          <div className="switcher">{this.themeListRenderer()}</div>
-          {this.viewModeRenderer()}
-          <button className="mode" onClick={this.changeMode}></button>
-        </div>
-        <div className="markup" ref={this.markupRef}>
-          {getBlocks({ theme, darkMode })[blockType][blockName]}
-        </div>
-        <main
-          className="main"
-          style={{ opacity: this.state.ready ? '1' : '0' }}
-        >
-          <div className={`view${this.state.codeView ? ' show-code' : ''}`}>
-            <Frame
-              contentDidMount={this.handleContentDidMount}
-              contentDidUpdate={this.handleContentDidMount}
-              head={
-                <>
-                  <link
-                    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
-                    rel="stylesheet"
-                  />
-                  {
-                    <style
-                      dangerouslySetInnerHTML={{
-                        __html: `img { filter:
+          <span>{!state.codeView ? '代码' : '预览'}</span>
+        </button>
+        <div className="switcher">{themeListRenderer()}</div>
+        {viewModeRenderer()}
+        <button className="mode" onClick={changeMode}></button>
+      </div>
+      <div className="markup" ref={markupRef}>
+        {getBlocks({ theme, darkMode })[blockType][blockName]}
+      </div>
+      <main className="main" style={{ opacity: state.ready ? '1' : '0' }}>
+        <div className={`view${state.codeView ? ' show-code' : ''}`}>
+          <Frame
+            contentDidMount={handleContentDidMount}
+            // contentDidUpdate={handleContentDidUpdate}
+            head={
+              <>
+                {/* <script src="/static/js/tailwindcss.js"></script> */}
+                {/* TODO */}
+                <link
+                  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+                  rel="stylesheet"
+                />
+                {
+                  <style
+                    dangerouslySetInnerHTML={{
+                      __html: `img { filter:
                       ${
                         darkMode
                           ? 'invert(1) opacity(.5); mix-blend-mode: luminosity; }'
                           : 'sepia(1) hue-rotate(190deg) opacity(.46) grayscale(.7) }'
                       }`
-                      }}
-                    />
-                  }
-                </>
-              }
+                    }}
+                  />
+                }
+              </>
+            }
+            // body={<script src="/static/js/tailwindcss.js"></script>}
+          >
+            {getBlocks({ theme, darkMode })[blockType][blockName]}
+          </Frame>
+          <div className="codes">
+            <SyntaxHighlighter
+              language="html"
+              style={darkMode ? vs2015 : docco}
+              showLineNumbers
             >
-              {getBlocks({ theme, darkMode })[blockType][blockName]}
-            </Frame>
-            <div className="codes">
-              <SyntaxHighlighter
-                language="html"
-                style={darkMode ? vs2015 : docco}
-                showLineNumbers
-              >
-                {this.beautifyHTML(this.state.markup)}
-              </SyntaxHighlighter>
-            </div>
+              {beautifyHTML(state.markup!)}
+            </SyntaxHighlighter>
           </div>
-        </main>
-        {/* <a
+        </div>
+      </main>
+      {/* <a
           href="https://github.com/mertJF/tailblocks"
           className="github"
           target="_blank"
@@ -527,12 +522,30 @@ export class Templates extends Component<any, TemplatesState> {
           </svg>
           GitHub
         </a> */}
-        <div className="keyboard-nav">
+      <div className="keyboard-nav">
+        <div
+          className={`k-up keyboard-button${
+            currentKeyCode === 38 ? ' is-active' : ''
+          }`}
+          data-info="Previous block"
+        >
+          <svg
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+        </div>
+        <div className="keyboard-nav-row">
           <div
-            className={`k-up keyboard-button${
-              currentKeyCode === 38 ? ' is-active' : ''
+            className={`k-left keyboard-button${
+              currentKeyCode === 37 ? ' is-active' : ''
             }`}
-            data-info="Previous block"
+            data-info="Hide sidebar"
           >
             <svg
               stroke="currentColor"
@@ -542,64 +555,45 @@ export class Templates extends Component<any, TemplatesState> {
               strokeLinejoin="round"
               viewBox="0 0 24 24"
             >
-              <path d="M12 19V5M5 12l7-7 7 7" />
+              <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </div>
-          <div className="keyboard-nav-row">
-            <div
-              className={`k-left keyboard-button${
-                currentKeyCode === 37 ? ' is-active' : ''
-              }`}
-              data-info="Hide sidebar"
+          <div
+            className={`k-down keyboard-button${
+              currentKeyCode === 40 ? ' is-active' : ''
+            }`}
+            data-info="Next block"
+          >
+            <svg
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
             >
-              <svg
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-            </div>
-            <div
-              className={`k-down keyboard-button${
-                currentKeyCode === 40 ? ' is-active' : ''
-              }`}
-              data-info="Next block"
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </div>
+          <div
+            className={`k-right keyboard-button${
+              currentKeyCode === 39 ? ' is-active' : ''
+            }`}
+            data-info="Show sidebar"
+          >
+            <svg
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
             >
-              <svg
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 5v14M19 12l-7 7-7-7" />
-              </svg>
-            </div>
-            <div
-              className={`k-right keyboard-button${
-                currentKeyCode === 39 ? ' is-active' : ''
-              }`}
-              data-info="Show sidebar"
-            >
-              <svg
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }

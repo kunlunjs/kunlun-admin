@@ -5,12 +5,31 @@ import { MainLayout } from '@/components/Layout'
 import { lazyImport } from '@/utils/lazyImport'
 
 const { DiscussionsRoutes } = lazyImport(
-  () => import('@/features/discussions'),
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "discussions" */ '@/features/discussions'
+    ),
   'DiscussionsRoutes'
 )
-const { Dashboard } = lazyImport(() => import('@/features/misc'), 'Dashboard')
-const { Profile } = lazyImport(() => import('@/features/users'), 'Profile')
-const { Users } = lazyImport(() => import('@/features/users'), 'Users')
+const { Dashboard } = lazyImport(
+  () =>
+    import(/* @vite-ignore */ /* webpackChunkName: "misc" */ '@/features/misc'),
+  'Dashboard'
+)
+const { Profile } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "profile" */ '@/features/users'
+    ),
+  'Profile'
+)
+const { Users } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "users" */ '@/features/users'
+    ),
+  'Users'
+)
 
 const App = () => {
   return (

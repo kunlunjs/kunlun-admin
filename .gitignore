@@ -103,5 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
+yarn.lock
+pnpm-lock.yaml
 !packages/web/.env
 packages/server/src/@generated

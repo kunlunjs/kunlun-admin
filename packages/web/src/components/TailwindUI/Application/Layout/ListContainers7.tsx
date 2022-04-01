@@ -1,8 +1,10 @@
 import type { FC } from 'react'
 
 interface ListContainers7Props {}
+
 const items = [{ id: 1 }]
-const ListContainers7: FC<ListContainers1Props> = () => {
+
+const ListContainers7: FC<ListContainers7Props> = () => {
   return (
     <ul role="list" className="divide-y divide-gray-200">
       {items.map(item => (

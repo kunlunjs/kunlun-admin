@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@ant-design/icons': ^4.7.0
   '@faker-js/faker': ^6.1.1
   '@fingerprintjs/fingerprintjs': ^3.3.3
   '@headlessui/react': ^1.5.0
@@ -67,6 +68,7 @@ specifiers:
   zustand: ^3.7.1
 
 dependencies:
+  '@ant-design/icons': 4.7.0_react-dom@18.0.0+react@18.0.0
   '@fingerprintjs/fingerprintjs': 3.3.3
   '@headlessui/react': 1.5.0_react-dom@18.0.0+react@18.0.0
   '@heroicons/react': 1.0.6_react@18.0.0

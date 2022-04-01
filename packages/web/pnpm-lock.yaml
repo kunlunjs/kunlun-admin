@@ -53,6 +53,7 @@ specifiers:
   react-dom: ^18.0.0
   react-error-boundary: ^3.1.4
   react-frame-component: ^5.2.1
+  react-full-screen: ^1.1.0
   react-helmet-async: ^1.2.3
   react-hook-form: ^7.29.0
   react-query: ^3.34.19
@@ -91,6 +92,7 @@ dependencies:
   react-dom: 18.0.0_react@18.0.0
   react-error-boundary: 3.1.4_react@18.0.0
   react-frame-component: 5.2.1_react-dom@18.0.0+react@18.0.0
+  react-full-screen: 1.1.0_react@18.0.0
   react-helmet-async: 1.2.3_react-dom@18.0.0+react@18.0.0
   react-hook-form: 7.29.0_react@18.0.0
   react-query: 3.34.19_react-dom@18.0.0+react@18.0.0
@@ -9547,6 +9549,10 @@ packages:
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
+  /fscreen/1.2.0:
+    resolution: {integrity: sha512-hlq4+BU0hlPmwsFjwGGzZ+OZ9N/wq9Ljg/sq3pX+2CD7hrJsX9tJgWWK/wiNTFM212CLHWhicOoqwXyZGGetJg==}
+    dev: false
+
   /fsevents/1.2.13:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
@@ -15341,6 +15347,16 @@ packages:
     dependencies:
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
+    dev: false
+
+  /react-full-screen/1.1.0_react@18.0.0:
+    resolution: {integrity: sha512-ivL/HrcfHhEUJWmgoiDKP7Xfy127LGz9x3VnwVxljJ0ky1D1YqJmXjhxnuEhfqT3yociJy/HCk9/yyJ3HEAjaw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>= 16.8.0'
+    dependencies:
+      fscreen: 1.2.0
+      react: 18.0.0
     dev: false
 
   /react-helmet-async/1.2.3_react-dom@18.0.0+react@18.0.0:

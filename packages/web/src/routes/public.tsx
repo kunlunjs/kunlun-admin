@@ -12,6 +12,20 @@ const { AuthRoutes } = lazyImport(
     ),
   'AuthRoutes'
 )
+const { KLTableFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/factories/KLTableFactory'
+    ),
+  'KLTableFactory'
+)
+const { KLDescriptionFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ '@/features/factories/KLDescriptionFactory'
+    ),
+  'KLDescriptionFactory'
+)
 const { Templates } = lazyImport(
   () =>
     import(
@@ -92,16 +106,18 @@ export const publicRoutes: RouteItems = [
       /* 渲染工厂 */
       {
         path: '/factories/table',
+        element: <KLTableFactory />
         // or element: 'KLTableFactory'
-        factory: {
-          type: 'Table'
-        }
+        // factory: {
+        //   type: 'Table'
+        // }
       },
       {
         path: '/factories/description',
-        factory: {
-          type: 'Description'
-        }
+        element: <KLDescriptionFactory />
+        // factory: {
+        //   type: 'Description'
+        // }
       }
     ]
   },

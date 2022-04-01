@@ -76,6 +76,7 @@
     "react-query": "^3.34.19",
     "react-query-auth": "^1.1.0",
     "react-router-dom": "^6.3.0",
+    "react-syntax-highlighter": "^15.5.0",
     "type-fest": "^2.12.2",
     "web-vitals": "^2.1.4",
     "zod": "^3.14.3",

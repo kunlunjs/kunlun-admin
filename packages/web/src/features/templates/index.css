@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+@tailwind base;
 
 :root {
   --base-500: #a0aec0;
@@ -454,7 +455,7 @@ svg {
   overflow: hidden;
   position: relative;
   justify-content: center;
-  width: 130px;
+  width: 80px;
   text-align: center;
   font-size: 13px;
   transition: 0.3s;

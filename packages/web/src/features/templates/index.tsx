@@ -45,7 +45,7 @@ import type { FC } from 'react'
 //   }
 // ]
 
-const Templates: FC<any> = () => {
+export const Templates: FC<any> = () => {
   // const sidebarRef = useRef<HTMLElement>(null)
   // const markupRef = useRef<HTMLDivElement>(null)
   // const openerRef = useRef<HTMLButtonElement>(null)
@@ -560,5 +560,3 @@ const Templates: FC<any> = () => {
     // </div>
   )
 }
-
-export default Templates

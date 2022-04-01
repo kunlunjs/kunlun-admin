@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { AppProvider } from '@/providers/app'
 import { AppRoutes } from '@/routes'
-import { getFingerPrint } from './utils/finger-print'
+import { getFingerPrint } from './utils/getFingerPrint'
 
 export let fingerPrint: string
 

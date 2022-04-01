@@ -10,7 +10,7 @@ interface IconsProps {}
 const heroicons = Object.keys(outlines).concat(Object.keys(solids))
 const antdicons = Object.keys(antds).filter(i => /^[A-Z]/.test(i))
 
-const Icons: FC<IconsProps> = () => {
+export const Icons: FC<IconsProps> = () => {
   return (
     <>
       <h1 className="text-lg text-black font-bold mb-4">
@@ -48,5 +48,3 @@ const Icons: FC<IconsProps> = () => {
     </>
   )
 }
-
-export default Icons

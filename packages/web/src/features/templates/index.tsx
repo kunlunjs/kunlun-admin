@@ -364,7 +364,7 @@ export const Templates: FC<TemplatesProps> = () => {
                   block-type={type}
                   block-name={thumbnail.name}
                   onClick={changeBlock}
-                  className={`block-item${
+                  className={`block-item relative${
                     thumbnail.name === blockName ? ' is-active' : ''
                   }`}
                 >
@@ -373,6 +373,10 @@ export const Templates: FC<TemplatesProps> = () => {
                     src={thumbnail.src}
                     className="scale-125"
                   />
+                  {/* TODO */}
+                  {/* <div className="absolute w-full h-full text-xs top-0 left-0 items-center justify-center invisible hover:visible">
+                    {thumbnail.config?.title}
+                  </div> */}
                 </button>
               )
             })}

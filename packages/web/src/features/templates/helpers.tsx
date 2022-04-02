@@ -1,5 +1,5 @@
 import loadable from '@loadable/component'
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import desktopIcon from '@/assets/device-desktop.svg'
 import mobileIcon from '@/assets/device-mobile.svg'
 import tabletIcon from '@/assets/device-tablet.svg'
@@ -37,6 +37,24 @@ const tailwinduis = require
   .keys()
 
 // console.log(tailwinduis)
+
+function replaceCategory(str: string) {
+  return str
+    .replace('marketing', 'Marketing')
+    .replace('ecommerce', 'Ecommerce')
+    .replace('application-ui', 'Application')
+}
+
+function replacePath(str: string) {
+  if (/headers\d+/i.test(str)) {
+    return str
+  }
+  return str
+    .replaceAll('-', '')
+    .replaceAll('heroes', 'herosection')
+    .replace('states', 'stat')
+    .replace(/s$/, '')
+}
 
 // Array.from(document.getElementsByClassName('absolute inset-0 w-full h-full')).filter(i => i.nodeName === 'IMG').forEach(i => console.log(i.currentSrc))
 export const thumbnailSrcs = [
@@ -139,10 +157,23 @@ export const thumbnailNames = thumbnailSrcs.reduce((acc, src) => {
   // `${prefix}/ecommerce/order-history-pages.png' -> 'ecommerce'
   const category = (src.match(/thumbnails\/([a-zA-Z-]+)\//) as string[])[1]
   // `${prefix}/ecommerce/order-history-pages.png' -> 'order-history-pages'
-  const name = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
-  acc[category] = (acc[category] || []).concat({ name, src })
+  const fileName = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
+  const realPath = tailwinduis
+    .find(i =>
+      i.match(new RegExp(`${replacePath(replaceCategory(fileName))}\\d+`, 'i'))
+    )
+    ?.slice(1, -4)
+  const { config } = realPath
+    ? require(`@/components/TailwindUI${realPath}`)
+    : { config: {} }
+  acc[category] = (acc[category] || []).concat({
+    name: fileName,
+    src,
+    config,
+    realPath: realPath || null
+  })
   return acc
-}, {} as Record<string, { name: string; src: string }[]>)
+}, {} as Record<string, { name: string; src: string; realPath: string | null; config?: { title: string } }[]>)
 
 export const getBlocks = ({
   theme = 'indigo',
@@ -154,24 +185,11 @@ export const getBlocks = ({
   const blocks = Object.entries(thumbnailNames).reduce((acc, cur) => {
     const [category, names] = cur
     acc[category] = names.reduce((a, c) => {
-      const src = c.src
-        .replace('marketing', 'Marketing')
-        .replace('ecommerce', 'Ecommerce')
-        .replace('application-ui', 'Application')
-      const category = (src.match(/thumbnails\/([a-zA-Z-]+)\//) as string[])[1]
-      const name = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
-      const realPath = tailwinduis
-        .find(i =>
-          i.match(
-            new RegExp(`${name.replaceAll('-', '').replace(/s$/, '')}\\d+`, 'i')
-          )
-        )
-        ?.slice(1, -4)
-      const Component = realPath
+      const Component = c.realPath
         ? loadable(
             () =>
               import(
-                /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${realPath}`
+                /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${c.realPath}`
               )
           )
         : () => (
@@ -192,14 +210,4 @@ export const getBlocks = ({
 
 interface BlockProps {
   path: string
-}
-
-export const Block: FC<BlockProps> = ({ path }) => {
-  const Component = loadable(
-    () =>
-      import(
-        /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${path}`
-      )
-  )
-  return <Component />
 }

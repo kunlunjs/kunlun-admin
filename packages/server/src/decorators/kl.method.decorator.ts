@@ -11,16 +11,16 @@ import {
 import { ApiBody, ApiOperation } from '@nestjs/swagger'
 import type { Method } from 'axios'
 import { pathToRegexp } from 'path-to-regexp'
-import { ApiResponse } from './api.response.decorator'
-import type { Plateform } from './kl.platform.decorator'
-import { KLPlatform } from './kl.platform.decorator'
-import { KLPublic } from './kl.public.decorator'
 import type { AllDtos, AllVos, EndpointsItem, Interfaces } from '@/@generated'
 import { endpoints } from '@/@generated'
 import * as allDtos from '@/@generated/dto'
 import * as allVos from '@/@generated/vo'
 import { JwtAuthGuard } from '@/guards'
 import type { SymmetricDifference } from '@/types'
+import { ApiResponse } from './api.response.decorator'
+import { KLPlatform } from './kl.platform.decorator'
+import type { Plateform } from './kl.platform.decorator'
+import { KLPublic } from './kl.public.decorator'
 
 type KLMethodType = SymmetricDifference<
   Uppercase<Method>,

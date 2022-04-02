@@ -20,12 +20,7 @@ export function setupSwagger(app: INestApplication) {
 
   const document = SwaggerModule.createDocument(app, options, {
     // https://docs.nestjs.com/openapi/types-and-parameters#extra-models
-    extraModels: [
-      ApiResponseVo,
-      UploadFileVo,
-      ...dtos,
-      ...vos
-    ]
+    extraModels: [ApiResponseVo, UploadFileVo, ...dtos, ...vos]
   })
   SwaggerModule.setup('swagger', app, document, {
     swaggerOptions: {

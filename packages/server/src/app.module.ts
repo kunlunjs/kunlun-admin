@@ -1,22 +1,22 @@
+import path from 'path'
 import { ApolloDriver } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
+import { ServeStaticModule } from '@nestjs/serve-static'
 import { AppController } from './app.controller'
 import { AppResolver } from './app.resolver'
 import { AppService } from './app.service'
 import { config } from './common/configs'
-import { ServeStaticModule } from '@nestjs/serve-static'
 import { PrismaModule, prismaLoggingMiddleware } from './common/prisma'
 import { GqlConfigService } from './gql-config.service'
 // import { AuthModule } from './modules/auth/auth.module'
-// import { UserModule } from './modules/user/user.module'
-// import { RoleModule } from './modules/role/role.module'
-// import { MenuModule } from './modules/menu/menu.module'
-// import { JournalModule } from './modules/journal/journal.module'
+import { AnnouncementModule } from './modules/announcement/announcement.module'
 import { CronModule } from './modules/cron/cron.module'
-import path from 'path'
-// import { AnnouncementModule } from './modules/announcement/announcement.module'
+import { JournalModule } from './modules/journal/journal.module'
+import { MenuModule } from './modules/menu/menu.module'
+import { RoleModule } from './modules/role/role.module'
+import { UserModule } from './modules/user/user.module'
 
 @Module({
   imports: [
@@ -54,12 +54,12 @@ import path from 'path'
       useClass: GqlConfigService
     }),
     // AuthModule,
-    // UserModule,
-    // RoleModule,
-    // MenuModule,
-    // JournalModule,
+    UserModule,
+    RoleModule,
+    MenuModule,
+    JournalModule,
     CronModule,
-    // AnnouncementModule
+    AnnouncementModule
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],

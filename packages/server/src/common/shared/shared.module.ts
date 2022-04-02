@@ -1,9 +1,7 @@
 import { Global, Module } from '@nestjs/common'
 import { OSSService } from './oss.service'
 
-const providers: Parameters<typeof Module>[0]['providers'] = [
-  OSSService
-]
+const providers: Parameters<typeof Module>[0]['providers'] = [OSSService]
 
 @Global()
 @Module({

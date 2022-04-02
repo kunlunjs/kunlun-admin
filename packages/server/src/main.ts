@@ -1,12 +1,11 @@
 import { ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { HttpAdapterHost, NestFactory } from '@nestjs/core'
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import chalk from 'chalk'
 import { AppModule } from './app.module'
-import { setupSwagger } from './swagger/setup'
 import type { CorsConfig, NestConfig, SwaggerConfig } from './common/configs'
 import { PrismaService, PrismaClientExceptionFilter } from './common/prisma'
+import { setupSwagger } from './swagger/setup'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)

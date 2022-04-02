@@ -7,13 +7,14 @@ specifiers:
   '@headlessui/react': ^1.5.0
   '@heroicons/react': ^1.0.6
   '@hookform/resolvers': ^2.8.8
-  '@kunlunjs/cli': ^0.0.32
+  '@kunlunjs/cli': ^0.0.33
   '@mswjs/data': ^0.9.2
   '@storybook/addon-actions': ^6.4.19
   '@storybook/addon-essentials': ^6.4.20
   '@storybook/addon-links': ^6.4.20
   '@storybook/node-logger': ^6.4.20
   '@storybook/react': ^6.4.20
+  '@tailwindcss/aspect-ratio': ^0.4.0
   '@tailwindcss/forms': ^0.5.0
   '@tailwindcss/typography': ^0.5.2
   '@testing-library/cypress': ^8.0.2
@@ -75,6 +76,7 @@ dependencies:
   '@headlessui/react': 1.5.0_react-dom@18.0.0+react@18.0.0
   '@heroicons/react': 1.0.6_react@18.0.0
   '@hookform/resolvers': 2.8.8_react-hook-form@7.29.0
+  '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.0.23
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
   antd: 4.19.3_react-dom@18.0.0+react@18.0.0
@@ -107,7 +109,7 @@ dependencies:
 
 devDependencies:
   '@faker-js/faker': 6.1.1
-  '@kunlunjs/cli': 0.0.32_6ef2aa19f0ae78e681a959d46e2a9059
+  '@kunlunjs/cli': 0.0.33_6ef2aa19f0ae78e681a959d46e2a9059
   '@mswjs/data': 0.9.2
   '@storybook/addon-actions': 6.4.20_c13207e15fed56fc7b9b70ab319ad0ff
   '@storybook/addon-essentials': 6.4.20_635942f70c0e753a36aee923f61f4c61
@@ -2178,8 +2180,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.11
     dev: true
 
-  /@kunlunjs/cli/0.0.32_6ef2aa19f0ae78e681a959d46e2a9059:
-    resolution: {integrity: sha512-giU17Xulf/ElYoKjvoklmnSyRFHSw77pZLtObc4hh0WvWTmKSq81km6KnvXaDtJdITK8kPW2CloRAj13diAVSQ==}
+  /@kunlunjs/cli/0.0.33_6ef2aa19f0ae78e681a959d46e2a9059:
+    resolution: {integrity: sha512-tQE4qW2ejy/vV6aFpm2TwMPHHyLA9R1SYpBJR/epDMrUPcNHGs/uLQrpiuBATBB/Tvsi3t1nrFaox1P0AzgNIA==}
     engines: {node: '>= 16.13.0', npm: '>= 8.0.0'}
     hasBin: true
     peerDependencies:
@@ -4317,6 +4319,14 @@ packages:
       - supports-color
     dev: true
 
+  /@tailwindcss/aspect-ratio/0.4.0_tailwindcss@3.0.23:
+    resolution: {integrity: sha512-WJu0I4PpqNPuutpaA9zDUq2JXR+lorZ7PbLcKNLmb6GL9/HLfC7w3CRsMhJF4BbYd/lkY6CfXOvkYpuGnZfkpQ==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.0.23
+    dev: false
+
   /@tailwindcss/forms/0.5.0_tailwindcss@3.0.23:
     resolution: {integrity: sha512-KzWugryEBFkmoaYcBE18rs6gthWCFHHO7cAZm2/hv3hwD67AzwP7udSCa22E7R1+CEJL/FfhYsJWrc0b1aeSzw==}
     peerDependencies:
@@ -5508,7 +5518,7 @@ packages:
       ajv:
         optional: true
     dependencies:
-      ajv: 8.9.0
+      ajv: 8.11.0
     dev: true
 
   /ajv-keywords/3.5.2_ajv@6.12.6:

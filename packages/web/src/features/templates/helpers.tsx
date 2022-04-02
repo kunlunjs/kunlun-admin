@@ -1,9 +1,8 @@
-import type { ReactNode } from 'react'
+import loadable from '@loadable/component'
+import type { FC, ReactNode } from 'react'
 import desktopIcon from '@/assets/device-desktop.svg'
 import mobileIcon from '@/assets/device-mobile.svg'
 import tabletIcon from '@/assets/device-tablet.svg'
-import Banner1 from '@/components/TailwindUI/Marketing/Elements/Banner1'
-import { BlockThumbnail } from './BlockThumbnai'
 
 export const themeList = [
   'indigo',
@@ -31,117 +30,120 @@ export const viewList = [
   }
 ]
 
-// const Components = tailwinduiItems
-//   .filter(i => i.path.match(/(Banner1)$/)) // /(Banner1)\d+$/
-//   .map(i => {
-//     return loadable(
-//       () =>
-//         import(
-//           /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components${i.path}`
-//         )
-//     )
-//   })
+const prefix = 'https://tailwindui.com/img/category-thumbnails'
+
+const tailwinduis = require
+  .context('../../components/TailwindUI', true, /\.tsx$/)
+  .keys()
+
+// console.log(tailwinduis)
 
 // Array.from(document.getElementsByClassName('absolute inset-0 w-full h-full')).filter(i => i.nodeName === 'IMG').forEach(i => console.log(i.currentSrc))
 export const thumbnailSrcs = [
-  'https://tailwindui.com/img/category-thumbnails/marketing/heroes.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/feature-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/cta-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/pricing.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/header.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/faq-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/newsletter-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/stats-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/testimonials.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/blog-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/contact-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/team-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/content-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/footers.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/logo-clouds.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/headers.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/banners.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/flyout-menus.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/404-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/landing-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/pricing-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/marketing/contact-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/stacked.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/sidebar.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/multi-column.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/page-headings.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/card-headings.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/section-headings.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/description-lists.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/stats.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/calendars.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/tables.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/stacked-lists.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/grid-lists.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/feeds.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/form-layouts.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/input-groups.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/select-menus.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/sign-in-forms.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/textareas.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/radio-groups.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/checkboxes.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/toggles.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/action-panels.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/comboboxes.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/alerts.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/empty-states.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/navbars.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/pagination.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/tabs.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/vertical-navigation.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/sidebar-navigation.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/breadcrumbs.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/steps.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/command-palettes.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/modals.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/slide-overs.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/notifications.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/avatars.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/dropdowns.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/badges.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/buttons.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/button-groups.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/containers.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/panels.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/list-containers.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/media-objects.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/dividers.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/home-screens.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/detail-screens.png',
-  'https://tailwindui.com/img/category-thumbnails/application-ui/settings-screens.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/product-overviews.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/product-lists.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/category-previews.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/shopping-carts.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/category-filters.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/product-quickviews.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/product-features.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/store-navigation.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/promo-sections.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/checkout-forms.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/reviews.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/order-summaries.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/order-history.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/incentives.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/storefront-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/product-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/category-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/shopping-cart-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/checkout-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/order-detail-pages.png',
-  'https://tailwindui.com/img/category-thumbnails/ecommerce/order-history-pages.png'
+  [`${prefix}/marketing/heroes.png`, ''],
+  [`${prefix}/marketing/feature-sections.png`, ''],
+  [`${prefix}/marketing/cta-sections.png`, ''],
+  [`${prefix}/marketing/pricing.png`, 'Elements'],
+  [`${prefix}/marketing/header.png`, 'Elements'],
+  [`${prefix}/marketing/faq-sections.png`, ''],
+  [`${prefix}/marketing/newsletter-sections.png`, ''],
+  [`${prefix}/marketing/stats-sections.png`, 'Elements'],
+  [`${prefix}/marketing/testimonials.png`, 'Elements'],
+  [`${prefix}/marketing/blog-sections.png`, ''],
+  [`${prefix}/marketing/contact-sections.png`, ''],
+  [`${prefix}/marketing/team-sections.png`, ''],
+  [`${prefix}/marketing/content-sections.png`, 'PageSections'],
+  [`${prefix}/marketing/footers.png`, 'PageSections'],
+  [`${prefix}/marketing/logo-clouds.png`, 'Elements'],
+  [`${prefix}/marketing/headers.png`, 'Elements'],
+  [`${prefix}/marketing/banners.png`, 'Elements'],
+  [`${prefix}/marketing/flyout-menus.png`, ''],
+  [`${prefix}/marketing/404-pages.png`, ''],
+  [`${prefix}/marketing/landing-pages.png`, ''],
+  [`${prefix}/marketing/pricing-pages.png`, 'PageSections'],
+  [`${prefix}/marketing/contact-pages.png`, ''],
+  [`${prefix}/application-ui/stacked.png`, ''],
+  [`${prefix}/application-ui/sidebar.png`, ''],
+  [`${prefix}/application-ui/multi-column.png`, ''],
+  [`${prefix}/application-ui/page-headings.png`, ''],
+  [`${prefix}/application-ui/card-headings.png`, ''],
+  [`${prefix}/application-ui/section-headings.png`, ''],
+  [`${prefix}/application-ui/description-lists.png`, ''],
+  [`${prefix}/application-ui/stats.png`, ''],
+  [`${prefix}/application-ui/calendars.png`, ''],
+  [`${prefix}/application-ui/tables.png`, ''],
+  [`${prefix}/application-ui/stacked-lists.png`, ''],
+  [`${prefix}/application-ui/grid-lists.png`, ''],
+  [`${prefix}/application-ui/feeds.png`, ''],
+  [`${prefix}/application-ui/form-layouts.png`, ''],
+  [`${prefix}/application-ui/input-groups.png`, ''],
+  [`${prefix}/application-ui/select-menus.png`, ''],
+  [`${prefix}/application-ui/sign-in-forms.png`, ''],
+  [`${prefix}/application-ui/textareas.png`, ''],
+  [`${prefix}/application-ui/radio-groups.png`, ''],
+  [`${prefix}/application-ui/checkboxes.png`, ''],
+  [`${prefix}/application-ui/toggles.png`, ''],
+  [`${prefix}/application-ui/action-panels.png`, ''],
+  [`${prefix}/application-ui/comboboxes.png`, ''],
+  [`${prefix}/application-ui/alerts.png`, ''],
+  [`${prefix}/application-ui/empty-states.png`, ''],
+  [`${prefix}/application-ui/navbars.png`, ''],
+  [`${prefix}/application-ui/pagination.png`, ''],
+  [`${prefix}/application-ui/tabs.png`, ''],
+  [`${prefix}/application-ui/vertical-navigation.png`, ''],
+  [`${prefix}/application-ui/sidebar-navigation.png`, ''],
+  [`${prefix}/application-ui/breadcrumbs.png`, ''],
+  [`${prefix}/application-ui/steps.png`, ''],
+  [`${prefix}/application-ui/command-palettes.png`, ''],
+  [`${prefix}/application-ui/modals.png`, ''],
+  [`${prefix}/application-ui/slide-overs.png`, ''],
+  [`${prefix}/application-ui/notifications.png`, ''],
+  [`${prefix}/application-ui/avatars.png`, ''],
+  [`${prefix}/application-ui/dropdowns.png`, ''],
+  [`${prefix}/application-ui/badges.png`, ''],
+  [`${prefix}/application-ui/buttons.png`, ''],
+  [`${prefix}/application-ui/button-groups.png`, ''],
+  [`${prefix}/application-ui/containers.png`, ''],
+  [`${prefix}/application-ui/panels.png`, ''],
+  [`${prefix}/application-ui/list-containers.png`, ''],
+  [`${prefix}/application-ui/media-objects.png`, ''],
+  [`${prefix}/application-ui/dividers.png`, ''],
+  [`${prefix}/application-ui/home-screens.png`, ''],
+  [`${prefix}/application-ui/detail-screens.png`, ''],
+  [`${prefix}/application-ui/settings-screens.png`, ''],
+  [`${prefix}/ecommerce/product-overviews.png`, ''],
+  [`${prefix}/ecommerce/product-lists.png`, ''],
+  [`${prefix}/ecommerce/category-previews.png`, ''],
+  [`${prefix}/ecommerce/shopping-carts.png`, ''],
+  [`${prefix}/ecommerce/category-filters.png`, ''],
+  [`${prefix}/ecommerce/product-quickviews.png`, ''],
+  [`${prefix}/ecommerce/product-features.png`, ''],
+  [`${prefix}/ecommerce/store-navigation.png`, ''],
+  [`${prefix}/ecommerce/promo-sections.png`, ''],
+  [`${prefix}/ecommerce/checkout-forms.png`, ''],
+  [`${prefix}/ecommerce/reviews.png`, ''],
+  [`${prefix}/ecommerce/order-summaries.png`, ''],
+  [`${prefix}/ecommerce/order-history.png`, ''],
+  [`${prefix}/ecommerce/incentives.png`, ''],
+  [`${prefix}/ecommerce/storefront-pages.png`, ''],
+  [`${prefix}/ecommerce/product-pages.png`, ''],
+  [`${prefix}/ecommerce/category-pages.png`, ''],
+  [`${prefix}/ecommerce/shopping-cart-pages.png`, ''],
+  [`${prefix}/ecommerce/checkout-pages.png`, ''],
+  [`${prefix}/ecommerce/order-detail-pages.png`, ''],
+  [`${prefix}/ecommerce/order-history-pages.png`, '']
 ]
 
-// ['https://tailwindui.com/img/category-thumbnails/ecommerce/order-history-pages.png'] -> ['order-history-pages']
-export const thumbnailNames = thumbnailSrcs.map(i => {
-  return (i.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
-})
+// [[`${prefix}/ecommerce/order-history-pages.png'] -> ['order-history-pages']
+export const thumbnailNames = thumbnailSrcs.reduce((acc, cur) => {
+  const src = cur[0] as string
+  // `${prefix}/ecommerce/order-history-pages.png' -> 'ecommerce'
+  const category = (src.match(/thumbnails\/([a-zA-Z-]+)\//) as string[])[1]
+  // `${prefix}/ecommerce/order-history-pages.png' -> 'order-history-pages'
+  const name = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
+  acc[category] = (acc[category] || []).concat({ name, src })
+  return acc
+}, {} as Record<string, { name: string; src: string }[]>)
 
 export const getBlocks = ({
   theme = 'indigo',
@@ -150,17 +152,34 @@ export const getBlocks = ({
   theme: ThemeList
   darkMode: boolean
 }): Record<string, Record<string, ReactNode>> => {
-  return {
-    Block: {
-      Marketing: <Banner1 />
-    }
-  }
+  const blocks = Object.entries(thumbnailNames).reduce((acc, cur) => {
+    const [category, names] = cur
+    acc[category] = names.reduce((a, c) => {
+      const path = 'Marketing/Elements/Header1'
+      const Component = loadable(
+        () =>
+          import(
+            /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI/${path}`
+          )
+      )
+      a[c.name] = <Component />
+      return a
+    }, {} as any)
+    return acc
+  }, {} as any)
+  return blocks
 }
 
-export const getIcons = (): Record<string, Record<string, ReactNode>> => {
-  return {
-    Block: {
-      Marketing: <BlockThumbnail />
-    }
-  }
+interface BlockProps {
+  path: string
+}
+
+export const Block: FC<BlockProps> = ({ path }) => {
+  const Component = loadable(
+    () =>
+      import(
+        /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${path}`
+      )
+  )
+  return <Component />
 }

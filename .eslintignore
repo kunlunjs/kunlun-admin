@@ -1,13 +1,13 @@
 *.min.css
 *.min.js
 *.conf
-!.commitlintrc.js
-!.prettierrc.js
-!.stylelintrc.json
 .yarnrc
 .svgrc
 *.xls
 *.xlsx
+!.commitlintrc.js
+!.prettierrc.js
+!.stylelintrc.json
 
 dist
 packages/*/public

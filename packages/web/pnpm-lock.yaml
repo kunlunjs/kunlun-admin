@@ -8,6 +8,7 @@ specifiers:
   '@heroicons/react': ^1.0.6
   '@hookform/resolvers': ^2.8.8
   '@kunlunjs/cli': ^0.0.33
+  '@loadable/component': ^5.15.2
   '@mswjs/data': ^0.9.2
   '@storybook/addon-actions': ^6.4.19
   '@storybook/addon-essentials': ^6.4.20
@@ -76,6 +77,7 @@ dependencies:
   '@headlessui/react': 1.5.0_react-dom@18.0.0+react@18.0.0
   '@heroicons/react': 1.0.6_react@18.0.0
   '@hookform/resolvers': 2.8.8_react-hook-form@7.29.0
+  '@loadable/component': 5.15.2_react@18.0.0
   '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.0.23
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
@@ -2396,6 +2398,18 @@ packages:
     transitivePeerDependencies:
       - chokidar
     dev: true
+
+  /@loadable/component/5.15.2_react@18.0.0:
+    resolution: {integrity: sha512-ryFAZOX5P2vFkUdzaAtTG88IGnr9qxSdvLRvJySXcUA4B4xVWurUNADu3AnKPksxOZajljqTrDEDcYjeL4lvLw==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.3.0'
+    dependencies:
+      '@babel/runtime': 7.17.8
+      hoist-non-react-statics: 3.3.2
+      react: 18.0.0
+      react-is: 16.13.1
+    dev: false
 
   /@mdx-js/loader/1.6.22_react@18.0.0:
     resolution: {integrity: sha512-9CjGwy595NaxAYp0hF9B/A0lH6C8Rms97e2JS9d3jVUtILn6pT5i5IV965ra3lIWc7Rs1GG1tBdVF7dCowYe6Q==}
@@ -10112,7 +10126,6 @@ packages:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
       react-is: 16.13.1
-    dev: true
 
   /homedir-polyfill/1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}

@@ -3,15 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import Frame from 'react-frame-component'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import { getBlocks, getIcons } from './helpers'
+import { getBlocks, thumbnailNames } from './helpers'
 import './index.css'
 
-const iconList = getIcons()
 const blockList: string[] = []
-
-Object.entries(iconList).forEach(([type, icons]) => {
-  Object.keys(icons).map(name => blockList.push(`${name},${type}`))
-})
 
 const themeList = ['indigo', 'yellow', 'red', 'purple', 'pink', 'blue', 'green']
 
@@ -112,12 +107,12 @@ export const Templates: FC<TemplatesProps> = () => {
     ready: false,
     sidebar: false,
     darkMode: false,
-    blockType: 'Block',
-    blockName: 'Marketing',
+    blockType: 'marketing',
+    blockName: 'header',
+    markup: '',
+    copied: false,
     view: 'desktop',
     theme: 'indigo',
-    copied: false,
-    markup: '',
     codeView: false,
     currentKeyCode: null
   })
@@ -312,8 +307,8 @@ export const Templates: FC<TemplatesProps> = () => {
   const toggleView = () => {
     setState({
       ...state,
-      codeView: !state.codeView,
       view: 'desktop',
+      codeView: !state.codeView,
       markup: markupRef.current?.innerHTML
     })
   }
@@ -333,47 +328,58 @@ export const Templates: FC<TemplatesProps> = () => {
 
   const listRenderer = () => {
     const { blockName } = state
-    return Object.entries(iconList).map(([type, icons]) => (
-      <div className="blocks" key={type}>
-        <div className="block-category">{type}</div>
-        <div className="block-list">
-          {Object.entries(icons).map(icon => {
-            return (
-              <button
-                key={icon[0]}
-                tabIndex={0}
-                onClick={changeBlock}
-                className={`block-item${
-                  icon[0] === blockName ? ' is-active' : ''
-                }`}
-                block-type={type}
-                block-name={icon[0]}
-              >
-                {icon[1]}
-              </button>
-            )
-          })}
+    // return Object.entries(iconList).map(([type, icons]) => (
+    //   <div className="blocks" key={type}>
+    //     <div className="block-category">{type}</div>
+    //     <div className="block-list">
+    //       {Object.entries(icons).map(icon => {
+    //         return (
+    //           <button
+    //             key={icon[0]}
+    //             tabIndex={0}
+    //             onClick={changeBlock}
+    //             block-type={type}
+    //             block-name={icon[0]}
+    //             className={`block-item${
+    //               icon[0] === blockName ? ' is-active' : ''
+    //             }`}
+    //           >
+    //             {icon[1]}
+    //           </button>
+    //         )
+    //       })}
+    //     </div>
+    //   </div>
+    // ))
+    return Object.entries(thumbnailNames).map(([type, thumbnails]) => {
+      return (
+        <div className="blocks" key={type}>
+          <div className="block-category">{type}</div>
+          <div className="block-list">
+            {thumbnails.map(thumbnail => {
+              return (
+                <button
+                  key={thumbnail.name}
+                  tabIndex={0}
+                  block-type={type}
+                  block-name={thumbnail.name}
+                  onClick={changeBlock}
+                  className={`block-item${
+                    thumbnail.name === blockName ? ' is-active' : ''
+                  }`}
+                >
+                  <img
+                    alt={thumbnail.name}
+                    src={thumbnail.src}
+                    className="scale-125"
+                  />
+                </button>
+              )
+            })}
+          </div>
         </div>
-        {/* <div className="block-list">
-          {thumbnailNames.map((thumbnail, ix) => {
-            return (
-              <button
-                key={thumbnail}
-                tabIndex={0}
-                onClick={changeBlock}
-                className={`block-item${
-                  thumbnail === blockName ? ' is-active' : ''
-                }`}
-                block-type={type}
-                block-name={thumbnail}
-              >
-                <img alt={thumbnail} src={thumbnailSrcs[ix]} />
-              </button>
-            )
-          })}
-        </div> */}
-      </div>
-    ))
+      )
+    })
   }
 
   const viewModeRenderer = () => {
@@ -484,6 +490,7 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="mode" onClick={changeMode}></button>
       </div>
       <div className="markup" ref={markupRef}>
+        {/* TODO */}
         {getBlocks({ theme, darkMode })[blockType][blockName]}
       </div>
       <main className="main" style={{ opacity: state.ready ? '1' : '0' }}>
@@ -496,7 +503,8 @@ export const Templates: FC<TemplatesProps> = () => {
                 {/* <script src="/static/js/tailwindcss.js"></script> */}
                 {/* TODO */}
                 <link
-                  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+                  // href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+                  href="/static/style/tailwind2.0.2.min.css"
                   rel="stylesheet"
                 />
                 {
@@ -520,8 +528,8 @@ export const Templates: FC<TemplatesProps> = () => {
           <div className="codes">
             <SyntaxHighlighter
               language="html"
-              style={darkMode ? vs2015 : docco}
               showLineNumbers
+              style={darkMode ? vs2015 : docco}
             >
               {beautifyHTML(state.markup!)}
             </SyntaxHighlighter>

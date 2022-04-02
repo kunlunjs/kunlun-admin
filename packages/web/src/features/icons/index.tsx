@@ -1,14 +1,12 @@
-import * as antds from '@ant-design/icons'
-import * as outlines from '@heroicons/react/outline'
-import * as solids from '@heroicons/react/solid'
-import { Tooltip } from 'antd'
+// import * as antds from '@ant-design/icons'
+// import * as outlines from '@heroicons/react/outline'
+// import * as solids from '@heroicons/react/solid'
 import type { FC } from 'react'
-import { createElement } from 'react'
 
 interface IconsProps {}
 
-const heroicons = Object.keys(outlines).concat(Object.keys(solids))
-const antdicons = Object.keys(antds).filter(i => /^[A-Z]/.test(i))
+// const heroicons = Object.keys(outlines).concat(Object.keys(solids))
+// const antdicons = Object.keys(antds).filter(i => /^[A-Z]/.test(i))
 
 export const Icons: FC<IconsProps> = () => {
   return (
@@ -16,7 +14,7 @@ export const Icons: FC<IconsProps> = () => {
       <h1 className="text-lg text-black font-bold mb-4">
         <pre>@ant-design/icons</pre>
       </h1>
-      <div className="flex flex-wrap border-t border-l border-gray-200">
+      {/* <div className="flex flex-wrap border-t border-l border-gray-200">
         {antdicons.map((name, ix) => {
           const el = createElement((antds as any)[name], {
             className:
@@ -28,11 +26,11 @@ export const Icons: FC<IconsProps> = () => {
             </Tooltip>
           )
         })}
-      </div>
+      </div> */}
       <h1 className="text-lg text-black font-bold my-4">
         <pre>@heroicons/react</pre>
       </h1>
-      <div className="flex flex-wrap border-t border-l border-gray-200">
+      {/* <div className="flex flex-wrap border-t border-l border-gray-200">
         {heroicons.map((name, ix) => {
           const el = createElement((outlines as any)[name], {
             className:
@@ -44,7 +42,7 @@ export const Icons: FC<IconsProps> = () => {
             </Tooltip>
           )
         })}
-      </div>
+      </div> */}
     </>
   )
 }

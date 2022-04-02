@@ -1,0 +1,11 @@
+**/dist/*.css
+**/*.js
+**/*.jsx
+**/*.ts
+**/*.tsx
+**/*.json
+**/*.md
+**/*.html
+yarn.lock
+**/*.prisma
+.eslintrc.js

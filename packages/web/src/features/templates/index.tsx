@@ -337,21 +337,41 @@ export const Templates: FC<TemplatesProps> = () => {
       <div className="blocks" key={type}>
         <div className="block-category">{type}</div>
         <div className="block-list">
-          {Object.entries(icons).map(icon => (
-            <button
-              key={icon[0]}
-              tabIndex={0}
-              onClick={changeBlock}
-              className={`block-item${
-                icon[0] === blockName ? ' is-active' : ''
-              }`}
-              block-type={type}
-              block-name={icon[0]}
-            >
-              {icon[1]}
-            </button>
-          ))}
+          {Object.entries(icons).map(icon => {
+            return (
+              <button
+                key={icon[0]}
+                tabIndex={0}
+                onClick={changeBlock}
+                className={`block-item${
+                  icon[0] === blockName ? ' is-active' : ''
+                }`}
+                block-type={type}
+                block-name={icon[0]}
+              >
+                {icon[1]}
+              </button>
+            )
+          })}
         </div>
+        {/* <div className="block-list">
+          {thumbnailNames.map((thumbnail, ix) => {
+            return (
+              <button
+                key={thumbnail}
+                tabIndex={0}
+                onClick={changeBlock}
+                className={`block-item${
+                  thumbnail === blockName ? ' is-active' : ''
+                }`}
+                block-type={type}
+                block-name={thumbnail}
+              >
+                <img alt={thumbnail} src={thumbnailSrcs[ix]} />
+              </button>
+            )
+          })}
+        </div> */}
       </div>
     ))
   }

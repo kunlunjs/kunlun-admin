@@ -8,8 +8,13 @@ import { AppService } from './app.service'
 import { config } from './common/configs'
 import { PrismaModule, prismaLoggingMiddleware } from './common/prisma'
 import { GqlConfigService } from './gql-config.service'
-import { AuthModule } from './modules/auth/auth.module'
-import { UsersModule } from './modules/users/users.module'
+// import { AuthModule } from './modules/auth/auth.module'
+// import { UserModule } from './modules/user/user.module'
+// import { RoleModule } from './modules/role/role.module'
+// import { MenuModule } from './modules/menu/menu.module'
+// import { JournalModule } from './modules/journal/journal.module'
+// import { CronModule } from './modules/cron/cron.module'
+// import { AnnouncementModule } from './modules/announcement/announcement.module'
 
 @Module({
   imports: [
@@ -27,8 +32,13 @@ import { UsersModule } from './modules/users/users.module'
       driver: ApolloDriver,
       useClass: GqlConfigService
     }),
-    AuthModule,
-    UsersModule
+    // AuthModule,
+    // UserModule,
+    // RoleModule,
+    // MenuModule,
+    // JournalModule,
+    // CronModule,
+    // AnnouncementModule
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],

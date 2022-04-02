@@ -1,0 +1,5 @@
+import type { Options } from 'ali-oss'
+
+export interface AlicloudOssConfig {
+  options: Options
+}

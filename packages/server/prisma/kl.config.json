@@ -1,0 +1,383 @@
+{
+  "database": {
+    "develop": "postgresql://erguotou:xxxx@47.111.100.233:5432/nanjing-high-tech-zone.log"
+  },
+  "enums": [
+    {
+      "name": "ERole",
+      "values": [
+        {"name": "ADMIN", "value": "管理员"},
+        {"name": "USER", "value": "普通用户"}
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "User",
+      "title": "用户",
+      "backupStrategy": "none",
+      "canCreate": true,
+      "canUpdate": true,
+      "canDelete": true,
+      "generatedApis": [
+        "create",
+        "createMany",
+        "findMany",
+        "findByPrimaryKey",
+        "findFirst",
+        "updateByPrimaryKey",
+        "updateMany",
+        "deleteByPrimarykey",
+        "deleteMany",
+        "importsFromExcel",
+        "exportExcel"
+      ],
+      "primaryKey": [
+        "id"
+      ],
+      "ignore": false,
+      "id": "2b8aa92c-5ab8-4468-f5f5-a7d34233ded3",
+      "fields": [
+        {
+          "db": {
+            "name": "id",
+            "title": "ID",
+            "isPrimaryKey": true,
+            "primaryKeyStrategy": "cuid",
+            "type": "String",
+            "isArray": false,
+            "unique": true,
+            "nullable": false,
+            "isIcon": true,
+            "validators": ["IsInt", "IsEmail"]
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "a2531eca-64f6-4ea4-e4a6-82c5f837f21f"
+        },
+        {
+          "db": {
+            "name": "username",
+            "title": "用户名",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": false,
+            "unique": true,
+            "nullable": false
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "constraints": [
+            {
+              "type": "length",
+              "length": [
+                2,
+                20
+              ]
+            }
+          ],
+          "mock": {},
+          "id": "a857d9fc-11e9-431b-998e-7cea3faf3b5f"
+        },
+        {
+          "db": {
+            "name": "password",
+            "title": "密码",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": false,
+            "unique": false,
+            "nullable": false
+          },
+          "relations": {},
+          "display": {
+            "showInList": false,
+            "showInForm": false,
+            "showInSearch": false,
+            "sortable": false,
+            "readonly": true,
+            "omitInApi": true,
+            "componentWidth": 120
+          },
+          "data": {},
+          "constraints": [
+            {
+              "type": "length",
+              "length": [
+                6,
+                20
+              ]
+            }
+          ],
+          "mock": {},
+          "id": "2b9abcce-3915-4f6e-9e5f-fddd737b5be7"
+        },
+        {
+          "db": {
+            "name": "role",
+            "title": "角色",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": false,
+            "unique": false,
+            "nullable": true
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "constraints": [
+            {
+              "type": "enum",
+              "enum": [
+                [
+                  "ADMIN",
+                  "管理员"
+                ],
+                [
+                  "USER",
+                  "普通用户"
+                ]
+              ]
+            }
+          ],
+          "mock": {},
+          "id": "9b57647d-f719-4d4c-c7d3-01b20d5dbf46"
+        },
+        {
+          "db": {
+            "name": "posts",
+            "title": "文章列表",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": true,
+            "unique": false,
+            "nullable": false
+          },
+          "relations": {
+            "relationType": "OneToMany",
+            "relationModel": "d903759e-2772-4be2-9b65-ffc6629005ec",
+            "targetRefField": "authorId",
+            "targetRefName": "author",
+            "selfRelationField": "id"
+          },
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "1a0c5bbf-fde3-48c2-a937-bb4e91ce74c0"
+        },
+        {
+          "id": "f6c22fdf-2a68-4ecf-fca6-cf50cf6fecab",
+          "createdBy": "system",
+          "db": {
+            "title": "创建时间",
+            "name": "createdAt",
+            "type": "DateTime",
+            "defaultValue": "now()"
+          },
+          "display": {
+            "readonly": true
+          }
+        },
+        {
+          "id": "481ebd5b-fc87-462f-845a-6fe874f107cd",
+          "createdBy": "system",
+          "db": {
+            "title": "更新时间",
+            "name": "updatedAt",
+            "type": "DateTime",
+            "defaultValue": "now()"
+          },
+          "display": {
+            "readonly": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Post",
+      "title": "文章",
+      "backupStrategy": "none",
+      "canCreate": true,
+      "canUpdate": true,
+      "canDelete": true,
+      "generatedApis": [
+        "create",
+        "createMany",
+        "findMany",
+        "findByPrimaryKey",
+        "findFirst",
+        "updateByPrimaryKey",
+        "updateMany",
+        "deleteByPrimarykey",
+        "deleteMany",
+        "importsFromExcel",
+        "exportExcel"
+      ],
+      "primaryKey": [
+        "id"
+      ],
+      "ignore": false,
+      "id": "d903759e-2772-4be2-9b65-ffc6629005ec",
+      "fields": [
+        {
+          "db": {
+            "name": "id",
+            "title": "ID",
+            "isPrimaryKey": true,
+            "type": "String",
+            "isArray": false,
+            "unique": true,
+            "nullable": false,
+            "primaryKeyStrategy": "cuid"
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "50af436c-c879-4ae2-e285-a56f28b424cd"
+        },
+        {
+          "db": {
+            "name": "title",
+            "title": "标题",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": false,
+            "unique": false,
+            "nullable": false
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "48021a48-9680-4d15-d1e4-e5da3cbe312a"
+        },
+        {
+          "db": {
+            "name": "content",
+            "title": "内容",
+            "isPrimaryKey": false,
+            "type": "String",
+            "isArray": false,
+            "unique": false,
+            "nullable": true
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "885c6023-3199-4957-eec4-904902a5c2f5"
+        },
+        {
+          "db": {
+            "name": "published",
+            "title": "已发布",
+            "isPrimaryKey": false,
+            "type": "Boolean",
+            "isArray": false,
+            "unique": false,
+            "nullable": true
+          },
+          "relations": {},
+          "display": {
+            "showInList": true,
+            "showInForm": true,
+            "showInSearch": true,
+            "sortable": true,
+            "readonly": false,
+            "omitInApi": false,
+            "componentWidth": 120
+          },
+          "data": {},
+          "mock": {},
+          "id": "b7f47d63-97de-40c7-a265-7f3903008578"
+        },
+        {
+          "id": "c1a6f5b4-bae3-4ff7-c846-d6e26ad2a884",
+          "createdBy": "system",
+          "db": {
+            "title": "创建时间",
+            "name": "createdAt",
+            "type": "DateTime",
+            "defaultValue": "now()"
+          },
+          "display": {
+            "readonly": true
+          }
+        },
+        {
+          "id": "b8fc966c-38f3-48f6-c62c-4131282c60d1",
+          "createdBy": "system",
+          "db": {
+            "title": "更新时间",
+            "name": "updatedAt",
+            "type": "DateTime",
+            "defaultValue": "now()"
+          },
+          "display": {
+            "readonly": true
+          }
+        }
+      ]
+    }
+  ]
+}

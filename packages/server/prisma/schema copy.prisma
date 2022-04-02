@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = []
+}
+
+generator nestjs {
+  // provider = "kunlun generate"
+  provider = "ts-node ../../../kunlun-cli/bin/kunlun.ts generate"
+  // output                          = "./@generated"
+  // 移除 model name 中统一的 Model 后缀
+  removeModelUnifiedSuffix        = "Model"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  outputToNestJSResourceStructure = "false"
+  exportRelationModifierClasses   = "true"
+  // 增加 index.ts 导出全部
+  reExport                        = "true"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  queryDtoPrefix                  = "Query"
+  dtoSuffix                       = "Dto"
+  responseVoPrefix                = ""
+  responseVoSuffix                = "Vo"
+  // 哪些 schema 需要生成 NestJS module，以逗号分割
+  // generateSchemaOfModule          = "AdminModel,ArticleModel,ArticleCategoryModel,ArticleTagModel,ColumnModel,DataCategoryModel,DataTagModel,DataModel,RoleModel,PermissionModel,DictionaryModel,ConfigModel,FileModel,RouteModel,IconModel,RequestLogModel,FeedbackModel,QAModel"
+  generateSchemaOfModule          = "Post"
+  // generateSchemaOfModule          = ""
+  // 类名和文件名命名风格 kebab camel pascal snake constant，详见 https://www.npmjs.com/package/case
+  fileNameFormat                  = "kebab"
+  classNameFormat                 = "pascal"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model User {
+  id        String   @id @default(cuid())
+  /// @title 用户名
+  /// @comment 用户名，长度 2 ~ 20
+  /// @Length(2,20,{message:'用户名长度 2 ~ 20'})
+  username  String
+  /// @title 密码
+  /// @comment 密码，长度 6 ~ 20
+  /// @isPassword
+  /// @isSelectFalse
+  /// @isRequiredConfirm
+  /// @Length(6,20,{message:'密码长度 2 ~ 20'})
+  password  String
+  role      Role
+  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  published Boolean
+  title     String
+  content   String?
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+}

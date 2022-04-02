@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  nestjs-api:
+    container_name: nestjs-api
+    build:
+      context: .
+      dockerfile: Dockfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumns:
+      - ../../db/pgdata: /var/lib/postgres/data

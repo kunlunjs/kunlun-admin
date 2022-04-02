@@ -4,6 +4,7 @@ import { HttpAdapterHost, NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import chalk from 'chalk'
 import { AppModule } from './app.module'
+import { setupSwagger } from './swagger/setup'
 import type { CorsConfig, NestConfig, SwaggerConfig } from './common/configs'
 import { PrismaService, PrismaClientExceptionFilter } from './common/prisma'
 
@@ -33,15 +34,19 @@ async function bootstrap() {
     app.enableCors()
   }
 
-  if (swaggerConfig?.enabled) {
-    const options = new DocumentBuilder()
-      .setTitle(swaggerConfig.title || 'NestJS')
-      .setDescription(swaggerConfig.description || ``)
-      .setVersion(swaggerConfig.version || '1.0')
-      .build()
+  // if (swaggerConfig?.enabled) {
+  //   const options = new DocumentBuilder()
+  //     .setTitle(swaggerConfig.title || 'NestJS')
+  //     .setDescription(swaggerConfig.description || ``)
+  //     .setVersion(swaggerConfig.version || '1.0')
+  //     .build()
 
-    const document = SwaggerModule.createDocument(app, options)
-    SwaggerModule.setup(swaggerConfig.path || 'swagger', app, document)
+  //   const document = SwaggerModule.createDocument(app, options)
+  //   SwaggerModule.setup(swaggerConfig.path || 'swagger', app, document)
+  // }
+
+  if (['development', 'staging'].includes(process.env.NODE_ENV)) {
+    setupSwagger(app)
   }
 
   await app.listen(process.env.PORT || nestConfig.port || 3000)

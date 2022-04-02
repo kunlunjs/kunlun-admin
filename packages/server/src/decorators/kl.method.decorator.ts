@@ -1,5 +1,3 @@
-import type { Type } from '@nestjs/common'
-import { UseGuards } from '@nestjs/common'
 import {
   applyDecorators,
   Delete,
@@ -7,93 +5,78 @@ import {
   HttpCode,
   HttpStatus,
   Post,
-  Put
+  Put,
+  UseGuards
 } from '@nestjs/common'
-import { ApiBody, ApiExcludeEndpoint, ApiOperation } from '@nestjs/swagger'
+import { ApiBody, ApiOperation } from '@nestjs/swagger'
 import type { Method } from 'axios'
 import { pathToRegexp } from 'path-to-regexp'
-import type { SchemaModels } from '@/@generated'
-import { JwtAuthGuard } from '@/guards'
-import type { SymmetricDifference } from '@/types'
 import { ApiResponse } from './api.response.decorator'
 import type { Plateform } from './kl.platform.decorator'
+import { KLPlatform } from './kl.platform.decorator'
 import { KLPublic } from './kl.public.decorator'
-import { summaries } from './kl.super-method.decorator'
+import type { AllDtos, AllVos, EndpointsItem, Interfaces } from '@/@generated'
+import { endpoints } from '@/@generated'
+import * as allDtos from '@/@generated/dto'
+import * as allVos from '@/@generated/vo'
+import { JwtAuthGuard } from '@/guards'
+import type { SymmetricDifference } from '@/types'
 
 type KLMethodType = SymmetricDifference<
   Uppercase<Method>,
   'PATCH' | 'HEAD' | 'LINK' | 'PURGE' | 'UNLINK' | 'OPTIONS'
 >
 
-type KLMethodParameters = {
+type Extra = {
+  method?: KLMethodType
+  path?: string
   /**
-   * prisma schema 中定义的 Model
+   * 是否开放接口
    */
-  model?: SchemaModels
+  isPublic: boolean
   /**
    * 允许访问的平台
    */
-  platform?: Plateform
-  /**
-   * 是否不在 swagger 中显示
-   */
-  isHidden?: boolean
-  /**
-   * 是否开放接口，即无需 token
-   */
-  isPublic?: boolean
-  /**
-   * 是否分页
-   */
-  pagination?: boolean
-  /**
-   * req.body
-   */
-  body?: Type<unknown>
-  /**
-   * req.query，当在控制器中使用的 @Query() query: QueryType 中的 QueryType 中使用了 Swagger 则无需此参数
-   */
-  query?: Type<unknown>
+  platform: Plateform | null
+}
 
-  /**
-   * HTTP 响应
-   */
-  response?: Type<unknown> | Type<unknown>[]
+export const pathRegs = []
+export const summaries: {
+  summaries: string[]
+  regexps: {
+    summary: string
+    regexp: RegExp
+  }[]
+} = {
+  summaries: [],
+  regexps: []
 }
 
 export function KLMethod(
-  /**
-   * 接口方法
-   */
-  method: KLMethodType,
-  /**
-   * 接口路径
-   */
-  path: string,
-  /**
-   * 接口名
-   */
-  summary: string,
-  /**
-   * 额外信息
-   */
-  {
-    model,
-    platform,
-    body,
-    response,
-    isHidden = false,
-    isPublic = false,
-    pagination = false
-  }: KLMethodParameters = {}
+  summary: Interfaces,
+  { isPublic, platform }: Extra = {
+    isPublic: false,
+    platform: null
+  }
 ): MethodDecorator {
+  const item = endpoints[summary] as EndpointsItem
+
+  const path = item.path
+  const method = item.method as KLMethodType
   const map: Record<KLMethodType, any> = {
     GET: Get(path),
     PUT: Put(path),
     POST: Post(path),
     DELETE: Delete(path)
   }
-  // const pt = platform || isValidPlatform(summary)
+  const body =
+    ['POST', 'PUT'].includes(method) && item.dto && allDtos[item.dto as AllDtos]
+  let response
+  if (item.vo) {
+    response = Array.isArray(item.vo)
+      ? [allVos[item.vo[0] as AllVos]]
+      : allVos[item.vo as AllVos]
+  }
 
   if (!summaries.summaries.includes(summary)) {
     summaries.summaries.push(summary)
@@ -107,15 +90,14 @@ export function KLMethod(
 
   const decorators = [
     map[method],
-    // pt && KLPlatform(pt),
     isPublic && KLPublic(),
+    platform && KLPlatform(platform),
     !isPublic && UseGuards(JwtAuthGuard),
     ApiOperation({ summary }),
+    // isHidden && ApiExcludeEndpoint,
     ['PUT', 'PATCH'].includes(method) && HttpCode(HttpStatus.OK),
-    isHidden && ApiExcludeEndpoint,
-    // ApiParam(),
     body && ApiBody({ type: body }),
-    response && ApiResponse({ method, pagination, type: response })
+    response && ApiResponse({ method, pagination: true, type: response })
   ].filter(Boolean)
 
   return applyDecorators(...decorators)

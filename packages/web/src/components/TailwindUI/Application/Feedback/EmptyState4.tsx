@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { PlusSmIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 

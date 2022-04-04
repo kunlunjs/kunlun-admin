@@ -1,12 +1,7 @@
 {
   "extends": "./tsconfig.paths.json",
-  "include": [
-    "src",
-    "types"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["src", "types"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     /* Type Checking */
     "strict": true,
@@ -18,8 +13,8 @@
     "resolveJsonModule": true,
     // "rootDir": "",
     // "rootDirs": [],
-    // "typeRoots": [], // Related: types
-    // "types": [], // Related: typeRoots
+    "typeRoots": ["./types", "./node_modules/@types"], // Related: types
+    // "types": ["./types/raw.d.ts"], // Related: typeRoots
     /* Emit */
     // "declaration": true, // Related: declarationDir emitDeclarationOnly
     "emitDeclarationOnly": false, // Only emit .d.ts files; do not emit .js files. Related: declaration

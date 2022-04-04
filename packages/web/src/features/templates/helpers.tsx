@@ -30,13 +30,9 @@ export const viewList = [
   }
 ]
 
-const prefix = 'https://tailwindui.com/img/category-thumbnails'
-
 const tailwinduis = require
   .context('../../components/TailwindUI', true, /\.tsx$/)
   .keys()
-
-// console.log(tailwinduis)
 
 function replaceCategory(str: string) {
   return str
@@ -46,93 +42,87 @@ function replaceCategory(str: string) {
 }
 
 function replacePath(str: string) {
-  if (/headers\d+/i.test(str)) {
-    return str
-  }
-  return str
-    .replaceAll('-', '')
-    .replaceAll('heroes', 'herosection')
-    .replace('states', 'stat')
-    .replace(/s$/, '')
+  return str.replaceAll('-', '')
 }
 
+const prefix = '/static/image'
 // Array.from(document.getElementsByClassName('absolute inset-0 w-full h-full')).filter(i => i.nodeName === 'IMG').forEach(i => console.log(i.currentSrc))
 export const thumbnailSrcs = [
-  `${prefix}/marketing/heroes.png`,
-  `${prefix}/marketing/feature-sections.png`,
-  `${prefix}/marketing/cta-sections.png`,
-  `${prefix}/marketing/pricing.png`,
+  `${prefix}/marketing/hero-section.png`,
+  `${prefix}/marketing/feature-section.png`,
+  `${prefix}/marketing/cta-section.png`,
+  `${prefix}/marketing/pricing-section.png`,
+  `${prefix}/marketing/header-section.png`,
+  `${prefix}/marketing/faq.png`,
+  `${prefix}/marketing/newsletter-section.png`,
+  `${prefix}/marketing/stat.png`,
+  `${prefix}/marketing/testimonial.png`,
+  `${prefix}/marketing/blog-section.png`,
+  `${prefix}/marketing/contact-section.png`,
+  `${prefix}/marketing/team-section.png`,
+  `${prefix}/marketing/content-section.png`,
+  `${prefix}/marketing/footer.png`,
+  `${prefix}/marketing/logo-cloud.png`,
   `${prefix}/marketing/header.png`,
-  `${prefix}/marketing/faq-sections.png`,
-  `${prefix}/marketing/newsletter-sections.png`,
-  `${prefix}/marketing/stats-sections.png`,
-  `${prefix}/marketing/testimonials.png`,
-  `${prefix}/marketing/blog-sections.png`,
-  `${prefix}/marketing/contact-sections.png`,
-  `${prefix}/marketing/team-sections.png`,
-  `${prefix}/marketing/content-sections.png`,
-  `${prefix}/marketing/footers.png`,
-  `${prefix}/marketing/logo-clouds.png`,
-  `${prefix}/marketing/headers.png`,
-  `${prefix}/marketing/banners.png`,
-  `${prefix}/marketing/flyout-menus.png`,
-  `${prefix}/marketing/404-pages.png`,
-  `${prefix}/marketing/landing-pages.png`,
-  `${prefix}/marketing/pricing-pages.png`,
-  `${prefix}/marketing/contact-pages.png`,
+  `${prefix}/marketing/banner.png`,
+  `${prefix}/marketing/flyout-menu.png`,
+  `${prefix}/marketing/404-page.png`,
+  `${prefix}/marketing/landing-page.png`,
+  `${prefix}/marketing/pricing-page.png`,
+  `${prefix}/marketing/contact-page.png`,
   `${prefix}/application-ui/stacked.png`,
   `${prefix}/application-ui/sidebar.png`,
   `${prefix}/application-ui/multi-column.png`,
-  `${prefix}/application-ui/page-headings.png`,
-  `${prefix}/application-ui/card-headings.png`,
-  `${prefix}/application-ui/section-headings.png`,
-  `${prefix}/application-ui/description-lists.png`,
-  `${prefix}/application-ui/stats.png`,
-  `${prefix}/application-ui/calendars.png`,
-  `${prefix}/application-ui/tables.png`,
-  `${prefix}/application-ui/stacked-lists.png`,
-  `${prefix}/application-ui/grid-lists.png`,
-  `${prefix}/application-ui/feeds.png`,
-  `${prefix}/application-ui/form-layouts.png`,
-  `${prefix}/application-ui/input-groups.png`,
-  `${prefix}/application-ui/select-menus.png`,
-  `${prefix}/application-ui/sign-in-forms.png`,
-  `${prefix}/application-ui/textareas.png`,
-  `${prefix}/application-ui/radio-groups.png`,
-  `${prefix}/application-ui/checkboxes.png`,
-  `${prefix}/application-ui/toggles.png`,
-  `${prefix}/application-ui/action-panels.png`,
-  `${prefix}/application-ui/comboboxes.png`,
-  `${prefix}/application-ui/alerts.png`,
-  `${prefix}/application-ui/empty-states.png`,
-  `${prefix}/application-ui/navbars.png`,
+  `${prefix}/application-ui/page-heading.png`,
+  `${prefix}/application-ui/card-heading.png`,
+  `${prefix}/application-ui/section-heading.png`,
+  `${prefix}/application-ui/description-list.png`,
+  `${prefix}/application-ui/stat.png`,
+  `${prefix}/application-ui/calendar.png`,
+  `${prefix}/application-ui/table.png`,
+  `${prefix}/application-ui/stacked-list.png`,
+  `${prefix}/application-ui/grid-list.png`,
+  `${prefix}/application-ui/feed.png`,
+  `${prefix}/application-ui/form-layout.png`,
+  `${prefix}/application-ui/input-group.png`,
+  `${prefix}/application-ui/select-menu.png`,
+  `${prefix}/application-ui/sign-in-and-registration.png`,
+  `${prefix}/application-ui/textarea.png`,
+  `${prefix}/application-ui/radio-group.png`,
+  `${prefix}/application-ui/checkbox.png`,
+  `${prefix}/application-ui/toggle.png`,
+  `${prefix}/application-ui/action-panel.png`,
+  `${prefix}/application-ui/combobox.png`,
+  `${prefix}/application-ui/alert.png`,
+  `${prefix}/application-ui/empty-stat.png`,
+  `${prefix}/application-ui/navbar.png`,
   `${prefix}/application-ui/pagination.png`,
-  `${prefix}/application-ui/tabs.png`,
+  `${prefix}/application-ui/tab.png`,
   `${prefix}/application-ui/vertical-navigation.png`,
   `${prefix}/application-ui/sidebar-navigation.png`,
-  `${prefix}/application-ui/breadcrumbs.png`,
-  `${prefix}/application-ui/steps.png`,
-  `${prefix}/application-ui/command-palettes.png`,
-  `${prefix}/application-ui/modals.png`,
-  `${prefix}/application-ui/slide-overs.png`,
-  `${prefix}/application-ui/notifications.png`,
-  `${prefix}/application-ui/avatars.png`,
-  `${prefix}/application-ui/dropdowns.png`,
-  `${prefix}/application-ui/badges.png`,
-  `${prefix}/application-ui/buttons.png`,
-  `${prefix}/application-ui/button-groups.png`,
-  `${prefix}/application-ui/containers.png`,
-  `${prefix}/application-ui/panels.png`,
-  `${prefix}/application-ui/list-containers.png`,
-  `${prefix}/application-ui/media-objects.png`,
-  `${prefix}/application-ui/dividers.png`,
-  `${prefix}/application-ui/home-screens.png`,
-  `${prefix}/application-ui/detail-screens.png`,
-  `${prefix}/application-ui/settings-screens.png`,
-  `${prefix}/ecommerce/product-overviews.png`,
-  `${prefix}/ecommerce/product-lists.png`,
-  `${prefix}/ecommerce/category-previews.png`,
-  `${prefix}/ecommerce/shopping-carts.png`,
+  `${prefix}/application-ui/breadcrumb.png`,
+  `${prefix}/application-ui/step.png`,
+  `${prefix}/application-ui/command-palette.png`,
+  `${prefix}/application-ui/modal.png`,
+  `${prefix}/application-ui/slide-over.png`,
+  `${prefix}/application-ui/notification.png`,
+  `${prefix}/application-ui/avatar.png`,
+  `${prefix}/application-ui/dropdown.png`,
+  `${prefix}/application-ui/badge.png`,
+  `${prefix}/application-ui/button.png`,
+  `${prefix}/application-ui/button-group.png`,
+  `${prefix}/application-ui/container.png`,
+  `${prefix}/application-ui/panel.png`,
+  `${prefix}/application-ui/list-container.png`,
+  `${prefix}/application-ui/media-object.png`,
+  `${prefix}/application-ui/divider.png`,
+  `${prefix}/application-ui/home-screen.png`,
+  `${prefix}/application-ui/detail-screen.png`,
+  `${prefix}/application-ui/settings-screen.png`,
+  `${prefix}/ecommerce/product-overview.png`,
+  `${prefix}/ecommerce/product-list.png`,
+  `${prefix}/ecommerce/category-preview.png`,
+  `${prefix}/ecommerce/shopping-cart.png`,
   `${prefix}/ecommerce/category-filters.png`,
   `${prefix}/ecommerce/product-quickviews.png`,
   `${prefix}/ecommerce/product-features.png`,
@@ -140,22 +130,22 @@ export const thumbnailSrcs = [
   `${prefix}/ecommerce/promo-sections.png`,
   `${prefix}/ecommerce/checkout-forms.png`,
   `${prefix}/ecommerce/reviews.png`,
-  `${prefix}/ecommerce/order-summaries.png`,
+  `${prefix}/ecommerce/order-summary.png`,
   `${prefix}/ecommerce/order-history.png`,
-  `${prefix}/ecommerce/incentives.png`,
-  `${prefix}/ecommerce/storefront-pages.png`,
-  `${prefix}/ecommerce/product-pages.png`,
-  `${prefix}/ecommerce/category-pages.png`,
-  `${prefix}/ecommerce/shopping-cart-pages.png`,
-  `${prefix}/ecommerce/checkout-pages.png`,
-  `${prefix}/ecommerce/order-detail-pages.png`,
-  `${prefix}/ecommerce/order-history-pages.png`
+  `${prefix}/ecommerce/incentive.png`,
+  `${prefix}/ecommerce/storefront-page.png`,
+  `${prefix}/ecommerce/product-page.png`,
+  `${prefix}/ecommerce/category-page.png`,
+  `${prefix}/ecommerce/shopping-cart-page.png`,
+  `${prefix}/ecommerce/checkout-page.png`,
+  `${prefix}/ecommerce/order-detail-page.png`,
+  `${prefix}/ecommerce/order-history-page.png`
 ]
 
 // [[`${prefix}/ecommerce/order-history-pages.png'] -> ['order-history-pages']
 export const thumbnailNames = thumbnailSrcs.reduce((acc, src) => {
   // `${prefix}/ecommerce/order-history-pages.png' -> 'ecommerce'
-  const category = (src.match(/thumbnails\/([a-zA-Z-]+)\//) as string[])[1]
+  const category = (src.match(/static\/image\/([a-zA-Z-]+)\//) as string[])[1]
   // `${prefix}/ecommerce/order-history-pages.png' -> 'order-history-pages'
   const fileName = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
   const realPath = tailwinduis

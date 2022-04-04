@@ -80,7 +80,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header className="site-layout-background p-0 h-12">
           {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className:
               'px-8 text-lg leading-[64px] cursor-pointer transition transition-colors',
@@ -88,7 +88,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
           })}
         </Header>
         <Content className="mx-4 overflow-auto">
-          <Breadcrumb className="my-4">
+          <Breadcrumb className="my-2">
             <Breadcrumb.Item>模板/组件</Breadcrumb.Item>
             {selectMenus.length > 1 && (
               <Breadcrumb.Item>{selectMenus[0]}</Breadcrumb.Item>
@@ -99,7 +99,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
             {children}
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        <Footer className="text-center p-2">
           Kunlun Admin ©2022 Created by Turing FE
         </Footer>
       </Layout>

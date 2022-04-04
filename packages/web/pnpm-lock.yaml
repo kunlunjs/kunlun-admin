@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@ant-design/icons': ^4.7.0
+  '@dnd-kit/core': ^5.0.3
   '@faker-js/faker': ^6.1.1
   '@fingerprintjs/fingerprintjs': ^3.3.3
   '@headlessui/react': ^1.5.0
@@ -73,6 +74,7 @@ specifiers:
 
 dependencies:
   '@ant-design/icons': 4.7.0_react-dom@18.0.0+react@18.0.0
+  '@dnd-kit/core': 5.0.3_react-dom@18.0.0+react@18.0.0
   '@fingerprintjs/fingerprintjs': 3.3.3
   '@headlessui/react': 1.5.0_react-dom@18.0.0+react@18.0.0
   '@heroicons/react': 1.0.6_react@18.0.0
@@ -1972,6 +1974,37 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
     dev: true
+
+  /@dnd-kit/accessibility/3.0.0_react@18.0.0:
+    resolution: {integrity: sha512-QwaQ1IJHQHMMuAGOOYHQSx7h7vMZPfO97aDts8t5N/MY7n2QTDSnW+kF7uRQ1tVBkr6vJ+BqHWG5dlgGvwVjow==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.0.0
+      tslib: 2.3.1
+    dev: false
+
+  /@dnd-kit/core/5.0.3_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-IribcBLsaPqHdYLpc5xG0TqwYIaD+65offdEYxoKh38WDjzRxUjDmrt7hj9oa/ooUKL0epux20u+mBTd92i/zw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@dnd-kit/accessibility': 3.0.0_react@18.0.0
+      '@dnd-kit/utilities': 3.1.0_react@18.0.0
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+      tslib: 2.3.1
+    dev: false
+
+  /@dnd-kit/utilities/3.1.0_react@18.0.0:
+    resolution: {integrity: sha512-2JBdIgjJ7xjMRpKagdMuYKWJdDoVVw9Wc6lfMrLjrq8t4QlMEjtsab5JVUlzWvHgANn7w3Y3VhalFfbp4dQrKg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.0.0
+      tslib: 2.3.1
+    dev: false
 
   /@emotion/cache/10.0.29:
     resolution: {integrity: sha512-fU2VtSVlHiF27empSbxi1O2JFdNWZO+2NFHfwO0pxgTep6Xa3uGb+3pVKfLww2l/IBGLNEZl5Xf/++A4wAYDYQ==}

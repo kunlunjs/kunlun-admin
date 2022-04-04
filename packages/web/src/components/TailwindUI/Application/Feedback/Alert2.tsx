@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { XCircleIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 

@@ -55,6 +55,10 @@ const footerNavigation = {
   social: socials
 }
 
+export const config = {
+  title: 'Simple with brand contact panel'
+}
+
 export default function ContactPage1() {
   return (
     <div className="bg-white">

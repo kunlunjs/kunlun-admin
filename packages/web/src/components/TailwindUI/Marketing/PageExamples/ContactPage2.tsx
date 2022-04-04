@@ -55,6 +55,10 @@ const footerNavigation = {
   social: socials
 }
 
+export const config = {
+  title: 'Side-by-side grid and newsletter'
+}
+
 export default function ContactPage1() {
   return (
     <div className="bg-white">

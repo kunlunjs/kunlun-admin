@@ -7,17 +7,23 @@ import { getBlocks, thumbnailNames } from './helpers'
 import './index.css'
 
 const blockList: string[] = []
+const thumbnailEntries = Object.entries(thumbnailNames)
+thumbnailEntries.forEach(([type, coms]) => {
+  coms.forEach(com => {
+    blockList.push(`${com.name},${type}`)
+  })
+})
 
 const themeList = ['indigo', 'yellow', 'red', 'purple', 'pink', 'blue', 'green']
 
 const desktopIcon = (
   <svg
-    stroke="currentColor"
-    strokeWidth={2}
     fill="none"
+    strokeWidth={2}
+    viewBox="0 0 24 24"
+    stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
-    viewBox="0 0 24 24"
   >
     <rect x={2} y={3} width={20} height={14} rx={2} ry={2} />
     <path d="M8 21h8m-4-4v4" />
@@ -84,12 +90,13 @@ const viewList = [
 interface TemplatesState {
   ready: boolean
   theme: 'indigo'
+  copied: boolean
   sidebar: boolean
   darkMode: boolean
   blockType: string
   blockName: string
-  copied: boolean
   codeView: boolean
+  blockTitle: string
   markup: string | undefined
   currentKeyCode: number | null
   view: 'desktop' | 'tablet' | 'mobile'
@@ -107,8 +114,9 @@ export const Templates: FC<TemplatesProps> = () => {
     ready: false,
     sidebar: false,
     darkMode: false,
-    blockType: 'marketing',
     blockName: 'header',
+    blockType: 'marketing',
+    blockTitle: 'Simple centered',
     markup: '',
     copied: false,
     view: 'desktop',
@@ -130,12 +138,13 @@ export const Templates: FC<TemplatesProps> = () => {
               index + 1 <= blockList.length - 1
                 ? blockList[index + 1].split(',')
                 : blockList[0].split(',')
-            const newBlockName = newActiveBlock[0]
-            const newBlockType = newActiveBlock[1]
+            const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
               `.block-item[block-name="${newBlockName}"]`
             ) as HTMLElement
-            if (newBlockNode) newBlockNode.focus()
+            if (newBlockNode) {
+              newBlockNode.focus()
+            }
             setState({
               ...state,
               codeView: false,
@@ -162,8 +171,7 @@ export const Templates: FC<TemplatesProps> = () => {
               index - 1 >= 0
                 ? blockList[index - 1].split(',')
                 : blockList[blockList.length - 1].split(',')
-            const newBlockName = newActiveBlock[0]
-            const newBlockType = newActiveBlock[1]
+            const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
               `.block-item[block-name="${newBlockName}"]`
             ) as HTMLElement
@@ -280,10 +288,12 @@ export const Templates: FC<TemplatesProps> = () => {
     const { currentTarget } = e
     const blockType = currentTarget.getAttribute('block-type') as string
     const blockName = currentTarget.getAttribute('block-name') as string
+    const blockTitle = currentTarget.getAttribute('block-title') as string
     setState({
       ...state,
       blockType,
       blockName,
+      blockTitle,
       codeView: false
     })
   }
@@ -320,41 +330,23 @@ export const Templates: FC<TemplatesProps> = () => {
         key={k}
         data-theme={t}
         onKeyDown={keyboardNavigation}
-        className={`theme-button bg-${t}-500${theme === t ? ' is-active' : ''}`}
         onClick={changeTheme}
+        className={`theme-button bg-${t}-500${theme === t ? ' is-active' : ''}`}
       ></button>
     ))
   }
 
   const listRenderer = () => {
     const { blockName } = state
-    // return Object.entries(iconList).map(([type, icons]) => (
-    //   <div className="blocks" key={type}>
-    //     <div className="block-category">{type}</div>
-    //     <div className="block-list">
-    //       {Object.entries(icons).map(icon => {
-    //         return (
-    //           <button
-    //             key={icon[0]}
-    //             tabIndex={0}
-    //             onClick={changeBlock}
-    //             block-type={type}
-    //             block-name={icon[0]}
-    //             className={`block-item${
-    //               icon[0] === blockName ? ' is-active' : ''
-    //             }`}
-    //           >
-    //             {icon[1]}
-    //           </button>
-    //         )
-    //       })}
-    //     </div>
-    //   </div>
-    // ))
-    return Object.entries(thumbnailNames).map(([type, thumbnails]) => {
+    return thumbnailEntries.map(([type, thumbnails]) => {
+      const total = thumbnails
+        .map(i => i.number)
+        .reduce((sum, i) => {
+          return (sum += i)
+        }, 0)
       return (
         <div className="blocks" key={type}>
-          <div className="block-category">{type}</div>
+          <div className="block-category">{`${type}(${total})`}</div>
           <div className="block-list">
             {thumbnails.map(thumbnail => {
               return (
@@ -363,6 +355,7 @@ export const Templates: FC<TemplatesProps> = () => {
                   tabIndex={0}
                   block-type={type}
                   block-name={thumbnail.name}
+                  block-title={thumbnail.config?.title}
                   onClick={changeBlock}
                   className={`block-item relative${
                     thumbnail.name === blockName ? ' is-active' : ''
@@ -373,10 +366,6 @@ export const Templates: FC<TemplatesProps> = () => {
                     src={thumbnail.src}
                     className="scale-125"
                   />
-                  {/* TODO */}
-                  {/* <div className="absolute w-full h-full text-xs top-0 left-0 items-center justify-center invisible hover:visible">
-                    {thumbnail.config?.title}
-                  </div> */}
                 </button>
               )
             })}
@@ -422,13 +411,17 @@ export const Templates: FC<TemplatesProps> = () => {
   }
 
   const {
-    darkMode,
+    view,
+    ready,
     theme,
+    markup,
+    copied,
+    sidebar,
+    darkMode,
+    codeView,
     blockName,
     blockType,
-    sidebar,
-    view,
-    copied,
+    blockTitle,
     currentKeyCode
   } = state
 
@@ -446,7 +439,8 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="opener" onClick={toggleSidebar} ref={openerRef}>
           组件/模板
         </button>
-        {state.codeView && (
+        <span className="ml-4 text-white font-bold">{blockTitle}</span>
+        {codeView && (
           <div className="clipboard-wrapper">
             <button
               className="copy-the-block copy-to-clipboard"
@@ -461,7 +455,7 @@ export const Templates: FC<TemplatesProps> = () => {
           </div>
         )}
         <button className="copy-the-block" onClick={toggleView}>
-          {!state.codeView ? (
+          {!codeView ? (
             <svg
               fill="none"
               stroke="currentColor"
@@ -487,7 +481,7 @@ export const Templates: FC<TemplatesProps> = () => {
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
           )}
-          <span>{!state.codeView ? '代码' : '预览'}</span>
+          <span>{!codeView ? '代码' : '预览'}</span>
         </button>
         <div className="switcher">{themeListRenderer()}</div>
         {viewModeRenderer()}
@@ -497,8 +491,8 @@ export const Templates: FC<TemplatesProps> = () => {
         {/* TODO */}
         {getBlocks({ theme, darkMode })[blockType][blockName]}
       </div>
-      <main className="main" style={{ opacity: state.ready ? '1' : '0' }}>
-        <div className={`view${state.codeView ? ' show-code' : ''}`}>
+      <main className="main" style={{ opacity: ready ? '1' : '0' }}>
+        <div className={`view${codeView ? ' show-code' : ''}`}>
           <Frame
             contentDidMount={handleContentDidMount}
             // contentDidUpdate={handleContentDidUpdate}
@@ -535,7 +529,7 @@ export const Templates: FC<TemplatesProps> = () => {
               showLineNumbers
               style={darkMode ? vs2015 : docco}
             >
-              {beautifyHTML(state.markup!)}
+              {beautifyHTML(markup!)}
             </SyntaxHighlighter>
           </div>
         </div>

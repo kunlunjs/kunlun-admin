@@ -55,6 +55,10 @@ const footerNavigation = {
   social: socials
 }
 
+export const config = {
+  title: 'With overlapping cards'
+}
+
 export default function ContactPage1() {
   return (
     <div className="bg-white">

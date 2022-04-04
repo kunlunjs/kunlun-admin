@@ -34,13 +34,6 @@ const tailwinduis = require
   .context('../../components/TailwindUI', true, /\.tsx$/)
   .keys()
 
-function replaceCategory(str: string) {
-  return str
-    .replace('marketing', 'Marketing')
-    .replace('ecommerce', 'Ecommerce')
-    .replace('application-ui', 'Application')
-}
-
 function replacePath(str: string) {
   return str.replaceAll('-', '')
 }
@@ -70,66 +63,66 @@ export const thumbnailSrcs = [
   `${prefix}/marketing/landing-page.png`,
   `${prefix}/marketing/pricing-page.png`,
   `${prefix}/marketing/contact-page.png`,
-  `${prefix}/application-ui/stacked.png`,
-  `${prefix}/application-ui/sidebar.png`,
-  `${prefix}/application-ui/multi-column.png`,
-  `${prefix}/application-ui/page-heading.png`,
-  `${prefix}/application-ui/card-heading.png`,
-  `${prefix}/application-ui/section-heading.png`,
-  `${prefix}/application-ui/description-list.png`,
-  `${prefix}/application-ui/stat.png`,
-  `${prefix}/application-ui/calendar.png`,
-  `${prefix}/application-ui/table.png`,
-  `${prefix}/application-ui/stacked-list.png`,
-  `${prefix}/application-ui/grid-list.png`,
-  `${prefix}/application-ui/feed.png`,
-  `${prefix}/application-ui/form-layout.png`,
-  `${prefix}/application-ui/input-group.png`,
-  `${prefix}/application-ui/select-menu.png`,
-  `${prefix}/application-ui/sign-in-and-registration.png`,
-  `${prefix}/application-ui/textarea.png`,
-  `${prefix}/application-ui/radio-group.png`,
-  `${prefix}/application-ui/checkbox.png`,
-  `${prefix}/application-ui/toggle.png`,
-  `${prefix}/application-ui/action-panel.png`,
-  `${prefix}/application-ui/combobox.png`,
-  `${prefix}/application-ui/alert.png`,
-  `${prefix}/application-ui/empty-stat.png`,
-  `${prefix}/application-ui/navbar.png`,
-  `${prefix}/application-ui/pagination.png`,
-  `${prefix}/application-ui/tab.png`,
-  `${prefix}/application-ui/vertical-navigation.png`,
-  `${prefix}/application-ui/sidebar-navigation.png`,
-  `${prefix}/application-ui/breadcrumb.png`,
-  `${prefix}/application-ui/step.png`,
-  `${prefix}/application-ui/command-palette.png`,
-  `${prefix}/application-ui/modal.png`,
-  `${prefix}/application-ui/slide-over.png`,
-  `${prefix}/application-ui/notification.png`,
-  `${prefix}/application-ui/avatar.png`,
-  `${prefix}/application-ui/dropdown.png`,
-  `${prefix}/application-ui/badge.png`,
-  `${prefix}/application-ui/button.png`,
-  `${prefix}/application-ui/button-group.png`,
-  `${prefix}/application-ui/container.png`,
-  `${prefix}/application-ui/panel.png`,
-  `${prefix}/application-ui/list-container.png`,
-  `${prefix}/application-ui/media-object.png`,
-  `${prefix}/application-ui/divider.png`,
-  `${prefix}/application-ui/home-screen.png`,
-  `${prefix}/application-ui/detail-screen.png`,
-  `${prefix}/application-ui/settings-screen.png`,
+  `${prefix}/application/stacked-layout.png`,
+  `${prefix}/application/sidebar-layout.png`,
+  `${prefix}/application/multi-column-layout.png`,
+  `${prefix}/application/page-heading.png`,
+  `${prefix}/application/card-heading.png`,
+  `${prefix}/application/section-heading.png`,
+  `${prefix}/application/description-list.png`,
+  `${prefix}/application/stat.png`,
+  `${prefix}/application/calendar.png`,
+  `${prefix}/application/table.png`,
+  `${prefix}/application/stacked-list.png`,
+  `${prefix}/application/grid-list.png`,
+  `${prefix}/application/feed.png`,
+  `${prefix}/application/form-layout.png`,
+  `${prefix}/application/input-group.png`,
+  `${prefix}/application/select-menu.png`,
+  `${prefix}/application/sign-in-and-registration.png`,
+  `${prefix}/application/textarea.png`,
+  `${prefix}/application/radio-group.png`,
+  `${prefix}/application/checkbox.png`,
+  `${prefix}/application/toggle.png`,
+  `${prefix}/application/action-panel.png`,
+  `${prefix}/application/combobox.png`,
+  `${prefix}/application/alert.png`,
+  `${prefix}/application/empty-stat.png`,
+  `${prefix}/application/navbar.png`,
+  `${prefix}/application/pagination.png`,
+  `${prefix}/application/tab.png`,
+  `${prefix}/application/vertical-navigation.png`,
+  `${prefix}/application/sidebar-navigation.png`,
+  `${prefix}/application/breadcrumb.png`,
+  `${prefix}/application/step.png`,
+  `${prefix}/application/command-palette.png`,
+  `${prefix}/application/modal.png`,
+  `${prefix}/application/slide-over.png`,
+  `${prefix}/application/notification.png`,
+  `${prefix}/application/avatar.png`,
+  `${prefix}/application/dropdown.png`,
+  `${prefix}/application/badge.png`,
+  `${prefix}/application/button.png`,
+  `${prefix}/application/button-group.png`,
+  `${prefix}/application/container.png`,
+  `${prefix}/application/panel.png`,
+  `${prefix}/application/list-container.png`,
+  `${prefix}/application/media-object.png`,
+  `${prefix}/application/divider.png`,
+  `${prefix}/application/home-screen.png`,
+  `${prefix}/application/detail-screen.png`,
+  `${prefix}/application/settings-screen.png`,
   `${prefix}/ecommerce/product-overview.png`,
   `${prefix}/ecommerce/product-list.png`,
   `${prefix}/ecommerce/category-preview.png`,
   `${prefix}/ecommerce/shopping-cart.png`,
-  `${prefix}/ecommerce/category-filters.png`,
-  `${prefix}/ecommerce/product-quickviews.png`,
-  `${prefix}/ecommerce/product-features.png`,
+  `${prefix}/ecommerce/category-filter.png`,
+  `${prefix}/ecommerce/product-quickview.png`,
+  `${prefix}/ecommerce/product-feature.png`,
   `${prefix}/ecommerce/store-navigation.png`,
-  `${prefix}/ecommerce/promo-sections.png`,
-  `${prefix}/ecommerce/checkout-forms.png`,
-  `${prefix}/ecommerce/reviews.png`,
+  `${prefix}/ecommerce/promo-section.png`,
+  `${prefix}/ecommerce/checkout-form.png`,
+  `${prefix}/ecommerce/review.png`,
   `${prefix}/ecommerce/order-summary.png`,
   `${prefix}/ecommerce/order-history.png`,
   `${prefix}/ecommerce/incentive.png`,
@@ -142,28 +135,42 @@ export const thumbnailSrcs = [
   `${prefix}/ecommerce/order-history-page.png`
 ]
 
+type A = Record<
+  string,
+  {
+    name: string
+    src: string
+    number: number
+    path: string | null
+    config?: { title: string }
+  }[]
+>
+
 // [[`${prefix}/ecommerce/order-history-pages.png'] -> ['order-history-pages']
 export const thumbnailNames = thumbnailSrcs.reduce((acc, src) => {
-  // `${prefix}/ecommerce/order-history-pages.png' -> 'ecommerce'
+  // `${prefix}/ecommerce/order-history-page.png' -> 'ecommerce'
   const category = (src.match(/static\/image\/([a-zA-Z-]+)\//) as string[])[1]
-  // `${prefix}/ecommerce/order-history-pages.png' -> 'order-history-pages'
+  // `${prefix}/ecommerce/order-history-page.png' -> 'order-history-pages'
   const fileName = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
-  const realPath = tailwinduis
-    .find(i =>
-      i.match(new RegExp(`${replacePath(replaceCategory(fileName))}\\d+`, 'i'))
-    )
-    ?.slice(1, -4)
-  const { config } = realPath
-    ? require(`@/components/TailwindUI${realPath}`)
+  // 'order-history-page' -> 'orderhistorypage'
+  const base = `${category}/[a-zA-Z\\d-]+/${replacePath(fileName)}`
+  const path =
+    tailwinduis
+      .find(i => i.match(new RegExp(`${base}\\d+`, 'i')))
+      ?.slice(1, -4) || null
+  const number = tailwinduis.filter(i => i.match(new RegExp(base, 'i'))).length
+  const { config } = path
+    ? require(`@/components/TailwindUI${path}`)
     : { config: {} }
   acc[category] = (acc[category] || []).concat({
     name: fileName,
     src,
-    config,
-    realPath: realPath || null
+    path,
+    number,
+    config
   })
   return acc
-}, {} as Record<string, { name: string; src: string; realPath: string | null; config?: { title: string } }[]>)
+}, {} as A)
 
 export const getBlocks = ({
   theme = 'indigo',
@@ -175,11 +182,11 @@ export const getBlocks = ({
   const blocks = Object.entries(thumbnailNames).reduce((acc, cur) => {
     const [category, names] = cur
     acc[category] = names.reduce((a, c) => {
-      const Component = c.realPath
+      const Component = c.path
         ? loadable(
             () =>
               import(
-                /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${c.realPath}`
+                /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${c.path}`
               )
           )
         : () => (

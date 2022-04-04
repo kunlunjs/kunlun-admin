@@ -48,7 +48,7 @@ const footer = {
 interface NotFoundPage6Props {}
 
 export const config = {
-  title: ''
+  title: 'With navbar and footer'
 }
 
 const NotFoundPage6: FC<NotFoundPage6Props> = () => {

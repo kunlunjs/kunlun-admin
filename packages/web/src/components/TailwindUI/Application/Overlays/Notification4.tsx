@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Transition } from '@headlessui/react'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'

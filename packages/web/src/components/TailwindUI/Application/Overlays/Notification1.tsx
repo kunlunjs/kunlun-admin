@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Transition } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'

@@ -25,6 +25,10 @@ const userNavigation = [
 
 interface StackedLayout4Props {}
 
+export const config = {
+  title: 'Branded nav with compact white page header'
+}
+
 const StackedLayout4: FC<StackedLayout4Props> = () => {
   return (
     <>

@@ -80,6 +80,10 @@ const resources = [
   }
 ]
 
+export const config = {
+  title: 'Simple links on left'
+}
+
 export default function Header3() {
   return (
     <Popover className="relative bg-white">

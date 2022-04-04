@@ -59,6 +59,10 @@ const posts = [
   }
 ]
 
+export const config = {
+  title: '3-column with badges'
+}
+
 export default function BlogSection3() {
   return (
     <div className="bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">

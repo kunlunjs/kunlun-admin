@@ -138,11 +138,12 @@ export const thumbnailSrcs = [
 type A = Record<
   string,
   {
+    category: string
     name: string
     src: string
     number: number
     path: string | null
-    config?: { title: string }
+    configs: { title: string }[]
   }[]
 >
 
@@ -154,23 +155,41 @@ export const thumbnailNames = thumbnailSrcs.reduce((acc, src) => {
   const fileName = (src.match(/\/([a-zA-Z\d-]+)\.png$/) as string[])[1]
   // 'order-history-page' -> 'orderhistorypage'
   const base = `${category}/[a-zA-Z\\d-]+/${replacePath(fileName)}`
+  // example: /Marketing/Elements/Banner1.tsx
   const path =
     tailwinduis
       .find(i => i.match(new RegExp(`${base}\\d+`, 'i')))
       ?.slice(1, -4) || null
-  const number = tailwinduis.filter(i => i.match(new RegExp(base, 'i'))).length
-  const { config } = path
-    ? require(`@/components/TailwindUI${path}`)
-    : { config: {} }
+  // 某一类型组件的数量
+  const number = tailwinduis.filter(i =>
+    i.match(new RegExp(`${base}\\d+.tsx`, 'i'))
+  ).length
+  const configs = number
+    ? [...Array(number)].map((_, ix) => {
+        return require(`@/components/TailwindUI${path?.replace(/\d+$/, '')}${
+          ix + 1
+        }`)?.config
+      })
+    : [{ title: '' }]
   acc[category] = (acc[category] || []).concat({
+    category,
     name: fileName,
     src,
     path,
     number,
-    config
+    configs
   })
   return acc
 }, {} as A)
+
+const Developing = () => (
+  <div
+    className="flex items-center justify-center text-xl text-orange-400"
+    style={{ height: '100vh' }}
+  >
+    开发中，敬请期待...
+  </div>
+)
 
 export const getBlocks = ({
   theme = 'indigo',
@@ -178,26 +197,25 @@ export const getBlocks = ({
 }: {
   theme: ThemeList
   darkMode: boolean
-}): Record<string, Record<string, ReactNode>> => {
+}): Record<string, Record<string, ReactNode[]>> => {
   const blocks = Object.entries(thumbnailNames).reduce((acc, cur) => {
     const [category, names] = cur
     acc[category] = names.reduce((a, c) => {
-      const Component = c.path
-        ? loadable(
-            () =>
-              import(
-                /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${c.path}`
+      const p = c.path?.replace(/\d+$/, '')
+      const components =
+        c.number && p
+          ? [...Array(c.number)].map((_, ix) => {
+              return loadable(
+                () =>
+                  import(
+                    /* @vite-ignore */ /* webpackChunkName: "[request][index]" */ `@/components/TailwindUI${p}${
+                      ix + 1
+                    }`
+                  )
               )
-          )
-        : () => (
-            <div
-              className="flex items-center justify-center text-xl text-orange-400"
-              style={{ height: '100vh' }}
-            >
-              开发中，敬请期待...
-            </div>
-          )
-      a[c.name] = <Component />
+            })
+          : [Developing]
+      a[c.name] = components.map((Component, ix) => <Component key={ix} />)
       return a
     }, {} as any)
     return acc

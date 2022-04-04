@@ -97,6 +97,7 @@ interface TemplatesState {
   blockName: string
   codeView: boolean
   blockTitle: string
+  // blockCategory: string
   markup: string | undefined
   currentKeyCode: number | null
   view: 'desktop' | 'tablet' | 'mobile'
@@ -116,6 +117,7 @@ export const Templates: FC<TemplatesProps> = () => {
     darkMode: false,
     blockName: 'header',
     blockType: 'marketing',
+    // blockCategory: 'Marketing',
     blockTitle: 'Simple centered',
     markup: '',
     copied: false,
@@ -348,14 +350,14 @@ export const Templates: FC<TemplatesProps> = () => {
         <div className="blocks" key={type}>
           <div className="block-category">{`${type}(${total})`}</div>
           <div className="block-list">
-            {thumbnails.map(thumbnail => {
+            {thumbnails.map((thumbnail, ix) => {
               return (
                 <button
                   key={thumbnail.name}
                   tabIndex={0}
                   block-type={type}
                   block-name={thumbnail.name}
-                  block-title={thumbnail.config?.title}
+                  block-title={thumbnail.configs?.[0]?.title}
                   onClick={changeBlock}
                   className={`block-item relative${
                     thumbnail.name === blockName ? ' is-active' : ''
@@ -425,6 +427,9 @@ export const Templates: FC<TemplatesProps> = () => {
     currentKeyCode
   } = state
 
+  const Blocks = getBlocks({ theme, darkMode })[blockType][blockName]
+  const Block = Blocks[0]
+
   return (
     <div
       className={`app${darkMode ? ' dark-mode' : ''}${
@@ -440,6 +445,22 @@ export const Templates: FC<TemplatesProps> = () => {
           组件/模板
         </button>
         <span className="ml-4 text-white font-bold">{blockTitle}</span>
+        <div className="ml-4 flex h-7">
+          <label htmlFor="components" className="hidden">
+            选择组件
+          </label>
+          <select
+            name="components"
+            id="components"
+            className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          >
+            {thumbnailNames[blockType]
+              .find(i => i.name === blockName)
+              ?.configs?.map((i, ix) => {
+                return <option key={i?.title + ix}>{i?.title}</option>
+              })}
+          </select>
+        </div>
         {codeView && (
           <div className="clipboard-wrapper">
             <button
@@ -489,7 +510,7 @@ export const Templates: FC<TemplatesProps> = () => {
       </div>
       <div className="markup" ref={markupRef}>
         {/* TODO */}
-        {getBlocks({ theme, darkMode })[blockType][blockName]}
+        {Block}
       </div>
       <main className="main" style={{ opacity: ready ? '1' : '0' }}>
         <div className={`view${codeView ? ' show-code' : ''}`}>
@@ -521,7 +542,7 @@ export const Templates: FC<TemplatesProps> = () => {
             }
             // body={<script src="/static/js/tailwindcss.js"></script>}
           >
-            {getBlocks({ theme, darkMode })[blockType][blockName]}
+            {Block}
           </Frame>
           <div className="codes">
             <SyntaxHighlighter

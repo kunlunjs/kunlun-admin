@@ -29,9 +29,8 @@ const socials = ['Facebook', 'Instagram', 'Twitter', 'GitHub', 'Dribbble'].map(
 
 interface NotFoundPage3Props {}
 
-/**
- * With popular pages
- */
+export const config = { title: 'With popular pages' }
+
 const NotFoundPage3: FC<NotFoundPage3Props> = () => {
   return (
     <div className="bg-white">

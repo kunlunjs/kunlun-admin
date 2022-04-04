@@ -13,7 +13,12 @@ const { Header, Footer, Sider, Content } = Layout
 const { SubMenu } = Menu
 const factories: { key: string; icon: IconNames; name: string }[] = [
   { key: 'factories/table', icon: 'TableOutlined', name: '表格工厂' },
-  { key: 'factories/description', icon: 'FontSizeOutlined', name: '详情工厂' }
+  { key: 'factories/description', icon: 'FontSizeOutlined', name: '详情工厂' },
+  { key: 'factories/chart', icon: 'LineChartOutlined', name: '图表工厂' },
+  { key: 'factories/file', icon: 'FileSearchOutlined', name: '文件工厂' },
+  { key: 'factories/form', icon: 'FormOutlined', name: '表单工厂' },
+  { key: 'factories/document', icon: 'FileWordOutlined', name: '文档工厂' },
+  { key: 'factories/process', icon: 'ProjectOutlined', name: '流程工厂' }
 ]
 
 interface BasicLayoutProps {}

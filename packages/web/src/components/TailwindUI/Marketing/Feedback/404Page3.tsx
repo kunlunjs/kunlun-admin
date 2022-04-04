@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker'
 import {
   BookmarkAltIcon,
   BookOpenIcon,
@@ -9,6 +8,7 @@ import { ChevronRightIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 import { getSvg } from '@/components/svgs'
 import type { GetSvgProps } from '@/components/svgs'
+import faker from '@/utils/faker'
 
 const icons = [BookmarkAltIcon, BookOpenIcon, RssIcon, ViewListIcon]
 

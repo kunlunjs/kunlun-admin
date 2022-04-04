@@ -19,5 +19,11 @@ export default defineConfig({
         }
       }
     }
+  },
+  build: {
+    entry: './src/main.tsx',
+    plugins: {
+      copy: true
+    }
   }
 })

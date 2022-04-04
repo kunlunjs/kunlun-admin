@@ -1,4 +1,3 @@
-import faker from '@faker-js/faker'
 import { Popover, Transition } from '@headlessui/react'
 import {
   BookmarkAltIcon,
@@ -18,6 +17,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
+import faker from '@/utils/faker'
 
 const icons = [
   BookmarkAltIcon,

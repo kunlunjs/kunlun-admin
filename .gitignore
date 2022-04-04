@@ -107,5 +107,6 @@ dist
 yarn.lock
 pnpm-lock.yaml
 !packages/web/.env
+packages/web/pnpm-lock.yaml
 packages/server/src/@generated
 db/

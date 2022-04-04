@@ -1,15 +1,15 @@
-import type { FC, MouseEvent } from 'react'
+import type { ChangeEvent, FC, MouseEvent } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import Frame from 'react-frame-component'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
-import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
+// import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { getBlocks, thumbnailNames } from './helpers'
 import './index.css'
 
 SyntaxHighlighter.registerLanguage('js', js)
-SyntaxHighlighter.registerLanguage('jsx', jsx)
+// SyntaxHighlighter.registerLanguage('jsx', jsx)
 
 const blockList: string[] = []
 const thumbnailEntries = Object.entries(thumbnailNames)
@@ -94,6 +94,7 @@ const viewList = [
 
 interface TemplatesState {
   ready: boolean
+  index: number
   theme: 'indigo'
   copied: boolean
   sidebar: boolean
@@ -118,6 +119,7 @@ export const Templates: FC<TemplatesProps> = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [state, setState] = useState<TemplatesState>({
     ready: false,
+    index: 0,
     sidebar: false,
     darkMode: false,
     blockName: 'header',
@@ -139,11 +141,11 @@ export const Templates: FC<TemplatesProps> = () => {
     switch (keyCode) {
       case 40: // Down
         e.preventDefault()
-        blockList.forEach((block, index) => {
+        blockList.forEach((block, ix) => {
           if (block === blockStringFormat) {
             const newActiveBlock =
-              index + 1 <= blockList.length - 1
-                ? blockList[index + 1].split(',')
+              ix + 1 <= blockList.length - 1
+                ? blockList[ix + 1].split(',')
                 : blockList[0].split(',')
             const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
@@ -172,11 +174,11 @@ export const Templates: FC<TemplatesProps> = () => {
         break
       case 38: // Up
         e.preventDefault()
-        blockList.forEach((block, index) => {
+        blockList.forEach((block, ix) => {
           if (block === blockStringFormat) {
             const newActiveBlock =
-              index - 1 >= 0
-                ? blockList[index - 1].split(',')
+              ix - 1 >= 0
+                ? blockList[ix - 1].split(',')
                 : blockList[blockList.length - 1].split(',')
             const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
@@ -417,10 +419,15 @@ export const Templates: FC<TemplatesProps> = () => {
     }, 2000)
   }
 
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    setState({ ...state, index: Number(e.target.value) })
+  }
+
   const {
     view,
     ready,
     theme,
+    index,
     markup,
     copied,
     sidebar,
@@ -433,8 +440,7 @@ export const Templates: FC<TemplatesProps> = () => {
   } = state
 
   const Blocks = getBlocks({ theme, darkMode })[blockType][blockName]
-  const Block = Blocks[0]
-
+  const Block = Blocks[index]
   return (
     <div
       className={`app${darkMode ? ' dark-mode' : ''}${
@@ -457,12 +463,18 @@ export const Templates: FC<TemplatesProps> = () => {
           <select
             name="components"
             id="components"
+            // onClick={handleSelect}
+            onChange={handleSelect}
             className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           >
             {thumbnailNames[blockType]
               .find(i => i.name === blockName)
               ?.configs?.map((i, ix) => {
-                return <option key={i?.title + ix}>{i?.title}</option>
+                return (
+                  <option key={i.title + ix} value={ix}>
+                    {i.title}
+                  </option>
+                )
               })}
           </select>
         </div>

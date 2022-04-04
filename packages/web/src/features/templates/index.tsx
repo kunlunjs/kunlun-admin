@@ -1,10 +1,15 @@
 import type { FC, MouseEvent } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import Frame from 'react-frame-component'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { getBlocks, thumbnailNames } from './helpers'
 import './index.css'
+
+SyntaxHighlighter.registerLanguage('js', js)
+SyntaxHighlighter.registerLanguage('jsx', jsx)
 
 const blockList: string[] = []
 const thumbnailEntries = Object.entries(thumbnailNames)

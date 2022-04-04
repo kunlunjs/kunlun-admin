@@ -117,6 +117,11 @@ export const Templates: FC<TemplatesProps> = () => {
   const markupRef = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const fixedValues = useRef<{
+    fixedValue: Pick<TemplatesState, 'blockName' | 'blockType' | 'sidebar'>
+  }>({
+    fixedValue: { blockName: 'header', blockType: 'marketing', sidebar: false }
+  })
   const [state, setState] = useState<TemplatesState>({
     ready: false,
     index: 0,
@@ -246,22 +251,29 @@ export const Templates: FC<TemplatesProps> = () => {
       'keydown',
       keyboardNavigation
     )
+    const _state = state
     iframe.contentWindow?.document.addEventListener('click', () => {
-      setState({ ...state, sidebar: false })
+      setState({ ..._state, ...fixedValues.current.fixedValue, sidebar: false })
     })
-    setState({
-      ...state,
-      ready: true,
-      markup: markupRef.current?.innerHTML
-    })
+    timeout = setTimeout(() => {
+      setState({
+        ...state,
+        ready: true,
+        markup: markupRef.current?.innerHTML
+      })
+    }, 400)
   }
 
   const handleContentDidUpdate = () => {
-    setState({
-      ...state,
-      ready: true,
-      markup: markupRef.current?.innerHTML
-    })
+    if (!state.ready) {
+      setState({
+        ...state,
+        ready: true,
+        blockName: state.blockName,
+        blockType: state.blockType,
+        markup: markupRef.current?.innerHTML
+      })
+    }
   }
 
   const beautifyHTML = (codeStr: string) => {
@@ -305,6 +317,7 @@ export const Templates: FC<TemplatesProps> = () => {
       blockTitle,
       codeView: false
     })
+    fixedValues.current!.fixedValue = { blockName, blockType, sidebar }
   }
 
   const changeTheme = (e: MouseEvent<HTMLButtonElement>) => {
@@ -441,6 +454,7 @@ export const Templates: FC<TemplatesProps> = () => {
 
   const Blocks = getBlocks({ theme, darkMode })[blockType][blockName]
   const Block = Blocks[index]
+
   return (
     <div
       className={`app${darkMode ? ' dark-mode' : ''}${
@@ -455,31 +469,35 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="opener" onClick={toggleSidebar} ref={openerRef}>
           组件/模板
         </button>
-        <span className="ml-4 text-white font-bold">{blockTitle}</span>
-        <div className="ml-4 flex h-7">
-          <label htmlFor="components" className="hidden">
-            选择组件
-          </label>
-          <select
-            name="components"
-            id="components"
-            // onClick={handleSelect}
-            onChange={handleSelect}
-            className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-          >
-            {thumbnailNames[blockType]
-              .find(i => i.name === blockName)
-              ?.configs?.map((i, ix) => {
-                return (
-                  <option key={i.title + ix} value={ix}>
-                    {i.title}
-                  </option>
-                )
-              })}
-          </select>
-        </div>
+        {Block && (
+          <>
+            <span className="ml-4 text-white font-bold">{blockTitle}</span>
+            <div className="ml-4 flex h-7">
+              <label htmlFor="components" className="hidden">
+                选择组件
+              </label>
+              <select
+                name="components"
+                id="components"
+                // onClick={handleSelect}
+                onChange={handleSelect}
+                className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+              >
+                {thumbnailNames[blockType]
+                  .find(i => i.name === blockName)
+                  ?.configs?.map((i, ix) => {
+                    return (
+                      <option key={i.title + ix} value={ix}>
+                        {i.title}
+                      </option>
+                    )
+                  })}
+              </select>
+            </div>
+          </>
+        )}
         {codeView && (
-          <div className="clipboard-wrapper">
+          <div className="header-right clipboard-wrapper">
             <button
               className="copy-the-block copy-to-clipboard"
               onClick={copyToClipboard}
@@ -492,7 +510,7 @@ export const Templates: FC<TemplatesProps> = () => {
             </span>
           </div>
         )}
-        <button className="copy-the-block" onClick={toggleView}>
+        <button className="header-right copy-the-block" onClick={toggleView}>
           {!codeView ? (
             <svg
               fill="none"
@@ -533,7 +551,7 @@ export const Templates: FC<TemplatesProps> = () => {
         <div className={`view${codeView ? ' show-code' : ''}`}>
           <Frame
             contentDidMount={handleContentDidMount}
-            // contentDidUpdate={handleContentDidUpdate}
+            contentDidUpdate={handleContentDidUpdate}
             head={
               <>
                 {/* <script src="/static/js/tailwindcss.js"></script> */}
@@ -555,6 +573,7 @@ export const Templates: FC<TemplatesProps> = () => {
                     }}
                   />
                 }
+                {/* <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.2/src/index.min.js"></script> */}
               </>
             }
             // body={<script src="/static/js/tailwindcss.js"></script>}

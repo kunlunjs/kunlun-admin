@@ -14,6 +14,9 @@ module.exports = {
         'rose': colors.rose,
         'orange': colors.orange,
         'warm-gray': colors.stone
+      },
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr'
       }
     }
   },
@@ -26,6 +29,8 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')
   ]
 }

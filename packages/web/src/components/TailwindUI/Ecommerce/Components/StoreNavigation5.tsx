@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react'
 import { SearchIcon, ShoppingBagIcon } from '@heroicons/react/outline'
 import { Fragment } from 'react'

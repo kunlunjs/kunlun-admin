@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'

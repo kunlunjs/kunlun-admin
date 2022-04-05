@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 const orders = [
   {
     number: 'WU88191111',

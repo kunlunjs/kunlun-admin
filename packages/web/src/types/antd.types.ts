@@ -195,7 +195,7 @@ export const klComponents = [
   'BGSetting',
   'LinkSelect',
   'TextSetting'
-  // TODO
+  // TODO: 扩展自定义组件
 ] as const
 
 export type KLComponentType = typeof klComponents[number]

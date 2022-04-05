@@ -2,7 +2,6 @@
 import os from 'os'
 
 export let ip: string
-//FIXME
 const ifaces = os.networkInterfaces()
 
 for (const dev in ifaces) {

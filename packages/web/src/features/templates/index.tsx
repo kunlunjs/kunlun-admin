@@ -545,10 +545,11 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="mode" onClick={changeMode}></button>
       </div>
       <div className="markup" ref={markupRef}>
-        {/* TODO */}
+        {/* TODO: 加载显示原始代码，而非编译后的 */}
         {Block}
       </div>
       <main className="main" style={{ opacity: ready ? '1' : '0' }}>
+        {/* TODO: 使用 device.css 等设备样式库 */}
         <div className={`view${codeView ? ' show-code' : ''}`}>
           <Frame
             contentDidMount={handleContentDidMount}
@@ -556,7 +557,7 @@ export const Templates: FC<TemplatesProps> = () => {
             head={
               <>
                 {/* <script src="/static/js/tailwindcss.js"></script> */}
-                {/* TODO */}
+                {/* TODO: 应引入 https://cdn.tailwindcss.com */}
                 <link
                   // href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
                   href="/static/style/tailwind2.0.2.min.css"

@@ -312,6 +312,7 @@ export const Templates: FC<TemplatesProps> = () => {
     const blockTitle = currentTarget.getAttribute('block-title') as string
     setState({
       ...state,
+      index: 0,
       blockType,
       blockName,
       blockTitle,
@@ -471,7 +472,7 @@ export const Templates: FC<TemplatesProps> = () => {
         </button>
         {Block && (
           <>
-            <span className="ml-4 text-white font-bold">{blockTitle}</span>
+            {/* <span className="ml-4 text-white font-bold">{blockTitle}</span> */}
             <div className="ml-4 flex h-7">
               <label htmlFor="components" className="hidden">
                 选择组件

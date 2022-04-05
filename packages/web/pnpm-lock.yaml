@@ -3,6 +3,8 @@ lockfileVersion: 5.3
 specifiers:
   '@ant-design/icons': ^4.7.0
   '@dnd-kit/core': ^5.0.3
+  '@dnd-kit/sortable': ^6.0.1
+  '@dnd-kit/utilities': ^3.1.0
   '@faker-js/faker': ^6.1.1
   '@fingerprintjs/fingerprintjs': ^3.3.3
   '@headlessui/react': ^1.5.0
@@ -76,6 +78,8 @@ specifiers:
 dependencies:
   '@ant-design/icons': 4.7.0_react-dom@18.0.0+react@18.0.0
   '@dnd-kit/core': 5.0.3_react-dom@18.0.0+react@18.0.0
+  '@dnd-kit/sortable': 6.0.1_@dnd-kit+core@5.0.3+react@18.0.0
+  '@dnd-kit/utilities': 3.1.0_react@18.0.0
   '@fingerprintjs/fingerprintjs': 3.3.3
   '@headlessui/react': 1.5.0_react-dom@18.0.0+react@18.0.0
   '@heroicons/react': 1.0.6_react@18.0.0
@@ -1996,6 +2000,18 @@ packages:
       '@dnd-kit/utilities': 3.1.0_react@18.0.0
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
+      tslib: 2.3.1
+    dev: false
+
+  /@dnd-kit/sortable/6.0.1_@dnd-kit+core@5.0.3+react@18.0.0:
+    resolution: {integrity: sha512-FGpRHBcflpwWpSP8bMJ4zNcDywDXssZDJBwGYuHd1RqUU/+JX43pEU0u0OHw06LabEZMOLBbyWoIaZJ0abCOEA==}
+    peerDependencies:
+      '@dnd-kit/core': ^5.0.2
+      react: '>=16.8.0'
+    dependencies:
+      '@dnd-kit/core': 5.0.3_react-dom@18.0.0+react@18.0.0
+      '@dnd-kit/utilities': 3.1.0_react@18.0.0
+      react: 18.0.0
       tslib: 2.3.1
     dev: false
 

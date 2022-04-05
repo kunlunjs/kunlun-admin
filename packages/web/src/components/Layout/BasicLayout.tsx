@@ -11,9 +11,15 @@ import './BasicLayout.less'
 
 const { Header, Footer, Sider, Content } = Layout
 const { SubMenu } = Menu
-const factories: { key: string; icon: IconNames; name: string }[] = [
-  { key: 'factories/table', icon: 'TableOutlined', name: '表格工厂' },
-  { key: 'factories/description', icon: 'FontSizeOutlined', name: '详情工厂' }
+const factories: { path: string; icon: IconNames; name: string }[] = [
+  { path: 'factories/form', icon: 'FormOutlined', name: '表单工厂' },
+  { path: 'factories/table', icon: 'TableOutlined', name: '表格工厂' },
+  { path: 'factories/description', icon: 'FontSizeOutlined', name: '详情工厂' },
+  { path: 'factories/image', icon: 'FileImageOutlined', name: '图片工厂' },
+  { path: 'factories/chart', icon: 'LineChartOutlined', name: '图表工厂' },
+  { path: 'factories/document', icon: 'FileWordOutlined', name: '文档工厂' },
+  { path: 'factories/file', icon: 'FileSearchOutlined', name: '文件工厂' },
+  { path: 'factories/process', icon: 'ProjectOutlined', name: '流程工厂' }
 ]
 
 interface BasicLayoutProps {}
@@ -71,7 +77,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
           >
             {factories.map(i => {
               return (
-                <Menu.Item icon={<Icon name={i.icon} />} key={i.key}>
+                <Menu.Item icon={<Icon name={i.icon} />} key={i.path}>
                   {i.name}
                 </Menu.Item>
               )

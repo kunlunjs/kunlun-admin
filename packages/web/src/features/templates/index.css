@@ -437,7 +437,10 @@ svg {
   display: none;
 }
 
-.toolbar > :nth-child(4) {
+/* .toolbar > :nth-child(4) {
+  margin-left: auto;
+} */
+.toolbar > .header-right {
   margin-left: auto;
 }
 

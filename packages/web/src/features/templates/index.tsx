@@ -1,15 +1,15 @@
-import type { FC, MouseEvent } from 'react'
+import type { ChangeEvent, FC, MouseEvent } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import Frame from 'react-frame-component'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
-import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
+// import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { getBlocks, thumbnailNames } from './helpers'
 import './index.css'
 
 SyntaxHighlighter.registerLanguage('js', js)
-SyntaxHighlighter.registerLanguage('jsx', jsx)
+// SyntaxHighlighter.registerLanguage('jsx', jsx)
 
 const blockList: string[] = []
 const thumbnailEntries = Object.entries(thumbnailNames)
@@ -94,6 +94,7 @@ const viewList = [
 
 interface TemplatesState {
   ready: boolean
+  index: number
   theme: 'indigo'
   copied: boolean
   sidebar: boolean
@@ -116,8 +117,14 @@ export const Templates: FC<TemplatesProps> = () => {
   const markupRef = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const fixedValues = useRef<{
+    fixedValue: Pick<TemplatesState, 'blockName' | 'blockType' | 'sidebar'>
+  }>({
+    fixedValue: { blockName: 'header', blockType: 'marketing', sidebar: false }
+  })
   const [state, setState] = useState<TemplatesState>({
     ready: false,
+    index: 0,
     sidebar: false,
     darkMode: false,
     blockName: 'header',
@@ -139,11 +146,11 @@ export const Templates: FC<TemplatesProps> = () => {
     switch (keyCode) {
       case 40: // Down
         e.preventDefault()
-        blockList.forEach((block, index) => {
+        blockList.forEach((block, ix) => {
           if (block === blockStringFormat) {
             const newActiveBlock =
-              index + 1 <= blockList.length - 1
-                ? blockList[index + 1].split(',')
+              ix + 1 <= blockList.length - 1
+                ? blockList[ix + 1].split(',')
                 : blockList[0].split(',')
             const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
@@ -172,11 +179,11 @@ export const Templates: FC<TemplatesProps> = () => {
         break
       case 38: // Up
         e.preventDefault()
-        blockList.forEach((block, index) => {
+        blockList.forEach((block, ix) => {
           if (block === blockStringFormat) {
             const newActiveBlock =
-              index - 1 >= 0
-                ? blockList[index - 1].split(',')
+              ix - 1 >= 0
+                ? blockList[ix - 1].split(',')
                 : blockList[blockList.length - 1].split(',')
             const [newBlockName, newBlockType] = newActiveBlock
             const newBlockNode = document.querySelector(
@@ -244,22 +251,29 @@ export const Templates: FC<TemplatesProps> = () => {
       'keydown',
       keyboardNavigation
     )
+    const _state = state
     iframe.contentWindow?.document.addEventListener('click', () => {
-      setState({ ...state, sidebar: false })
+      setState({ ..._state, ...fixedValues.current.fixedValue, sidebar: false })
     })
-    setState({
-      ...state,
-      ready: true,
-      markup: markupRef.current?.innerHTML
-    })
+    timeout = setTimeout(() => {
+      setState({
+        ...state,
+        ready: true,
+        markup: markupRef.current?.innerHTML
+      })
+    }, 400)
   }
 
   const handleContentDidUpdate = () => {
-    setState({
-      ...state,
-      ready: true,
-      markup: markupRef.current?.innerHTML
-    })
+    if (!state.ready) {
+      setState({
+        ...state,
+        ready: true,
+        blockName: state.blockName,
+        blockType: state.blockType,
+        markup: markupRef.current?.innerHTML
+      })
+    }
   }
 
   const beautifyHTML = (codeStr: string) => {
@@ -303,6 +317,7 @@ export const Templates: FC<TemplatesProps> = () => {
       blockTitle,
       codeView: false
     })
+    fixedValues.current!.fixedValue = { blockName, blockType, sidebar }
   }
 
   const changeTheme = (e: MouseEvent<HTMLButtonElement>) => {
@@ -417,10 +432,15 @@ export const Templates: FC<TemplatesProps> = () => {
     }, 2000)
   }
 
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    setState({ ...state, index: Number(e.target.value) })
+  }
+
   const {
     view,
     ready,
     theme,
+    index,
     markup,
     copied,
     sidebar,
@@ -433,7 +453,7 @@ export const Templates: FC<TemplatesProps> = () => {
   } = state
 
   const Blocks = getBlocks({ theme, darkMode })[blockType][blockName]
-  const Block = Blocks[0]
+  const Block = Blocks[index]
 
   return (
     <div
@@ -449,25 +469,35 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="opener" onClick={toggleSidebar} ref={openerRef}>
           组件/模板
         </button>
-        <span className="ml-4 text-white font-bold">{blockTitle}</span>
-        <div className="ml-4 flex h-7">
-          <label htmlFor="components" className="hidden">
-            选择组件
-          </label>
-          <select
-            name="components"
-            id="components"
-            className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-          >
-            {thumbnailNames[blockType]
-              .find(i => i.name === blockName)
-              ?.configs?.map((i, ix) => {
-                return <option key={i?.title + ix}>{i?.title}</option>
-              })}
-          </select>
-        </div>
+        {Block && (
+          <>
+            <span className="ml-4 text-white font-bold">{blockTitle}</span>
+            <div className="ml-4 flex h-7">
+              <label htmlFor="components" className="hidden">
+                选择组件
+              </label>
+              <select
+                name="components"
+                id="components"
+                // onClick={handleSelect}
+                onChange={handleSelect}
+                className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+              >
+                {thumbnailNames[blockType]
+                  .find(i => i.name === blockName)
+                  ?.configs?.map((i, ix) => {
+                    return (
+                      <option key={i.title + ix} value={ix}>
+                        {i.title}
+                      </option>
+                    )
+                  })}
+              </select>
+            </div>
+          </>
+        )}
         {codeView && (
-          <div className="clipboard-wrapper">
+          <div className="header-right clipboard-wrapper">
             <button
               className="copy-the-block copy-to-clipboard"
               onClick={copyToClipboard}
@@ -480,7 +510,7 @@ export const Templates: FC<TemplatesProps> = () => {
             </span>
           </div>
         )}
-        <button className="copy-the-block" onClick={toggleView}>
+        <button className="header-right copy-the-block" onClick={toggleView}>
           {!codeView ? (
             <svg
               fill="none"
@@ -521,7 +551,7 @@ export const Templates: FC<TemplatesProps> = () => {
         <div className={`view${codeView ? ' show-code' : ''}`}>
           <Frame
             contentDidMount={handleContentDidMount}
-            // contentDidUpdate={handleContentDidUpdate}
+            contentDidUpdate={handleContentDidUpdate}
             head={
               <>
                 {/* <script src="/static/js/tailwindcss.js"></script> */}
@@ -543,6 +573,7 @@ export const Templates: FC<TemplatesProps> = () => {
                     }}
                   />
                 }
+                {/* <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.2/src/index.min.js"></script> */}
               </>
             }
             // body={<script src="/static/js/tailwindcss.js"></script>}

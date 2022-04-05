@@ -13,5 +13,5 @@ export const KLDescriptionFactory: FC<KLDescriptionFactoryProps> = () => {
 
   const renderItem = useMemo(() => {}, [])
 
-  return <div>KLDescriptionFactory</div>
+  return <div>详情渲染工厂</div>
 }

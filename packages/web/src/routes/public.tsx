@@ -10,12 +10,12 @@ const { AuthRoutes } = lazyImport(
     import(/* @vite-ignore */ /* webpackChunkName: "auth" */ '@/features/auth'),
   'AuthRoutes'
 )
-const { KLTableFactory } = lazyImport(
+const { KLChartFactory } = lazyImport(
   () =>
     import(
-      /* @vite-ignore */ /* webpackChunkName: "KLTableFactory" */ '@/features/factories/KLTableFactory'
+      /* @vite-ignore */ /* webpackChunkName: "KLChartFactory" */ '@/features/factories/KLChartFactory'
     ),
-  'KLTableFactory'
+  'KLChartFactory'
 )
 const { KLDescriptionFactory } = lazyImport(
   () =>
@@ -23,6 +23,48 @@ const { KLDescriptionFactory } = lazyImport(
       /* @vite-ignore */ /* webpackChunkName: "KLDescriptionFactory" */ '@/features/factories/KLDescriptionFactory'
     ),
   'KLDescriptionFactory'
+)
+const { KLDocumentFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLDocumentFactory" */ '@/features/factories/KLDocumentFactory'
+    ),
+  'KLDocumentFactory'
+)
+const { KLFileFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLFileFactory" */ '@/features/factories/KLFileFactory'
+    ),
+  'KLFileFactory'
+)
+const { KLFormFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLFormFactory" */ '@/features/factories/KLFormFactory'
+    ),
+  'KLFormFactory'
+)
+const { KLImageFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLImageFactory" */ '@/features/factories/KLImageFactory'
+    ),
+  'KLImageFactory'
+)
+const { KLProcessFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLProcessFactory" */ '@/features/factories/KLProcessFactory'
+    ),
+  'KLProcessFactory'
+)
+const { KLTableFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLTableFactory" */ '@/features/factories/KLTableFactory'
+    ),
+  'KLTableFactory'
 )
 const { Templates } = lazyImport(
   () =>
@@ -102,6 +144,30 @@ export const publicRoutes: RouteItems = [
         element: <Assemble />
       },
       /* 渲染工厂 */
+      {
+        path: '/factories/chart',
+        element: <KLChartFactory />
+      },
+      {
+        path: '/factories/document',
+        element: <KLDocumentFactory />
+      },
+      {
+        path: '/factories/file',
+        element: <KLFileFactory />
+      },
+      {
+        path: '/factories/form',
+        element: <KLFormFactory />
+      },
+      {
+        path: '/factories/image',
+        element: <KLImageFactory />
+      },
+      {
+        path: '/factories/process',
+        element: <KLProcessFactory />
+      },
       {
         path: '/factories/table',
         element: <KLTableFactory />

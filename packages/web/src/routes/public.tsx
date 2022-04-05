@@ -45,6 +45,13 @@ const { KLFormFactory } = lazyImport(
     ),
   'KLFormFactory'
 )
+const { KLImageFactory } = lazyImport(
+  () =>
+    import(
+      /* @vite-ignore */ /* webpackChunkName: "KLImageFactory" */ '@/features/factories/KLImageFactory'
+    ),
+  'KLImageFactory'
+)
 const { KLProcessFactory } = lazyImport(
   () =>
     import(
@@ -152,6 +159,10 @@ export const publicRoutes: RouteItems = [
       {
         path: '/factories/form',
         element: <KLFormFactory />
+      },
+      {
+        path: '/factories/image',
+        element: <KLImageFactory />
       },
       {
         path: '/factories/process',

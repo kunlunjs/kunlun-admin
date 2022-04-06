@@ -1,6 +1,6 @@
 {
   "database": {
-    "develop": "postgresql://pp:pp@127.0.0.1:5432/pp"
+    "develop": "postgresql://user:password@ip:port/db"
   },
   "enums": [],
   "models": [

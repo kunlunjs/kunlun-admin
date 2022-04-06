@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  // "extends": "../../tsconfig.json",
   "include": ["prisma", "src", "test"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
@@ -12,6 +12,11 @@
     "paths": {
       "@/*": ["src/*"],
       "src/*": ["src/*"]
-    }
+    },
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   }
 }

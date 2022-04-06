@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import desktopIcon from '@/assets/device-desktop.svg'
 import mobileIcon from '@/assets/device-mobile.svg'
 import tabletIcon from '@/assets/device-tablet.svg'
+import { Developing } from '@/utils/getRoutes'
 
 export const themeList = [
   'indigo',
@@ -181,15 +182,6 @@ export const thumbnailNames = thumbnailSrcs.reduce((acc, src) => {
   })
   return acc
 }, {} as A)
-
-const Developing = () => (
-  <div
-    className="flex items-center justify-center text-xl text-orange-400"
-    style={{ height: '100vh' }}
-  >
-    开发中，敬请期待...
-  </div>
-)
 
 export const getBlocks = ({
   theme = 'indigo',

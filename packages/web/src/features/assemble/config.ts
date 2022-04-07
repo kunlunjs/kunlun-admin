@@ -1,7 +1,22 @@
 import type { DragItems } from './interfaces'
 
 export const DragItemTypes = {
-  ITEM: 'component'
+  /**
+   * 容器
+   */
+  LAYOUT: 'layout',
+  /**
+   * 页面
+   */
+  PAGE: 'page',
+  /**
+   * 图表
+   */
+  CHART: 'chart',
+  /**
+   * 组件
+   */
+  COMPONENT: 'component'
 }
 
 export const categories = [

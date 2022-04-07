@@ -8,7 +8,9 @@ import { categories } from './config'
 import type { DragItem, DragItems } from './interfaces'
 import './index.less'
 
-const tabs: { key: string; title: string; icon: IconNames }[] = [
+type LeftTab = { key: string; title: string; icon: IconNames }
+type LeftTabs = LeftTab[]
+const tabs: LeftTabs = [
   { key: 'components', title: '组件', icon: 'AppstoreAddOutlined' },
   { key: 'charts', title: '图表', icon: 'BarChartOutlined' }
 ]

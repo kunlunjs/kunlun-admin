@@ -6,22 +6,26 @@ import { useDrop } from 'react-dnd'
 import { DropHeader } from './components'
 import { DragItemTypes } from './config'
 import { selectBackgroundColor } from './helpers'
+import type { DragItem } from './interfaces'
 
-interface CenterProps {}
+interface CenterProps {
+  onDrop?: (item: DragItem, monitor: DropTargetMonitor<DragItem>) => void
+}
 
-export const Center: FC<CenterProps> = () => {
+export const Center: FC<CenterProps> = ({ onDrop }) => {
   const [grided, setGrided] = useState(true)
   const [{ canDrop, isOver }, drop] = useDrop(() => {
     return {
-      accept: DragItemTypes.ITEM,
-      // 可由外部传入
-      drop: () => {
-        return {
-          name: '',
-          allowedDropEffect: true
-        }
-      },
-      hover(item, monitor) {},
+      accept: DragItemTypes.COMPONENT,
+      drop: onDrop
+        ? onDrop
+        : () => {
+            return {
+              name: '',
+              allowedDropEffect: true
+            }
+          },
+      // hover(item, monitor) {},
       collect: (monitor: DropTargetMonitor) => {
         return {
           isOver: monitor.isOver(),

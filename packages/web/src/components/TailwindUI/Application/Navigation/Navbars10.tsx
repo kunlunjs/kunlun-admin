@@ -1,6 +1,7 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar10Props {}
@@ -21,10 +22,6 @@ const userNavigation = [
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Navbar10: FC<Navbar10Props> = () => {
   return (
@@ -111,7 +108,7 @@ const Navbar10: FC<Navbar10Props> = () => {
                           {({ active }) => (
                             <a
                               href={item.href}
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block py-2 px-4 text-sm text-gray-700'
                               )}
@@ -134,7 +131,7 @@ const Navbar10: FC<Navbar10Props> = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
@@ -155,7 +152,7 @@ const Navbar10: FC<Navbar10Props> = () => {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',

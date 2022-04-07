@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tabs7Props {}
 const tabs = [
@@ -6,10 +7,6 @@ const tabs = [
   { name: 'Team Members', href: '#', current: false },
   { name: 'Billing', href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Tabs7: FC<Tabs7Props> = () => {
   return (
@@ -23,6 +20,7 @@ const Tabs7: FC<Tabs7Props> = () => {
           id="tabs"
           name="tabs"
           className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
           {tabs.map(tab => (
@@ -39,7 +37,7 @@ const Tabs7: FC<Tabs7Props> = () => {
             <a
               key={tab.name}
               href={tab.href}
-              className={classNames(
+              className={clsx(
                 tab.current
                   ? 'text-gray-900'
                   : 'text-gray-500 hover:text-gray-700',
@@ -52,7 +50,7 @@ const Tabs7: FC<Tabs7Props> = () => {
               <span>{tab.name}</span>
               <span
                 aria-hidden="true"
-                className={classNames(
+                className={clsx(
                   tab.current ? 'bg-indigo-500' : 'bg-transparent',
                   'absolute inset-x-0 bottom-0 h-0.5'
                 )}

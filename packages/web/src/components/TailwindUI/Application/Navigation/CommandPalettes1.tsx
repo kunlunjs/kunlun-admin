@@ -1,5 +1,6 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 interface CommandPalettes1Props {}
@@ -8,9 +9,6 @@ const people = [
   // More people...
 ]
 
-function classNames(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ')
-}
 const CommandPalettes1: FC<CommandPalettes1Props> = () => {
   const [query, setQuery] = useState('')
 
@@ -52,6 +50,7 @@ const CommandPalettes1: FC<CommandPalettes1Props> = () => {
           <Combobox
             as="div"
             className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            value=""
             onChange={(person: any) => (window.location = person.url)}
           >
             <div className="relative">
@@ -76,7 +75,7 @@ const CommandPalettes1: FC<CommandPalettes1Props> = () => {
                     key={person.id}
                     value={person}
                     className={({ active }) =>
-                      classNames(
+                      clsx(
                         'cursor-default select-none px-4 py-2',
                         active && 'bg-indigo-600 text-white'
                       )

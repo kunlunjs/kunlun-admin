@@ -7,6 +7,7 @@ import {
   TagIcon
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 interface CommandPalettes6Props {}
@@ -21,10 +22,6 @@ const quickActions = [
   { name: 'Add hashtag...', icon: HashtagIcon, shortcut: 'H', url: '#' },
   { name: 'Add label...', icon: TagIcon, shortcut: 'L', url: '#' }
 ]
-
-function classNames(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const CommandPalettes6: FC<CommandPalettes6Props> = () => {
   const [query, setQuery] = useState('')
@@ -68,7 +65,8 @@ const CommandPalettes6: FC<CommandPalettes6Props> = () => {
           <Combobox
             as="div"
             className="max-w-2xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-500 shadow-2xl divide-opacity-10 rounded-xl bg-opacity-80 ring-1 ring-black ring-opacity-5 backdrop-blur backdrop-filter"
-            onChange={item => (window.location = item.url)}
+            value=""
+            onChange={(item: any) => (window.location = item.url)}
           >
             <div className="relative">
               <SearchIcon
@@ -99,7 +97,7 @@ const CommandPalettes6: FC<CommandPalettes6Props> = () => {
                         key={project.id}
                         value={project}
                         className={({ active }) =>
-                          classNames(
+                          clsx(
                             'flex cursor-default select-none items-center rounded-md px-3 py-2',
                             active && 'bg-gray-900 bg-opacity-5 text-gray-900'
                           )
@@ -108,7 +106,7 @@ const CommandPalettes6: FC<CommandPalettes6Props> = () => {
                         {({ active }) => (
                           <>
                             <FolderIcon
-                              className={classNames(
+                              className={clsx(
                                 'h-6 w-6 flex-none text-gray-900 text-opacity-40',
                                 active && 'text-opacity-100'
                               )}
@@ -137,7 +135,7 @@ const CommandPalettes6: FC<CommandPalettes6Props> = () => {
                           key={action.shortcut}
                           value={action}
                           className={({ active }) =>
-                            classNames(
+                            clsx(
                               'flex cursor-default select-none items-center rounded-md px-3 py-2',
                               active && 'bg-gray-900 bg-opacity-5 text-gray-900'
                             )
@@ -146,7 +144,7 @@ const CommandPalettes6: FC<CommandPalettes6Props> = () => {
                           {({ active }) => (
                             <>
                               <action.icon
-                                className={classNames(
+                                className={clsx(
                                   'h-6 w-6 flex-none text-gray-900 text-opacity-40',
                                   active && 'text-opacity-100'
                                 )}

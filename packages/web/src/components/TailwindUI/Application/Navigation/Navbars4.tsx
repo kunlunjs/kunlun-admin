@@ -1,11 +1,9 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar4Props {}
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Navbar4: FC<Navbar4Props> = () => {
   return (
@@ -101,7 +99,7 @@ const Navbar4: FC<Navbar4Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
@@ -114,7 +112,7 @@ const Navbar4: FC<Navbar4Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
@@ -127,7 +125,7 @@ const Navbar4: FC<Navbar4Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}

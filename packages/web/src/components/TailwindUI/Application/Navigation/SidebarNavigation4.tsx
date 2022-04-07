@@ -7,6 +7,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation4Props {}
 const navigation = [
@@ -17,11 +18,6 @@ const navigation = [
   { name: 'Documents', icon: InboxIcon, href: '#', current: false },
   { name: 'Reports', icon: ChartBarIcon, href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const SidebarNavigation4: FC<SidebarNavigation4Props> = () => {
   return (
     <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-white border-r border-gray-200">
@@ -38,7 +34,7 @@ const SidebarNavigation4: FC<SidebarNavigation4Props> = () => {
             <a
               key={item.name}
               href={item.href}
-              className={classNames(
+              className={clsx(
                 item.current
                   ? 'bg-indigo-50 border-indigo-600 text-indigo-600'
                   : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -46,7 +42,7 @@ const SidebarNavigation4: FC<SidebarNavigation4Props> = () => {
               )}
             >
               <item.icon
-                className={classNames(
+                className={clsx(
                   item.current
                     ? 'text-indigo-500'
                     : 'text-gray-400 group-hover:text-gray-500',

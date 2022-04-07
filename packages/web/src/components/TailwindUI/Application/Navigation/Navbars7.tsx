@@ -1,12 +1,10 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar7Props {}
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Navbar7: FC<Navbar7Props> = () => {
   return (
@@ -127,7 +125,7 @@ const Navbar7: FC<Navbar7Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
@@ -140,7 +138,7 @@ const Navbar7: FC<Navbar7Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
@@ -153,7 +151,7 @@ const Navbar7: FC<Navbar7Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}

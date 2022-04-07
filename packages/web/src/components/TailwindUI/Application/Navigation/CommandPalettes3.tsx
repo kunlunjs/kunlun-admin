@@ -2,6 +2,8 @@ import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { UsersIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 import { ChevronRightIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
+import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 
 interface CommandPalettes3Props {}
@@ -22,10 +24,6 @@ const people = [
 ]
 
 const recent = [people[5], people[4], people[2], people[10], people[16]]
-
-function classNames(...classes: (string | boolean | null)[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const CommandPalettes3: FC<CommandPalettes3Props> = () => {
   const [query, setQuery] = useState('')
@@ -70,7 +68,8 @@ const CommandPalettes3: FC<CommandPalettes3Props> = () => {
           <Combobox
             as="div"
             className="max-w-3xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
-            onChange={person => (window.location = person.profileUrl)}
+            value=""
+            onChange={(person: any) => (window.location = person.profileUrl)}
           >
             {({ activeOption }) => (
               <>
@@ -94,7 +93,7 @@ const CommandPalettes3: FC<CommandPalettes3Props> = () => {
                     className="flex divide-x divide-gray-100"
                   >
                     <div
-                      className={classNames(
+                      className={clsx(
                         'max-h-96 min-w-0 flex-auto scroll-py-4 overflow-y-auto px-6 py-4',
                         activeOption && 'sm:h-96'
                       )}
@@ -112,7 +111,7 @@ const CommandPalettes3: FC<CommandPalettes3Props> = () => {
                               key={person.id}
                               value={person}
                               className={({ active }) =>
-                                classNames(
+                                clsx(
                                   'flex cursor-default select-none items-center rounded-md p-2',
                                   active && 'bg-gray-100 text-gray-900'
                                 )

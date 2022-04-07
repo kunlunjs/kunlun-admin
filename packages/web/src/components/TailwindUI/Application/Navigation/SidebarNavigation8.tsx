@@ -7,6 +7,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation8Props {}
 const navigation = [
@@ -23,10 +24,6 @@ const secondaryNavigation = [
   { name: 'Customer migration guides', href: '#' },
   { name: 'Profit sharing program', href: '#' }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
   return (
@@ -45,7 +42,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className={classNames(
+                className={clsx(
                   item.current
                     ? 'bg-gray-100 text-gray-900'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -53,7 +50,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
                 )}
               >
                 <item.icon
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'text-gray-500'
                       : 'text-gray-400 group-hover:text-gray-500',

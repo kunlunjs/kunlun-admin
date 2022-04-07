@@ -6,6 +6,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface VerticalNavigation1Props {}
 const navigation = [
@@ -29,10 +30,6 @@ const navigation = [
   { name: 'Reports', href: '#', icon: ChartBarIcon, current: false }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const VerticalNavigation1: FC<VerticalNavigation1Props> = () => {
   return (
     <nav className="space-y-1" aria-label="Sidebar">
@@ -40,7 +37,7 @@ const VerticalNavigation1: FC<VerticalNavigation1Props> = () => {
         <a
           key={item.name}
           href={item.href}
-          className={classNames(
+          className={clsx(
             item.current
               ? 'bg-gray-200 text-gray-900'
               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -49,7 +46,7 @@ const VerticalNavigation1: FC<VerticalNavigation1Props> = () => {
           aria-current={item.current ? 'page' : undefined}
         >
           <item.icon
-            className={classNames(
+            className={clsx(
               item.current ? 'text-gray-500' : 'text-gray-400',
               'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
             )}
@@ -58,7 +55,7 @@ const VerticalNavigation1: FC<VerticalNavigation1Props> = () => {
           <span className="truncate">{item.name}</span>
           {item.count ? (
             <span
-              className={classNames(
+              className={clsx(
                 item.current ? 'bg-gray-50' : 'bg-gray-200 text-gray-600',
                 'ml-auto inline-block py-0.5 px-3 text-xs rounded-full'
               )}

@@ -5,6 +5,7 @@ import {
   SupportIcon
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 import type { FC } from 'react'
 interface CommandPalettes9Props {}
@@ -28,9 +29,7 @@ const users = [
   }
   // More users...
 ]
-function classNames(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ')
-}
+
 const CommandPalettes9: FC<CommandPalettes9Props> = () => {
   const [open, setOpen] = useState(true)
   const [rawQuery, setRawQuery] = useState('')
@@ -86,7 +85,8 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
           <Combobox
             as="div"
             className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
-            onChange={item => (window.location = item.url)}
+            value=""
+            onChange={(item: any) => (window.location = item.url)}
           >
             <div className="relative">
               <SearchIcon
@@ -116,7 +116,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
                           key={project.id}
                           value={project}
                           className={({ active }) =>
-                            classNames(
+                            clsx(
                               'flex cursor-default select-none items-center px-4 py-2',
                               active && 'bg-indigo-600 text-white'
                             )
@@ -125,7 +125,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
                           {({ active }) => (
                             <>
                               <FolderIcon
-                                className={classNames(
+                                className={clsx(
                                   'h-6 w-6 flex-none',
                                   active ? 'text-white' : 'text-gray-400'
                                 )}
@@ -152,7 +152,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
                           key={user.id}
                           value={user}
                           className={({ active }) =>
-                            classNames(
+                            clsx(
                               'flex cursor-default select-none items-center px-4 py-2',
                               active && 'bg-indigo-600 text-white'
                             )
@@ -213,7 +213,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
             <div className="flex flex-wrap items-center bg-gray-50 py-2.5 px-4 text-xs text-gray-700">
               Type{' '}
               <kbd
-                className={classNames(
+                className={clsx(
                   'mx-1 flex h-5 w-5 items-center justify-center rounded border bg-white font-semibold sm:mx-2',
                   rawQuery.startsWith('#')
                     ? 'border-indigo-600 text-indigo-600'
@@ -225,7 +225,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
               <span className="sm:hidden">for projects,</span>
               <span className="hidden sm:inline">to access projects,</span>
               <kbd
-                className={classNames(
+                className={clsx(
                   'mx-1 flex h-5 w-5 items-center justify-center rounded border bg-white font-semibold sm:mx-2',
                   rawQuery.startsWith('>')
                     ? 'border-indigo-600 text-indigo-600'
@@ -236,7 +236,7 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
               </kbd>{' '}
               for users, and{' '}
               <kbd
-                className={classNames(
+                className={clsx(
                   'mx-1 flex h-5 w-5 items-center justify-center rounded border bg-white font-semibold sm:mx-2',
                   rawQuery === '?'
                     ? 'border-indigo-600 text-indigo-600'

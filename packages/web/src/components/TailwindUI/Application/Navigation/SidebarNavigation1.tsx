@@ -7,6 +7,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation1Props {}
 
@@ -18,10 +19,6 @@ const navigation = [
   { name: 'Documents', icon: InboxIcon, href: '#', count: 12, current: false },
   { name: 'Reports', icon: ChartBarIcon, href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
   return (
@@ -39,7 +36,7 @@ const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
             <a
               key={item.name}
               href={item.href}
-              className={classNames(
+              className={clsx(
                 item.current
                   ? 'bg-indigo-800 text-white'
                   : 'text-indigo-100 hover:bg-indigo-600 hover:bg-opacity-75',
@@ -53,7 +50,7 @@ const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
               <span className="flex-1">{item.name}</span>
               {item.count ? (
                 <span
-                  className={classNames(
+                  className={clsx(
                     item.current ? 'bg-indigo-600' : 'bg-indigo-800',
                     'ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full'
                   )}

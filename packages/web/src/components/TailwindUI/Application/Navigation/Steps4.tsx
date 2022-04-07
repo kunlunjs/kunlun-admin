@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface Steps4Props {}
 const steps = [
@@ -25,10 +26,6 @@ const steps = [
   }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const Steps4: FC<Steps4Props> = () => {
   return (
     <div className="lg:border-t lg:border-b lg:border-gray-200">
@@ -43,7 +40,7 @@ const Steps4: FC<Steps4Props> = () => {
           {steps.map((step, stepIdx) => (
             <li key={step.id} className="relative overflow-hidden lg:flex-1">
               <div
-                className={classNames(
+                className={clsx(
                   stepIdx === 0 ? 'border-b-0 rounded-t-md' : '',
                   stepIdx === steps.length - 1 ? 'border-t-0 rounded-b-md' : '',
                   'border border-gray-200 overflow-hidden lg:border-0'
@@ -56,7 +53,7 @@ const Steps4: FC<Steps4Props> = () => {
                       aria-hidden="true"
                     />
                     <span
-                      className={classNames(
+                      className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
                         'px-6 py-5 flex items-start text-sm font-medium'
                       )}
@@ -86,7 +83,7 @@ const Steps4: FC<Steps4Props> = () => {
                       aria-hidden="true"
                     />
                     <span
-                      className={classNames(
+                      className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
                         'px-6 py-5 flex items-start text-sm font-medium'
                       )}
@@ -113,7 +110,7 @@ const Steps4: FC<Steps4Props> = () => {
                       aria-hidden="true"
                     />
                     <span
-                      className={classNames(
+                      className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
                         'px-6 py-5 flex items-start text-sm font-medium'
                       )}

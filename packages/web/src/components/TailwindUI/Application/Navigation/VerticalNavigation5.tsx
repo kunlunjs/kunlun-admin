@@ -7,6 +7,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface VerticalNavigation5Props {}
 const navigation = [
@@ -18,10 +19,6 @@ const navigation = [
   { name: 'Reports', href: '#', icon: ChartBarIcon, current: false }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const VerticalNavigation5: FC<VerticalNavigation5Props> = () => {
   return (
     <nav className="space-y-1" aria-label="Sidebar">
@@ -29,7 +26,7 @@ const VerticalNavigation5: FC<VerticalNavigation5Props> = () => {
         <a
           key={item.name}
           href={item.href}
-          className={classNames(
+          className={clsx(
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -38,7 +35,7 @@ const VerticalNavigation5: FC<VerticalNavigation5Props> = () => {
           aria-current={item.current ? 'page' : undefined}
         >
           <item.icon
-            className={classNames(
+            className={clsx(
               item.current
                 ? 'text-gray-500'
                 : 'text-gray-400 group-hover:text-gray-500',

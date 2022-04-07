@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar1Props {}
@@ -10,10 +11,6 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Navbar1: FC<Navbar1Props> = () => {
   return (
@@ -52,7 +49,7 @@ const Navbar1: FC<Navbar1Props> = () => {
                       <a
                         key={item.name}
                         href={item.href}
-                        className={classNames(
+                        className={clsx(
                           item.current
                             ? 'bg-gray-900 text-white'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -101,7 +98,7 @@ const Navbar1: FC<Navbar1Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
@@ -114,7 +111,7 @@ const Navbar1: FC<Navbar1Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
@@ -127,7 +124,7 @@ const Navbar1: FC<Navbar1Props> = () => {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(
+                            className={clsx(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
@@ -150,7 +147,7 @@ const Navbar1: FC<Navbar1Props> = () => {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'bg-gray-900 text-white'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white',

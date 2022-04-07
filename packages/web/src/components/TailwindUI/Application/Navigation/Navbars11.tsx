@@ -1,6 +1,7 @@
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar11Props {}
@@ -22,10 +23,6 @@ const userNavigation = [
   { name: 'Sign out', href: '#' }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const Navbar11: FC<Navbar11Props> = () => {
   return (
     <>
@@ -33,7 +30,7 @@ const Navbar11: FC<Navbar11Props> = () => {
       <Popover
         as="header"
         className={({ open }) =>
-          classNames(
+          clsx(
             open ? 'fixed inset-0 z-40 overflow-y-auto' : '',
             'bg-white shadow-sm lg:static lg:overflow-y-visible'
           )
@@ -125,7 +122,7 @@ const Navbar11: FC<Navbar11Props> = () => {
                             {({ active }) => (
                               <a
                                 href={item.href}
-                                className={classNames(
+                                className={clsx(
                                   active ? 'bg-gray-100' : '',
                                   'block py-2 px-4 text-sm text-gray-700'
                                 )}
@@ -156,7 +153,7 @@ const Navbar11: FC<Navbar11Props> = () => {
                     key={item.name}
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
+                    className={clsx(
                       item.current
                         ? 'bg-gray-100 text-gray-900'
                         : 'hover:bg-gray-50',

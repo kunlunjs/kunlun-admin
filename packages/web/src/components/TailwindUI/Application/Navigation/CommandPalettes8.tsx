@@ -1,6 +1,7 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { EmojiSadIcon, GlobeIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 interface CommandPalettes8Props {}
@@ -8,10 +9,6 @@ const items = [
   { id: 1, name: 'Workflow Inc.', category: 'Clients', url: '#' }
   // More items...
 ]
-
-function classNames(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const CommandPalettes8: FC<CommandPalettes8Props> = () => {
   const [query, setQuery] = useState('')
@@ -28,6 +25,7 @@ const CommandPalettes8: FC<CommandPalettes8Props> = () => {
   const groups = filteredItems.reduce((groups, item) => {
     return {
       ...groups,
+      //   @ts-ignore
       [item.category]: [...(groups[item.category] || []), item]
     }
   }, {})
@@ -63,7 +61,8 @@ const CommandPalettes8: FC<CommandPalettes8Props> = () => {
           <Combobox
             as="div"
             className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
-            onChange={item => (window.location = item.url)}
+            value=""
+            onChange={(item: any) => (window.location = item.url)}
           >
             <div className="relative">
               <SearchIcon
@@ -104,12 +103,13 @@ const CommandPalettes8: FC<CommandPalettes8Props> = () => {
                       {category}
                     </h2>
                     <ul className="mt-2 text-sm text-gray-800">
-                      {items.map(item => (
+                      {/*@ts-ignore */}
+                      {items.map((item: any) => (
                         <Combobox.Option
                           key={item.id}
                           value={item}
                           className={({ active }) =>
-                            classNames(
+                            clsx(
                               'cursor-default select-none px-4 py-2',
                               active && 'bg-indigo-600 text-white'
                             )

@@ -1,6 +1,7 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { ExclamationCircleIcon, PencilAltIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 interface CommandPalettes4Props {}
@@ -15,10 +16,6 @@ const items = [
   }
   // More items...
 ]
-
-function classNames(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const CommandPalettes4: FC<CommandPalettes4Props> = () => {
   const [query, setQuery] = useState('')
@@ -63,7 +60,8 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
           <Combobox
             as="div"
             className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
-            onChange={item => (window.location = item.url)}
+            value=""
+            onChange={(item: any) => (window.location = item.url)}
           >
             <div className="relative">
               <SearchIcon
@@ -87,7 +85,7 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
                     key={item.id}
                     value={item}
                     className={({ active }) =>
-                      classNames(
+                      clsx(
                         'flex cursor-default select-none rounded-xl p-3',
                         active && 'bg-gray-100'
                       )
@@ -96,7 +94,7 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
                     {({ active }) => (
                       <>
                         <div
-                          className={classNames(
+                          className={clsx(
                             'flex h-10 w-10 flex-none items-center justify-center rounded-lg',
                             item.color
                           )}
@@ -108,7 +106,7 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
                         </div>
                         <div className="flex-auto ml-4">
                           <p
-                            className={classNames(
+                            className={clsx(
                               'text-sm font-medium',
                               active ? 'text-gray-900' : 'text-gray-700'
                             )}
@@ -116,7 +114,7 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
                             {item.name}
                           </p>
                           <p
-                            className={classNames(
+                            className={clsx(
                               'text-sm',
                               active ? 'text-gray-700' : 'text-gray-500'
                             )}

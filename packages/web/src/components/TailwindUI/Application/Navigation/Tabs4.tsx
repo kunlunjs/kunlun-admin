@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tabs4Props {}
 const tabs = [
@@ -6,10 +7,6 @@ const tabs = [
   { name: 'Team Members', href: '#', current: true },
   { name: 'Billing', href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Tabs4: FC<Tabs4Props> = () => {
   return (
@@ -23,6 +20,7 @@ const Tabs4: FC<Tabs4Props> = () => {
           id="tabs"
           name="tabs"
           className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
           {tabs.map(tab => (
@@ -36,7 +34,7 @@ const Tabs4: FC<Tabs4Props> = () => {
             <a
               key={tab.name}
               href={tab.href}
-              className={classNames(
+              className={clsx(
                 tab.current
                   ? 'bg-gray-200 text-gray-800'
                   : 'text-gray-600 hover:text-gray-800',

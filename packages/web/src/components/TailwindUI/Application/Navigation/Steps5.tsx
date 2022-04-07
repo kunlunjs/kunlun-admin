@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface Steps5Props {}
 const steps = [
@@ -9,10 +10,6 @@ const steps = [
   { name: 'Step 5', href: '#', status: 'upcoming' }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const Steps5: FC<Steps5Props> = () => {
   return (
     <nav aria-label="Progress">
@@ -20,7 +17,7 @@ const Steps5: FC<Steps5Props> = () => {
         {steps.map((step, stepIdx) => (
           <li
             key={step.name}
-            className={classNames(
+            className={clsx(
               stepIdx !== steps.length - 1 ? 'pr-8 sm:pr-20' : '',
               'relative'
             )}

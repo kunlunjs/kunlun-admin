@@ -7,6 +7,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation3Props {}
 const navigation = [
@@ -17,10 +18,6 @@ const navigation = [
   { name: 'Documents', icon: InboxIcon, href: '#', count: 12, current: false },
   { name: 'Reports', icon: ChartBarIcon, href: '#', current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const SidebarNavigation3: FC<SidebarNavigation3Props> = () => {
   return (
@@ -38,7 +35,7 @@ const SidebarNavigation3: FC<SidebarNavigation3Props> = () => {
             <a
               key={item.name}
               href={item.href}
-              className={classNames(
+              className={clsx(
                 item.current
                   ? 'bg-gray-100 text-gray-900'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -46,7 +43,7 @@ const SidebarNavigation3: FC<SidebarNavigation3Props> = () => {
               )}
             >
               <item.icon
-                className={classNames(
+                className={clsx(
                   item.current
                     ? 'text-gray-500'
                     : 'text-gray-400 group-hover:text-gray-500',
@@ -57,7 +54,7 @@ const SidebarNavigation3: FC<SidebarNavigation3Props> = () => {
               <span className="flex-1">{item.name}</span>
               {item.count ? (
                 <span
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'bg-white'
                       : 'bg-gray-100 group-hover:bg-gray-200',

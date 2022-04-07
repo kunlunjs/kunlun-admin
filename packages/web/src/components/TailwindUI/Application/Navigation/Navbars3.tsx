@@ -1,12 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar3Props {}
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Navbar3: FC<Navbar3Props> = () => {
   return (
@@ -94,7 +92,7 @@ const Navbar3: FC<Navbar3Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
@@ -107,7 +105,7 @@ const Navbar3: FC<Navbar3Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
@@ -120,7 +118,7 @@ const Navbar3: FC<Navbar3Props> = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}

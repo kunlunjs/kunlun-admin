@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface VerticalNavigation2Props {}
 const navigation = [
@@ -9,10 +10,6 @@ const navigation = [
   { name: 'Reports', href: '#', current: false }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const VerticalNavigation2: FC<VerticalNavigation2Props> = () => {
   return (
     <nav className="space-y-1" aria-label="Sidebar">
@@ -20,7 +17,7 @@ const VerticalNavigation2: FC<VerticalNavigation2Props> = () => {
         <a
           key={item.name}
           href={item.href}
-          className={classNames(
+          className={clsx(
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',

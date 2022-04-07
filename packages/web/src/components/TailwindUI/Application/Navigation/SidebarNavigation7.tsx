@@ -8,6 +8,7 @@ import {
   InboxIcon,
   UsersIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation7Props {}
 const navigation = [
@@ -69,10 +70,6 @@ const navigation = [
   }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const SidebarNavigation7: FC<SidebarNavigation7Props> = () => {
   return (
     <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-white border-r border-gray-200">
@@ -90,7 +87,7 @@ const SidebarNavigation7: FC<SidebarNavigation7Props> = () => {
               <div key={item.name}>
                 <a
                   href="#"
-                  className={classNames(
+                  className={clsx(
                     item.current
                       ? 'bg-gray-100 text-gray-900'
                       : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -98,7 +95,7 @@ const SidebarNavigation7: FC<SidebarNavigation7Props> = () => {
                   )}
                 >
                   <item.icon
-                    className={classNames(
+                    className={clsx(
                       item.current
                         ? 'text-gray-500'
                         : 'text-gray-400 group-hover:text-gray-500',
@@ -114,7 +111,7 @@ const SidebarNavigation7: FC<SidebarNavigation7Props> = () => {
                 {({ open }) => (
                   <>
                     <Disclosure.Button
-                      className={classNames(
+                      className={clsx(
                         item.current
                           ? 'bg-gray-100 text-gray-900'
                           : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900',
@@ -127,7 +124,7 @@ const SidebarNavigation7: FC<SidebarNavigation7Props> = () => {
                       />
                       <span className="flex-1">{item.name}</span>
                       <svg
-                        className={classNames(
+                        className={clsx(
                           open ? 'text-gray-400 rotate-90' : 'text-gray-300',
                           'ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150'
                         )}

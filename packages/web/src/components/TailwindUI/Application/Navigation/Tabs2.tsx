@@ -5,8 +5,8 @@ import {
   UsersIcon
 } from '@heroicons/react/solid'
 
+import clsx from 'clsx'
 import type { FC } from 'react'
-
 interface Tabs2Props {}
 
 const tabs = [
@@ -15,10 +15,6 @@ const tabs = [
   { name: 'Team Members', href: '#', icon: UsersIcon, current: true },
   { name: 'Billing', href: '#', icon: CreditCardIcon, current: false }
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const Tabs2: FC<Tabs2Props> = () => {
   return (
@@ -32,6 +28,7 @@ const Tabs2: FC<Tabs2Props> = () => {
           id="tabs"
           name="tabs"
           className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
           {tabs.map(tab => (
@@ -46,7 +43,7 @@ const Tabs2: FC<Tabs2Props> = () => {
               <a
                 key={tab.name}
                 href={tab.href}
-                className={classNames(
+                className={clsx(
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
@@ -55,7 +52,7 @@ const Tabs2: FC<Tabs2Props> = () => {
                 aria-current={tab.current ? 'page' : undefined}
               >
                 <tab.icon
-                  className={classNames(
+                  className={clsx(
                     tab.current
                       ? 'text-indigo-500'
                       : 'text-gray-400 group-hover:text-gray-500',

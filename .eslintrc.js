@@ -94,6 +94,8 @@ module.exports = defineConfig({
         'react/react-in-jsx-scope': 'off',
         'react/no-unescaped-entities': 'off',
 
+        'jsx-a11y/aria-role': ['off'],
+        'jsx-a11y/no-autofocus': 'off',
         'jsx-a11y/anchor-is-valid': 'off',
         'jsx-a11y/no-redundant-roles': 'off',
 

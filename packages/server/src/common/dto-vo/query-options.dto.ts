@@ -1,4 +1,4 @@
-import { ApiPropertyOptional } from '@nestjs/swagger'
+import { ApiHideProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
 import { IsEnum, IsInt, IsOptional } from 'class-validator'
 
@@ -8,11 +8,11 @@ enum ELike {
 }
 
 export class QueryOptionsDto {
-  // @ApiHideProperty()
-  // _take?: number
+  @ApiHideProperty()
+  _take?: number
 
-  // @ApiHideProperty()
-  // _skip?: number
+  @ApiHideProperty()
+  _skip?: number
 
   @ApiPropertyOptional({
     minimum: 1,

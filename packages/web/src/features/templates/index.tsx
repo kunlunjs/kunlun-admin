@@ -5,14 +5,15 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
 // import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
 import { vs2015, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import { getBlocks, thumbnailNames } from './helpers'
+import { templateItems } from '@/config'
+import { getBlocks } from './helpers'
 import './index.css'
 
 SyntaxHighlighter.registerLanguage('js', js)
 // SyntaxHighlighter.registerLanguage('jsx', jsx)
 
 const blockList: string[] = []
-const thumbnailEntries = Object.entries(thumbnailNames)
+const thumbnailEntries = Object.entries(templateItems)
 thumbnailEntries.forEach(([type, coms]) => {
   coms.forEach(com => {
     blockList.push(`${com.name},${type}`)
@@ -484,7 +485,7 @@ export const Templates: FC<TemplatesProps> = () => {
                 onChange={handleSelect}
                 className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
               >
-                {thumbnailNames[blockType]
+                {templateItems[blockType]
                   .find(i => i.name === blockName)
                   ?.configs?.map((i, ix) => {
                     return (
@@ -545,10 +546,11 @@ export const Templates: FC<TemplatesProps> = () => {
         <button className="mode" onClick={changeMode}></button>
       </div>
       <div className="markup" ref={markupRef}>
-        {/* TODO */}
+        {/* TODO: 加载显示原始代码，而非编译后的 */}
         {Block}
       </div>
       <main className="main" style={{ opacity: ready ? '1' : '0' }}>
+        {/* TODO: 使用 device.css 等设备样式库 */}
         <div className={`view${codeView ? ' show-code' : ''}`}>
           <Frame
             contentDidMount={handleContentDidMount}
@@ -556,7 +558,7 @@ export const Templates: FC<TemplatesProps> = () => {
             head={
               <>
                 {/* <script src="/static/js/tailwindcss.js"></script> */}
-                {/* TODO */}
+                {/* TODO: 应引入 https://cdn.tailwindcss.com */}
                 <link
                   // href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
                   href="/static/style/tailwind2.0.2.min.css"

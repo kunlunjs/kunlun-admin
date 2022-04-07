@@ -96,7 +96,10 @@ export type RadioGroupProps = ComponentProps<typeof Radio.Group>
 export type RadioButtonProps = ComponentProps<typeof Radio.Button>
 export type RateProps = ComponentProps<typeof Rate>
 export type SelectProps = ComponentProps<typeof Select>
-export type SelectOptionProps = ComponentProps<typeof Select.Option>
+export type SelectOptionProps = {
+  label: string | number | boolean
+  value: string
+}[] // ComponentProps<typeof Select.Option>
 export type SliderProps = ComponentProps<typeof Slider>
 export type SwitchProps = ComponentProps<typeof Switch>
 export type TimePickerProps = ComponentProps<typeof TimePicker>
@@ -161,6 +164,7 @@ export const klComponents = [
   'Switch',
   'TimePicker',
   'Transfer',
+  'TreeSelect',
   'Upload',
   'Avatar',
   'Badge',
@@ -185,17 +189,14 @@ export const klComponents = [
   'Drawer',
   'Modal',
   'Popconfirm',
+  'Notification',
   'Progress',
   'Result',
   'Skeleton',
   'Spin',
   'Anchor',
-  'BackTop',
-  'PictureSelect',
-  'BGSetting',
-  'LinkSelect',
-  'TextSetting'
-  // TODO
+  'BackTop'
+  // TODO: 扩展自定义组件
 ] as const
 
 export type KLComponentType = typeof klComponents[number]

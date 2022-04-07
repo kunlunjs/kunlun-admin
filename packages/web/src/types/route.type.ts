@@ -4,7 +4,15 @@ export type RouteItem = {
   path: string
   element?: ReactElement | string
   factory?: {
-    type: 'Table' | 'Description'
+    type:
+      | 'Chart'
+      | 'Description'
+      | 'Document'
+      | 'File'
+      | 'Form'
+      | 'Image'
+      | 'Process'
+      | 'Table'
     config?: any
   }
   children?: RouteItem[]

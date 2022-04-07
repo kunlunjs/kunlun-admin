@@ -16,12 +16,12 @@ const ErrorFallback = () => {
       className="text-red-500 w-screen h-screen flex flex-col justify-center items-center"
       role="alert"
     >
-      <h2 className="text-lg font-semibold">Ooops, something went wrong :( </h2>
+      <h2 className="text-lg font-semibold">发生了一些异常 :( </h2>
       <Button
         className="mt-4"
         onClick={() => window.location.assign(window.location.origin)}
       >
-        Refresh
+        刷新
       </Button>
     </div>
   )

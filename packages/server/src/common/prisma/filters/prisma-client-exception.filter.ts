@@ -28,7 +28,7 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
         break
       case 'P2025':
         this.catchNotFound(exception, response)
-      // TODO
+      // TODO: 其它类型异常处理
       // default:
       //   this.unhandleException(exception, host)
       //   break

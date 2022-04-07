@@ -5,52 +5,156 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// generator client {
-//   provider = "prisma-client-js"
-// }
+generator client {
+  provider = "prisma-client-js"
+}
 
 generator NestJSRESTfulAPI {
   provider = "ts-node ../../../kunlun-cli/lib/generate-nestjs/index.ts"
 }
 
-enum ERole {
-  // 管理员
-  ADMIN
-  // 普通用户
-  USER
-}
-
-model User {
+model UserModel {
   // ID
-  id        String   @id @unique @default(cuid())
+  id        String      @id @default(uuid())
   // 用户名
-  username  String   @unique
+  username  String?     @unique
   // 密码
-  password  String
-  // 角色
-  role      ERole?
-  // 文章列表
-  posts     Post[]
+  password  String?
+  // 角色列表
+  roles     RoleModel[]
+  // 排序
+  sort      Int?
+  // 创建人
+  createdBy String      @map("created_by")
   // 创建时间
-  createdAt DateTime @default(now()) @map("created_at")
+  createdAt DateTime    @default(now()) @map("created_at")
+  // 更新人
+  updatedBy String      @map("updated_by")
   // 更新时间
-  updatedAt DateTime @default(now()) @map("updated_at")
+  updatedAt DateTime    @default(now()) @map("updated_at")
+  // 删除人
+  deletedBy String      @map("deleted_by")
+  // 删除时间
+  deletedAt DateTime    @default(now()) @map("deleted_at")
 }
 
-model Post {
+model RoleModel {
   // ID
-  id        String   @id @unique @default(cuid())
-  // 标题
-  title     String
-  // 内容
-  content   String?
-  // 已发布
-  published Boolean?
+  id        String      @id @default(uuid())
+  // 名称
+  title     String?     @unique
+  // 用户列表
+  users     UserModel[]
+  // 排序
+  sort      Int?
+  // 创建人
+  createdBy String      @map("created_by")
+  // 创建时间
+  createdAt DateTime    @default(now()) @map("created_at")
+  // 更新人
+  updatedBy String      @map("updated_by")
+  // 更新时间
+  updatedAt DateTime    @default(now()) @map("updated_at")
+  // 删除人
+  deletedBy String      @map("deleted_by")
+  // 删除时间
+  deletedAt DateTime    @default(now()) @map("deleted_at")
+}
+
+model MenuModel {
+  // ID
+  id        String   @id @default(uuid())
+  // 名称
+  title     String?  @unique
+  // 排序
+  sort      Int?
+  // 创建人
+  createdBy String   @map("created_by")
   // 创建时间
   createdAt DateTime @default(now()) @map("created_at")
+  // 更新人
+  updatedBy String   @map("updated_by")
   // 更新时间
   updatedAt DateTime @default(now()) @map("updated_at")
-  // UserModel
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String   @map("author_id")
+  // 删除人
+  deletedBy String   @map("deleted_by")
+  // 删除时间
+  deletedAt DateTime @default(now()) @map("deleted_at")
+}
+
+model AnnouncementModel {
+  // ID
+  id        String   @id @default(uuid())
+  // 标题
+  title     String?
+  // 正文
+  body      String?
+  // 排序
+  sort      Int?
+  // 创建人
+  createdBy String   @map("created_by")
+  // 创建时间
+  createdAt DateTime @default(now()) @map("created_at")
+  // 更新人
+  updatedBy String   @map("updated_by")
+  // 更新时间
+  updatedAt DateTime @default(now()) @map("updated_at")
+  // 删除人
+  deletedBy String   @map("deleted_by")
+  // 删除时间
+  deletedAt DateTime @default(now()) @map("deleted_at")
+}
+
+model JournalModel {
+  // ID
+  id        String   @id @default(uuid())
+  // 用户id
+  userId    String   @map("user_id")
+  // 操作
+  operation String?
+  // 内容
+  body      Json?
+  // 排序
+  sort      Int?
+  // 创建人
+  createdBy String   @map("created_by")
+  // 创建时间
+  createdAt DateTime @default(now()) @map("created_at")
+  // 更新人
+  updatedBy String   @map("updated_by")
+  // 更新时间
+  updatedAt DateTime @default(now()) @map("updated_at")
+  // 删除人
+  deletedBy String   @map("deleted_by")
+  // 删除时间
+  deletedAt DateTime @default(now()) @map("deleted_at")
+}
+
+model CronModel {
+  // ID
+  id          String   @id @default(uuid())
+  // 名称
+  title       String
+  // 描述
+  description String?
+  // 参数
+  parameter   String?
+  // 是否启用
+  isActive    Boolean? @map("is_active")
+  // 状态
+  status      String?
+  // 排序
+  sort        Int?
+  // 创建人
+  createdBy   String   @map("created_by")
+  // 创建时间
+  createdAt   DateTime @default(now()) @map("created_at")
+  // 更新人
+  updatedBy   String   @map("updated_by")
+  // 更新时间
+  updatedAt   DateTime @default(now()) @map("updated_at")
+  // 删除人
+  deletedBy   String   @map("deleted_by")
+  // 删除时间
+  deletedAt   DateTime @default(now()) @map("deleted_at")
 }

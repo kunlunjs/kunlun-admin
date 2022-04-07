@@ -1,11 +1,10 @@
 import clsx from 'clsx'
 import type { Identifier } from 'dnd-core'
-import type { FC } from 'react'
+import type { ComponentType, FC } from 'react'
 import { useRef, useCallback, useState } from 'react'
 import type { DropTargetMonitor } from 'react-dnd'
 import { useDrag } from 'react-dnd'
 import { useDrop } from 'react-dnd'
-import { isValidElementType } from 'react-is'
 import { componentsMap } from '@/components/components-map'
 import { Developing } from '@/utils/getRoutes'
 import { DropHeader } from './components'
@@ -115,16 +114,17 @@ export const Center: FC<CenterProps> = ({
           backgroundColor
         }}
       >
-        {isActive ? '放置于此' : '拖拽组件至此处'}
+        {/* {isActive ? '放置于此' : '拖拽组件至此处'} */}
         {droppedItems.map(i => {
-          const Component = i.name ? componentsMap[i.name] : Developing
-          console.log(Component)
-          return isValidElementType(Component) ? (
-            <Component key={i.name} />
-          ) : (
-            <div key={i.title}>{i.title}</div>
-          )
-          // return <div key={i.title}>{i.title}</div>
+          const Component = (
+            i.name ? componentsMap[i.name] : Developing
+          ) as ComponentType<any>
+          // return isValidElementType(Component) ? (
+          //   <Component key={i.name} />
+          // ) : (
+          //   <div key={i.title}>{i.title}</div>
+          // )
+          return <Component key={i.name} />
         })}
       </div>
     </div>

@@ -3,6 +3,7 @@ import type { ChangeEvent, FC } from 'react'
 import { useState } from 'react'
 import { Fragment } from 'react'
 import Icon from '@/components/Icon'
+import { templateItems } from '@/config'
 import type { IconNames } from '@/types'
 import { DraggableItem } from './components'
 import { categories } from './config'
@@ -73,28 +74,49 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
                 }
               >
                 <div>
-                  {categories.map(category => {
-                    return (
-                      <Fragment key={category}>
-                        {!!state[category]?.filter(i => i.draggable).length && (
-                          <h5 className="-mb-2 mt-2 font-bold">{category}</h5>
-                        )}
-                        <div className="grid gap-2 grid-cols-3">
-                          {state[category]?.map(i => {
-                            return (
-                              <DraggableItem
-                                key={i.title}
-                                item={i}
-                                isDropped={droppedItems.some(
-                                  j => j.title === i.title
-                                )}
-                              />
-                            )
-                          })}
-                        </div>
-                      </Fragment>
-                    )
-                  })}
+                  {activeTab === 'components'
+                    ? categories.map(category => {
+                        return (
+                          <Fragment key={category}>
+                            {!!state[category]?.filter(i => i.draggable)
+                              .length && (
+                              <h5 className="-mb-2 mt-2 font-bold">
+                                {category}
+                              </h5>
+                            )}
+                            <div className="grid gap-2 grid-cols-3">
+                              {state[category]?.map(i => {
+                                return (
+                                  <DraggableItem
+                                    key={i.title}
+                                    item={i}
+                                    isDropped={droppedItems.some(
+                                      j => j.title === i.title
+                                    )}
+                                  />
+                                )
+                              })}
+                            </div>
+                          </Fragment>
+                        )
+                      })
+                    : null}
+                  {activeTab === 'templates' ? (
+                    <div className="grid gap-2 grid-cols-2">
+                      {Object.values(templateItems)
+                        ?.flat()
+                        ?.map(i => {
+                          return (
+                            <img
+                              key={i.name}
+                              alt={i.name}
+                              src={i.src}
+                              className="w-full cursor-move"
+                            />
+                          )
+                        })}
+                    </div>
+                  ) : null}
                 </div>
               </Tabs.TabPane>
             )

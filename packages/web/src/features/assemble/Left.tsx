@@ -3,17 +3,22 @@ import type { FC } from 'react'
 import { Fragment } from 'react'
 import Icon from '@/components/Icon'
 import type { IconNames } from '@/types'
-import { categories, components } from './helpers'
+import { DraggableItem } from './components'
+import { categories } from './config'
+import type { DragItem, DragItems } from './interfaces'
 import './index.less'
-
-interface LeftProps {}
 
 const tabs: { key: string; title: string; icon: IconNames }[] = [
   { key: 'components', title: '组件', icon: 'AppstoreAddOutlined' },
   { key: 'charts', title: '图表', icon: 'BarChartOutlined' }
 ]
 
-export const Left: FC<LeftProps> = () => {
+interface LeftProps {
+  items: DragItems
+  droppedNames: DragItem['name'][]
+}
+
+export const Left: FC<LeftProps> = ({ items, droppedNames }) => {
   return (
     <div className="w-1/5 h-full border border-solid border-gray-200">
       <Card bordered={false} size="small" title="页面/组件">
@@ -36,24 +41,14 @@ export const Left: FC<LeftProps> = () => {
                       <Fragment key={category}>
                         <h5 className="-mb-2 mt-2">{category}</h5>
                         <div className="flex flex-wrap justify-between">
-                          {components[category].map(i => {
-                            if (i.draggable) {
-                              return (
-                                <div
-                                  key={i.name}
-                                  className="flex flex-col justify-between items-center relative w-[48%] max-h-12 my-4 pb-1 border border-solid border-gray-200 cursor-move"
-                                >
-                                  <img
-                                    alt={i.name}
-                                    src={i.src}
-                                    className="w-full h-full"
-                                  />
-                                  <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
-                                    {i.name}
-                                  </span>
-                                </div>
-                              )
-                            }
+                          {items[category].map(i => {
+                            return (
+                              <DraggableItem
+                                key={i.name}
+                                {...i}
+                                isDropped={droppedNames.includes(i.name)}
+                              />
+                            )
                           })}
                         </div>
                       </Fragment>

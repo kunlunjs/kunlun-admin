@@ -21,7 +21,7 @@ const ErrorFallback = () => {
         className="mt-4"
         onClick={() => window.location.assign(window.location.origin)}
       >
-        Refresh
+        刷新
       </Button>
     </div>
   )

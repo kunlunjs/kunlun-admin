@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Spinner } from '@/components/Elements'
 import { BasicLayout } from '@/components/Layout'
+// import { Example } from '@/features/dnd/drag-around/custom-drag-layer/Example'
 import type { RouteItems } from '@/types'
 import { lazyImport } from '@/utils/lazyImport'
 
@@ -183,6 +184,10 @@ export const publicRoutes: RouteItems = [
         //   type: 'Description'
         // }
       }
+      // {
+      //   path: 'dnd',
+      //   element: <Example />
+      // }
     ]
   },
   /* 组件/模板工厂 */

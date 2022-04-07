@@ -21,10 +21,10 @@ export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
           网格
         </Checkbox>
       </Space>
-      <Space>
-        <Icon name="DesktopOutlined" className="cursor-pointer" />
-        <Icon name="TabletOutlined" className="cursor-pointer" />
-        <Icon name="MobileOutlined" className="cursor-pointer" />
+      <Space className="!items-end">
+        <Icon name="DesktopOutlined" className="text-lg cursor-pointer" />
+        <Icon name="TabletOutlined" className="text-lg cursor-pointer" />
+        <Icon name="MobileOutlined" className="text-lg cursor-pointer" />
       </Space>
       <Space>
         <Icon name="ReloadOutlined" className="cursor-pointer" />

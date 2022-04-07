@@ -1,8 +1,10 @@
+import type { klComponents } from '@/types'
 import type { categories } from './config'
 
 export type Category = typeof categories[number]
 
 export type DragItem = {
+  source: 'antd' | 'kunlun'
   /**
    * 组件类型
    */
@@ -14,7 +16,11 @@ export type DragItem = {
   /**
    * 组件名
    */
-  name: string
+  name?: typeof klComponents[number]
+  /**
+   * 组件标题
+   */
+  title: string
   /**
    * 组件缩略图
    */
@@ -27,8 +33,7 @@ export type DragItem = {
 
 export type DragItems = Record<Category, DragItem[]>
 
-export interface DropResult {
-  name: string
+export interface DropResult extends DragItem {
   dropEffect: string
   allowedDropEffect: string
 }

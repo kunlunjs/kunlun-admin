@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { charts } from './helpers'
+import { charts } from '@/config'
 
 interface ChartsProps {}
 

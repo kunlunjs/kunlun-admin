@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
-interface Steps6Props {}
+interface Step6Props {}
 const steps = [
   { name: 'Create account', href: '#', status: 'complete' },
   { name: 'Profile information', href: '#', status: 'current' },
@@ -8,7 +8,7 @@ const steps = [
   { name: 'Preview', href: '#', status: 'upcoming' }
 ]
 
-const Steps6: FC<Steps6Props> = () => {
+const Step6: FC<Step6Props> = () => {
   return (
     <div className="px-4 py-12 sm:px-6 lg:px-8">
       <nav className="flex justify-center" aria-label="Progress">
@@ -68,4 +68,4 @@ const Steps6: FC<Steps6Props> = () => {
     </div>
   )
 }
-export default Steps6
+export default Step6

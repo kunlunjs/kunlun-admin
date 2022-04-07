@@ -10,7 +10,7 @@ import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
-interface CommandPalettes7Props {}
+interface CommandPalette6Props {}
 const projects = [
   { id: 1, name: 'Workflow Inc. / Website Redesign', url: '#' }
   // More projects...
@@ -23,7 +23,7 @@ const quickActions = [
   { name: 'Add label...', icon: TagIcon, shortcut: 'L', url: '#' }
 ]
 
-const CommandPalettes7: FC<CommandPalettes7Props> = () => {
+const CommandPalette6: FC<CommandPalette6Props> = () => {
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(true)
 
@@ -64,17 +64,17 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-2xl mx-auto overflow-hidden transition-all transform bg-gray-900 divide-y divide-gray-500 shadow-2xl divide-opacity-20 rounded-xl"
+            className="max-w-2xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-500 shadow-2xl divide-opacity-10 rounded-xl bg-opacity-80 ring-1 ring-black ring-opacity-5 backdrop-blur backdrop-filter"
             value=""
             onChange={(item: any) => (window.location = item.url)}
           >
             <div className="relative">
               <SearchIcon
-                className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-500"
+                className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-900 text-opacity-40"
                 aria-hidden="true"
               />
               <Combobox.Input
-                className="w-full h-12 pr-4 text-white placeholder-gray-500 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                className="w-full h-12 pr-4 text-gray-900 placeholder-gray-500 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
                 placeholder="Search..."
                 onChange={event => setQuery(event.target.value)}
               />
@@ -83,15 +83,15 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
             {(query === '' || filteredProjects.length > 0) && (
               <Combobox.Options
                 static
-                className="overflow-y-auto divide-y divide-gray-500 max-h-80 scroll-py-2 divide-opacity-20"
+                className="overflow-y-auto divide-y divide-gray-500 max-h-80 scroll-py-2 divide-opacity-10"
               >
                 <li className="p-2">
                   {query === '' && (
-                    <h2 className="px-3 mt-4 mb-2 text-xs font-semibold text-gray-200">
+                    <h2 className="px-3 mt-4 mb-2 text-xs font-semibold text-gray-900">
                       Recent searches
                     </h2>
                   )}
-                  <ul className="text-sm text-gray-400">
+                  <ul className="text-sm text-gray-700">
                     {(query === '' ? recent : filteredProjects).map(project => (
                       <Combobox.Option
                         key={project.id}
@@ -99,7 +99,7 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                         className={({ active }) =>
                           clsx(
                             'flex cursor-default select-none items-center rounded-md px-3 py-2',
-                            active && 'bg-gray-800 text-white'
+                            active && 'bg-gray-900 bg-opacity-5 text-gray-900'
                           )
                         }
                       >
@@ -107,8 +107,8 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                           <>
                             <FolderIcon
                               className={clsx(
-                                'h-6 w-6 flex-none',
-                                active ? 'text-white' : 'text-gray-500'
+                                'h-6 w-6 flex-none text-gray-900 text-opacity-40',
+                                active && 'text-opacity-100'
                               )}
                               aria-hidden="true"
                             />
@@ -116,7 +116,7 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                               {project.name}
                             </span>
                             {active && (
-                              <span className="flex-none ml-3 text-gray-400">
+                              <span className="flex-none ml-3 text-gray-500">
                                 Jump to...
                               </span>
                             )}
@@ -129,7 +129,7 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                 {query === '' && (
                   <li className="p-2">
                     <h2 className="sr-only">Quick actions</h2>
-                    <ul className="text-sm text-gray-400">
+                    <ul className="text-sm text-gray-700">
                       {quickActions.map(action => (
                         <Combobox.Option
                           key={action.shortcut}
@@ -137,7 +137,7 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                           className={({ active }) =>
                             clsx(
                               'flex cursor-default select-none items-center rounded-md px-3 py-2',
-                              active && 'bg-gray-800 text-white'
+                              active && 'bg-gray-900 bg-opacity-5 text-gray-900'
                             )
                           }
                         >
@@ -145,15 +145,15 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
                             <>
                               <action.icon
                                 className={clsx(
-                                  'h-6 w-6 flex-none',
-                                  active ? 'text-white' : 'text-gray-500'
+                                  'h-6 w-6 flex-none text-gray-900 text-opacity-40',
+                                  active && 'text-opacity-100'
                                 )}
                                 aria-hidden="true"
                               />
                               <span className="flex-auto ml-3 truncate">
                                 {action.name}
                               </span>
-                              <span className="flex-none ml-3 text-xs font-semibold text-gray-400">
+                              <span className="flex-none ml-3 text-xs font-semibold text-gray-500">
                                 <kbd className="font-sans">⌘</kbd>
                                 <kbd className="font-sans">
                                   {action.shortcut}
@@ -172,10 +172,10 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
             {query !== '' && filteredProjects.length === 0 && (
               <div className="px-6 text-center py-14 sm:px-14">
                 <FolderIcon
-                  className="w-6 h-6 mx-auto text-gray-500"
+                  className="w-6 h-6 mx-auto text-gray-900 text-opacity-40"
                   aria-hidden="true"
                 />
-                <p className="mt-4 text-sm text-gray-200">
+                <p className="mt-4 text-sm text-gray-900">
                   We couldn't find any projects with that term. Please try
                   again.
                 </p>
@@ -187,4 +187,5 @@ const CommandPalettes7: FC<CommandPalettes7Props> = () => {
     </Transition.Root>
   )
 }
-export default CommandPalettes7
+
+export default CommandPalette6

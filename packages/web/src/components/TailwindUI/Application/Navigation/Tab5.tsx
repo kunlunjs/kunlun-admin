@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
-interface Tabs4Props {}
+interface Tab5Props {}
 const tabs = [
   { name: 'My Account', href: '#', current: false },
   { name: 'Company', href: '#', current: false },
@@ -8,7 +8,7 @@ const tabs = [
   { name: 'Billing', href: '#', current: false }
 ]
 
-const Tabs4: FC<Tabs4Props> = () => {
+const Tab5: FC<Tab5Props> = () => {
   return (
     <div>
       <div className="sm:hidden">
@@ -36,8 +36,8 @@ const Tabs4: FC<Tabs4Props> = () => {
               href={tab.href}
               className={clsx(
                 tab.current
-                  ? 'bg-gray-200 text-gray-800'
-                  : 'text-gray-600 hover:text-gray-800',
+                  ? 'bg-indigo-100 text-indigo-700'
+                  : 'text-gray-500 hover:text-gray-700',
                 'px-3 py-2 font-medium text-sm rounded-md'
               )}
               aria-current={tab.current ? 'page' : undefined}
@@ -50,4 +50,4 @@ const Tabs4: FC<Tabs4Props> = () => {
     </div>
   )
 }
-export default Tabs4
+export default Tab5

@@ -4,7 +4,7 @@ import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
-interface CommandPalettes4Props {}
+interface CommandPalette4Props {}
 const items = [
   {
     id: 1,
@@ -17,7 +17,7 @@ const items = [
   // More items...
 ]
 
-const CommandPalettes4: FC<CommandPalettes4Props> = () => {
+const CommandPalette4: FC<CommandPalette4Props> = () => {
   const [query, setQuery] = useState('')
 
   const [open, setOpen] = useState(true)
@@ -151,4 +151,4 @@ const CommandPalettes4: FC<CommandPalettes4Props> = () => {
   )
 }
 
-export default CommandPalettes4
+export default CommandPalette4

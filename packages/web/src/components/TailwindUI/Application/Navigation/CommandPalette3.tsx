@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 
-interface CommandPalettes3Props {}
+interface CommandPalette3Props {}
 
 const people = [
   {
@@ -25,7 +25,7 @@ const people = [
 
 const recent = [people[5], people[4], people[2], people[10], people[16]]
 
-const CommandPalettes3: FC<CommandPalettes3Props> = () => {
+const CommandPalette3: FC<CommandPalette3Props> = () => {
   const [query, setQuery] = useState('')
 
   const [open, setOpen] = useState(true)
@@ -220,4 +220,4 @@ const CommandPalettes3: FC<CommandPalettes3Props> = () => {
     </Transition.Root>
   )
 }
-export default CommandPalettes3
+export default CommandPalette3

@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
-interface Steps8Props {}
-const Steps8: FC<Steps8Props> = () => {
+interface Step8Props {}
+const Step8: FC<Step8Props> = () => {
   return (
     <div>
       <h4 className="sr-only">Status</h4>
@@ -25,4 +25,4 @@ const Steps8: FC<Steps8Props> = () => {
     </div>
   )
 }
-export default Steps8
+export default Step8

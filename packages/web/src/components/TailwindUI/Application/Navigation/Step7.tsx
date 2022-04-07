@@ -2,7 +2,7 @@ import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 
-interface Steps7Props {}
+interface Step7Props {}
 const steps = [
   {
     name: 'Create account',
@@ -36,7 +36,7 @@ const steps = [
   }
 ]
 
-const Steps7: FC<Steps7Props> = () => {
+const Step7: FC<Step7Props> = () => {
   return (
     <nav aria-label="Progress">
       <ol role="list" className="overflow-hidden">
@@ -134,4 +134,4 @@ const Steps7: FC<Steps7Props> = () => {
     </nav>
   )
 }
-export default Steps7
+export default Step7

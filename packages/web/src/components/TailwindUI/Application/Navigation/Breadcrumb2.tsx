@@ -1,17 +1,20 @@
 import { HomeIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
-interface Breadcrumbs1Props {}
+interface Breadcrumb2Props {}
 
 const pages = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Project Nero', href: '#', current: true }
 ]
-const Breadcrumbs1: FC<Breadcrumbs1Props> = () => {
+const Breadcrumb2: FC<Breadcrumb2Props> = () => {
   return (
-    <nav className="flex" aria-label="Breadcrumb">
+    <nav
+      className="flex bg-white border-b border-gray-200"
+      aria-label="Breadcrumb"
+    >
       <ol
         role="list"
-        className="flex px-6 space-x-4 bg-white rounded-md shadow"
+        className="flex w-full max-w-screen-xl px-4 mx-auto space-x-4 sm:px-6 lg:px-8"
       >
         <li className="flex">
           <div className="flex items-center">
@@ -48,4 +51,4 @@ const Breadcrumbs1: FC<Breadcrumbs1Props> = () => {
     </nav>
   )
 }
-export default Breadcrumbs1
+export default Breadcrumb2

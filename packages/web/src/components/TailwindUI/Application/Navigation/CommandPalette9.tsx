@@ -8,7 +8,7 @@ import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 import type { FC } from 'react'
-interface CommandPalettes9Props {}
+interface CommandPalette9Props {}
 const projects = [
   {
     id: 1,
@@ -30,7 +30,7 @@ const users = [
   // More users...
 ]
 
-const CommandPalettes9: FC<CommandPalettes9Props> = () => {
+const CommandPalette9: FC<CommandPalette9Props> = () => {
   const [open, setOpen] = useState(true)
   const [rawQuery, setRawQuery] = useState('')
 
@@ -254,4 +254,4 @@ const CommandPalettes9: FC<CommandPalettes9Props> = () => {
   )
 }
 
-export default CommandPalettes9
+export default CommandPalette9

@@ -1,13 +1,13 @@
 import { CheckIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
-interface Steps2Props {}
+interface Step2Props {}
 const steps = [
   { id: '01', name: 'Job details', href: '#', status: 'complete' },
   { id: '02', name: 'Application form', href: '#', status: 'current' },
   { id: '03', name: 'Preview', href: '#', status: 'upcoming' }
 ]
 
-const Steps2: FC<Steps2Props> = () => {
+const Step2: FC<Step2Props> = () => {
   return (
     <nav aria-label="Progress">
       <ol
@@ -87,4 +87,4 @@ const Steps2: FC<Steps2Props> = () => {
     </nav>
   )
 }
-export default Steps2
+export default Step2

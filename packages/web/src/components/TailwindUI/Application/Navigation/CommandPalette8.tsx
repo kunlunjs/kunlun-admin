@@ -4,13 +4,13 @@ import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
-interface CommandPalettes8Props {}
+interface CommandPalette8Props {}
 const items = [
   { id: 1, name: 'Workflow Inc.', category: 'Clients', url: '#' }
   // More items...
 ]
 
-const CommandPalettes8: FC<CommandPalettes8Props> = () => {
+const CommandPalette8: FC<CommandPalette8Props> = () => {
   const [query, setQuery] = useState('')
 
   const [open, setOpen] = useState(true)
@@ -144,4 +144,4 @@ const CommandPalettes8: FC<CommandPalettes8Props> = () => {
     </Transition.Root>
   )
 }
-export default CommandPalettes8
+export default CommandPalette8

@@ -1,7 +1,7 @@
 import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
-interface Steps5Props {}
+interface Step5Props {}
 const steps = [
   { name: 'Step 1', href: '#', status: 'complete' },
   { name: 'Step 2', href: '#', status: 'complete' },
@@ -10,7 +10,7 @@ const steps = [
   { name: 'Step 5', href: '#', status: 'upcoming' }
 ]
 
-const Steps5: FC<Steps5Props> = () => {
+const Step5: FC<Step5Props> = () => {
   return (
     <nav aria-label="Progress">
       <ol role="list" className="flex items-center">
@@ -87,4 +87,4 @@ const Steps5: FC<Steps5Props> = () => {
     </nav>
   )
 }
-export default Steps5
+export default Step5

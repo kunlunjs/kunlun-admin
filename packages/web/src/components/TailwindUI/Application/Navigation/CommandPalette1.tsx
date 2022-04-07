@@ -1,26 +1,24 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react'
-import { UsersIcon } from '@heroicons/react/outline'
+import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
-interface CommandPalettes2Props {}
+interface CommandPalette1Props {}
 const people = [
   { id: 1, name: 'Leslie Alexander', url: '#' }
   // More people...
 ]
 
-const CommandPalettes2: FC<CommandPalettes2Props> = () => {
+const CommandPalette1: FC<CommandPalette1Props> = () => {
   const [query, setQuery] = useState('')
 
   const [open, setOpen] = useState(true)
-
   const filteredPeople =
     query === ''
       ? []
       : people.filter(person => {
           return person.name.toLowerCase().includes(query.toLowerCase())
         })
-
   return (
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
@@ -51,20 +49,26 @@ const CommandPalettes2: FC<CommandPalettes2Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-xl p-2 mx-auto transition-all transform bg-white shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
             value=""
             onChange={(person: any) => (window.location = person.url)}
           >
-            <Combobox.Input
-              className="w-full rounded-md border-0 bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
-              placeholder="Search..."
-              onChange={event => setQuery(event.target.value)}
-            />
+            <div className="relative">
+              <SearchIcon
+                className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+              <Combobox.Input
+                className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                placeholder="Search..."
+                onChange={event => setQuery(event.target.value)}
+              />
+            </div>
 
             {filteredPeople.length > 0 && (
               <Combobox.Options
                 static
-                className="py-2 -mb-2 overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2"
+                className="py-2 overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2"
               >
                 {filteredPeople.map(person => (
                   <Combobox.Option
@@ -72,7 +76,7 @@ const CommandPalettes2: FC<CommandPalettes2Props> = () => {
                     value={person}
                     className={({ active }) =>
                       clsx(
-                        'cursor-default select-none rounded-md px-4 py-2',
+                        'cursor-default select-none px-4 py-2',
                         active && 'bg-indigo-600 text-white'
                       )
                     }
@@ -84,15 +88,7 @@ const CommandPalettes2: FC<CommandPalettes2Props> = () => {
             )}
 
             {query !== '' && filteredPeople.length === 0 && (
-              <div className="px-4 text-center py-14 sm:px-14">
-                <UsersIcon
-                  className="w-6 h-6 mx-auto text-gray-400"
-                  aria-hidden="true"
-                />
-                <p className="mt-4 text-sm text-gray-900">
-                  No people found using that search term.
-                </p>
-              </div>
+              <p className="p-4 text-sm text-gray-500">No people found.</p>
             )}
           </Combobox>
         </Transition.Child>
@@ -100,4 +96,4 @@ const CommandPalettes2: FC<CommandPalettes2Props> = () => {
     </Transition.Root>
   )
 }
-export default CommandPalettes2
+export default CommandPalette1

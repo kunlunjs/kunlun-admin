@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
-interface Tabs8Props {}
+interface Tab8Props {}
 const tabs = [
   { name: 'Applied', href: '#', count: '52', current: false },
   { name: 'Phone Screening', href: '#', count: '6', current: false },
@@ -9,7 +9,7 @@ const tabs = [
   { name: 'Disqualified', href: '#', current: false }
 ]
 
-const Tabs8: FC<Tabs8Props> = () => {
+const Tab8: FC<Tab8Props> = () => {
   return (
     <div>
       <div className="sm:hidden">
@@ -65,4 +65,4 @@ const Tabs8: FC<Tabs8Props> = () => {
     </div>
   )
 }
-export default Tabs8
+export default Tab8

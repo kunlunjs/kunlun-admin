@@ -1,7 +1,7 @@
 import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
-interface Steps4Props {}
+interface Step4Props {}
 const steps = [
   {
     id: '01',
@@ -26,7 +26,7 @@ const steps = [
   }
 ]
 
-const Steps4: FC<Steps4Props> = () => {
+const Step4: FC<Step4Props> = () => {
   return (
     <div className="lg:border-t lg:border-b lg:border-gray-200">
       <nav
@@ -162,4 +162,4 @@ const Steps4: FC<Steps4Props> = () => {
     </div>
   )
 }
-export default Steps4
+export default Step4

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
-interface Tabs3Props {}
+interface Tab6Props {}
 const tabs = [
   { name: 'My Account', href: '#', current: false },
   { name: 'Company', href: '#', current: false },
@@ -8,7 +8,7 @@ const tabs = [
   { name: 'Billing', href: '#', current: false }
 ]
 
-const Tabs3: FC<Tabs3Props> = () => {
+const Tab6: FC<Tab6Props> = () => {
   return (
     <div>
       <div className="sm:hidden">
@@ -29,25 +29,27 @@ const Tabs3: FC<Tabs3Props> = () => {
         </select>
       </div>
       <div className="hidden sm:block">
-        <nav className="flex space-x-4" aria-label="Tabs">
-          {tabs.map(tab => (
-            <a
-              key={tab.name}
-              href={tab.href}
-              className={clsx(
-                tab.current
-                  ? 'bg-gray-100 text-gray-700'
-                  : 'text-gray-500 hover:text-gray-700',
-                'px-3 py-2 font-medium text-sm rounded-md'
-              )}
-              aria-current={tab.current ? 'page' : undefined}
-            >
-              {tab.name}
-            </a>
-          ))}
-        </nav>
+        <div className="border-b border-gray-200">
+          <nav className="flex -mb-px" aria-label="Tabs">
+            {tabs.map(tab => (
+              <a
+                key={tab.name}
+                href={tab.href}
+                className={clsx(
+                  tab.current
+                    ? 'border-indigo-500 text-indigo-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+                  'w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm'
+                )}
+                aria-current={tab.current ? 'page' : undefined}
+              >
+                {tab.name}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </div>
   )
 }
-export default Tabs3
+export default Tab6

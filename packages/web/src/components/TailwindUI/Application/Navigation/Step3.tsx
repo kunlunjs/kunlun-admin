@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-interface Steps3Props {}
+interface Step3Props {}
 const steps = [
   { name: 'Step 1', href: '#', status: 'complete' },
   { name: 'Step 2', href: '#', status: 'current' },
@@ -8,7 +8,7 @@ const steps = [
   { name: 'Step 4', href: '#', status: 'upcoming' }
 ]
 
-const Steps3: FC<Steps3Props> = () => {
+const Step3: FC<Step3Props> = () => {
   return (
     <nav className="flex items-center justify-center" aria-label="Progress">
       <p className="text-sm font-medium">
@@ -54,4 +54,4 @@ const Steps3: FC<Steps3Props> = () => {
     </nav>
   )
 }
-export default Steps3
+export default Step3

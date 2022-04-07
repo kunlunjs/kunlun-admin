@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 interface ListContainers6Props {}
 const items = [{ id: 1 }]
-const ListContainers6: FC<ListContainers6Props> = () => {
+const ListContainer6: FC<ListContainers6Props> = () => {
   return (
     <div className="overflow-hidden bg-white border border-gray-300 rounded-md">
       <ul role="list" className="divide-y divide-gray-300">
@@ -15,4 +15,4 @@ const ListContainers6: FC<ListContainers6Props> = () => {
     </div>
   )
 }
-export default ListContainers6
+export default ListContainer6

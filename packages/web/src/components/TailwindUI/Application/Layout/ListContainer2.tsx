@@ -1,16 +1,16 @@
 import type { FC } from 'react'
 
-interface ListContainers3Props {}
+interface ListContainers2Props {}
 const items = [
   { id: 1 }
   // More items...
 ]
-const ListContainers3: FC<ListContainers3Props> = () => {
+const ListContainer2: FC<ListContainers2Props> = () => {
   return (
-    <div className="overflow-hidden bg-white shadow sm:rounded-md">
+    <div className="overflow-hidden bg-white rounded-md shadow">
       <ul role="list" className="divide-y divide-gray-200">
         {items.map(item => (
-          <li key={item.id} className="px-4 py-4 sm:px-6">
+          <li key={item.id} className="px-6 py-4">
             {/* Your content */}
           </li>
         ))}
@@ -18,4 +18,4 @@ const ListContainers3: FC<ListContainers3Props> = () => {
     </div>
   )
 }
-export default ListContainers3
+export default ListContainer2

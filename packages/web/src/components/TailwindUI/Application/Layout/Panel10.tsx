@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 interface Panels10Props {}
 
-const Panels10: FC<Panels10Props> = () => {
+const Panel10: FC<Panels10Props> = () => {
   return (
     <>
       <div className="overflow-hidden bg-gray-50 sm:rounded-lg">
@@ -11,4 +11,4 @@ const Panels10: FC<Panels10Props> = () => {
     </>
   )
 }
-export default Panels10
+export default Panel10

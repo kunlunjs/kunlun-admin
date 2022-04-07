@@ -140,7 +140,9 @@ const navigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With featured categories'
+}
 export default function StoreNavigation2() {
   const [open, setOpen] = useState(false)
 

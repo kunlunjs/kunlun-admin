@@ -42,6 +42,9 @@ const sortOptions = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
+export const config = {
+  title: 'With expandable product filter panel'
+}
 
 export default function CategoryFilter3() {
   return (

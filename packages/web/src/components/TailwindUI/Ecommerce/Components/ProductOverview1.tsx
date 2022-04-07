@@ -80,6 +80,10 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
+export const config = {
+  title: 'With tiered images'
+}
+
 export default function ProductOverview1() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])

@@ -94,7 +94,9 @@ const license = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With tabs'
+}
 export default function ProductOverview5() {
   return (
     <div className="bg-white">

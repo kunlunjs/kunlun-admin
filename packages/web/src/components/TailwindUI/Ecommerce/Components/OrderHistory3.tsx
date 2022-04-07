@@ -29,7 +29,9 @@ const orders = [
   }
   // More orders...
 ]
-
+export const config = {
+  title: 'Invoice list'
+}
 export default function OrderHistory3() {
   return (
     <div className="bg-white">

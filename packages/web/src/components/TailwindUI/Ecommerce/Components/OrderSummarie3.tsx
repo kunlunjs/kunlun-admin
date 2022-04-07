@@ -24,7 +24,9 @@ const products = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With large images and progress bars'
+}
 export default function OrderSummarie3() {
   return (
     <div className="bg-white">

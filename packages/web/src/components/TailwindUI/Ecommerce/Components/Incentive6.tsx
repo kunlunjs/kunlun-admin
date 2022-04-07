@@ -29,6 +29,10 @@ const perks = [
   }
 ]
 
+export const config = {
+  title: '2x2 grid with illustrations'
+}
+
 export default function Incentive6() {
   return (
     <div className="bg-gray-50">

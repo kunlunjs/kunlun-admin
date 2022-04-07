@@ -12,7 +12,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With image overlay and add button'
+}
 export default function ProductList5() {
   return (
     <div className="bg-white">

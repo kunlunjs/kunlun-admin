@@ -49,6 +49,10 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
+export const config = {
+  title: 'With dropdown product filters'
+}
+
 export default function CategoryFilter2() {
   const [open, setOpen] = useState(false)
 

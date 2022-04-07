@@ -1,3 +1,6 @@
+export const config = {
+  title: 'Full-width with background image and large content'
+}
 export default function PromoSection8() {
   return (
     <div className="bg-white">

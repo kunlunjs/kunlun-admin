@@ -26,7 +26,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With extended summary'
+}
 export default function ShoppingCart3() {
   return (
     <div className="bg-white">

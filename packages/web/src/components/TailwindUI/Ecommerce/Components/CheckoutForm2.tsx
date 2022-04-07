@@ -17,7 +17,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With mobile order summary overlay'
+}
 export default function CheckoutForm2() {
   return (
     <div className="bg-white">

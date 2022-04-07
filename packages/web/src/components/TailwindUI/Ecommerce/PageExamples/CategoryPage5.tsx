@@ -257,7 +257,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With large images and filters sidebar'
+}
 export default function CategoryPage5() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)

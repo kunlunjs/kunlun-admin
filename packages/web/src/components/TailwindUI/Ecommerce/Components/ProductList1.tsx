@@ -11,7 +11,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With inline price'
+}
 export default function ProductList1() {
   return (
     <div className="bg-white">

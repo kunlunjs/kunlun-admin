@@ -128,7 +128,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With invoice tables'
+}
 export default function OrderHistoryPage4() {
   const [open, setOpen] = useState(false)
 

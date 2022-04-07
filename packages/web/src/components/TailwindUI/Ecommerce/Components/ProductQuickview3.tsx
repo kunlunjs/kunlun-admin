@@ -25,7 +25,9 @@ const product = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With large size selector'
+}
 export default function ProductQuickview3() {
   const [open, setOpen] = useState(false)
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])

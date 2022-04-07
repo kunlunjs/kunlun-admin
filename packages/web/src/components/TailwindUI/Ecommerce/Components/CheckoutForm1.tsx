@@ -35,6 +35,10 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
+export const config = {
+  title: 'Single step with order summary'
+}
+
 export default function CheckoutForm1() {
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(
     deliveryMethods[0]

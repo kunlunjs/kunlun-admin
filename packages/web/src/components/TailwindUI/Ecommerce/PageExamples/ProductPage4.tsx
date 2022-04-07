@@ -248,7 +248,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With centered text and dropdown product filters'
+}
 export default function ProductPage4() {
   const [open, setOpen] = useState(false)
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])

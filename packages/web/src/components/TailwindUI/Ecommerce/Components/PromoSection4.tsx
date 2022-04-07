@@ -1,3 +1,6 @@
+export const config = {
+  title: 'With background image'
+}
 export default function PromoSection4() {
   return (
     <div className="bg-white">

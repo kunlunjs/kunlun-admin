@@ -13,7 +13,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Split with order summary'
+}
 export default function CheckoutPage5() {
   return (
     <div className="bg-white">

@@ -187,7 +187,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With overlapping image tiles and perks'
+}
 export default function StorefrontPage4() {
   const [open, setOpen] = useState(false)
 

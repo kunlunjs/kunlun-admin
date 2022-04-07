@@ -21,7 +21,9 @@ const incentives = [
       "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though."
   }
 ]
-
+export const config = {
+  title: '3-column with illustrations and split header'
+}
 export default function Incentive1() {
   return (
     <div className="bg-gray-50">

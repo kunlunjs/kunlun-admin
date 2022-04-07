@@ -33,7 +33,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With tall images'
+}
 export default function ProductList4() {
   return (
     <div className="bg-white">

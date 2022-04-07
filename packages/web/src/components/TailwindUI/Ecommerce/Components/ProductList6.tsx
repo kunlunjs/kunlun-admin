@@ -41,7 +41,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Simple'
+}
 export default function ProductList6() {
   return (
     <div className="bg-white">

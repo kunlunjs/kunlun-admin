@@ -14,7 +14,9 @@ const features = [
       'Made from natural materials. Grain and color vary with each item.'
   }
 ]
-
+export const config = {
+  title: 'With image grid'
+}
 export default function ProductFeature3() {
   return (
     <div className="bg-white">

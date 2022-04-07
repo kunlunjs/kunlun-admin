@@ -18,7 +18,9 @@ const testimonials = [
     attribution: 'Chris Paul, Phoenix'
   }
 ]
-
+export const config = {
+  title: 'With fading background image and testimonials'
+}
 export default function PromoSection1() {
   return (
     <div className="bg-white relative overflow-hidden">

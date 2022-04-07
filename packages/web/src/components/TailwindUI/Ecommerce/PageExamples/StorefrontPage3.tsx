@@ -198,7 +198,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With image tiles and feature sections'
+}
 export default function StorefrontPage3() {
   const [open, setOpen] = useState(false)
 

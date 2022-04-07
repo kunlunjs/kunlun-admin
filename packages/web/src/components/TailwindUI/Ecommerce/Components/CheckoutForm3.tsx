@@ -12,7 +12,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Multi-step'
+}
 export default function CheckoutForm3() {
   return (
     <div className="bg-white">

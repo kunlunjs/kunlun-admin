@@ -27,7 +27,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Modal'
+}
 export default function ShoppingCart5() {
   const [open, setOpen] = useState(true)
 

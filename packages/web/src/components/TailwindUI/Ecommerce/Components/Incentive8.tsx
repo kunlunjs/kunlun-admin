@@ -10,6 +10,10 @@ const incentives = [
   { name: '2-year warranty', icon: CalendarIcon }
 ]
 
+export const config = {
+  title: '3-column with icons'
+}
+
 export default function Incentive8() {
   return (
     <div className="bg-white">

@@ -24,7 +24,9 @@ const features = [
     imageAlt: 'Black canvas body with chrome zipper and key ring.'
   }
 ]
-
+export const config = {
+  title: 'With wide images'
+}
 export default function ProductFeature4() {
   return (
     <div className="bg-white">

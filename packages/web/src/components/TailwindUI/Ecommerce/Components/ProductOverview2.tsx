@@ -53,6 +53,10 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
+export const config = {
+  title: 'With image gallery and expandable details'
+}
+
 export default function ProductOverview2() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
 

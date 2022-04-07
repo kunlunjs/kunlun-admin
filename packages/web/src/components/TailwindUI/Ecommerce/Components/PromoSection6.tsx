@@ -15,7 +15,9 @@ const offers = [
     href: '#'
   }
 ]
-
+export const config = {
+  title: 'With offers and split image'
+}
 export default function PromoSection6() {
   return (
     <div className="bg-white">

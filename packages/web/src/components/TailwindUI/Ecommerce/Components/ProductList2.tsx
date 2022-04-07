@@ -11,7 +11,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With CTA link'
+}
 export default function ProductList2() {
   return (
     <div className="bg-white">

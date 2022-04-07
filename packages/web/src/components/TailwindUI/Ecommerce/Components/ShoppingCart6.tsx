@@ -31,7 +31,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Popover'
+}
 export default function ShoppingCart6() {
   return (
     <header className="relative bg-white">

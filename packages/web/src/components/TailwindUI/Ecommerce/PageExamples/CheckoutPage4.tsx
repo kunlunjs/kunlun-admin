@@ -14,7 +14,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Multi-step'
+}
 export default function CheckoutPage4() {
   return (
     <div className="bg-white">

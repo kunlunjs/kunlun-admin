@@ -34,7 +34,9 @@ const features = [
       'Stack of three green cardstock boxes with 3 hole cutouts showing cards inside.'
   }
 ]
-
+export const config = {
+  title: 'With square images'
+}
 export default function ProductFeature8() {
   return (
     <div className="bg-white">

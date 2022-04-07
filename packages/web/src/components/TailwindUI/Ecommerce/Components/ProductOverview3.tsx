@@ -31,7 +31,9 @@ const reviews = { average: 4, totalCount: 1624 }
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'Split with image'
+}
 export default function ProductOverview3() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
 

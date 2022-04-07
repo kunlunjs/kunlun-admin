@@ -22,7 +22,9 @@ const orders = [
   }
   // More orders...
 ]
-
+export const config = {
+  title: 'Invoice table'
+}
 export default function OrderHistory2() {
   return (
     <div className="bg-white">

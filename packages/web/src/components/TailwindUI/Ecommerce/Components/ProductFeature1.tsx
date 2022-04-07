@@ -1,3 +1,6 @@
+export const config = {
+  title: 'With header, images, and descriptions'
+}
 export default function ProductFeature1() {
   return (
     <div className="bg-gray-50">

@@ -20,7 +20,9 @@ const features = [
       'Responsibly and sustainably made real close to wherever you are, somehow.'
   }
 ]
-
+export const config = {
+  title: 'With split image'
+}
 export default function ProductFeature5() {
   return (
     <div className="bg-white">

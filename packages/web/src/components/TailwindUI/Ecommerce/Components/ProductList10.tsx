@@ -1,19 +1,3 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 const products = [
   {
     id: 1,
@@ -28,7 +12,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With inline price and CTA link'
+}
 export default function ProductList10() {
   return (
     <div className="bg-white">

@@ -207,7 +207,9 @@ const navigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With centered logo and featured categories'
+}
 export default function StoreNavigation4() {
   const [open, setOpen] = useState(false)
 

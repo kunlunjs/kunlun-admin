@@ -30,7 +30,9 @@ const categories = [
       'Be more productive than enterprise project managers with a single piece of paper.'
   }
 ]
-
+export const config = {
+  title: 'Three-column with description'
+}
 export default function CategoryPreview4() {
   return (
     <div className="bg-white">

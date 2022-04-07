@@ -19,7 +19,9 @@ const reviews = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'Multi-column'
+}
 export default function Review1() {
   return (
     <div className="bg-white">

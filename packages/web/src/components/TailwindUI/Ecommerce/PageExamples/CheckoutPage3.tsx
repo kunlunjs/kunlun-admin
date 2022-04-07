@@ -22,7 +22,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With mobile order summary overlay'
+}
 export default function CheckoutPage3() {
   return (
     <div className="bg-white">

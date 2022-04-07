@@ -94,7 +94,9 @@ const navigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With image grid'
+}
 export default function StoreNavigation1() {
   const [open, setOpen] = useState(false)
 

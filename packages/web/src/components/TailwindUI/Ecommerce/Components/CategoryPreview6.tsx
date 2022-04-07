@@ -1,3 +1,7 @@
+export const config = {
+  title: 'With split images'
+}
+
 export default function CategoryPreview6() {
   return (
     <>

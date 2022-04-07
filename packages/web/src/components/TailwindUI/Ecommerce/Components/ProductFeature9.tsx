@@ -19,7 +19,9 @@ const features = [
       "Designed specifically for controlled pour-overs that don't slash or sputter."
   }
 ]
-
+export const config = {
+  title: 'With tiered images'
+}
 export default function ProductFeature9() {
   return (
     <div className="bg-white">

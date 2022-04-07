@@ -22,6 +22,9 @@ const incentives = [
   }
 ]
 
+export const config = {
+  title: '3-column with illustrations and heading'
+}
 export default function Incentive5() {
   return (
     <div className="bg-white">

@@ -34,7 +34,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With supporting text'
+}
 export default function ProductList9() {
   return (
     <div className="bg-white">

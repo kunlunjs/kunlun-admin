@@ -1,3 +1,6 @@
+export const config = {
+  title: 'Full-width with background image'
+}
 export default function PromoSection2() {
   return (
     <div className="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">

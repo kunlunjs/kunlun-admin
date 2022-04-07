@@ -327,7 +327,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With product grid and pagination'
+}
 export default function CategoryPage4() {
   const [open, setOpen] = useState(false)
 

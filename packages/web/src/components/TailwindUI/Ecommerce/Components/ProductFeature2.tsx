@@ -18,7 +18,9 @@ const features = [
       'Made from natural materials. Grain and color vary with each item.'
   }
 ]
-
+export const config = {
+  title: 'With fading image'
+}
 export default function ProductFeature2() {
   return (
     <div className="bg-white">

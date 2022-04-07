@@ -1,3 +1,7 @@
+export const config = {
+  title: 'With image backgrounds'
+}
+
 export default function CategoryPreview1() {
   return (
     <div className="bg-gray-50">

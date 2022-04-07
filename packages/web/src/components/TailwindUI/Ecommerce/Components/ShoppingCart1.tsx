@@ -43,7 +43,9 @@ const products = [
     imageAlt: 'Insulated bottle with white base and black snap lid.'
   }
 ]
-
+export const config = {
+  title: 'Two column with quantity dropdown'
+}
 export default function ShoppingCart1() {
   return (
     <div className="bg-white">

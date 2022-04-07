@@ -1,3 +1,6 @@
+export const config = {
+  title: 'Full-width with overlapping image tiles'
+}
 export default function PromoSection3() {
   return (
     <div className="bg-white">

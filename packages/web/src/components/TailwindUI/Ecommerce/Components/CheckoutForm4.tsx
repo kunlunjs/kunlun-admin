@@ -21,7 +21,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With order summary sidebar'
+}
 export default function CheckoutForm4() {
   return (
     <>

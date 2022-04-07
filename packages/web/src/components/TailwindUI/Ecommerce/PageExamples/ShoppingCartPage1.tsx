@@ -11,6 +11,7 @@ import {
   QuestionMarkCircleIcon,
   XIcon as XIconSolid
 } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -220,10 +221,9 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
+export const config = {
+  title: 'With related products'
 }
-
 export default function ShoppingCartPage1() {
   const [open, setOpen] = useState(false)
 
@@ -277,7 +277,7 @@ export default function ShoppingCartPage1() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -447,7 +447,7 @@ export default function ShoppingCartPage1() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',

@@ -1,3 +1,6 @@
+export const config = {
+  title: 'With background image and detail overlay'
+}
 export default function CategoryPreviews3() {
   return (
     <div className="bg-white">

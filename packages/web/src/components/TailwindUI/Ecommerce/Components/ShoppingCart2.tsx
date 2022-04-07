@@ -28,7 +28,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Single column'
+}
 export default function ShoppingCart2() {
   return (
     <div className="bg-white">

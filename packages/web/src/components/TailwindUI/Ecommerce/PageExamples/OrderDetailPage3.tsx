@@ -12,7 +12,9 @@ const products = [
     imageAlt: 'Glass bottle with black plastic pour top and mesh insert.'
   }
 ]
-
+export const config = {
+  title: 'Simple with full order details'
+}
 export default function OrderDetailPage3() {
   return (
     <main className="bg-white px-4 pt-16 pb-24 sm:px-6 sm:pt-24 lg:px-8 lg:py-32">

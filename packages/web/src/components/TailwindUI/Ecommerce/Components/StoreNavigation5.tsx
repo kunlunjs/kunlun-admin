@@ -80,7 +80,9 @@ const navigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With double column and persistent mobile nav'
+}
 export default function StoreNavigation5() {
   return (
     <div className="bg-white">

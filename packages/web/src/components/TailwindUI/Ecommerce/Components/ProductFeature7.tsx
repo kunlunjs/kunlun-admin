@@ -21,7 +21,9 @@ const features = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With alternating sections'
+}
 export default function ProductFeature7() {
   return (
     <div className="bg-white">

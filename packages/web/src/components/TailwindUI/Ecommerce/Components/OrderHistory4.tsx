@@ -22,7 +22,9 @@ const orders = [
   }
   // More orders...
 ]
-
+export const config = {
+  title: 'Invoice list with quick actions'
+}
 export default function OrderHistory4() {
   return (
     <div className="bg-white">

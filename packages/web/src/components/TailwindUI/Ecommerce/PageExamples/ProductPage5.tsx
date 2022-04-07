@@ -256,7 +256,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With expandable product details'
+}
 export default function ProductPage5() {
   const [open, setOpen] = useState(false)
 

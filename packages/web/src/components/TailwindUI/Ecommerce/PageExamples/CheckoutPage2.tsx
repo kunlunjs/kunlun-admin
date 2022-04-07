@@ -149,7 +149,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'Single step with order summary'
+}
 export default function CheckoutPage2() {
   const [open, setOpen] = useState(false)
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(

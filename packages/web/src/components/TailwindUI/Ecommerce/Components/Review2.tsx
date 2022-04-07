@@ -28,7 +28,9 @@ const reviews = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With summary chart'
+}
 export default function Review2() {
   return (
     <div className="bg-white">

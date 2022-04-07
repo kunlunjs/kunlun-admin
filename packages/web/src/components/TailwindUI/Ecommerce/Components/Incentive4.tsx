@@ -20,6 +20,9 @@ const incentives = [
       'https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg'
   }
 ]
+export const config = {
+  title: '3-column with illustrations and centered text'
+}
 
 export default function Incentive4() {
   return (

@@ -18,6 +18,10 @@ const perks = [
   }
 ]
 
+export const config = {
+  title: '3-column with icons and supporting text'
+}
+
 export default function Incentive7() {
   return (
     <div className="bg-white">

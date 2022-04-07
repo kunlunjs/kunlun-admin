@@ -56,7 +56,9 @@ const filters = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With centered text and dropdown product filters'
+}
 export default function CategoryFilter1() {
   const [open, setOpen] = useState(false)
 

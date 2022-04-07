@@ -1,3 +1,6 @@
+export const config = {
+  title: 'With image tiles'
+}
 export default function PromoSection7() {
   return (
     <div className="relative bg-white overflow-hidden">

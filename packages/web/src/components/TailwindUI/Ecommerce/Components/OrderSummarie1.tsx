@@ -12,7 +12,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With split image'
+}
 export default function OrderSummarie1() {
   return (
     <>

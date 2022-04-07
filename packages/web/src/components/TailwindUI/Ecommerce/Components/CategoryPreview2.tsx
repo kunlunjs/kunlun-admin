@@ -1,3 +1,7 @@
+export const config = {
+  title: 'Three-column'
+}
+
 const callouts = [
   {
     name: 'Desk and Office',

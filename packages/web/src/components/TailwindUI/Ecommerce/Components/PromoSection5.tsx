@@ -22,7 +22,9 @@ const collections = [
       'Person sitting at a wooden desk with paper note organizer, pencil and tablet.'
   }
 ]
-
+export const config = {
+  title: 'With overlapping image tiles'
+}
 export default function PromoSection5() {
   return (
     <div className="relative bg-white">

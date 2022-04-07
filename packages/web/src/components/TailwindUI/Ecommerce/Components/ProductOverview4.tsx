@@ -59,7 +59,9 @@ const reviews = { href: '#', average: 4, totalCount: 117 }
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With image grid'
+}
 export default function ProductOverview4() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])

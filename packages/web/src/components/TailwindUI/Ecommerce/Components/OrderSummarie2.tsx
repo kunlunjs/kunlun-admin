@@ -42,7 +42,9 @@ const products = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With progress bars'
+}
 export default function OrderSummarie2() {
   return (
     <div className="bg-gray-50">

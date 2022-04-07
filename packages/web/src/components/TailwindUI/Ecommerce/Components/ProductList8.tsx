@@ -51,7 +51,9 @@ const products = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With border grid'
+}
 export default function ProductList8() {
   return (
     <div className="bg-white">

@@ -39,7 +39,9 @@ const reviews = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'Avatars with separate description'
+}
 export default function Review3() {
   return (
     <div className="bg-white">

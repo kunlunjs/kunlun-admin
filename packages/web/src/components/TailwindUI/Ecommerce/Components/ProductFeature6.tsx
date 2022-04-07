@@ -63,7 +63,9 @@ const tabs = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With tabs'
+}
 export default function ProductFeature6() {
   return (
     <div className="bg-white">

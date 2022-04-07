@@ -139,7 +139,9 @@ const footerNavigation = {
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-
+export const config = {
+  title: 'With invoice panels'
+}
 export default function OrderHistoryPage3() {
   return (
     <div className="bg-gray-50">

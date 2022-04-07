@@ -17,7 +17,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'With color swatches and horizontal scrolling'
+}
 export default function ProductList3() {
   return (
     <div className="bg-white">

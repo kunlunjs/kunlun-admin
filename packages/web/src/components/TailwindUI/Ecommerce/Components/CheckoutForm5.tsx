@@ -13,6 +13,9 @@ const products = [
   }
   // More products...
 ]
+export const config = {
+  title: 'Split with order summary'
+}
 
 export default function CheckoutForm5() {
   return (

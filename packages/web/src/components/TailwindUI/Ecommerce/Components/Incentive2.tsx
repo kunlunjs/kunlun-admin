@@ -28,6 +28,10 @@ const incentives = [
   }
 ]
 
+export const config = {
+  title: '4-column with illustrations'
+}
+
 export default function Incentive2() {
   return (
     <div className="bg-gray-50">

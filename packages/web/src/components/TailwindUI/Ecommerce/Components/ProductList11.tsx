@@ -26,7 +26,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Card with full details'
+}
 export default function ProductList11() {
   return (
     <div className="bg-white">

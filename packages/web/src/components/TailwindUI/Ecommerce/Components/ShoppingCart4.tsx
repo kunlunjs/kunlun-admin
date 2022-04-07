@@ -29,7 +29,9 @@ const products = [
   }
   // More products...
 ]
-
+export const config = {
+  title: 'Slide-over'
+}
 export default function ShoppingCart4() {
   const [open, setOpen] = useState(true)
 

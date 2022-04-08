@@ -17,6 +17,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -300,9 +301,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With image grid'
 }
@@ -360,7 +358,7 @@ export default function ProductPage3() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -514,7 +512,7 @@ export default function ProductPage3() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'text-indigo-600'
                                   : 'text-gray-700 hover:text-gray-800',
@@ -523,7 +521,7 @@ export default function ProductPage3() {
                             >
                               {category.name}
                               <span
-                                className={classNames(
+                                className={clsx(
                                   open ? 'bg-indigo-600' : '',
                                   'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
                                 )}
@@ -556,7 +554,7 @@ export default function ProductPage3() {
                                         (item, itemIdx) => (
                                           <div
                                             key={item.name}
-                                            className={classNames(
+                                            className={clsx(
                                               itemIdx === 0
                                                 ? 'col-span-2 aspect-w-2'
                                                 : '',
@@ -740,7 +738,7 @@ export default function ProductPage3() {
                             />
                           </span>
                           <span
-                            className={classNames(
+                            className={clsx(
                               selected ? 'ring-indigo-500' : 'ring-transparent',
                               'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none'
                             )}
@@ -785,7 +783,7 @@ export default function ProductPage3() {
                     {[0, 1, 2, 3, 4].map(rating => (
                       <StarIcon
                         key={rating}
-                        className={classNames(
+                        className={clsx(
                           product.rating > rating
                             ? 'text-indigo-500'
                             : 'text-gray-300',
@@ -827,7 +825,7 @@ export default function ProductPage3() {
                           key={color.name}
                           value={color}
                           className={({ active, checked }) =>
-                            classNames(
+                            clsx(
                               color.selectedColor,
                               active && checked ? 'ring ring-offset-1' : '',
                               !active && checked ? 'ring-2' : '',
@@ -840,7 +838,7 @@ export default function ProductPage3() {
                           </RadioGroup.Label>
                           <span
                             aria-hidden="true"
-                            className={classNames(
+                            className={clsx(
                               color.bgColor,
                               'h-8 w-8 border border-black border-opacity-10 rounded-full'
                             )}
@@ -885,7 +883,7 @@ export default function ProductPage3() {
                           <h3>
                             <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
                               <span
-                                className={classNames(
+                                className={clsx(
                                   open ? 'text-indigo-600' : 'text-gray-900',
                                   'text-sm font-medium'
                                 )}

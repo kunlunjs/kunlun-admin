@@ -5,6 +5,7 @@ import {
   ShoppingBagIcon
 } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 const navigation = {
@@ -136,9 +137,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With invoice panels'
 }
@@ -170,7 +168,7 @@ export default function OrderHistoryPage3() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -202,7 +200,7 @@ export default function OrderHistoryPage3() {
                                 aria-hidden="true"
                               >
                                 <div
-                                  className={classNames(
+                                  className={clsx(
                                     open ? 'bg-gray-200' : 'bg-transparent',
                                     'w-full h-px transition-colors ease-out duration-200'
                                   )}
@@ -456,7 +454,7 @@ export default function OrderHistoryPage3() {
                               {({ active }) => (
                                 <a
                                   href={order.href}
-                                  className={classNames(
+                                  className={clsx(
                                     active
                                       ? 'bg-gray-100 text-gray-900'
                                       : 'text-gray-700',
@@ -471,7 +469,7 @@ export default function OrderHistoryPage3() {
                               {({ active }) => (
                                 <a
                                   href={order.invoiceHref}
-                                  className={classNames(
+                                  className={clsx(
                                     active
                                       ? 'bg-gray-100 text-gray-900'
                                       : 'text-gray-700',

@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 
 const products = [
   {
@@ -48,9 +49,6 @@ const products = [
   // More products...
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With border grid'
 }
@@ -86,7 +84,7 @@ export default function ProductList8() {
                     {[0, 1, 2, 3, 4].map(rating => (
                       <StarIcon
                         key={rating}
-                        className={classNames(
+                        className={clsx(
                           product.rating > rating
                             ? 'text-yellow-400'
                             : 'text-gray-200',

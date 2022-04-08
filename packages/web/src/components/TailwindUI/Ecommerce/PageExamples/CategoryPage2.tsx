@@ -6,6 +6,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { ChevronDownIcon, PlusSmIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -230,9 +231,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With image header and detail product grid'
 }
@@ -291,7 +289,7 @@ export default function CategoryPage2() {
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
-                            classNames(
+                            clsx(
                               selected
                                 ? 'text-indigo-600 border-indigo-600'
                                 : 'text-gray-900 border-transparent',
@@ -461,7 +459,7 @@ export default function CategoryPage2() {
                           <>
                             <div className="relative flex">
                               <Popover.Button
-                                className={classNames(
+                                className={clsx(
                                   open
                                     ? 'border-indigo-600 text-indigo-600'
                                     : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -700,7 +698,7 @@ export default function CategoryPage2() {
                               </span>
                               <span className="ml-6 h-7 flex items-center">
                                 <ChevronDownIcon
-                                  className={classNames(
+                                  className={clsx(
                                     open ? '-rotate-180' : 'rotate-0',
                                     'h-5 w-5 transform'
                                   )}

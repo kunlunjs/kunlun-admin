@@ -1,5 +1,6 @@
 import { RadioGroup } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { useState } from 'react'
 
 const product = {
@@ -56,9 +57,6 @@ const product = {
 }
 const reviews = { href: '#', average: 4, totalCount: 117 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With image grid'
 }
@@ -164,7 +162,7 @@ export default function ProductOverview4() {
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
-                      className={classNames(
+                      className={clsx(
                         reviews.average > rating
                           ? 'text-gray-900'
                           : 'text-gray-200',
@@ -203,7 +201,7 @@ export default function ProductOverview4() {
                         key={color.name}
                         value={color}
                         className={({ active, checked }) =>
-                          classNames(
+                          clsx(
                             color.selectedClass,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
@@ -216,7 +214,7 @@ export default function ProductOverview4() {
                         </RadioGroup.Label>
                         <span
                           aria-hidden="true"
-                          className={classNames(
+                          className={clsx(
                             color.class,
                             'h-8 w-8 border border-black border-opacity-10 rounded-full'
                           )}
@@ -254,7 +252,7 @@ export default function ProductOverview4() {
                         value={size}
                         disabled={!size.inStock}
                         className={({ active }) =>
-                          classNames(
+                          clsx(
                             size.inStock
                               ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                               : 'bg-gray-50 text-gray-200 cursor-not-allowed',
@@ -270,7 +268,7 @@ export default function ProductOverview4() {
                             </RadioGroup.Label>
                             {size.inStock ? (
                               <div
-                                className={classNames(
+                                className={clsx(
                                   active ? 'border' : 'border-2',
                                   checked
                                     ? 'border-indigo-500'

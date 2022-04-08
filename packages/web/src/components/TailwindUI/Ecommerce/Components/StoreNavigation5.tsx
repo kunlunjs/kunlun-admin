@@ -1,5 +1,6 @@
 import { Popover, Transition } from '@headlessui/react'
 import { SearchIcon, ShoppingBagIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 const navigation = {
@@ -77,9 +78,6 @@ const navigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With double column and persistent mobile nav'
 }
@@ -111,7 +109,7 @@ export default function StoreNavigation5() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',

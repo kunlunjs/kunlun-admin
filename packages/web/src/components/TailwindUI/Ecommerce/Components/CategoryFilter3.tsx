@@ -1,5 +1,6 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, FilterIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 const filters = {
@@ -39,9 +40,6 @@ const sortOptions = [
   { name: 'Newest', href: '#', current: false }
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With expandable product filter panel'
 }
@@ -227,7 +225,7 @@ export default function CategoryFilter3() {
                         {({ active }) => (
                           <a
                             href={option.href}
-                            className={classNames(
+                            className={clsx(
                               option.current
                                 ? 'font-medium text-gray-900'
                                 : 'text-gray-500',

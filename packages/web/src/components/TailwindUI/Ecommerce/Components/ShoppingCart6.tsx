@@ -1,5 +1,6 @@
 import { Popover, Transition } from '@headlessui/react'
 import { SearchIcon, ShoppingBagIcon } from '@heroicons/react/outline'
+
 import { Fragment } from 'react'
 
 const navigation = [

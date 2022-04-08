@@ -1,6 +1,7 @@
 import { RadioGroup } from '@headlessui/react'
 import { CurrencyDollarIcon, GlobeIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { useState } from 'react'
 
 const product = {
@@ -76,10 +77,6 @@ const policies = [
   }
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export const config = {
   title: 'With tiered images'
 }
@@ -153,7 +150,7 @@ export default function ProductOverview1() {
                     {[0, 1, 2, 3, 4].map(rating => (
                       <StarIcon
                         key={rating}
-                        className={classNames(
+                        className={clsx(
                           product.rating > rating
                             ? 'text-yellow-400'
                             : 'text-gray-200',
@@ -191,7 +188,7 @@ export default function ProductOverview1() {
                     key={image.id}
                     src={image.imageSrc}
                     alt={image.imageAlt}
-                    className={classNames(
+                    className={clsx(
                       image.primary
                         ? 'lg:col-span-2 lg:row-span-2'
                         : 'hidden lg:block',
@@ -222,7 +219,7 @@ export default function ProductOverview1() {
                           key={color.name}
                           value={color}
                           className={({ active, checked }) =>
-                            classNames(
+                            clsx(
                               color.selectedColor,
                               active && checked ? 'ring ring-offset-1' : '',
                               !active && checked ? 'ring-2' : '',
@@ -235,7 +232,7 @@ export default function ProductOverview1() {
                           </RadioGroup.Label>
                           <span
                             aria-hidden="true"
-                            className={classNames(
+                            className={clsx(
                               color.bgColor,
                               'h-8 w-8 border border-black border-opacity-10 rounded-full'
                             )}
@@ -272,7 +269,7 @@ export default function ProductOverview1() {
                           key={size.name}
                           value={size}
                           className={({ active, checked }) =>
-                            classNames(
+                            clsx(
                               size.inStock
                                 ? 'cursor-pointer focus:outline-none'
                                 : 'opacity-25 cursor-not-allowed',

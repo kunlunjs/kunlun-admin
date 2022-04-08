@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 
 const reviews = {
   average: 4,
@@ -25,9 +26,6 @@ const reviews = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With summary chart'
 }
@@ -46,7 +44,7 @@ export default function Review2() {
                 {[0, 1, 2, 3, 4].map(rating => (
                   <StarIcon
                     key={rating}
-                    className={classNames(
+                    className={clsx(
                       reviews.average > rating
                         ? 'text-yellow-400'
                         : 'text-gray-300',
@@ -79,7 +77,7 @@ export default function Review2() {
                       className="ml-1 flex-1 flex items-center"
                     >
                       <StarIcon
-                        className={classNames(
+                        className={clsx(
                           count.count > 0 ? 'text-yellow-400' : 'text-gray-300',
                           'flex-shrink-0 h-5 w-5'
                         )}
@@ -146,7 +144,7 @@ export default function Review2() {
                         {[0, 1, 2, 3, 4].map(rating => (
                           <StarIcon
                             key={rating}
-                            className={classNames(
+                            className={clsx(
                               review.rating > rating
                                 ? 'text-yellow-400'
                                 : 'text-gray-300',

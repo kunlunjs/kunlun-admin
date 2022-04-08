@@ -5,6 +5,7 @@ import {
   QuestionMarkCircleIcon,
   StarIcon
 } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { useState } from 'react'
 
 const product = {
@@ -28,9 +29,6 @@ const product = {
 }
 const reviews = { average: 4, totalCount: 1624 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'Split with image'
 }
@@ -94,7 +92,7 @@ export default function ProductOverview3() {
                       {[0, 1, 2, 3, 4].map(rating => (
                         <StarIcon
                           key={rating}
-                          className={classNames(
+                          className={clsx(
                             reviews.average > rating
                               ? 'text-yellow-400'
                               : 'text-gray-300',
@@ -161,7 +159,7 @@ export default function ProductOverview3() {
                         key={size.name}
                         value={size}
                         className={({ active }) =>
-                          classNames(
+                          clsx(
                             active ? 'ring-2 ring-indigo-500' : '',
                             'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
                           )
@@ -182,7 +180,7 @@ export default function ProductOverview3() {
                               {size.description}
                             </RadioGroup.Description>
                             <div
-                              className={classNames(
+                              className={clsx(
                                 active ? 'border' : 'border-2',
                                 checked
                                   ? 'border-indigo-500'

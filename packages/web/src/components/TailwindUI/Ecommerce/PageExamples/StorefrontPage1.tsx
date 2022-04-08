@@ -6,6 +6,7 @@ import {
   ShoppingBagIcon,
   XIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -183,9 +184,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With dark nav and footers'
 }
@@ -242,7 +240,7 @@ export default function StorefrontPage1() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -474,7 +472,7 @@ export default function StorefrontPage1() {
                                     <Popover.Button className="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white">
                                       {category.name}
                                       <span
-                                        className={classNames(
+                                        className={clsx(
                                           open ? 'bg-white' : '',
                                           'absolute -bottom-px inset-x-0 h-0.5 transition ease-out duration-200'
                                         )}

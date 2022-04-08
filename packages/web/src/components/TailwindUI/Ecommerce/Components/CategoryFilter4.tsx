@@ -7,6 +7,7 @@ import {
   PlusSmIcon,
   ViewGridIcon
 } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const sortOptions = [
@@ -60,10 +61,6 @@ const filters = [
     ]
   }
 ]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const config = {
   title: 'With inline actions and expandable sidebar filters'
@@ -229,7 +226,7 @@ export default function CategoryFilter4() {
                           {({ active }) => (
                             <a
                               href={option.href}
-                              className={classNames(
+                              className={clsx(
                                 option.current
                                   ? 'font-medium text-gray-900'
                                   : 'text-gray-500',

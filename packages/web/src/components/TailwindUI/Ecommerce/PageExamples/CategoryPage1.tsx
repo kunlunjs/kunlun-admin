@@ -14,6 +14,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -251,9 +252,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With text header and image product grid'
 }
@@ -312,7 +310,7 @@ export default function CategoryPage1() {
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
-                            classNames(
+                            clsx(
                               selected
                                 ? 'text-indigo-600 border-indigo-600'
                                 : 'text-gray-900 border-transparent',
@@ -525,7 +523,7 @@ export default function CategoryPage1() {
                               <>
                                 <div className="relative flex">
                                   <Popover.Button
-                                    className={classNames(
+                                    className={clsx(
                                       open
                                         ? 'text-indigo-600'
                                         : 'text-gray-700 hover:text-gray-800',
@@ -534,7 +532,7 @@ export default function CategoryPage1() {
                                   >
                                     {category.name}
                                     <span
-                                      className={classNames(
+                                      className={clsx(
                                         open ? 'bg-indigo-600' : '',
                                         'absolute z-30 -bottom-px inset-x-0 h-0.5 transition ease-out duration-200'
                                       )}
@@ -564,7 +562,7 @@ export default function CategoryPage1() {
                                       aria-hidden="true"
                                     >
                                       <div
-                                        className={classNames(
+                                        className={clsx(
                                           open
                                             ? 'bg-gray-200'
                                             : 'bg-transparent',
@@ -773,7 +771,7 @@ export default function CategoryPage1() {
                               </span>
                               <span className="ml-6 flex items-center">
                                 <ChevronDownIcon
-                                  className={classNames(
+                                  className={clsx(
                                     open ? '-rotate-180' : 'rotate-0',
                                     'h-5 w-5 transform'
                                   )}
@@ -866,7 +864,7 @@ export default function CategoryPage1() {
                             {({ active }) => (
                               <a
                                 href={option.href}
-                                className={classNames(
+                                className={clsx(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm font-medium text-gray-900'
                                 )}

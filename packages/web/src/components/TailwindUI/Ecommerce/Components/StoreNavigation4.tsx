@@ -6,6 +6,7 @@ import {
   UserIcon,
   XIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -204,9 +205,6 @@ const navigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With centered logo and featured categories'
 }
@@ -263,7 +261,7 @@ export default function StoreNavigation4() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -417,7 +415,7 @@ export default function StoreNavigation4() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'text-indigo-600'
                                   : 'text-gray-700 hover:text-gray-800',
@@ -426,7 +424,7 @@ export default function StoreNavigation4() {
                             >
                               {category.name}
                               <span
-                                className={classNames(
+                                className={clsx(
                                   open ? 'bg-indigo-600' : '',
                                   'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
                                 )}
@@ -459,7 +457,7 @@ export default function StoreNavigation4() {
                                         (item, itemIdx) => (
                                           <div
                                             key={item.name}
-                                            className={classNames(
+                                            className={clsx(
                                               itemIdx === 0
                                                 ? 'col-span-2 aspect-w-2'
                                                 : '',

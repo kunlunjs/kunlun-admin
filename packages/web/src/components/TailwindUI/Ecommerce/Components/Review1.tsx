@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 
 const reviews = [
   {
@@ -16,9 +17,6 @@ const reviews = [
   // More reviews...
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'Multi-column'
 }
@@ -39,7 +37,7 @@ export default function Review1() {
                     {[0, 1, 2, 3, 4].map(rating => (
                       <StarIcon
                         key={rating}
-                        className={classNames(
+                        className={clsx(
                           review.rating > rating
                             ? 'text-yellow-400'
                             : 'text-gray-200',

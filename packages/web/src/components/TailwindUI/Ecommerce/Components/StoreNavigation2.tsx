@@ -6,6 +6,7 @@ import {
   UserIcon,
   XIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -74,9 +75,6 @@ const navigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With simple menu and promo'
 }
@@ -133,7 +131,7 @@ export default function StoreNavigation2() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -414,7 +412,7 @@ export default function StoreNavigation2() {
                               <>
                                 <div className="relative flex">
                                   <Popover.Button
-                                    className={classNames(
+                                    className={clsx(
                                       open
                                         ? 'border-indigo-600 text-indigo-600'
                                         : 'border-transparent text-gray-700 hover:text-gray-800',

@@ -7,6 +7,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -207,9 +208,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'Recent reviews'
 }
@@ -268,7 +266,7 @@ export default function ProductPage2() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -549,7 +547,7 @@ export default function ProductPage2() {
                               <>
                                 <div className="relative flex">
                                   <Popover.Button
-                                    className={classNames(
+                                    className={clsx(
                                       open
                                         ? 'border-indigo-600 text-indigo-600'
                                         : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -904,7 +902,7 @@ export default function ProductPage2() {
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
-                      className={classNames(
+                      className={clsx(
                         reviews.average > rating
                           ? 'text-gray-900'
                           : 'text-gray-200',
@@ -943,7 +941,7 @@ export default function ProductPage2() {
                         key={color.name}
                         value={color}
                         className={({ active, checked }) =>
-                          classNames(
+                          clsx(
                             color.selectedClass,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
@@ -956,7 +954,7 @@ export default function ProductPage2() {
                         </RadioGroup.Label>
                         <span
                           aria-hidden="true"
-                          className={classNames(
+                          className={clsx(
                             color.class,
                             'h-8 w-8 border border-black border-opacity-10 rounded-full'
                           )}
@@ -994,7 +992,7 @@ export default function ProductPage2() {
                         value={size}
                         disabled={!size.inStock}
                         className={({ active }) =>
-                          classNames(
+                          clsx(
                             size.inStock
                               ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                               : 'bg-gray-50 text-gray-200 cursor-not-allowed',
@@ -1010,7 +1008,7 @@ export default function ProductPage2() {
                             </RadioGroup.Label>
                             {size.inStock ? (
                               <div
-                                className={classNames(
+                                className={clsx(
                                   active ? 'border' : 'border-2',
                                   checked
                                     ? 'border-indigo-500'
@@ -1135,7 +1133,7 @@ export default function ProductPage2() {
                           {[0, 1, 2, 3, 4].map(rating => (
                             <StarIcon
                               key={rating}
-                              className={classNames(
+                              className={clsx(
                                 review.rating > rating
                                   ? 'text-gray-900'
                                   : 'text-gray-200',

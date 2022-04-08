@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 const products = [
   {
     id: 1,
@@ -39,9 +41,6 @@ const products = [
   // More products...
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With progress bars'
 }
@@ -157,7 +156,7 @@ export default function OrderSummarie2() {
                     <div className="hidden sm:grid grid-cols-4 text-sm font-medium text-gray-600 mt-6">
                       <div className="text-indigo-600">Order placed</div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 0 ? 'text-indigo-600' : '',
                           'text-center'
                         )}
@@ -165,7 +164,7 @@ export default function OrderSummarie2() {
                         Processing
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 1 ? 'text-indigo-600' : '',
                           'text-center'
                         )}
@@ -173,7 +172,7 @@ export default function OrderSummarie2() {
                         Shipped
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 2 ? 'text-indigo-600' : '',
                           'text-right'
                         )}

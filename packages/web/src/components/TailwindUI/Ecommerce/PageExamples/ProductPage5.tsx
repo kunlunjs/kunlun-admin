@@ -6,6 +6,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -253,9 +254,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With expandable product details'
 }
@@ -312,7 +310,7 @@ export default function ProductPage5() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -482,7 +480,7 @@ export default function ProductPage5() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -696,7 +694,7 @@ export default function ProductPage5() {
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
-                      className={classNames(
+                      className={clsx(
                         reviews.average > rating
                           ? 'text-yellow-400'
                           : 'text-gray-300',
@@ -820,7 +818,7 @@ export default function ProductPage5() {
                 <Tab.List className="-mb-px flex space-x-8">
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -832,7 +830,7 @@ export default function ProductPage5() {
                   </Tab>
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -844,7 +842,7 @@ export default function ProductPage5() {
                   </Tab>
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -873,7 +871,7 @@ export default function ProductPage5() {
                         />
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           reviewIdx === 0 ? '' : 'border-t border-gray-200',
                           'flex-1 py-10'
                         )}
@@ -889,7 +887,7 @@ export default function ProductPage5() {
                           {[0, 1, 2, 3, 4].map(rating => (
                             <StarIcon
                               key={rating}
-                              className={classNames(
+                              className={clsx(
                                 review.rating > rating
                                   ? 'text-yellow-400'
                                   : 'text-gray-300',

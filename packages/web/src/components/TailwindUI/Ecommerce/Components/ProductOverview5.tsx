@@ -1,5 +1,6 @@
 import { Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 const product = {
@@ -91,9 +92,6 @@ const license = {
   `
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With tabs'
 }
@@ -140,7 +138,7 @@ export default function ProductOverview5() {
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
-                      className={classNames(
+                      className={clsx(
                         reviews.average > rating
                           ? 'text-yellow-400'
                           : 'text-gray-300',
@@ -264,7 +262,7 @@ export default function ProductOverview5() {
                 <Tab.List className="-mb-px flex space-x-8">
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -276,7 +274,7 @@ export default function ProductOverview5() {
                   </Tab>
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -288,7 +286,7 @@ export default function ProductOverview5() {
                   </Tab>
                   <Tab
                     className={({ selected }) =>
-                      classNames(
+                      clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
                           : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
@@ -317,7 +315,7 @@ export default function ProductOverview5() {
                         />
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           reviewIdx === 0 ? '' : 'border-t border-gray-200',
                           'py-10'
                         )}
@@ -333,7 +331,7 @@ export default function ProductOverview5() {
                           {[0, 1, 2, 3, 4].map(rating => (
                             <StarIcon
                               key={rating}
-                              className={classNames(
+                              className={clsx(
                                 review.rating > rating
                                   ? 'text-yellow-400'
                                   : 'text-gray-300',

@@ -7,6 +7,7 @@ import {
 } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const sortOptions = [
@@ -44,10 +45,6 @@ const filters = [
   }
 ]
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const config = {
   title: 'With dropdown product filters'
@@ -116,7 +113,7 @@ export default function CategoryFilter2() {
                             </span>
                             <span className="ml-6 flex items-center">
                               <ChevronDownIcon
-                                className={classNames(
+                                className={clsx(
                                   open ? '-rotate-180' : 'rotate-0',
                                   'h-5 w-5 transform'
                                 )}
@@ -206,7 +203,7 @@ export default function CategoryFilter2() {
                         {({ active }) => (
                           <a
                             href={option.href}
-                            className={classNames(
+                            className={clsx(
                               option.current
                                 ? 'font-medium text-gray-900'
                                 : 'text-gray-500',

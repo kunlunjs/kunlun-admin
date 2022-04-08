@@ -1,6 +1,7 @@
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon, PlusSmIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const filters = [
@@ -40,10 +41,6 @@ const filters = [
     ]
   }
 ]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const config = {
   title: 'Sidebar filters'
@@ -113,7 +110,7 @@ export default function CategoryFilter3() {
                               </span>
                               <span className="ml-6 h-7 flex items-center">
                                 <ChevronDownIcon
-                                  className={classNames(
+                                  className={clsx(
                                     open ? '-rotate-180' : 'rotate-0',
                                     'h-5 w-5 transform'
                                   )}

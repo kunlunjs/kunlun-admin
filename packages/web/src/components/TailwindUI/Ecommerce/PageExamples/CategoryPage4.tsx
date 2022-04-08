@@ -14,6 +14,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { ChevronDownIcon, FilterIcon, StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -324,9 +325,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With product grid and pagination'
 }
@@ -383,7 +381,7 @@ export default function CategoryPage4() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -537,7 +535,7 @@ export default function CategoryPage4() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'text-indigo-600'
                                   : 'text-gray-700 hover:text-gray-800',
@@ -546,7 +544,7 @@ export default function CategoryPage4() {
                             >
                               {category.name}
                               <span
-                                className={classNames(
+                                className={clsx(
                                   open ? 'bg-indigo-600' : '',
                                   'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
                                 )}
@@ -579,7 +577,7 @@ export default function CategoryPage4() {
                                         (item, itemIdx) => (
                                           <div
                                             key={item.name}
-                                            className={classNames(
+                                            className={clsx(
                                               itemIdx === 0
                                                 ? 'col-span-2 aspect-w-2'
                                                 : '',
@@ -917,7 +915,7 @@ export default function CategoryPage4() {
                           {({ active }) => (
                             <a
                               href={option.href}
-                              className={classNames(
+                              className={clsx(
                                 option.current
                                   ? 'font-medium text-gray-900'
                                   : 'text-gray-500',
@@ -973,7 +971,7 @@ export default function CategoryPage4() {
                       {[0, 1, 2, 3, 4].map(rating => (
                         <StarIcon
                           key={rating}
-                          className={classNames(
+                          className={clsx(
                             product.rating > rating
                               ? 'text-yellow-400'
                               : 'text-gray-200',

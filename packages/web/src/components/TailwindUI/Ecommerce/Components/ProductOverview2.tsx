@@ -1,6 +1,7 @@
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { useState } from 'react'
 
 const product = {
@@ -49,10 +50,6 @@ const product = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export const config = {
   title: 'With image gallery and expandable details'
 }
@@ -85,7 +82,7 @@ export default function ProductOverview2() {
                           />
                         </span>
                         <span
-                          className={classNames(
+                          className={clsx(
                             selected ? 'ring-indigo-500' : 'ring-transparent',
                             'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none'
                           )}
@@ -130,7 +127,7 @@ export default function ProductOverview2() {
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
-                      className={classNames(
+                      className={clsx(
                         product.rating > rating
                           ? 'text-indigo-500'
                           : 'text-gray-300',
@@ -172,7 +169,7 @@ export default function ProductOverview2() {
                         key={color.name}
                         value={color}
                         className={({ active, checked }) =>
-                          classNames(
+                          clsx(
                             color.selectedColor,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
@@ -185,7 +182,7 @@ export default function ProductOverview2() {
                         </RadioGroup.Label>
                         <span
                           aria-hidden="true"
-                          className={classNames(
+                          className={clsx(
                             color.bgColor,
                             'h-8 w-8 border border-black border-opacity-10 rounded-full'
                           )}
@@ -230,7 +227,7 @@ export default function ProductOverview2() {
                         <h3>
                           <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
                             <span
-                              className={classNames(
+                              className={clsx(
                                 open ? 'text-indigo-600' : 'text-gray-900',
                                 'text-sm font-medium'
                               )}

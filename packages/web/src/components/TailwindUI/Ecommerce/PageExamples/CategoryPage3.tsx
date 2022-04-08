@@ -14,6 +14,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -201,9 +202,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With text header and simple product grid'
 }
@@ -262,7 +260,7 @@ export default function CategoryPage3() {
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
-                            classNames(
+                            clsx(
                               selected
                                 ? 'text-indigo-600 border-indigo-600'
                                 : 'text-gray-900 border-transparent',
@@ -556,7 +554,7 @@ export default function CategoryPage3() {
                                   <>
                                     <div className="relative flex">
                                       <Popover.Button
-                                        className={classNames(
+                                        className={clsx(
                                           open
                                             ? 'border-indigo-600 text-indigo-600'
                                             : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -883,7 +881,7 @@ export default function CategoryPage3() {
                               </span>
                               <span className="ml-6 flex items-center">
                                 <ChevronDownIcon
-                                  className={classNames(
+                                  className={clsx(
                                     open ? '-rotate-180' : 'rotate-0',
                                     'h-5 w-5 transform'
                                   )}
@@ -976,7 +974,7 @@ export default function CategoryPage3() {
                             {({ active }) => (
                               <a
                                 href={option.href}
-                                className={classNames(
+                                className={clsx(
                                   option.current
                                     ? 'font-medium text-gray-900'
                                     : 'text-gray-500',

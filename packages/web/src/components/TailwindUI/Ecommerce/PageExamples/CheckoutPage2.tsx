@@ -7,6 +7,7 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -146,9 +147,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'Single step with order summary'
 }
@@ -208,7 +206,7 @@ export default function CheckoutPage2() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -421,7 +419,7 @@ export default function CheckoutPage2() {
                             <>
                               <div className="relative flex">
                                 <Popover.Button
-                                  className={classNames(
+                                  className={clsx(
                                     open
                                       ? 'border-indigo-600 text-indigo-600'
                                       : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -453,7 +451,7 @@ export default function CheckoutPage2() {
                                     aria-hidden="true"
                                   >
                                     <div
-                                      className={classNames(
+                                      className={clsx(
                                         open ? 'bg-gray-200' : 'bg-transparent',
                                         'w-full h-px transition-colors ease-out duration-200'
                                       )}
@@ -829,7 +827,7 @@ export default function CheckoutPage2() {
                         key={deliveryMethod.id}
                         value={deliveryMethod}
                         className={({ checked, active }) =>
-                          classNames(
+                          clsx(
                             checked ? 'border-transparent' : 'border-gray-300',
                             active ? 'ring-2 ring-indigo-500' : '',
                             'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
@@ -867,7 +865,7 @@ export default function CheckoutPage2() {
                               />
                             ) : null}
                             <div
-                              className={classNames(
+                              className={clsx(
                                 active ? 'border' : 'border-2',
                                 checked
                                   ? 'border-indigo-500'

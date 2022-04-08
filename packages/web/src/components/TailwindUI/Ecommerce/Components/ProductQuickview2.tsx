@@ -1,6 +1,7 @@
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const product = {
@@ -29,9 +30,6 @@ const product = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With color and size selector'
 }
@@ -121,7 +119,7 @@ export default function ProductQuickview2() {
                             {[0, 1, 2, 3, 4].map(rating => (
                               <StarIcon
                                 key={rating}
-                                className={classNames(
+                                className={clsx(
                                   product.rating > rating
                                     ? 'text-gray-900'
                                     : 'text-gray-200',
@@ -173,7 +171,7 @@ export default function ProductQuickview2() {
                                   key={color.name}
                                   value={color}
                                   className={({ active, checked }) =>
-                                    classNames(
+                                    clsx(
                                       color.selectedClass,
                                       active && checked
                                         ? 'ring ring-offset-1'
@@ -188,7 +186,7 @@ export default function ProductQuickview2() {
                                   </RadioGroup.Label>
                                   <span
                                     aria-hidden="true"
-                                    className={classNames(
+                                    className={clsx(
                                       color.class,
                                       'h-8 w-8 border border-black border-opacity-10 rounded-full'
                                     )}
@@ -228,7 +226,7 @@ export default function ProductQuickview2() {
                                   value={size}
                                   disabled={!size.inStock}
                                   className={({ active }) =>
-                                    classNames(
+                                    clsx(
                                       size.inStock
                                         ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                                         : 'bg-gray-50 text-gray-200 cursor-not-allowed',
@@ -244,7 +242,7 @@ export default function ProductQuickview2() {
                                       </RadioGroup.Label>
                                       {size.inStock ? (
                                         <div
-                                          className={classNames(
+                                          className={clsx(
                                             active ? 'border' : 'border-2',
                                             checked
                                               ? 'border-indigo-500'

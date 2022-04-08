@@ -6,6 +6,7 @@ import {
   UserIcon,
   XIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
@@ -141,9 +142,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With progress bars'
 }
@@ -200,7 +198,7 @@ export default function OrderDetailPage1() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -480,7 +478,7 @@ export default function OrderDetailPage1() {
                             <>
                               <div className="relative flex">
                                 <Popover.Button
-                                  className={classNames(
+                                  className={clsx(
                                     open
                                       ? 'border-indigo-600 text-indigo-600'
                                       : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -512,7 +510,7 @@ export default function OrderDetailPage1() {
                                     aria-hidden="true"
                                   >
                                     <div
-                                      className={classNames(
+                                      className={clsx(
                                         open ? 'bg-gray-200' : 'bg-transparent',
                                         'w-full h-px transition-colors ease-out duration-200'
                                       )}
@@ -849,7 +847,7 @@ export default function OrderDetailPage1() {
                     <div className="hidden sm:grid grid-cols-4 text-sm font-medium text-gray-600 mt-6">
                       <div className="text-indigo-600">Order placed</div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 0 ? 'text-indigo-600' : '',
                           'text-center'
                         )}
@@ -857,7 +855,7 @@ export default function OrderDetailPage1() {
                         Processing
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 1 ? 'text-indigo-600' : '',
                           'text-center'
                         )}
@@ -865,7 +863,7 @@ export default function OrderDetailPage1() {
                         Shipped
                       </div>
                       <div
-                        className={classNames(
+                        className={clsx(
                           product.step > 2 ? 'text-indigo-600' : '',
                           'text-right'
                         )}

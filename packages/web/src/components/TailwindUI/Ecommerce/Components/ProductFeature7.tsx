@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 const features = [
   {
     name: 'Minimal and thoughtful',
@@ -18,9 +20,6 @@ const features = [
   }
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With alternating sections'
 }
@@ -46,7 +45,7 @@ export default function ProductFeature7() {
               className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center"
             >
               <div
-                className={classNames(
+                className={clsx(
                   featureIdx % 2 === 0
                     ? 'lg:col-start-1'
                     : 'lg:col-start-8 xl:col-start-9',
@@ -61,7 +60,7 @@ export default function ProductFeature7() {
                 </p>
               </div>
               <div
-                className={classNames(
+                className={clsx(
                   featureIdx % 2 === 0
                     ? 'lg:col-start-6 xl:col-start-5'
                     : 'lg:col-start-1',

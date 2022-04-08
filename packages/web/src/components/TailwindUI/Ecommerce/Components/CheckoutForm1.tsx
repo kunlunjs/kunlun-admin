@@ -1,5 +1,6 @@
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { useState } from 'react'
 
 const products = [
@@ -30,10 +31,6 @@ const paymentMethods = [
   { id: 'paypal', title: 'PayPal' },
   { id: 'etransfer', title: 'eTransfer' }
 ]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const config = {
   title: 'Single step with order summary'
@@ -279,7 +276,7 @@ export default function CheckoutForm1() {
                       key={deliveryMethod.id}
                       value={deliveryMethod}
                       className={({ checked, active }) =>
-                        classNames(
+                        clsx(
                           checked ? 'border-transparent' : 'border-gray-300',
                           active ? 'ring-2 ring-indigo-500' : '',
                           'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
@@ -317,7 +314,7 @@ export default function CheckoutForm1() {
                             />
                           ) : null}
                           <div
-                            className={classNames(
+                            className={clsx(
                               active ? 'border' : 'border-2',
                               checked
                                 ? 'border-indigo-500'

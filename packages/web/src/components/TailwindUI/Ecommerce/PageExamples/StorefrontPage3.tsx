@@ -5,6 +5,7 @@ import {
   ShoppingBagIcon,
   XIcon
 } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const navigation = {
@@ -195,9 +196,6 @@ const footerNavigation = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With image tiles and feature sections'
 }
@@ -254,7 +252,7 @@ export default function StorefrontPage3() {
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
-                          classNames(
+                          clsx(
                             selected
                               ? 'text-indigo-600 border-indigo-600'
                               : 'text-gray-900 border-transparent',
@@ -421,7 +419,7 @@ export default function StorefrontPage3() {
                         <>
                           <div className="relative flex">
                             <Popover.Button
-                              className={classNames(
+                              className={clsx(
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
@@ -453,7 +451,7 @@ export default function StorefrontPage3() {
                                 aria-hidden="true"
                               >
                                 <div
-                                  className={classNames(
+                                  className={clsx(
                                     open ? 'bg-gray-200' : 'bg-transparent',
                                     'w-full h-px transition-colors ease-out duration-200'
                                   )}

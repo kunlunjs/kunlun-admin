@@ -1,6 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 const orders = [
@@ -31,10 +32,6 @@ const orders = [
   }
   // More orders...
 ]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const config = {
   title: 'Invoice panelss'
@@ -130,7 +127,7 @@ export default function OrderHistory1() {
                               {({ active }) => (
                                 <a
                                   href={order.href}
-                                  className={classNames(
+                                  className={clsx(
                                     active
                                       ? 'bg-gray-100 text-gray-900'
                                       : 'text-gray-700',
@@ -145,7 +142,7 @@ export default function OrderHistory1() {
                               {({ active }) => (
                                 <a
                                   href={order.invoiceHref}
-                                  className={classNames(
+                                  className={clsx(
                                     active
                                       ? 'bg-gray-100 text-gray-900'
                                       : 'text-gray-700',

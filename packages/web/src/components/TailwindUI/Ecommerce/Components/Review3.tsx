@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 
 const reviews = [
   {
@@ -36,9 +37,6 @@ const reviews = [
   }
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'Avatars with separate description'
 }
@@ -80,7 +78,7 @@ export default function Review3() {
                     {[0, 1, 2, 3, 4].map(rating => (
                       <StarIcon
                         key={rating}
-                        className={classNames(
+                        className={clsx(
                           review.rating > rating
                             ? 'text-gray-900'
                             : 'text-gray-200',

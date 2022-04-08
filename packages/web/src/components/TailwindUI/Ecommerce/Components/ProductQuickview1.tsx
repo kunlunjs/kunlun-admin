@@ -1,6 +1,7 @@
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
+import clsx from 'clsx'
 import { Fragment, useState } from 'react'
 
 const product = {
@@ -31,9 +32,6 @@ const product = {
   ]
 }
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
 export const config = {
   title: 'With color selector, size selector, and details link'
 }
@@ -129,7 +127,7 @@ export default function ProductQuickview1() {
                             {[0, 1, 2, 3, 4].map(rating => (
                               <StarIcon
                                 key={rating}
-                                className={classNames(
+                                className={clsx(
                                   product.rating > rating
                                     ? 'text-yellow-400'
                                     : 'text-gray-200',
@@ -180,7 +178,7 @@ export default function ProductQuickview1() {
                                   key={color.name}
                                   value={color}
                                   className={({ active, checked }) =>
-                                    classNames(
+                                    clsx(
                                       color.selectedColor,
                                       active && checked
                                         ? 'ring ring-offset-1'
@@ -195,7 +193,7 @@ export default function ProductQuickview1() {
                                   </RadioGroup.Label>
                                   <span
                                     aria-hidden="true"
-                                    className={classNames(
+                                    className={clsx(
                                       color.bgColor,
                                       'h-8 w-8 border border-black border-opacity-10 rounded-full'
                                     )}
@@ -234,7 +232,7 @@ export default function ProductQuickview1() {
                                   key={size.name}
                                   value={size}
                                   className={({ active, checked }) =>
-                                    classNames(
+                                    clsx(
                                       size.inStock
                                         ? 'cursor-pointer focus:outline-none'
                                         : 'opacity-25 cursor-not-allowed',

@@ -3,10 +3,9 @@ import type { ChangeEvent, FC } from 'react'
 import { useState } from 'react'
 import { Fragment } from 'react'
 import Icon from '@/components/Icon'
-import { templateItems } from '@/config'
+import { charts, templateItems } from '@/config'
 import type { IconNames } from '@/types'
 import { DraggableItem } from './components'
-import { categories } from './config'
 import type { DragItem, DragItems } from './interfaces'
 import './index.less'
 
@@ -45,6 +44,7 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
 
   const handleChangeTab = (key: string) => {
     setActiveTab(key)
+    // setState({ '图表': charts })
   }
 
   return (
@@ -75,17 +75,16 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
               >
                 <div>
                   {activeTab === 'components'
-                    ? categories.map(category => {
+                    ? Object.entries(state).map(([category, items]) => {
                         return (
                           <Fragment key={category}>
-                            {!!state[category]?.filter(i => i.draggable)
-                              .length && (
+                            {!!items?.filter(i => i.draggable).length && (
                               <h5 className="-mb-2 mt-2 font-bold">
                                 {category}
                               </h5>
                             )}
                             <div className="grid gap-2 grid-cols-3">
-                              {state[category]?.map(i => {
+                              {items?.map(i => {
                                 return (
                                   <DraggableItem
                                     key={i.title}
@@ -101,6 +100,20 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
                         )
                       })
                     : null}
+                  {activeTab === 'charts' ? (
+                    <div className="grid gap-2 grid-cols-2">
+                      {charts.map(i => {
+                        return (
+                          <img
+                            key={i.name}
+                            alt={i.name}
+                            src={i.src}
+                            className="w-full border border-solid border-gray-200 cursor-move"
+                          />
+                        )
+                      })}
+                    </div>
+                  ) : null}
                   {activeTab === 'templates' ? (
                     <div className="grid gap-2 grid-cols-2">
                       {Object.values(templateItems)

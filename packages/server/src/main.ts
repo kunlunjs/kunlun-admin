@@ -1,6 +1,7 @@
 import { ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { HttpAdapterHost, NestFactory } from '@nestjs/core'
+import type { NestExpressApplication } from '@nestjs/platform-express'
 import chalk from 'chalk'
 import { AppModule } from './app.module'
 import type { CorsConfig, NestConfig, SwaggerConfig } from './common/configs'
@@ -8,7 +9,7 @@ import { PrismaService, PrismaClientExceptionFilter } from './common/prisma'
 import { setupSwagger } from './swagger/setup'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
   const prismaService: PrismaService = app.get<PrismaService>(PrismaService)
   prismaService.enableShutdownHooks(app)

@@ -1,4 +1,4 @@
-export * from './antd.types'
+export * from './antd.type'
 export * from './common.type'
 export * from './components.type'
 export * from './entity.type'

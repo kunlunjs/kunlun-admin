@@ -1,7 +1,6 @@
-import type { CSSProperties } from 'react'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, CSSProperties } from 'react'
 import type Icon from '@/components/Icon'
-import type { ButtonProps } from './antd.types'
+import type { ButtonProps } from './antd.type'
 
 export type IKLTableButton = {
   range?: 'common' | 'system'

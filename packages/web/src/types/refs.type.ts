@@ -1,5 +1,5 @@
 import type { FormInstance } from 'antd'
-import type { TableProps } from './antd.types'
+import type { TableProps } from './antd.type'
 
 export interface FormRef {
   getValues: () => Record<string, any>

@@ -1,11 +1,10 @@
-import update from 'immutability-helper'
 import type { FC } from 'react'
 import { useState } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import type { DragItem } from '@/types'
 import { Center } from './Center'
 import { components } from './config'
-import type { DragItem } from './interfaces'
 import { Left } from './Left'
 import { Right } from './Right'
 
@@ -34,9 +33,6 @@ export const Assemble: FC<AssembleProps> = () => {
 
   // 返回值可在 useDrag end(item, monitor){ monitor.getDropResult() } 中体现
   const handleDrop = (index: number, item: DragItem) => {
-    setDroppedItems(
-      update(droppedItems, item ? { $push: [item] } : { $push: [] })
-    )
     // setDropZones(
     //   update(dropZones, {
     //     [index]: {
@@ -57,10 +53,7 @@ export const Assemble: FC<AssembleProps> = () => {
       <div className="flex space-x-4 h-[100vh]">
         <DndProvider backend={HTML5Backend}>
           <Left items={components} droppedItems={droppedItems} />
-          <Center
-            droppedItems={droppedItems}
-            onDrop={item => handleDrop(0, item)}
-          />
+          <Center onDrop={item => handleDrop(0, item)} />
         </DndProvider>
         <Right />
       </div>

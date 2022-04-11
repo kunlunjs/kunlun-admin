@@ -14,7 +14,7 @@ import {
   Table,
   Image
 } from 'antd'
-import type { ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 import type {
   AffixProps,
   AlertProps,
@@ -35,6 +35,7 @@ import type {
   DividerProps,
   DrawerProps,
   DropdownProps,
+  DroppedItem,
   EmptyProps,
   FormProps,
   ImageProps,
@@ -76,11 +77,29 @@ import type {
   UploadProps
 } from '@/types'
 
+interface PlaceholderProps extends DroppedItem {}
+
+const Placeholder: FC<PlaceholderProps> = ({ title, src }) => {
+  return (
+    <div
+      key={title}
+      // ref={drag}
+      data-dragid={title}
+      className="flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move"
+    >
+      <img alt={title} src={src} className="w-full h-full" />
+      <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
+        {title}
+      </span>
+    </div>
+  )
+}
+
 const KLMenu = (props: MenuProps) => {
-  return <div>菜单</div>
+  return <div>Menu</div>
 }
 const KLCheckbox = (props: CheckboxProps) => {
-  return <div>菜单</div>
+  return <div>Checkbox</div>
 }
 const KLInput = (props: InputProps) => {
   return <Input {...props} />
@@ -96,8 +115,12 @@ const KLSelect = (props: SelectProps, options: SelectOptionProps) => {
     </Select>
   )
 }
-const KLButton = (props: ButtonProps) => {
-  return <Button {...props}>按钮</Button>
+const KLButton = (props: ButtonProps, placeholder?: DroppedItem) => {
+  return placeholder ? (
+    <Placeholder {...placeholder} />
+  ) : (
+    <Button {...props}>按钮</Button>
+  )
 }
 const KLDivide = (props: DividerProps) => {
   return <Divider {...props} />
@@ -109,13 +132,13 @@ const KLTypography = (props: TypographyProps) => {
   return <div>Typegraphy</div>
 }
 const KLDropdown = (props: DropdownProps) => {
-  return <div>菜单</div>
+  return <div>Dropdown</div>
 }
 const KLInputNumber = (props: InputNumberProps) => {
   return <InputNumber {...props} />
 }
 const KLPageHeader = (props: PageHeaderProps) => {
-  return <div>菜单</div>
+  return <div>PageHeader</div>
 }
 const KLProgress = (props: ProgressProps) => {
   return <Progress {...props} />
@@ -130,127 +153,127 @@ const KLBadge = (props: BadgeProps) => {
   return <Badge {...props} />
 }
 const KLLayout = (props: LayoutProps) => {
-  return <div>菜单</div>
+  return <div>Layout</div>
 }
 const KLAffix = (props: AffixProps) => {
   return <Affix {...props} />
 }
 const KLBreadcrumb = (props: BreadcrumbProps) => {
-  return <div>菜单</div>
+  return <div>Breadcrumb</div>
 }
 const KLPopconfirm = (props: PopconfirmProps) => {
-  return <div>菜单</div>
+  return <div>Popconfirm</div>
 }
 const KLForm = (props: FormProps) => {
-  return <div>菜单</div>
+  return <div>Form</div>
 }
 const KLPagination = (props: PaginationProps) => {
-  return <div>菜单</div>
+  return <div>Pagination</div>
 }
 const KLSteps = (props: StepsProps) => {
-  return <div>菜单</div>
+  return <div>Steps</div>
 }
 const KLCascader = (props: CascaderProps) => {
-  return <div>菜单</div>
+  return <div>Cascader</div>
 }
 const KLRadio = (props: RadioProps) => {
-  return <div>菜单</div>
+  return <div>Radio</div>
 }
 const KLAutoComplete = (props: AutoCompleteProps) => {
-  return <div>菜单</div>
+  return <div>AutoComplate</div>
 }
 const KLCalendar = (props: CalendarProps) => {
-  return <div>菜单</div>
+  return <div>Calendar</div>
 }
 const KLAvatar = (props: AvatarProps) => {
   return <Avatar {...props} />
 }
 const KLAlert = (props: AlertProps) => {
-  return <div>菜单</div>
+  return <div>Alert</div>
 }
 const KLTransfer = (props: TransferProps) => {
-  return <div>菜单</div>
+  return <div>Transfer</div>
 }
 const KLTreeSelect = (props: TreeSelectProps) => {
-  return <div>菜单</div>
+  return <div>TreeSelect</div>
 }
 const KLRate = (props: RateProps) => {
-  return <div>菜单</div>
+  return <div>Rate</div>
 }
 const KLMentions = (props: MentionsProps) => {
-  return <div>菜单</div>
+  return <div>Mentions</div>
 }
 const KLCarousel = (props: CarouselProps) => {
-  return <div>菜单</div>
+  return <div>Carousel</div>
 }
 const KLDescription = (props: DescriptionsProps) => {
-  return <div>菜单</div>
+  return <div>Description</div>
 }
 const KLDatePicker = (props: DatePickerProps) => {
-  return <div>菜单</div>
+  return <div>DatePicker</div>
 }
 const KLImage = (props: ImageProps) => {
   return <Image {...props} />
 }
 const KLComment = (props: CommentProps) => {
-  return <div>菜单</div>
+  return <div>Comment</div>
 }
 const KLUpload = (props: UploadProps) => {
-  return <div>菜单</div>
+  return <div>Upload</div>
 }
 const KLSwitch = (props: SwitchProps) => {
-  return <div>菜单</div>
+  return <div>Switch</div>
 }
 const KLStatistic = (props: StatisticProps) => {
-  return <div>菜单</div>
+  return <div>Statistic</div>
 }
 const KLCollapse = (props: CollapseProps) => {
-  return <div>菜单</div>
+  return <div>Collapse</div>
 }
 const KLEmpty = (props: EmptyProps) => {
-  return <div>菜单</div>
+  return <div>Empty</div>
 }
 const KLTimePicker = (props: TimePickerProps) => {
-  return <div>菜单</div>
+  return <div>TimePicker</div>
 }
 const KLTimeline = (props: TimelineProps) => {
-  return <div>菜单</div>
+  return <div>Timeline</div>
 }
 const KLPopover = (props: PopoverProps) => {
-  return <div>菜单</div>
+  return <div>Popover</div>
 }
 const KLSpin = (props: SpinProps) => {
-  return <div>菜单</div>
+  return <div>Spin</div>
 }
 const KLSkeleton = (props: SkeletonProps) => {
-  return <div>菜单</div>
+  return <div>Skelteton</div>
 }
 const KLTabs = (props: TabsProps) => {
-  return <div>菜单</div>
+  return <div>Tabs</div>
 }
 const KLModal = (props: ModalProps) => {
-  return <div>菜单</div>
+  return <div>Modal</div>
 }
 const KLTooltip = (props: TooltipProps) => {
-  return <div>菜单</div>
+  return <div>Tootip</div>
 }
 const KLDrawer = (props: DrawerProps) => {
-  return <div>菜单</div>
+  return <div>Drawer</div>
 }
 const KLTree = (props: TreeProps) => {
-  return <div>菜单</div>
+  return <div>Tree</div>
 }
 const KLResult = (props: ResultProps) => {
-  return <div>菜单</div>
+  return <div>Result</div>
 }
 const KLCard = (props: CardProps) => {
-  return <Card {...props}>卡片</Card>
+  return <Card {...props}>Card</Card>
 }
 const KLTag = (props: TagProps) => {
-  return <div>菜单</div>
+  return <div>Tag</div>
 }
 const KLList = (props: ListProps) => {
-  return <div>菜单</div>
+  return <div>List</div>
 }
 /* 布局 */
 /* 通用 */
@@ -314,13 +337,13 @@ export const componentsMap: Partial<
   Statistic: KLStatistic,
   Descriptions: KLDescription,
   /* 反馈 */
+  Spin: KLSpin,
   Modal: KLModal,
   Alert: KLAlert,
   Drawer: KLDrawer,
   Result: KLResult,
   Progress: KLProgress,
   Popconfirm: KLPopconfirm,
-  Spin: KLSpin,
   /* 其他 */
   Skeleton: KLSkeleton
 }

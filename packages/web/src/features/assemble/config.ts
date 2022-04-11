@@ -1,4 +1,4 @@
-import type { DragItems } from './interfaces'
+import type { DragItems } from '@/types'
 
 export const DragItemTypes = {
   /**
@@ -18,17 +18,6 @@ export const DragItemTypes = {
    */
   COMPONENT: 'component'
 }
-
-export const categories = [
-  '通用',
-  '布局',
-  '导航',
-  '数据录入',
-  '数据展示',
-  '反馈',
-  '其他',
-  '重型组件'
-] as const
 
 // Array.from(document.getElementsByClassName('components-overview-img')).map(i => i.children[0].currentSrc)
 export const components: DragItems = {

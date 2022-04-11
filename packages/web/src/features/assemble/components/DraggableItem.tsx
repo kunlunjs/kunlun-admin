@@ -1,8 +1,11 @@
+import { omit } from 'lodash'
 import { forwardRef } from 'react'
 import type { DragSourceMonitor } from 'react-dnd'
 import { useDrag } from 'react-dnd'
+import { useDroppedItemStore } from '@/stores/droppedItems'
+import type { DragItem, DropResult } from '@/types'
 import { DragItemTypes } from '../config'
-import type { DragItem, DropResult } from '../interfaces'
+
 interface ItemProps {
   item: DragItem
   /**
@@ -13,21 +16,18 @@ interface ItemProps {
 
 export const DraggableItem = forwardRef<HTMLDivElement, ItemProps>(
   function Item({ item, isDropped }, ref) {
+    const { addDroppedItem } = useDroppedItemStore()
     const [{ isDragging, opacity, border }, drag] = useDrag(() => {
       return {
         type: DragItemTypes.COMPONENT,
-        // 被 useDrop drop() 可拿到
+        // -> useDrop drop()
         item,
         end(item, monitor: DragSourceMonitor) {
           const dropResult = monitor.getDropResult<DropResult>()
-          const isDropAllowed =
-            dropResult?.allowedDropEffect === 'any' ||
-            dropResult?.allowedDropEffect === dropResult?.dropEffect
-          console.log('dropResult: ', dropResult, isDropAllowed)
-          if (isDropAllowed) {
-            const isCopyAction = dropResult?.dropEffect === 'copy'
-            const actionName = isCopyAction ? 'copied' : 'moved'
-          }
+          // const isDropAllowed =
+          //   dropResult?.allowedDropEffect === 'any' ||
+          //   dropResult?.allowedDropEffect === dropResult?.dropEffect
+          addDroppedItem(omit(dropResult, 'allowedDropEffect'))
         },
         collect(monitor: DragSourceMonitor) {
           return {
@@ -44,9 +44,8 @@ export const DraggableItem = forwardRef<HTMLDivElement, ItemProps>(
 
     return (
       <div
-        key={item.title}
-        // ref={ref}
         ref={drag}
+        key={item.title}
         data-dragid={item.title}
         className="flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move"
         style={{ border, opacity }}

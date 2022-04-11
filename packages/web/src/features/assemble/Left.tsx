@@ -4,17 +4,17 @@ import { useState } from 'react'
 import { Fragment } from 'react'
 import Icon from '@/components/Icon'
 import { charts, templateItems } from '@/config'
-import type { IconNames } from '@/types'
+import type { IconNames, DragItem, DragItems } from '@/types'
 import { DraggableItem } from './components'
-import type { DragItem, DragItems } from './interfaces'
 import './index.less'
 
 type LeftTab = { key: string; title: string; icon: IconNames }
 type LeftTabs = LeftTab[]
 const tabs: LeftTabs = [
-  { key: 'components', title: '基础组件', icon: 'AppstoreAddOutlined' },
+  { key: 'components', title: '组件', icon: 'AppstoreAddOutlined' },
   { key: 'charts', title: '图表', icon: 'BarChartOutlined' },
-  { key: 'templates', title: '模板', icon: 'AppstoreAddOutlined' }
+  { key: 'templates', title: '模板', icon: 'AppstoreAddOutlined' },
+  { key: 'portal', title: '业务', icon: 'ApiOutlined' }
 ]
 
 interface LeftProps {
@@ -59,6 +59,7 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
         />
         <Tabs
           activeKey={activeTab}
+          tabBarGutter={12}
           className="left-tabpane"
           onChange={handleChangeTab}
         >

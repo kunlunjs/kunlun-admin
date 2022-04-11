@@ -3,40 +3,25 @@ import type { Identifier } from 'dnd-core'
 import type { ComponentType, FC } from 'react'
 import { useRef, useCallback, useState } from 'react'
 import type { DropTargetMonitor } from 'react-dnd'
-import { useDrag } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 import { componentsMap } from '@/components/components-map'
+import { useDroppedItemStore } from '@/stores/droppedItems'
+import type { DragItem } from '@/types'
 import { Developing } from '@/utils/getRoutes'
 import { DropHeader } from './components'
 import { DragItemTypes } from './config'
 import { selectBackgroundColor } from './helpers'
-import type { DragItem } from './interfaces'
 
 interface CenterProps {
-  droppedItems: DragItem[]
   moveIndex?: (dragIndex: number, hoverIndex: number) => void
   onDrop?: (item: DragItem, monitor: DropTargetMonitor<DragItem>) => void
 }
 
-export const Center: FC<CenterProps> = ({
-  droppedItems,
-  moveIndex,
-  onDrop
-}) => {
+export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
   const ref = useRef<HTMLDivElement>(null)
+  const [preview, setPreview] = useState(false)
   const [grided, setGrided] = useState(true)
-  // TODO: 拖放区域内部拖拽
-  const [{ isDragging }, drag] = useDrag({
-    type: DragItemTypes.COMPONENT,
-    item: () => {
-      return {}
-    },
-    collect(monitor) {
-      return {
-        isDragging: monitor.isDragging()
-      }
-    }
-  })
+  const { droppedItems } = useDroppedItemStore()
   const [{ canDrop, isOver, handleId }, drop] = useDrop<
     DragItem,
     void,
@@ -44,7 +29,7 @@ export const Center: FC<CenterProps> = ({
   >(() => {
     return {
       accept: DragItemTypes.COMPONENT,
-      // 返回值可在 useDrag end(item, monitor){ monitor.getDropResult() } 中体现
+      // -> useDrag end(item, monitor){ monitor.getDropResult() }
       drop: onDrop
         ? onDrop
         : (item: DragItem) => {
@@ -53,33 +38,11 @@ export const Center: FC<CenterProps> = ({
               allowedDropEffect: 'any'
             }
           },
-      hover(item: DragItem, monitor: DropTargetMonitor) {
-        if (!ref.current) {
-          return
-        }
-        // TODO: 上下调整位置
-        // const dragIndex = item.name
-        // const hoverIndex = ''
-        // if (dragIndex === hoverIndex) {
-        //   return
-        // }
-        // const hoverBoundingRect = ref.current.getBoundingClientRect()
-        // const hoverMiddleY =
-        //   (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
-        // const clientOffset = monitor.getClientOffset()
-        // // 计算距离顶部的距离
-        // const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top
-        // // 向下拖动
-        // if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-        //   return
-        // }
-        // // 向上拖动
-        // if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-        //   return
-        // }
-        // moveIndex(dragIndex, hoverIndex)
-        // item.index = hoverIndex
-      },
+      // hover(item: DragItem, monitor: DropTargetMonitor) {
+      //   if (!ref.current) {
+      //     return
+      //   }
+      // },
       collect: (monitor: DropTargetMonitor) => {
         return {
           isOver: monitor.isOver(),
@@ -96,15 +59,13 @@ export const Center: FC<CenterProps> = ({
 
   const isActive = canDrop && isOver
   const backgroundColor = selectBackgroundColor(isActive, canDrop)
-  // TODO
-  // drag(drop(ref))
 
+  console.log('Center droppedItems: ', droppedItems)
   return (
     <div className="w-3/5 h-full border border-solid border-gray-200 border-l-0">
       <DropHeader grided={grided} onGridChange={handleGridChange} />
       <div
         ref={drop}
-        // ref={ref}
         className={clsx(
           'h-[95vh]',
           !droppedItems.length && 'flex items-center justify-center',
@@ -124,7 +85,7 @@ export const Center: FC<CenterProps> = ({
           // ) : (
           //   <div key={i.title}>{i.title}</div>
           // )
-          return <Component key={i.name} />
+          return <Component key={i.id} />
         })}
       </div>
     </div>

@@ -11,19 +11,15 @@ import { config } from './common/configs'
 import { PrismaModule, prismaLoggingMiddleware } from './common/prisma'
 import { GqlConfigService } from './gql-config.service'
 // import { AuthModule } from './modules/auth/auth.module'
-import { AnnouncementModule } from './modules/announcement/announcement.module'
-import { CronModule } from './modules/cron/cron.module'
-import { JournalModule } from './modules/journal/journal.module'
-import { MenuModule } from './modules/menu/menu.module'
-import { RoleModule } from './modules/role/role.module'
-import { UserModule } from './modules/user/user.module'
 
 @Module({
   imports: [
+    /* ---------------- 加载配置 ---------------- */
     ConfigModule.forRoot({
       isGlobal: true,
       load: [config]
     }),
+    /* ---------------- 引入 Prisma ---------------- */
     PrismaModule.forRoot({
       isGlobal: true,
       prismaServiceOptions: {
@@ -49,17 +45,12 @@ import { UserModule } from './modules/user/user.module'
         ]
       }
     }),
+    /* ---------------- 引入 GraphQL ---------------- */
     GraphQLModule.forRootAsync({
       driver: ApolloDriver,
       useClass: GqlConfigService
-    }),
-    // AuthModule,
-    UserModule,
-    RoleModule,
-    MenuModule,
-    JournalModule,
-    CronModule,
-    AnnouncementModule
+    })
+    // AuthModule
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],

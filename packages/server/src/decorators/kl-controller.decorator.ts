@@ -31,11 +31,7 @@ export function KLController(
             tag && ApiTags(tag),
             ApiBearerAuth(),
             ApiUnauthorizedResponse()
-          ].filter(Boolean) as (
-            | ClassDecorator
-            | MethodDecorator
-            | PropertyDecorator
-          )[])
+          ].filter(Boolean) as ClassDecorator[])
         : []
       : []
   const metadatas = Object.keys(omit(extra, ['isAuth']))

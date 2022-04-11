@@ -73,5 +73,30 @@ export const componentConfigs: Partial<
         title: '载入状态'
       }
     }
+  },
+  Card: {
+    properties: {
+      title: {
+        type: 'string',
+        default: '标题',
+        title: '标题'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '边框'
+      },
+      hoverable: {
+        type: 'boolean',
+        default: true,
+        title: 'hover效果'
+      },
+      cover: {
+        type: 'string',
+        default:
+          'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        title: '封面'
+      }
+    }
   }
 }

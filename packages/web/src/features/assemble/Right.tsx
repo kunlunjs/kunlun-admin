@@ -1,27 +1,38 @@
+import { useThrottleFn } from 'ahooks'
 import { Card, Form, Input, Radio, Select, Switch } from 'antd'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 import { componentConfigs } from '@/config'
-import type { klComponents } from '@/types'
+import { useConfigStore, useDroppedStore } from '@/stores'
 import { getLabelCol } from '@/utils'
 
-interface RightProps {
-  type?: typeof klComponents[number]
-}
+interface RightProps {}
 
-export const Right: FC<RightProps> = ({ type = 'Button' }) => {
+export const Right: FC<RightProps> = () => {
   const [form] = Form.useForm()
-
+  const { selected, droppedItems } = useDroppedStore()
+  const { updateConfigValues } = useConfigStore()
+  const { run: updateConfigValueThrottle } = useThrottleFn(
+    (allValues: any) => {
+      if (selected) {
+        updateConfigValues({
+          [selected]: allValues
+        })
+      }
+    },
+    { wait: 300 }
+  )
+  const name = selected ? droppedItems.find(i => i.id === selected)!.name : null
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const entries = type
-    ? Object.entries(componentConfigs[type]?.properties as Record<string, any>)
+  const entries = name
+    ? Object.entries(componentConfigs[name]?.properties as Record<string, any>)
     : []
 
   const maxLabelCol = useMemo(() => {
     return Math.max(...entries.map(i => getLabelCol(i[1].title)))
   }, [entries])
 
-  if (!type) {
+  if (!name) {
     return (
       <div className="w-1/5 h-full border border-solid border-gray-200">
         <Card
@@ -34,7 +45,13 @@ export const Right: FC<RightProps> = ({ type = 'Button' }) => {
     )
   }
 
-  const handleFinish = () => {}
+  // const handleFinish = (values: any) => {
+  //   console.log('values: ', values)
+  // }
+
+  const handleValuesChange = (changeValues: any, allValues: any) => {
+    updateConfigValueThrottle(allValues)
+  }
 
   const initialValues = entries.reduce((a, c) => {
     if (c[1]?.default) {
@@ -55,9 +72,11 @@ export const Right: FC<RightProps> = ({ type = 'Button' }) => {
           labelCol={{ span: maxLabelCol }}
           wrapperCol={{ span: 24 - maxLabelCol }}
           form={form}
-          name={type}
+          name={name}
           labelAlign="left"
+          // onFinish={handleFinish}
           initialValues={initialValues}
+          onValuesChange={handleValuesChange}
         >
           {entries.map(([name, obj]) => {
             let item = <Input size="small" />
@@ -107,6 +126,7 @@ export const Right: FC<RightProps> = ({ type = 'Button' }) => {
                 key={name}
                 name={name}
                 label={obj.title}
+                valuePropName={obj.type === 'boolean' ? 'checked' : 'value'}
                 className="flex justify-between !mb-2 assembly-rightpanel"
               >
                 {item}

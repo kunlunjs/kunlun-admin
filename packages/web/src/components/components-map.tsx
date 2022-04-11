@@ -21,6 +21,7 @@ import clsx from 'clsx'
 import { omit } from 'lodash'
 import type { FC, ReactNode } from 'react'
 import { useState } from 'react'
+import { useDroppedStore } from '@/stores'
 import type {
   AffixProps,
   AlertProps,
@@ -138,11 +139,21 @@ const KLSelect = (props: SelectProps, options: SelectOptionProps) => {
     </Select>
   )
 }
-const KLButton = (props: ButtonProps & { _placeholder?: DroppedItem }) => {
-  return props._placeholder ? (
-    <Placeholder {...props._placeholder} />
-  ) : (
-    <Button {...omit(props, '_placeholder')}>按钮</Button>
+const KLButton = (props: ButtonProps) => {
+  console.log('KLButton props: ', props)
+  const { changeSelected, selected } = useDroppedStore()
+  return (
+    <Button
+      type="primary"
+      {...omit(props, ['id'])}
+      onClick={() => changeSelected(props.id)}
+      className={clsx(
+        selected === props.id && '!border-blue-400',
+        props.className
+      )}
+    >
+      按钮
+    </Button>
   )
 }
 const KLDivide = (props: DividerProps) => {
@@ -290,7 +301,25 @@ const KLResult = (props: ResultProps) => {
   return <div>Result</div>
 }
 const KLCard = (props: CardProps) => {
-  return <Card {...props}>Card</Card>
+  console.log('KLCard props: ', props)
+  const { changeSelected, selected } = useDroppedStore()
+  return (
+    <Card
+      title="标题"
+      {...omit(props, ['id'])}
+      {...(typeof props.cover === 'string'
+        ? { cover: <img alt="" src={props.cover} /> }
+        : {})}
+      onClick={() => changeSelected(props.id)}
+      className={clsx(
+        'w-60',
+        selected === props.id && '!border-blue-400',
+        props.className
+      )}
+    >
+      卡片内容
+    </Card>
+  )
 }
 const KLTag = (props: TagProps) => {
   return <div>Tag</div>
@@ -312,9 +341,7 @@ export const componentsMap: Partial<
   Layout: KLLayout,
   Divider: KLDivide,
   /* 通用 */
-  Button: (props: ButtonProps & { _placeholder: DroppedItem }) => (
-    <KLButton {...props} />
-  ),
+  Button: KLButton,
   Typography: KLTypography,
   /* 导航 */
   Menu: KLMenu,

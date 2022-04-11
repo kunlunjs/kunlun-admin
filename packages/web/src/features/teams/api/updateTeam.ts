@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query'
 import { axios } from '@/lib/axios'
 import type { MutationConfig } from '@/lib/react-query'
-import { useNotificationStore } from '@/stores/notifications'
+import { useNotificationStore } from '@/stores'
 
 export type UpdateTeamDTO = {
   teamId: string

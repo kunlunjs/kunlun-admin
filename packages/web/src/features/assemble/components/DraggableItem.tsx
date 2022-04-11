@@ -2,7 +2,7 @@ import { omit } from 'lodash'
 import { forwardRef } from 'react'
 import type { DragSourceMonitor } from 'react-dnd'
 import { useDrag } from 'react-dnd'
-import { useDroppedItemStore } from '@/stores/droppedItems'
+import { useDroppedStore } from '@/stores'
 import type { DragItem, DropResult } from '@/types'
 import { DragItemTypes } from '../config'
 
@@ -16,7 +16,7 @@ interface ItemProps {
 
 export const DraggableItem = forwardRef<HTMLDivElement, ItemProps>(
   function Item({ item, isDropped }, ref) {
-    const { addDroppedItem } = useDroppedItemStore()
+    const { addDroppedItem } = useDroppedStore()
     const [{ isDragging, opacity, border }, drag] = useDrag(() => {
       return {
         type: DragItemTypes.COMPONENT,

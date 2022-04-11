@@ -2,7 +2,7 @@ import { useMutation } from 'react-query'
 import { useAuth } from '@/lib/auth'
 import { axios } from '@/lib/axios'
 import type { MutationConfig } from '@/lib/react-query'
-import { useNotificationStore } from '@/stores/notifications'
+import { useNotificationStore } from '@/stores'
 
 export type UpdateProfileDTO = {
   data: {

@@ -2,8 +2,8 @@ import { nanoid } from 'nanoid'
 import create from 'zustand'
 
 export type Notification = {
-  id: string
   type: 'info' | 'warning' | 'success' | 'error'
+  id: string
   title: string
   message?: string
 }

@@ -1,4 +1,4 @@
-import { useNotificationStore } from '@/stores/notifications'
+import { useNotificationStore } from '@/stores'
 import { Notification } from './Notification'
 
 export const Notifications = () => {

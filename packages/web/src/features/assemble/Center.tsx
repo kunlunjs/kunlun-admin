@@ -5,7 +5,7 @@ import { useRef, useCallback, useState } from 'react'
 import type { DropTargetMonitor } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 import { componentsMap } from '@/components/components-map'
-import { useDroppedItemStore } from '@/stores/droppedItems'
+import { useConfigStore, useDroppedStore } from '@/stores'
 import type { DragItem } from '@/types'
 import { Developing } from '@/utils'
 import { DropHeader } from './components'
@@ -19,12 +19,10 @@ interface CenterProps {
 
 export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
   const ref = useRef<HTMLDivElement>(null)
-  // 是否预览模式
-  const [preview, setPreview] = useState(false)
   // 背景网格
   const [grided, setGrided] = useState(true)
-  // 已拖拽组件
-  const { droppedItems } = useDroppedItemStore()
+  const { droppedItems, preview } = useDroppedStore()
+  const { values } = useConfigStore()
   const [{ canDrop, isOver, handleId }, drop] = useDrop<
     DragItem,
     void,
@@ -63,7 +61,6 @@ export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
   const isActive = canDrop && isOver
   const backgroundColor = selectBackgroundColor(isActive, canDrop)
 
-  console.log('Center droppedItems: ', droppedItems)
   return (
     <div className="w-3/5 h-full border border-solid border-gray-200 border-l-0">
       <DropHeader grided={grided} onGridChange={handleGridChange} />
@@ -83,12 +80,7 @@ export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
           const Component = (
             i.name ? componentsMap[i.name] : Developing
           ) as ComponentType<any>
-          // return isValidElementType(Component) ? (
-          //   <Component key={i.name} />
-          // ) : (
-          //   <div key={i.title}>{i.title}</div>
-          // )
-          return <Component key={i.id} _placeholder={preview ? false : i} />
+          return <Component key={i.id} id={i.id} {...values[i.id]} />
         })}
       </div>
     </div>

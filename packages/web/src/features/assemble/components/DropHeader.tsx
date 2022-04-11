@@ -1,7 +1,7 @@
 import { Checkbox, Radio, Space } from 'antd'
 import type { FC } from 'react'
 import Icon from '@/components/Icon'
-import { useCenterPanel } from '@/stores/centerPanel'
+import { useDroppedStore } from '@/stores'
 
 interface DropHeaderProps {
   grided: boolean
@@ -9,7 +9,7 @@ interface DropHeaderProps {
 }
 
 export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
-  const { device, changeDevice } = useCenterPanel()
+  const { device, changeDevice } = useDroppedStore()
 
   return (
     <div className="flex justify-between items-center h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-b-0">

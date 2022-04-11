@@ -1,8 +1,7 @@
 import { Table, Spinner } from '@/components/Elements'
-import { formatDate } from '@/utils/format'
+import { formatDate } from '@/utils'
 import { useUsers } from '../api/getUsers'
 import type { User } from '../types'
-
 import { DeleteUser } from './DeleteUser'
 
 export const UsersList = () => {

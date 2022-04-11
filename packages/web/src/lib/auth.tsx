@@ -12,7 +12,7 @@ import {
   getUser,
   registerWithEmailAndPassword
 } from '@/features/auth'
-import storage from '@/utils/storage'
+import { storage } from '@/utils'
 
 async function handleUserResponse(data: UserResponse) {
   const { jwt, user } = data

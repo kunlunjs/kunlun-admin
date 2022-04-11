@@ -4,7 +4,7 @@ import desktopIcon from '@/assets/device-desktop.svg'
 import mobileIcon from '@/assets/device-mobile.svg'
 import tabletIcon from '@/assets/device-tablet.svg'
 import { templateItems } from '@/config'
-import { Developing } from '@/utils/getRoutes'
+import { Developing } from '@/utils'
 
 export const themeList = [
   'indigo',

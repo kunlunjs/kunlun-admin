@@ -1,5 +1,5 @@
 import { Table, Spinner, Link } from '@/components/Elements'
-import { formatDate } from '@/utils/format'
+import { formatDate } from '@/utils'
 import { useDiscussions } from '../api/getDiscussions'
 import type { Discussion } from '../types'
 import { DeleteDiscussion } from './DeleteDiscussion'

@@ -6,7 +6,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import type { FunctionComponent } from 'react'
 import { AppProvider } from '@/providers/app'
-import storage from '@/utils/storage'
+import { storage } from '@/utils'
 import { discussionGenerator, userGenerator } from './data-generators'
 import { db } from './server/db'
 import { authenticate, hash } from './server/utils'

@@ -4,7 +4,7 @@ import { Spinner } from '@/components/Elements'
 import { BasicLayout } from '@/components/Layout'
 // import { Example } from '@/features/dnd/drag-around/custom-drag-layer/Example'
 import type { RouteItems } from '@/types'
-import { lazyImport } from '@/utils/lazyImport'
+import { lazyImport } from '@/utils'
 
 const { AuthRoutes } = lazyImport(
   () =>

@@ -3,37 +3,38 @@ import type { FC } from 'react'
 import { useMemo } from 'react'
 import { componentConfigs } from '@/config'
 import type { klComponents } from '@/types'
+import { getLabelCol } from '@/utils'
+
 interface RightProps {
   type?: typeof klComponents[number]
-}
-
-function isChinese(s: string) {
-  return /[\u4e00-\u9fa5]/.test(s)
-}
-function getLabelCol(str = '') {
-  let span = 0
-  str.split('').forEach(i => {
-    if (isChinese(i)) {
-      span += 1.5
-    } else {
-      span += 0.75
-    }
-  })
-  return Math.ceil(span)
 }
 
 export const Right: FC<RightProps> = ({ type = 'Button' }) => {
   const [form] = Form.useForm()
 
-  const handleFinish = () => {}
-
-  const entries = Object.entries(
-    componentConfigs[type]?.properties as Record<string, any>
-  )
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const entries = type
+    ? Object.entries(componentConfigs[type]?.properties as Record<string, any>)
+    : []
 
   const maxLabelCol = useMemo(() => {
     return Math.max(...entries.map(i => getLabelCol(i[1].title)))
   }, [entries])
+
+  if (!type) {
+    return (
+      <div className="w-1/5 h-full border border-solid border-gray-200">
+        <Card
+          bordered={false}
+          size="small"
+          title="配置"
+          bodyStyle={{ padding: '12px 6px' }}
+        ></Card>
+      </div>
+    )
+  }
+
+  const handleFinish = () => {}
 
   const initialValues = entries.reduce((a, c) => {
     if (c[1]?.default) {

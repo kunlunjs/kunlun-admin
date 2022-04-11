@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { Spinner } from '@/components/Elements'
 import { MainLayout } from '@/components/Layout'
-import { lazyImport } from '@/utils/lazyImport'
+import { lazyImport } from '@/utils'
 
 const { DiscussionsRoutes } = lazyImport(
   () =>

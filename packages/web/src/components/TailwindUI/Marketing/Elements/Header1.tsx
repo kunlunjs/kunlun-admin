@@ -17,7 +17,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
-import faker from '@/utils/faker'
+import { faker } from '@/utils'
 
 const icons = [
   BookmarkAltIcon,

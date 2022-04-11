@@ -3,7 +3,7 @@ import { Spinner, MDPreview } from '@/components/Elements'
 import type { User } from '@/features/users'
 import { useAuth } from '@/lib/auth'
 import { POLICIES, Authorization } from '@/lib/authorization'
-import { formatDate } from '@/utils/format'
+import { formatDate } from '@/utils'
 import { useComments } from '../api/getComments'
 import { DeleteComment } from './DeleteComment'
 

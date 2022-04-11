@@ -1,6 +1,7 @@
-import { Checkbox, Space } from 'antd'
+import { Checkbox, Radio, Space } from 'antd'
 import type { FC } from 'react'
 import Icon from '@/components/Icon'
+import { useCenterPanel } from '@/stores/centerPanel'
 
 interface DropHeaderProps {
   grided: boolean
@@ -8,19 +9,13 @@ interface DropHeaderProps {
 }
 
 export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
+  const { device, changeDevice } = useCenterPanel()
+
   return (
-    <div className="flex justify-between h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-b-0">
+    <div className="flex justify-between items-center h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-b-0">
       <Space>
-        <Icon
-          name="RestOutlined"
-          tooltip={{ title: '回退' }}
-          className="cursor-pointer"
-        />
-        <Icon
-          name="RedoOutlined"
-          tooltip={{ title: '重做' }}
-          className="cursor-pointer"
-        />
+        <Icon name="RedoOutlined" tooltip={{ title: '撤销' }} />
+        <Icon name="UndoOutlined" tooltip={{ title: '重做' }} />
         <Checkbox
           checked={grided}
           onChange={onGridChange}
@@ -29,34 +24,25 @@ export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
           网格
         </Checkbox>
       </Space>
-      <Space className="!items-end">
-        <Icon
-          name="DesktopOutlined"
-          tooltip={{ title: 'PC Web' }}
-          className="text-lg cursor-pointer"
-        />
-        <Icon
-          name="TabletOutlined"
-          tooltip={{ title: 'Pad Web' }}
-          className="text-lg cursor-pointer"
-        />
-        <Icon
-          name="MobileOutlined"
-          tooltip={{ title: 'Mobile Web' }}
-          className="text-lg cursor-pointer"
-        />
-      </Space>
+      <Radio.Group
+        size="middle"
+        value={device.type}
+        onChange={e => changeDevice({ type: e.target.value })}
+      >
+        <Radio.Button value="Desktop">
+          <Icon name="DesktopOutlined" />
+        </Radio.Button>
+        <Radio.Button value="Tablet">
+          <Icon name="TabletOutlined" />
+        </Radio.Button>
+        <Radio.Button value="Mobile">
+          <Icon name="MobileOutlined" />
+        </Radio.Button>
+      </Radio.Group>
       <Space>
-        <Icon
-          name="EyeOutlined"
-          tooltip={{ title: '预览' }}
-          className="cursor-pointer"
-        />
-        <Icon
-          name="ReloadOutlined"
-          tooltip={{ title: '刷新' }}
-          className="cursor-pointer"
-        />
+        <Icon button={{ title: '清空', danger: true }} name="ClearOutlined" />
+        <Icon button={{ title: '预览' }} name="EyeOutlined" />
+        <Icon button={{ title: '刷新' }} name="ReloadOutlined" />
         <Icon
           name="FullscreenOutlined"
           tooltip={{ title: '全屏' }}

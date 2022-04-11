@@ -19,8 +19,11 @@ interface CenterProps {
 
 export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
   const ref = useRef<HTMLDivElement>(null)
+  // 是否预览模式
   const [preview, setPreview] = useState(false)
+  // 背景网格
   const [grided, setGrided] = useState(true)
+  // 已拖拽组件
   const { droppedItems } = useDroppedItemStore()
   const [{ canDrop, isOver, handleId }, drop] = useDrop<
     DragItem,
@@ -85,7 +88,7 @@ export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
           // ) : (
           //   <div key={i.title}>{i.title}</div>
           // )
-          return <Component key={i.id} />
+          return <Component key={i.id} _placeholder={preview ? false : i} />
         })}
       </div>
     </div>

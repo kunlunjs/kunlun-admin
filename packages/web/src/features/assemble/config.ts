@@ -28,6 +28,7 @@ export const components: DragItems = {
       category: '布局',
       name: 'Divider',
       title: '分割线',
+      isBlock: true,
       draggable: true,
       src: 'https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg'
     },
@@ -37,6 +38,7 @@ export const components: DragItems = {
       category: '布局',
       name: 'Layout',
       title: '栅格',
+      isBlock: true,
       draggable: true,
       src: 'https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg'
     },
@@ -46,6 +48,7 @@ export const components: DragItems = {
       category: '布局',
       name: 'Layout',
       title: '布局',
+      isBlock: true,
       draggable: true,
       src: 'https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg'
     },
@@ -55,7 +58,7 @@ export const components: DragItems = {
       category: '布局',
       name: 'Space',
       title: '间距',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg'
     }
   ],
@@ -139,6 +142,7 @@ export const components: DragItems = {
       category: '导航',
       name: 'PageHeader',
       title: '页头',
+      isBlock: true,
       draggable: true,
       src: 'https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg'
     },
@@ -413,7 +417,7 @@ export const components: DragItems = {
       category: '数据展示',
       name: 'Popover',
       title: '气泡卡片',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg'
     },
     {
@@ -440,7 +444,7 @@ export const components: DragItems = {
       category: '数据展示',
       name: 'Tooltip',
       title: '文字提示',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg'
     },
     {
@@ -487,7 +491,7 @@ export const components: DragItems = {
       category: '反馈',
       name: 'Alert',
       title: '警告提示',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg'
     },
     {
@@ -496,7 +500,7 @@ export const components: DragItems = {
       category: '反馈',
       name: 'Drawer',
       title: '抽屉',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg'
     },
     {
@@ -505,7 +509,7 @@ export const components: DragItems = {
       category: '反馈',
       name: 'Modal',
       title: '对话框',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg'
     },
     {
@@ -513,7 +517,7 @@ export const components: DragItems = {
       type: 'Component',
       category: '反馈',
       title: '全局提示',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg'
     },
     {
@@ -521,7 +525,7 @@ export const components: DragItems = {
       type: 'Component',
       category: '反馈',
       title: '通知提醒框',
-      draggable: true,
+      draggable: false,
       src: 'https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg'
     },
     {

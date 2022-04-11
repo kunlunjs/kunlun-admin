@@ -1,7 +1,5 @@
 import { rest } from 'msw'
-
 import { API_URL } from '@/config'
-
 import { db, persistDb } from '../db'
 import { requireAuth, requireAdmin, delayedResponse } from '../utils'
 

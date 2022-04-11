@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import {
   Affix,
   Avatar,
@@ -12,9 +13,14 @@ import {
   Slider,
   Space,
   Table,
-  Image
+  Image,
+  Row,
+  Col
 } from 'antd'
+import clsx from 'clsx'
+import { omit } from 'lodash'
 import type { FC, ReactNode } from 'react'
+import { useState } from 'react'
 import type {
   AffixProps,
   AlertProps,
@@ -79,22 +85,39 @@ import type {
 
 interface PlaceholderProps extends DroppedItem {}
 
-const Placeholder: FC<PlaceholderProps> = ({ title, src }) => {
+const Placeholder: FC<PlaceholderProps> = ({ id, title, src }) => {
+  const [clicked, setClicked] = useState(false)
+
+  const handleClick = () => {
+    setClicked(!clicked)
+  }
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       key={title}
       // ref={drag}
       data-dragid={title}
-      className="flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move"
+      onClick={handleClick}
+      className={clsx(
+        'flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move',
+        clicked && 'border-dashed'
+      )}
     >
-      <img alt={title} src={src} className="w-full h-full" />
-      <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
+      <img alt={title} src={src} className="w-full max-h-6" />
+      {/* <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
         {title}
-      </span>
+      </span> */}
     </div>
   )
 }
 
+const KLGrid = () => {
+  return (
+    <Row>
+      <Col span={24}>col</Col>
+    </Row>
+  )
+}
 const KLMenu = (props: MenuProps) => {
   return <div>Menu</div>
 }
@@ -115,11 +138,11 @@ const KLSelect = (props: SelectProps, options: SelectOptionProps) => {
     </Select>
   )
 }
-const KLButton = (props: ButtonProps, placeholder?: DroppedItem) => {
-  return placeholder ? (
-    <Placeholder {...placeholder} />
+const KLButton = (props: ButtonProps & { _placeholder?: DroppedItem }) => {
+  return props._placeholder ? (
+    <Placeholder {...props._placeholder} />
   ) : (
-    <Button {...props}>按钮</Button>
+    <Button {...omit(props, '_placeholder')}>按钮</Button>
   )
 }
 const KLDivide = (props: DividerProps) => {
@@ -284,11 +307,14 @@ export const componentsMap: Partial<
   Record<typeof klComponents[number], ReactNode>
 > = {
   /* 布局 */
+  Grid: KLGrid,
   Space: KLSpace,
   Layout: KLLayout,
   Divider: KLDivide,
   /* 通用 */
-  Button: KLButton,
+  Button: (props: ButtonProps & { _placeholder: DroppedItem }) => (
+    <KLButton {...props} />
+  ),
   Typography: KLTypography,
   /* 导航 */
   Menu: KLMenu,

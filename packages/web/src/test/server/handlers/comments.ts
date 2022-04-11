@@ -1,6 +1,5 @@
 import { rest } from 'msw'
 import { nanoid } from 'nanoid'
-
 import { API_URL } from '@/config'
 
 import { db, persistDb } from '../db'

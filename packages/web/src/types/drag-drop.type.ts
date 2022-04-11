@@ -39,6 +39,10 @@ export type DragItem = {
    */
   src: string
   /**
+   * 是否占整行
+   */
+  isBlock?: boolean
+  /**
    * 是否可以被拖拽
    */
   draggable: boolean

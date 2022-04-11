@@ -137,6 +137,7 @@ export type SkeletonProps = ComponentProps<typeof Skeleton>
 export type SpinProps = ComponentProps<typeof Spin>
 
 export const klComponents = [
+  'Grid',
   'Button',
   'Typography',
   'Divider',

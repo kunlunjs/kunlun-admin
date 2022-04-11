@@ -40,6 +40,7 @@ specifiers:
   '@types/react-dom': ^17.0.14
   '@types/react-is': ^17.0.3
   '@types/webpack-env': ^1.16.3
+  ahooks: ^3.3.0
   antd: ^4.19.5
   axios: ^0.26.1
   clsx: ^1.1.1
@@ -101,6 +102,7 @@ dependencies:
   '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.0.23
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
+  ahooks: 3.3.0_react@18.0.0
   antd: 4.19.5_react-dom@18.0.0+react@18.0.0
   axios: 0.26.1
   clsx: 1.1.1
@@ -4800,6 +4802,10 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
+  /@types/js-cookie/2.2.7:
+    resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
+    dev: false
+
   /@types/js-levenshtein/1.1.1:
     resolution: {integrity: sha512-qC4bCqYGy1y/NP7dDVr7KJarn+PbX1nSpwA7JXdu0HxT3QYjO8MJ+cntENtHFVy2dRAyBV23OZ6MxsW1AM1L8g==}
     dev: true
@@ -5614,6 +5620,27 @@ packages:
       clean-stack: 2.2.0
       indent-string: 4.0.0
     dev: true
+
+  /ahooks-v3-count/1.0.0:
+    resolution: {integrity: sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==}
+    dev: false
+
+  /ahooks/3.3.0_react@18.0.0:
+    resolution: {integrity: sha512-X1TIXvRNgWrx9Cfxa3QDnHttnphT1otSCNjELs1Yf88cPHt6Fp96MWHx83Zhkb3wcRbWzeQHQTISDTKq4itIbw==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@types/js-cookie': 2.2.7
+      ahooks-v3-count: 1.0.0
+      dayjs: 1.11.0
+      intersection-observer: 0.12.0
+      js-cookie: 2.2.1
+      lodash: 4.17.21
+      react: 18.0.0
+      resize-observer-polyfill: 1.5.1
+      screenfull: 5.2.0
+    dev: false
 
   /airbnb-js-shims/2.2.1:
     resolution: {integrity: sha512-wJNXPH66U2xjgo1Zwyjf9EydvJ2Si94+vSdk6EERcBfB2VZkeltpqIats0cqIZMLCXP3zcyaUKGYQeIBT6XjsQ==}
@@ -11387,6 +11414,10 @@ packages:
     hasBin: true
     dev: true
 
+  /js-cookie/2.2.1:
+    resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
+    dev: false
+
   /js-levenshtein/1.1.6:
     resolution: {integrity: sha512-X2BB11YZtrRqY4EnQcLX5Rh373zbK4alC1FW7D7MBhL2gtcC17cTnr6DmfHZeS0s2rTHjUTMMHfG7gO8SSdw+g==}
     engines: {node: '>=0.10.0'}
@@ -16400,6 +16431,11 @@ packages:
       ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.11.0
     dev: true
+
+  /screenfull/5.2.0:
+    resolution: {integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /scroll-into-view-if-needed/2.2.29:
     resolution: {integrity: sha512-hxpAR6AN+Gh53AdAimHM6C8oTN1ppwVZITihix+WqalywBeFcQ6LdQP5ABNl26nX8GTEL7VT+b8lKpdqq65wXg==}

@@ -31,8 +31,9 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
     const newItems = Object.values(items).reduce((result, cur) => {
       const its = cur.filter(
         i =>
-          i.title.indexOf(value) > -1 ||
-          (i.name && new RegExp(i.name, 'i').test(value))
+          i.draggable &&
+          (i.title.indexOf(value) > -1 ||
+            (i.name && new RegExp(i.name, 'i').test(value)))
       )
       if (its.length) {
         result[its[0].category] = its

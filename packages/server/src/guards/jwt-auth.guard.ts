@@ -5,7 +5,6 @@ import { Reflector } from '@nestjs/core'
 import { AuthGuard } from '@nestjs/passport'
 import type { Request } from 'express'
 import type { Observable } from 'rxjs'
-import { IS_PUBLIC_API } from '@/decorators'
 
 /**
  * 允许使用策略链 AuthGuard(['strategy1', 'strategy2'])，依次进行所有都失败则失败
@@ -24,10 +23,10 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     context: ExecutionContext
   ): boolean | Promise<boolean> | Observable<boolean> {
     const req = context.switchToHttp().getRequest<Request>()
-    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_API, [
-      context.getHandler(),
-      context.getClass()
-    ])
+    const isPublic = this.reflector.getAllAndOverride<boolean>(
+      'IS_PUBLIC_API',
+      [context.getHandler(), context.getClass()]
+    )
     if (isPublic) {
       return true
     }

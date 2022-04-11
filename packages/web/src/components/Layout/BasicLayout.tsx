@@ -47,7 +47,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
         onCollapse={handleCollapse}
       >
         <div className="logo flex justify-center items-center mb-8 p-2">
-          <img src={logo} alt="昆仑" />
+          <img src={logo} alt="昆仑" className="w-full" />
         </div>
         <Menu
           theme="dark"

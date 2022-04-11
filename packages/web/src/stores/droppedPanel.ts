@@ -9,6 +9,7 @@ type CenterPanelStore = {
   droppedItems: DroppedItems
   addDroppedItem: (item: Omit<DroppedItem, 'id'>) => void
   removeDroppedItem: (id: string) => void
+  clearDroppedItems: () => void
   /**
    * 当前选中组件
    */
@@ -50,6 +51,14 @@ export const useDroppedStore = create<CenterPanelStore>(set => ({
           return i.id !== id
         }),
         selected: null
+      }
+    }),
+  clearDroppedItems: () =>
+    set(state => {
+      console.log('clearDroppedItems')
+      return {
+        ...state,
+        droppedItems: []
       }
     }),
   selected: null,

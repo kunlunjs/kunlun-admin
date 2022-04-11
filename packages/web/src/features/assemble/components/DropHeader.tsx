@@ -1,4 +1,4 @@
-import { Checkbox, Radio, Space } from 'antd'
+import { Checkbox, Radio } from 'antd'
 import type { FC } from 'react'
 import Icon from '@/components/Icon'
 import { useDroppedStore } from '@/stores'
@@ -9,11 +9,12 @@ interface DropHeaderProps {
 }
 
 export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
-  const { device, changeDevice } = useDroppedStore()
+  const { device, changeDevice, changePreview, clearDroppedItems } =
+    useDroppedStore()
 
   return (
     <div className="flex justify-between items-center h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-l-0">
-      <Space>
+      <div className="space-x-2">
         <Icon name="RedoOutlined" tooltip={{ title: '撤销' }} />
         <Icon name="UndoOutlined" tooltip={{ title: '重做' }} />
         <Checkbox
@@ -23,7 +24,7 @@ export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
         >
           网格
         </Checkbox>
-      </Space>
+      </div>
       <Radio.Group
         size="middle"
         value={device.type}
@@ -39,16 +40,22 @@ export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
           <Icon name="MobileOutlined" />
         </Radio.Button>
       </Radio.Group>
-      <Space>
-        <Icon button={{ title: '清空', danger: true }} name="ClearOutlined" />
-        <Icon button={{ title: '预览' }} name="EyeOutlined" />
+      <div className="space-x-2">
+        <Icon
+          button={{ title: '清空', danger: true, onClick: clearDroppedItems }}
+          name="ClearOutlined"
+        />
+        <Icon
+          button={{ title: '预览', onClick: changePreview }}
+          name="EyeOutlined"
+        />
         <Icon button={{ title: '刷新' }} name="ReloadOutlined" />
         <Icon
           name="FullscreenOutlined"
           tooltip={{ title: '全屏' }}
           className="cursor-pointer"
         />
-      </Space>
+      </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import chalk from 'chalk'
 import { AppModule } from './app.module'
 import type { CorsConfig, NestConfig } from './common/configs'
 import { PrismaService, PrismaClientExceptionFilter } from './common/prisma'
+import { TransformInterceptor } from './interceptors'
 import { setupSwagger } from './swagger/setup'
 
 async function bootstrap() {
@@ -25,6 +26,7 @@ async function bootstrap() {
       whitelist: true
     })
   )
+  app.useGlobalInterceptors(new TransformInterceptor())
   // app.useGlobalGuards()
   // app.useGlobalPipes()
   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter))

@@ -11,7 +11,6 @@ import {
   Progress,
   Select,
   Slider,
-  Space,
   Table,
   Image,
   Row,
@@ -19,12 +18,11 @@ import {
 } from 'antd'
 import clsx from 'clsx'
 import { omit } from 'lodash'
-import type { FC, ReactNode } from 'react'
-import { useState } from 'react'
+import type { ReactNode } from 'react'
+import { forwardRef } from 'react'
 import { useDroppedStore } from '@/stores'
 import type {
   AffixProps,
-  AlertProps,
   AutoCompleteProps,
   AvatarProps,
   BadgeProps,
@@ -40,9 +38,7 @@ import type {
   DatePickerProps,
   DescriptionsProps,
   DividerProps,
-  DrawerProps,
   DropdownProps,
-  DroppedItem,
   EmptyProps,
   FormProps,
   ImageProps,
@@ -53,21 +49,15 @@ import type {
   ListProps,
   MentionsProps,
   MenuProps,
-  ModalProps,
   PageHeaderProps,
   PaginationProps,
-  PopconfirmProps,
-  PopoverProps,
   ProgressProps,
   RadioProps,
   RateProps,
   ResultProps,
-  SelectOptionProps,
   SelectProps,
   SkeletonProps,
   SliderProps,
-  SpaceProps,
-  SpinProps,
   StatisticProps,
   StepsProps,
   SwitchProps,
@@ -76,7 +66,6 @@ import type {
   TagProps,
   TimelineProps,
   TimePickerProps,
-  TooltipProps,
   TransferProps,
   TreeProps,
   TreeSelectProps,
@@ -84,62 +73,34 @@ import type {
   UploadProps
 } from '@/types'
 
-interface PlaceholderProps extends DroppedItem {}
-
-const Placeholder: FC<PlaceholderProps> = ({ id, title, src }) => {
-  const [clicked, setClicked] = useState(false)
-
-  const handleClick = () => {
-    setClicked(!clicked)
-  }
-  return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div
-      key={title}
-      // ref={drag}
-      data-dragid={title}
-      onClick={handleClick}
-      className={clsx(
-        'flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move',
-        clicked && 'border-dashed'
-      )}
-    >
-      <img alt={title} src={src} className="w-full max-h-6" />
-      {/* <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
-        {title}
-      </span> */}
-    </div>
-  )
-}
-
-const KLGrid = () => {
+const KLGrid = forwardRef(function KLGrid(props, ref) {
   return (
     <Row>
       <Col span={24}>col</Col>
     </Row>
   )
-}
-const KLMenu = (props: MenuProps) => {
+})
+const KLMenu = forwardRef(function KLMenu(props: MenuProps, ref) {
   return <div>Menu</div>
-}
-const KLCheckbox = (props: CheckboxProps) => {
+})
+const KLCheckbox = forwardRef(function KLCheckbox(props: CheckboxProps, ref) {
   return <div>Checkbox</div>
-}
-const KLInput = (props: InputProps) => {
+})
+const KLInput = forwardRef(function KLInput(props: InputProps, ref) {
   return <Input {...props} />
-}
-const KLSelect = (props: SelectProps, options: SelectOptionProps) => {
+})
+const KLSelect = forwardRef(function KLSelect(props: SelectProps, ref) {
   return (
     <Select {...props}>
-      {options.map((i, ix) => (
+      {props.options?.map((i, ix) => (
         <Select.Option key={`${i.label}-${ix}`} value={i.value}>
           {i.label}
         </Select.Option>
       ))}
     </Select>
   )
-}
-const KLButton = (props: ButtonProps) => {
+})
+const KLButton = forwardRef(function KLButton(props: ButtonProps, ref) {
   console.log('KLButton props: ', props)
   const { changeSelected, selected } = useDroppedStore()
   return (
@@ -155,152 +116,188 @@ const KLButton = (props: ButtonProps) => {
       按钮
     </Button>
   )
-}
-const KLDivide = (props: DividerProps) => {
+})
+const KLDivider = forwardRef(function KLDivider(props: DividerProps, ref) {
   return <Divider {...props} />
-}
-const KLTable = (props: TableProps) => {
+})
+const KLTable = forwardRef(function KLTable(props: TableProps, ref) {
   return <Table {...props} />
-}
-const KLTypography = (props: TypographyProps) => {
+})
+const KLTypography = forwardRef(function KLTypography(
+  props: TypographyProps,
+  ref
+) {
   return <div>Typegraphy</div>
-}
-const KLDropdown = (props: DropdownProps) => {
+})
+const KLDropdown = forwardRef(function KLDropdown(props: DropdownProps, ref) {
   return <div>Dropdown</div>
-}
-const KLInputNumber = (props: InputNumberProps) => {
+})
+const KLInputNumber = forwardRef(function KLInputNumber(
+  props: InputNumberProps,
+  ref
+) {
   return <InputNumber {...props} />
-}
-const KLPageHeader = (props: PageHeaderProps) => {
+})
+const KLPageHeader = forwardRef(function KLPageHeader(
+  props: PageHeaderProps,
+  ref
+) {
   return <div>PageHeader</div>
-}
-const KLProgress = (props: ProgressProps) => {
+})
+const KLProgress = forwardRef(function KLProgress(props: ProgressProps, ref) {
   return <Progress {...props} />
-}
-const KLSpace = (props: SpaceProps) => {
-  return <Space {...props}>{props.children}</Space>
-}
-const KLSlider = (props: SliderProps) => {
+})
+// const KLSpace = forwardRef(function KLSpace(props: SpaceProps, ref) {
+//   return <Space {...props}>{props.children}</Space>
+// })
+const KLSlider = forwardRef(function KLSlider(props: SliderProps, ref) {
   return <Slider {...props} />
-}
-const KLBadge = (props: BadgeProps) => {
+})
+const KLBadge = forwardRef(function KLBadge(props: BadgeProps, ref) {
   return <Badge {...props} />
-}
-const KLLayout = (props: LayoutProps) => {
+})
+const KLLayout = forwardRef(function KLLayout(props: LayoutProps, ref) {
   return <div>Layout</div>
-}
-const KLAffix = (props: AffixProps) => {
+})
+const KLAffix = forwardRef(function KLAffix(props: AffixProps, ref) {
   return <Affix {...props} />
-}
-const KLBreadcrumb = (props: BreadcrumbProps) => {
+})
+const KLBreadcrumb = forwardRef(function KLBreadcrumb(
+  props: BreadcrumbProps,
+  ref
+) {
   return <div>Breadcrumb</div>
-}
-const KLPopconfirm = (props: PopconfirmProps) => {
-  return <div>Popconfirm</div>
-}
-const KLForm = (props: FormProps) => {
+})
+// const KLPopconfirm = forwardRef(function KLPopconfirm(
+//   props: PopconfirmProps,
+//   ref
+// ) {
+//   return <div>Popconfirm</div>
+// })
+const KLForm = forwardRef(function KLForm(props: FormProps, ref) {
   return <div>Form</div>
-}
-const KLPagination = (props: PaginationProps) => {
+})
+const KLPagination = forwardRef(function KLPagination(
+  props: PaginationProps,
+  ref
+) {
   return <div>Pagination</div>
-}
-const KLSteps = (props: StepsProps) => {
+})
+const KLSteps = forwardRef(function KLSteps(props: StepsProps, ref) {
   return <div>Steps</div>
-}
-const KLCascader = (props: CascaderProps) => {
+})
+const KLCascader = forwardRef(function KLCascader(props: CascaderProps, ref) {
   return <div>Cascader</div>
-}
-const KLRadio = (props: RadioProps) => {
+})
+const KLRadio = forwardRef(function KLRadio(props: RadioProps, ref) {
   return <div>Radio</div>
-}
-const KLAutoComplete = (props: AutoCompleteProps) => {
+})
+const KLAutoComplete = forwardRef(function KLAutoComplete(
+  props: AutoCompleteProps,
+  ref
+) {
   return <div>AutoComplate</div>
-}
-const KLCalendar = (props: CalendarProps) => {
+})
+const KLCalendar = forwardRef(function KLCalendar(props: CalendarProps, ref) {
   return <div>Calendar</div>
-}
-const KLAvatar = (props: AvatarProps) => {
+})
+const KLAvatar = forwardRef(function KLAvatar(props: AvatarProps, ref) {
   return <Avatar {...props} />
-}
-const KLAlert = (props: AlertProps) => {
-  return <div>Alert</div>
-}
-const KLTransfer = (props: TransferProps) => {
+})
+// const KLAlert = forwardRef(function KLAlert(props: AlertProps, ref) {
+//   return <div>Alert</div>
+// })
+const KLTransfer = forwardRef(function KLTransfer(props: TransferProps, ref) {
   return <div>Transfer</div>
-}
-const KLTreeSelect = (props: TreeSelectProps) => {
+})
+const KLTreeSelect = forwardRef(function KLTreeSelect(
+  props: TreeSelectProps,
+  ref
+) {
   return <div>TreeSelect</div>
-}
-const KLRate = (props: RateProps) => {
+})
+const KLRate = forwardRef(function KLRate(props: RateProps, ref) {
   return <div>Rate</div>
-}
-const KLMentions = (props: MentionsProps) => {
+})
+const KLMentions = forwardRef(function KLMentions(props: MentionsProps, ref) {
   return <div>Mentions</div>
-}
-const KLCarousel = (props: CarouselProps) => {
+})
+const KLCarousel = forwardRef(function KLCarousel(props: CarouselProps, ref) {
   return <div>Carousel</div>
-}
-const KLDescription = (props: DescriptionsProps) => {
+})
+const KLDescription = forwardRef(function KLDescription(
+  props: DescriptionsProps,
+  ref
+) {
   return <div>Description</div>
-}
-const KLDatePicker = (props: DatePickerProps) => {
+})
+const KLDatePicker = forwardRef(function KLDatePicker(
+  props: DatePickerProps,
+  ref
+) {
   return <div>DatePicker</div>
-}
-const KLImage = (props: ImageProps) => {
+})
+const KLImage = forwardRef(function KLImage(props: ImageProps, ref) {
   return <Image {...props} />
-}
-const KLComment = (props: CommentProps) => {
+})
+const KLComment = forwardRef(function KLComment(props: CommentProps, ref) {
   return <div>Comment</div>
-}
-const KLUpload = (props: UploadProps) => {
+})
+const KLUpload = forwardRef(function KLUpload(props: UploadProps, ref) {
   return <div>Upload</div>
-}
-const KLSwitch = (props: SwitchProps) => {
+})
+const KLSwitch = forwardRef(function KLSwitch(props: SwitchProps, ref) {
   return <div>Switch</div>
-}
-const KLStatistic = (props: StatisticProps) => {
+})
+const KLStatistic = forwardRef(function KLStatistic(
+  props: StatisticProps,
+  ref
+) {
   return <div>Statistic</div>
-}
-const KLCollapse = (props: CollapseProps) => {
+})
+const KLCollapse = forwardRef(function KLCollapse(props: CollapseProps, ref) {
   return <div>Collapse</div>
-}
-const KLEmpty = (props: EmptyProps) => {
+})
+const KLEmpty = forwardRef(function KLEmpty(props: EmptyProps, ref) {
   return <div>Empty</div>
-}
-const KLTimePicker = (props: TimePickerProps) => {
+})
+const KLTimePicker = forwardRef(function KLTimePicker(
+  props: TimePickerProps,
+  ref
+) {
   return <div>TimePicker</div>
-}
-const KLTimeline = (props: TimelineProps) => {
+})
+const KLTimeline = forwardRef(function KLTimeline(props: TimelineProps, ref) {
   return <div>Timeline</div>
-}
-const KLPopover = (props: PopoverProps) => {
-  return <div>Popover</div>
-}
-const KLSpin = (props: SpinProps) => {
-  return <div>Spin</div>
-}
-const KLSkeleton = (props: SkeletonProps) => {
+})
+// const KLPopover = forwardRef(function KLPopover(props: PopoverProps, ref) {
+//   return <div>Popover</div>
+// })
+// const KLSpin = forwardRef(function KLSpin(props: SpinProps, ref) {
+//   return <div>Spin</div>
+// })
+const KLSkeleton = forwardRef(function KLSkeleton(props: SkeletonProps, ref) {
   return <div>Skelteton</div>
-}
-const KLTabs = (props: TabsProps) => {
+})
+const KLTabs = forwardRef(function KLTabs(props: TabsProps, ref) {
   return <div>Tabs</div>
-}
-const KLModal = (props: ModalProps) => {
-  return <div>Modal</div>
-}
-const KLTooltip = (props: TooltipProps) => {
-  return <div>Tootip</div>
-}
-const KLDrawer = (props: DrawerProps) => {
-  return <div>Drawer</div>
-}
-const KLTree = (props: TreeProps) => {
+})
+// const KLModal = forwardRef(function KLModal(props: ModalProps, ref) {
+//   return <div>Modal</div>
+// })
+// const KLTooltip = forwardRef(function KLTooltip(props: TooltipProps, ref) {
+//   return <div>Tootip</div>
+// })
+// const KLDrawer = forwardRef(function KLDrawer(props: DrawerProps, ref) {
+//   return <div>Drawer</div>
+// })
+const KLTree = forwardRef(function KLTree(props: TreeProps, ref) {
   return <div>Tree</div>
-}
-const KLResult = (props: ResultProps) => {
+})
+const KLResult = forwardRef(function KLResult(props: ResultProps, ref) {
   return <div>Result</div>
-}
-const KLCard = (props: CardProps) => {
+})
+const KLCard = forwardRef(function KLCard(props: CardProps, ref) {
   console.log('KLCard props: ', props)
   const { changeSelected, selected } = useDroppedStore()
   return (
@@ -320,13 +317,13 @@ const KLCard = (props: CardProps) => {
       卡片内容
     </Card>
   )
-}
-const KLTag = (props: TagProps) => {
+})
+const KLTag = forwardRef(function KLTags(props: TagProps, ref) {
   return <div>Tag</div>
-}
-const KLList = (props: ListProps) => {
+})
+const KLList = forwardRef(function KLList(props: ListProps, ref) {
   return <div>List</div>
-}
+})
 /* 布局 */
 /* 通用 */
 /* 导航 */
@@ -337,9 +334,9 @@ export const componentsMap: Partial<
 > = {
   /* 布局 */
   Grid: KLGrid,
-  Space: KLSpace,
+  // Space: KLSpace,
   Layout: KLLayout,
-  Divider: KLDivide,
+  Divider: KLDivider,
   /* 通用 */
   Button: KLButton,
   Typography: KLTypography,
@@ -383,20 +380,20 @@ export const componentsMap: Partial<
   Tabs: KLTabs,
   Tree: KLTree,
   Table: KLTable,
-  Popover: KLPopover,
-  Tooltip: KLTooltip,
+  // Popover: KLPopover,
+  // Tooltip: KLTooltip,
   Collapse: KLCollapse,
   Timeline: KLTimeline,
   Statistic: KLStatistic,
   Descriptions: KLDescription,
   /* 反馈 */
-  Spin: KLSpin,
-  Modal: KLModal,
-  Alert: KLAlert,
-  Drawer: KLDrawer,
+  // Spin: KLSpin,
+  // Modal: KLModal,
+  // Alert: KLAlert,
+  // Drawer: KLDrawer,
   Result: KLResult,
   Progress: KLProgress,
-  Popconfirm: KLPopconfirm,
+  // Popconfirm: KLPopconfirm,
   /* 其他 */
   Skeleton: KLSkeleton
 }

@@ -38,7 +38,9 @@ specifiers:
   '@types/node': ^17.0.23
   '@types/react': ^17.0.43
   '@types/react-dom': ^17.0.14
+  '@types/react-grid-layout': ^1.3.2
   '@types/react-is': ^17.0.3
+  '@types/react-resizable': ^1.7.4
   '@types/webpack-env': ^1.16.3
   ahooks: ^3.3.0
   antd: ^4.19.5
@@ -76,6 +78,7 @@ specifiers:
   react-is: ^18.0.0
   react-query: ^3.34.19
   react-query-auth: ^1.1.0
+  react-resizable: ^3.0.4
   react-router-dom: ^6.3.0
   react-syntax-highlighter: ^15.5.0
   react-test-renderer: ^18.0.0
@@ -132,6 +135,7 @@ dependencies:
   react-is: 18.0.0
   react-query: 3.34.19_react-dom@18.0.0+react@18.0.0
   react-query-auth: 1.1.0_react-query@3.34.19+react@18.0.0
+  react-resizable: 3.0.4_react-dom@18.0.0+react@18.0.0
   react-router-dom: 6.3.0_react-dom@18.0.0+react@18.0.0
   react-syntax-highlighter: 15.5.0_react@18.0.0
   type-fest: 2.12.2
@@ -163,7 +167,9 @@ devDependencies:
   '@types/node': 17.0.23
   '@types/react': 17.0.43
   '@types/react-dom': 17.0.14
+  '@types/react-grid-layout': 1.3.2
   '@types/react-is': 17.0.3
+  '@types/react-resizable': 1.7.4
   '@types/webpack-env': 1.16.3
   cross-env: 7.0.3
   cypress: 9.5.3
@@ -4935,8 +4941,20 @@ packages:
       '@types/react': 17.0.43
     dev: true
 
+  /@types/react-grid-layout/1.3.2:
+    resolution: {integrity: sha512-ZzpBEOC1JTQ7MGe1h1cPKSLP4jSWuxc+yvT4TsAlEW9+EFPzAf8nxQfFd7ea9gL17Em7PbwJZAsiwfQQBUklZQ==}
+    dependencies:
+      '@types/react': 17.0.43
+    dev: true
+
   /@types/react-is/17.0.3:
     resolution: {integrity: sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==}
+    dependencies:
+      '@types/react': 17.0.43
+    dev: true
+
+  /@types/react-resizable/1.7.4:
+    resolution: {integrity: sha512-+xsGkd+Gvb9+8mLR1EyhNN8kBRJcsT1uJF4WpkFpFPIoApX2S89BmJA2RVtMdkhwe6YxV4RbHfaJ3bIdcgHc7g==}
     dependencies:
       '@types/react': 17.0.43
     dev: true

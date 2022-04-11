@@ -1,4 +1,4 @@
-import { Card, Input, Tabs } from 'antd'
+import { Input, Tabs } from 'antd'
 import type { ChangeEvent, FC } from 'react'
 import { useState } from 'react'
 import { Fragment } from 'react'
@@ -50,7 +50,10 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
 
   return (
     <div className="w-1/5 h-full border border-solid border-gray-200">
-      <Card bordered={false} size="small" title="页面/组件">
+      <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+        页面/组件
+      </div>
+      <div className="p-2">
         <Input
           allowClear
           size="small"
@@ -137,7 +140,7 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
             )
           })}
         </Tabs>
-      </Card>
+      </div>
     </div>
   )
 }

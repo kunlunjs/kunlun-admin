@@ -50,7 +50,7 @@ export const Assemble: FC<AssembleProps> = () => {
 
   return (
     <div>
-      <div className="flex space-x-4 h-[100vh]">
+      <div className="flex space-x-4" style={{ height: 'calc(100vh - 108px)' }}>
         <DndProvider backend={HTML5Backend}>
           <Left items={components} droppedItems={droppedItems} />
           <Center onDrop={item => handleDrop(0, item)} />

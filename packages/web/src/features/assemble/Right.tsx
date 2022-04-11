@@ -1,5 +1,5 @@
 import { useThrottleFn } from 'ahooks'
-import { Card, Form, Input, Radio, Select, Switch } from 'antd'
+import { Form, Input, Radio, Select, Switch } from 'antd'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 import { componentConfigs } from '@/config'
@@ -35,12 +35,9 @@ export const Right: FC<RightProps> = () => {
   if (!name) {
     return (
       <div className="w-1/5 h-full border border-solid border-gray-200">
-        <Card
-          bordered={false}
-          size="small"
-          title="配置"
-          bodyStyle={{ padding: '12px 6px' }}
-        ></Card>
+        <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+          配置
+        </div>
       </div>
     )
   }
@@ -62,12 +59,10 @@ export const Right: FC<RightProps> = () => {
 
   return (
     <div className="w-1/5 h-full border border-solid border-gray-200">
-      <Card
-        bordered={false}
-        size="small"
-        title="配置"
-        bodyStyle={{ padding: '12px 6px' }}
-      >
+      <div>
+        <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+          配置
+        </div>
         <Form
           labelCol={{ span: maxLabelCol }}
           wrapperCol={{ span: 24 - maxLabelCol }}
@@ -75,6 +70,7 @@ export const Right: FC<RightProps> = () => {
           name={name}
           labelAlign="left"
           // onFinish={handleFinish}
+          className="!p-2"
           initialValues={initialValues}
           onValuesChange={handleValuesChange}
         >
@@ -134,7 +130,7 @@ export const Right: FC<RightProps> = () => {
             )
           })}
         </Form>
-      </Card>
+      </div>
     </div>
   )
 }

@@ -12,7 +12,7 @@ export const DropHeader: FC<DropHeaderProps> = ({ grided, onGridChange }) => {
   const { device, changeDevice } = useDroppedStore()
 
   return (
-    <div className="flex justify-between items-center h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-b-0">
+    <div className="flex justify-between items-center h-10 px-2 border border-gray-200 border-solid border-t-0 border-r-0 border-l-0">
       <Space>
         <Icon name="RedoOutlined" tooltip={{ title: '撤销' }} />
         <Icon name="UndoOutlined" tooltip={{ title: '重做' }} />

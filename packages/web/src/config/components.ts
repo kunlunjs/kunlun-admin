@@ -93,8 +93,8 @@ export const componentConfigs: Partial<
       },
       cover: {
         type: 'string',
-        default:
-          'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        // default:
+        //   'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         title: '封面'
       }
     }

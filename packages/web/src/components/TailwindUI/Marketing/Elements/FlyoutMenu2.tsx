@@ -1,44 +1,10 @@
 import { Popover, Transition } from '@headlessui/react'
-import {
-  ChartBarIcon,
-  CheckCircleIcon,
-  CursorClickIcon,
-  PhoneIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  ViewGridIcon
-} from '@heroicons/react/outline'
+import { CheckCircleIcon, PhoneIcon, PlayIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment } from 'react'
+import { solutions } from '@/components/svgs'
 
-const solutions = [
-  {
-    name: 'Analytics',
-    description:
-      'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: ChartBarIcon
-  },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: CursorClickIcon
-  },
-  {
-    name: 'Security',
-    description: "Your customers' data will be safe and secure.",
-    href: '#',
-    icon: ShieldCheckIcon
-  },
-  {
-    name: 'Integrations',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: ViewGridIcon
-  }
-]
 const callsToAction = [
   { name: 'Watch Demo', href: '#', icon: PlayIcon },
   { name: 'View All Products', href: '#', icon: CheckCircleIcon },

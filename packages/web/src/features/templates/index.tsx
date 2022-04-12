@@ -118,10 +118,10 @@ export const Templates: FC<TemplatesProps> = () => {
   const markupRef = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const fixedValues = useRef<{
-    fixedValue: Pick<TemplatesState, 'blockName' | 'blockType' | 'sidebar'>
+  const lastedState = useRef<{
+    values: Pick<TemplatesState, 'blockName' | 'blockType' | 'sidebar'>
   }>({
-    fixedValue: { blockName: 'header', blockType: 'marketing', sidebar: false }
+    values: { blockName: 'header', blockType: 'marketing', sidebar: false }
   })
   const [state, setState] = useState<TemplatesState>({
     ready: false,
@@ -232,6 +232,7 @@ export const Templates: FC<TemplatesProps> = () => {
     const opener = openerRef.current!
 
     document.addEventListener('click', e => {
+      console.log('document click')
       if (e.target === opener) {
         return
       }
@@ -253,8 +254,15 @@ export const Templates: FC<TemplatesProps> = () => {
       keyboardNavigation
     )
     const _state = state
-    iframe.contentWindow?.document.addEventListener('click', () => {
-      setState({ ..._state, ...fixedValues.current.fixedValue, sidebar: false })
+    iframe.contentWindow?.document.addEventListener('click', e => {
+      console.log('iframe click: ', e)
+      e.preventDefault()
+      // e.stopPropagation()
+      setState({
+        ..._state,
+        ...lastedState.current.values,
+        sidebar: false
+      })
     })
     timeout = setTimeout(() => {
       setState({
@@ -311,6 +319,8 @@ export const Templates: FC<TemplatesProps> = () => {
     const blockType = currentTarget.getAttribute('block-type') as string
     const blockName = currentTarget.getAttribute('block-name') as string
     const blockTitle = currentTarget.getAttribute('block-title') as string
+    const { protocol, host, pathname } = window.location
+    window.location.href = `${protocol}//${host}${pathname}#${blockType}/${blockName}`
     setState({
       ...state,
       index: 0,
@@ -319,7 +329,7 @@ export const Templates: FC<TemplatesProps> = () => {
       blockTitle,
       codeView: false
     })
-    fixedValues.current!.fixedValue = { blockName, blockType, sidebar }
+    lastedState.current!.values = { blockName, blockType, sidebar }
   }
 
   const changeTheme = (e: MouseEvent<HTMLButtonElement>) => {
@@ -555,15 +565,15 @@ export const Templates: FC<TemplatesProps> = () => {
           <Frame
             contentDidMount={handleContentDidMount}
             contentDidUpdate={handleContentDidUpdate}
+            // 使用最新 tailwindcss cdn 替代下面 head 引用方式 https://tailwindcss.com/docs/installation/play-cdn
+            initialContent="<!DOCTYPE html><html><head><script src='https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp'></script><script>tailwind.config = {}</script></head><body><div id='iframe'></div></body></html>"
             head={
               <>
-                {/* <script src="/static/js/tailwindcss.js"></script> */}
-                {/* TODO: 应引入 https://cdn.tailwindcss.com */}
-                <link
+                {/* <link
                   // href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
                   href="/static/style/tailwind2.0.2.min.css"
                   rel="stylesheet"
-                />
+                /> */}
                 {/* {
                   <style
                     dangerouslySetInnerHTML={{
@@ -579,7 +589,6 @@ export const Templates: FC<TemplatesProps> = () => {
                 {/* <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.2/src/index.min.js"></script> */}
               </>
             }
-            // body={<script src="/static/js/tailwindcss.js"></script>}
           >
             {Block}
           </Frame>

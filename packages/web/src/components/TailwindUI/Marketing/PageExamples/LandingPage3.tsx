@@ -53,8 +53,8 @@ const LandingPage3: FC<LandingPage3Props> = () => {
     <div className="bg-white">
       <main>
         {/* Hero section */}
-        <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
-          <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
+        <div className="overflow-hidden pt-8 sm:pt-12 lg:relative lg:py-48">
+          <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-8">
             <div>
               <div>
                 <img
@@ -66,10 +66,10 @@ const LandingPage3: FC<LandingPage3Props> = () => {
               <div className="mt-20">
                 <div>
                   <a href="#" className="inline-flex space-x-4">
-                    <span className="rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-500 tracking-wide uppercase">
+                    <span className="rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-rose-500">
                       What's new
                     </span>
-                    <span className="inline-flex items-center text-sm font-medium text-rose-500 space-x-1">
+                    <span className="inline-flex items-center space-x-1 text-sm font-medium text-rose-500">
                       <span>Just shipped version 0.1.0</span>
                       <ChevronRightIcon
                         className="h-5 w-5"
@@ -79,7 +79,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                   </a>
                 </div>
                 <div className="mt-6 sm:max-w-xl">
-                  <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
+                  <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                     Issue management for growing teams
                   </h1>
                   <p className="mt-6 text-xl text-gray-500">
@@ -89,7 +89,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                 </div>
                 <form
                   action="#"
-                  className="mt-12 sm:max-w-lg sm:w-full sm:flex"
+                  className="mt-12 sm:flex sm:w-full sm:max-w-lg"
                 >
                   <div className="min-w-0 flex-1">
                     <label htmlFor="hero-email" className="sr-only">
@@ -98,14 +98,14 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                     <input
                       id="hero-email"
                       type="email"
-                      className="block w-full border border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-rose-500 focus:ring-rose-500"
+                      className="block w-full rounded-md border border-gray-300 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-rose-500 focus:ring-rose-500"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
-                      className="block w-full rounded-md border border-transparent px-5 py-3 bg-rose-500 text-base font-medium text-white shadow hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 sm:px-10"
+                      className="block w-full rounded-md border border-transparent bg-rose-500 px-5 py-3 text-base font-medium text-white shadow hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 sm:px-10"
                     >
                       Notify me
                     </button>
@@ -113,7 +113,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                 </form>
                 <div className="mt-6">
                   <div className="inline-flex items-center divide-x divide-gray-300">
-                    <div className="flex-shrink-0 flex pr-5">
+                    <div className="flex flex-shrink-0 pr-5">
                       <StarIcon
                         className="h-5 w-5 text-yellow-400"
                         aria-hidden="true"
@@ -135,7 +135,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
+                    <div className="min-w-0 flex-1 py-1 pl-5 text-sm text-gray-500 sm:py-3">
                       <span className="font-medium text-gray-900">
                         Rated 5 stars
                       </span>{' '}
@@ -153,9 +153,9 @@ const LandingPage3: FC<LandingPage3Props> = () => {
           <div className="sm:mx-auto sm:max-w-3xl sm:px-6">
             <div className="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
               <div className="hidden sm:block">
-                <div className="absolute inset-y-0 left-1/2 w-screen bg-gray-50 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
+                <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-gray-50 lg:left-80 lg:right-0 lg:w-full" />
                 <svg
-                  className="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0"
+                  className="absolute top-8 right-1/2 -mr-3 lg:left-0 lg:m-0"
                   width={404}
                   height={392}
                   fill="none"
@@ -187,7 +187,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                   />
                 </svg>
               </div>
-              <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
+              <div className="relative -mr-40 pl-4 sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none lg:pl-12">
                 <img
                   className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
                   src="https://tailwindui.com/img/component-images/task-app-rose.jpg"
@@ -200,13 +200,13 @@ const LandingPage3: FC<LandingPage3Props> = () => {
 
         {/* Testimonial/stats section */}
         <div className="relative mt-20">
-          <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
+          <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
             <div className="relative sm:py-16 lg:py-0">
               <div
                 aria-hidden="true"
                 className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
               >
-                <div className="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl lg:right-72" />
+                <div className="absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-gray-50 lg:right-72" />
                 <svg
                   className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
                   width={404}
@@ -240,9 +240,9 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                   />
                 </svg>
               </div>
-              <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
+              <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
                 {/* Testimonial card*/}
-                <div className="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
+                <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
                   <img
                     className="absolute inset-0 h-full w-full object-cover"
                     src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100"
@@ -261,7 +261,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                     <blockquote className="mt-8">
                       <div className="relative text-lg font-medium text-white md:flex-grow">
                         <svg
-                          className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-rose-400"
+                          className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-rose-400"
                           fill="currentColor"
                           viewBox="0 0 32 32"
                           aria-hidden="true"
@@ -289,10 +289,10 @@ const LandingPage3: FC<LandingPage3Props> = () => {
             <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
               {/* Content area */}
               <div className="pt-12 sm:pt-16 lg:pt-20">
-                <h2 className="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                   On a mission to empower teams
                 </h2>
-                <div className="mt-6 text-gray-500 space-y-6">
+                <div className="mt-6 space-y-6 text-gray-500">
                   <p className="text-lg">
                     Sagittis scelerisque nulla cursus in enim consectetur quam.
                     Dictum urna sed consectetur neque tristique pellentesque.
@@ -347,10 +347,10 @@ const LandingPage3: FC<LandingPage3Props> = () => {
 
         {/* Logo cloud section */}
         <div className="mt-32">
-          <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-            <div className="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
+          <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+            <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
               <div>
-                <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                   Backed by world-renowned investors
                 </h2>
                 <p className="mt-6 max-w-3xl text-lg leading-7 text-gray-500">
@@ -370,7 +370,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                 {logos.map(logo => (
                   <div
                     key={logo.name}
-                    className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+                    className="col-span-1 flex justify-center bg-gray-50 py-8 px-8"
                   >
                     <img className="max-h-12" src={logo.url} alt={logo.name} />
                   </div>
@@ -383,7 +383,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
         {/* CTA section */}
         <div className="relative mt-24 sm:mt-32 sm:py-16">
           <div aria-hidden="true" className="hidden sm:block">
-            <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl" />
+            <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />
             <svg
               className="absolute top-8 left-1/2 -ml-3"
               width={404}
@@ -418,7 +418,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
             </svg>
           </div>
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-            <div className="relative rounded-2xl px-6 py-10 bg-rose-500 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+            <div className="relative overflow-hidden rounded-2xl bg-rose-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"
@@ -444,17 +444,17 @@ const LandingPage3: FC<LandingPage3Props> = () => {
               </div>
               <div className="relative">
                 <div className="sm:text-center">
-                  <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                     Get notified when we&rsquo;re launching.
                   </h2>
-                  <p className="mt-6 mx-auto max-w-2xl text-lg text-rose-100">
+                  <p className="mx-auto mt-6 max-w-2xl text-lg text-rose-100">
                     Sagittis scelerisque nulla cursus in enim consectetur quam.
                     Dictum urna sed consectetur neque tristique pellentesque.
                   </p>
                 </div>
                 <form
                   action="#"
-                  className="mt-12 sm:mx-auto sm:max-w-lg sm:flex"
+                  className="mt-12 sm:mx-auto sm:flex sm:max-w-lg"
                 >
                   <div className="min-w-0 flex-1">
                     <label htmlFor="cta-email" className="sr-only">
@@ -463,14 +463,14 @@ const LandingPage3: FC<LandingPage3Props> = () => {
                     <input
                       id="cta-email"
                       type="email"
-                      className="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
+                      className="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
-                      className="block w-full rounded-md border border-transparent px-5 py-3 bg-gray-900 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
+                      className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
                     >
                       Notify me
                     </button>
@@ -484,7 +484,7 @@ const LandingPage3: FC<LandingPage3Props> = () => {
 
       {/* Footer section */}
       <footer className="mt-24 bg-gray-900 sm:mt-12">
-        <div className="mx-auto max-w-md py-12 px-4 overflow-hidden sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-md overflow-hidden py-12 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
           <nav
             className="-mx-5 -my-2 flex flex-wrap justify-center"
             aria-label="Footer"

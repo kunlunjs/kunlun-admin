@@ -70,7 +70,7 @@ export default function ProductOverview4() {
         <nav aria-label="Breadcrumb">
           <ol
             role="list"
-            className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
+            className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
             {product.breadcrumbs.map(breadcrumb => (
               <li key={breadcrumb.id}>
@@ -88,7 +88,7 @@ export default function ProductOverview4() {
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
-                    className="w-4 h-5 text-gray-300"
+                    className="h-5 w-4 text-gray-300"
                   >
                     <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                   </svg>
@@ -108,41 +108,41 @@ export default function ProductOverview4() {
         </nav>
 
         {/* Image gallery */}
-        <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-          <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+          <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
               src={product.images[0].src}
               alt={product.images[0].alt}
-              className="w-full h-full object-center object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
                 src={product.images[1].src}
                 alt={product.images[1].alt}
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
                 src={product.images[2].src}
                 alt={product.images[2].alt}
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
-          <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
+          <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
             <img
               src={product.images[3].src}
               alt={product.images[3].alt}
-              className="w-full h-full object-center object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </div>
 
         {/* Product info */}
-        <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+        <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               {product.name}
@@ -150,7 +150,7 @@ export default function ProductOverview4() {
           </div>
 
           {/* Options */}
-          <div className="mt-4 lg:mt-0 lg:row-span-3">
+          <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl text-gray-900">{product.price}</p>
 
@@ -185,7 +185,7 @@ export default function ProductOverview4() {
             <form className="mt-10">
               {/* Colors */}
               <div>
-                <h3 className="text-sm text-gray-900 font-medium">Color</h3>
+                <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
                 <RadioGroup
                   value={selectedColor}
@@ -205,7 +205,7 @@ export default function ProductOverview4() {
                             color.selectedClass,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
-                            '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
                           )
                         }
                       >
@@ -216,7 +216,7 @@ export default function ProductOverview4() {
                           aria-hidden="true"
                           className={clsx(
                             color.class,
-                            'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                            'h-8 w-8 rounded-full border border-black border-opacity-10'
                           )}
                         />
                       </RadioGroup.Option>
@@ -228,7 +228,7 @@ export default function ProductOverview4() {
               {/* Sizes */}
               <div className="mt-10">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm text-gray-900 font-medium">Size</h3>
+                  <h3 className="text-sm font-medium text-gray-900">Size</h3>
                   <a
                     href="#"
                     className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
@@ -254,10 +254,10 @@ export default function ProductOverview4() {
                         className={({ active }) =>
                           clsx(
                             size.inStock
-                              ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
-                              : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                              ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
+                              : 'cursor-not-allowed bg-gray-50 text-gray-200',
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                            'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
                           )
                         }
                       >
@@ -273,17 +273,17 @@ export default function ProductOverview4() {
                                   checked
                                     ? 'border-indigo-500'
                                     : 'border-transparent',
-                                  'absolute -inset-px rounded-md pointer-events-none'
+                                  'pointer-events-none absolute -inset-px rounded-md'
                                 )}
                                 aria-hidden="true"
                               />
                             ) : (
                               <div
                                 aria-hidden="true"
-                                className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
+                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
                               >
                                 <svg
-                                  className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
+                                  className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
                                   viewBox="0 0 100 100"
                                   preserveAspectRatio="none"
                                   stroke="currentColor"
@@ -308,14 +308,14 @@ export default function ProductOverview4() {
 
               <button
                 type="submit"
-                className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to bag
               </button>
             </form>
           </div>
 
-          <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+          <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
             {/* Description and details */}
             <div>
               <h3 className="sr-only">Description</h3>
@@ -329,7 +329,7 @@ export default function ProductOverview4() {
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
               <div className="mt-4">
-                <ul role="list" className="pl-4 list-disc text-sm space-y-2">
+                <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                   {product.highlights.map(highlight => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>

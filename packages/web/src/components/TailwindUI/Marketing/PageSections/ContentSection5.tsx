@@ -4,21 +4,21 @@ export const config = {
 
 export default function ContentSection5() {
   return (
-    <div className="py-16 xl:py-36 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="max-w-max lg:max-w-7xl mx-auto">
+    <div className="overflow-hidden bg-white py-16 px-4 sm:px-6 lg:px-8 xl:py-36">
+      <div className="mx-auto max-w-max lg:max-w-7xl">
         <div className="relative z-10 mb-8 md:mb-2 md:px-6">
-          <div className="text-base max-w-prose lg:max-w-none">
-            <h2 className="leading-6 text-indigo-600 font-semibold tracking-wide uppercase">
+          <div className="max-w-prose text-base lg:max-w-none">
+            <h2 className="font-semibold uppercase leading-6 tracking-wide text-indigo-600">
               Transactions
             </h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               A better way to send money
             </p>
           </div>
         </div>
         <div className="relative">
           <svg
-            className="hidden md:block absolute top-0 right-0 -mt-20 -mr-20"
+            className="absolute top-0 right-0 -mt-20 -mr-20 hidden md:block"
             width={404}
             height={384}
             fill="none"
@@ -51,7 +51,7 @@ export default function ContentSection5() {
             />
           </svg>
           <svg
-            className="hidden md:block absolute bottom-0 left-0 -mb-20 -ml-20"
+            className="absolute bottom-0 left-0 -mb-20 -ml-20 hidden md:block"
             width={404}
             height={384}
             fill="none"
@@ -85,7 +85,7 @@ export default function ContentSection5() {
           </svg>
           <div className="relative md:bg-white md:p-6">
             <div className="lg:grid lg:grid-cols-2 lg:gap-6">
-              <div className="prose prose-indigo prose-lg text-gray-500 lg:max-w-none">
+              <div className="prose prose-lg prose-indigo text-gray-500 lg:max-w-none">
                 <p>
                   Ultrices ultricies a in odio consequat egestas rutrum. Ut
                   vitae aliquam in ipsum. Duis nullam placerat cursus risus
@@ -116,7 +116,7 @@ export default function ContentSection5() {
                   ultricies congue.
                 </p>
               </div>
-              <div className="mt-6 prose prose-indigo prose-lg text-gray-500 lg:mt-0">
+              <div className="prose prose-lg prose-indigo mt-6 text-gray-500 lg:mt-0">
                 <p>
                   Erat pellentesque dictumst ligula porttitor risus eget et
                   eget. Ultricies tellus felis id dignissim eget. Est augue
@@ -143,7 +143,7 @@ export default function ContentSection5() {
             <div className="mt-8 inline-flex rounded-md shadow">
               <a
                 href="#"
-                className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
               >
                 Contact sales
               </a>

@@ -8,7 +8,7 @@ const ListContainer4: FC<ListContainers4Props> = () => {
       {items.map(item => (
         <li
           key={item.id}
-          className="px-6 py-4 overflow-hidden bg-white rounded-md shadow"
+          className="overflow-hidden rounded-md bg-white px-6 py-4 shadow"
         >
           {/* Your content */}
         </li>

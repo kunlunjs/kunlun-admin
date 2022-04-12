@@ -162,7 +162,7 @@ export default function CheckoutPage2() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -186,11 +186,11 @@ export default function CheckoutPage2() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -201,16 +201,16 @@ export default function CheckoutPage2() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -223,16 +223,16 @@ export default function CheckoutPage2() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="px-4 py-6 space-y-12"
+                      className="space-y-12 px-4 py-6"
                     >
                       <div className="grid grid-cols-2 gap-x-4 gap-y-10">
                         {category.featured.map(item => (
                           <div key={item.name} className="group relative">
-                            <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
+                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
-                                className="object-center object-cover"
+                                className="object-cover object-center"
                               />
                             </div>
                             <a
@@ -240,7 +240,7 @@ export default function CheckoutPage2() {
                               className="mt-6 block text-sm font-medium text-gray-900"
                             >
                               <span
-                                className="absolute z-10 inset-0"
+                                className="absolute inset-0 z-10"
                                 aria-hidden="true"
                               />
                               {item.name}
@@ -259,12 +259,12 @@ export default function CheckoutPage2() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -272,11 +272,11 @@ export default function CheckoutPage2() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create an account
                   </a>
@@ -284,37 +284,37 @@ export default function CheckoutPage2() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {/* Currency selector */}
                 <form>
                   <div className="inline-block">
                     <label htmlFor="mobile-currency" className="sr-only">
                       Currency
                     </label>
-                    <div className="-ml-2 group relative border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                    <div className="group relative -ml-2 rounded-md border-transparent focus-within:ring-2 focus-within:ring-white">
                       <select
                         id="mobile-currency"
                         name="currency"
-                        className="bg-none border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-800 focus:outline-none focus:ring-0 focus:border-transparent"
+                        className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
                       >
                         {currencies.map(currency => (
                           <option key={currency}>{currency}</option>
                         ))}
                       </select>
-                      <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                         <svg
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 20 20"
-                          className="w-5 h-5 text-gray-500"
+                          className="h-5 w-5 text-gray-500"
                         >
                           <path
                             stroke="currentColor"
@@ -338,30 +338,30 @@ export default function CheckoutPage2() {
         <nav aria-label="Top">
           {/* Top navigation */}
           <div className="bg-gray-900">
-            <div className="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
               {/* Currency selector */}
               <form>
                 <div>
                   <label htmlFor="desktop-currency" className="sr-only">
                     Currency
                   </label>
-                  <div className="-ml-2 group relative bg-gray-900 border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
                     <select
                       id="desktop-currency"
                       name="currency"
-                      className="bg-none bg-gray-900 border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-white group-hover:text-gray-100 focus:outline-none focus:ring-0 focus:border-transparent"
+                      className="flex items-center rounded-md border-transparent bg-gray-900 bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-white focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
                     >
                       {currencies.map(currency => (
                         <option key={currency}>{currency}</option>
                       ))}
                     </select>
-                    <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                       <svg
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 20 20"
-                        className="w-5 h-5 text-gray-300"
+                        className="h-5 w-5 text-gray-300"
                       >
                         <path
                           stroke="currentColor"
@@ -395,10 +395,10 @@ export default function CheckoutPage2() {
 
           {/* Secondary navigation */}
           <div className="bg-white shadow-sm">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="h-16 flex items-center justify-between">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex h-16 items-center justify-between">
                 {/* Logo (lg+) */}
-                <div className="hidden lg:flex-1 lg:flex lg:items-center">
+                <div className="hidden lg:flex lg:flex-1 lg:items-center">
                   <a href="#">
                     <span className="sr-only">Workflow</span>
                     <img
@@ -411,8 +411,8 @@ export default function CheckoutPage2() {
 
                 <div className="hidden h-full lg:flex">
                   {/* Flyout menus */}
-                  <Popover.Group className="px-4 bottom-0 inset-x-0">
-                    <div className="h-full flex justify-center space-x-8">
+                  <Popover.Group className="inset-x-0 bottom-0 px-4">
+                    <div className="flex h-full justify-center space-x-8">
                       {navigation.categories.map(category => (
                         <Popover key={category.name} className="flex">
                           {({ open }) => (
@@ -423,7 +423,7 @@ export default function CheckoutPage2() {
                                     open
                                       ? 'border-indigo-600 text-indigo-600'
                                       : 'border-transparent text-gray-700 hover:text-gray-800',
-                                    'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                    'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                   )}
                                 >
                                   {category.name}
@@ -439,7 +439,7 @@ export default function CheckoutPage2() {
                                 leaveFrom="opacity-100"
                                 leaveTo="opacity-0"
                               >
-                                <Popover.Panel className="absolute top-full inset-x-0 bg-white text-sm text-gray-500">
+                                <Popover.Panel className="absolute inset-x-0 top-full bg-white text-sm text-gray-500">
                                   {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                   <div
                                     className="absolute inset-0 top-1/2 bg-white shadow"
@@ -447,30 +447,30 @@ export default function CheckoutPage2() {
                                   />
                                   {/* Fake border when menu is open */}
                                   <div
-                                    className="absolute inset-0 top-0 h-px max-w-7xl mx-auto px-8"
+                                    className="absolute inset-0 top-0 mx-auto h-px max-w-7xl px-8"
                                     aria-hidden="true"
                                   >
                                     <div
                                       className={clsx(
                                         open ? 'bg-gray-200' : 'bg-transparent',
-                                        'w-full h-px transition-colors ease-out duration-200'
+                                        'h-px w-full transition-colors duration-200 ease-out'
                                       )}
                                     />
                                   </div>
 
                                   <div className="relative">
-                                    <div className="max-w-7xl mx-auto px-8">
+                                    <div className="mx-auto max-w-7xl px-8">
                                       <div className="grid grid-cols-4 gap-y-10 gap-x-8 py-16">
                                         {category.featured.map(item => (
                                           <div
                                             key={item.name}
                                             className="group relative"
                                           >
-                                            <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                               <img
                                                 src={item.imageSrc}
                                                 alt={item.imageAlt}
-                                                className="object-center object-cover"
+                                                className="object-cover object-center"
                                               />
                                             </div>
                                             <a
@@ -478,7 +478,7 @@ export default function CheckoutPage2() {
                                               className="mt-4 block font-medium text-gray-900"
                                             >
                                               <span
-                                                className="absolute z-10 inset-0"
+                                                className="absolute inset-0 z-10"
                                                 aria-hidden="true"
                                               />
                                               {item.name}
@@ -515,10 +515,10 @@ export default function CheckoutPage2() {
                 </div>
 
                 {/* Mobile menu and search (lg-) */}
-                <div className="flex-1 flex items-center lg:hidden">
+                <div className="flex flex-1 items-center lg:hidden">
                   <button
                     type="button"
-                    className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                    className="-ml-2 rounded-md bg-white p-2 text-gray-400"
                     onClick={() => setOpen(true)}
                   >
                     <span className="sr-only">Open menu</span>
@@ -531,7 +531,7 @@ export default function CheckoutPage2() {
                     className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                    <SearchIcon className="h-6 w-6" aria-hidden="true" />
                   </a>
                 </div>
 
@@ -545,7 +545,7 @@ export default function CheckoutPage2() {
                   />
                 </a>
 
-                <div className="flex-1 flex items-center justify-end">
+                <div className="flex flex-1 items-center justify-end">
                   <a
                     href="#"
                     className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block"
@@ -561,7 +561,7 @@ export default function CheckoutPage2() {
                     >
                       <span className="sr-only">Help</span>
                       <QuestionMarkCircleIcon
-                        className="w-6 h-6"
+                        className="h-6 w-6"
                         aria-hidden="true"
                       />
                     </a>
@@ -574,9 +574,9 @@ export default function CheckoutPage2() {
 
                     {/* Cart */}
                     <div className="ml-4 flow-root lg:ml-8">
-                      <a href="#" className="group -m-2 p-2 flex items-center">
+                      <a href="#" className="group -m-2 flex items-center p-2">
                         <ShoppingBagIcon
-                          className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                          className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                           aria-hidden="true"
                         />
                         <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -593,8 +593,8 @@ export default function CheckoutPage2() {
         </nav>
       </header>
 
-      <main className="max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto lg:max-w-none">
+      <main className="mx-auto max-w-7xl px-4 pt-16 pb-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:max-w-none">
           <h1 className="sr-only">Checkout</h1>
 
           <form className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
@@ -617,7 +617,7 @@ export default function CheckoutPage2() {
                       id="email-address"
                       name="email-address"
                       autoComplete="email"
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -642,7 +642,7 @@ export default function CheckoutPage2() {
                         id="first-name"
                         name="first-name"
                         autoComplete="given-name"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -660,7 +660,7 @@ export default function CheckoutPage2() {
                         id="last-name"
                         name="last-name"
                         autoComplete="family-name"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -677,7 +677,7 @@ export default function CheckoutPage2() {
                         type="text"
                         name="company"
                         id="company"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -695,7 +695,7 @@ export default function CheckoutPage2() {
                         name="address"
                         id="address"
                         autoComplete="street-address"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -712,7 +712,7 @@ export default function CheckoutPage2() {
                         type="text"
                         name="apartment"
                         id="apartment"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -730,7 +730,7 @@ export default function CheckoutPage2() {
                         name="city"
                         id="city"
                         autoComplete="address-level2"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -747,7 +747,7 @@ export default function CheckoutPage2() {
                         id="country"
                         name="country"
                         autoComplete="country-name"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       >
                         <option>United States</option>
                         <option>Canada</option>
@@ -769,7 +769,7 @@ export default function CheckoutPage2() {
                         name="region"
                         id="region"
                         autoComplete="address-level1"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -787,7 +787,7 @@ export default function CheckoutPage2() {
                         name="postal-code"
                         id="postal-code"
                         autoComplete="postal-code"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -805,7 +805,7 @@ export default function CheckoutPage2() {
                         name="phone"
                         id="phone"
                         autoComplete="tel"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -830,13 +830,13 @@ export default function CheckoutPage2() {
                           clsx(
                             checked ? 'border-transparent' : 'border-gray-300',
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
+                            'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none'
                           )
                         }
                       >
                         {({ checked, active }) => (
                           <>
-                            <div className="flex-1 flex">
+                            <div className="flex flex-1">
                               <div className="flex flex-col">
                                 <RadioGroup.Label
                                   as="span"
@@ -870,7 +870,7 @@ export default function CheckoutPage2() {
                                 checked
                                   ? 'border-indigo-500'
                                   : 'border-transparent',
-                                'absolute -inset-px rounded-lg pointer-events-none'
+                                'pointer-events-none absolute -inset-px rounded-lg'
                               )}
                               aria-hidden="true"
                             />
@@ -897,14 +897,14 @@ export default function CheckoutPage2() {
                             name="payment-type"
                             type="radio"
                             defaultChecked
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                         ) : (
                           <input
                             id={paymentMethod.id}
                             name="payment-type"
                             type="radio"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                         )}
 
@@ -933,7 +933,7 @@ export default function CheckoutPage2() {
                         id="card-number"
                         name="card-number"
                         autoComplete="cc-number"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -951,7 +951,7 @@ export default function CheckoutPage2() {
                         id="name-on-card"
                         name="name-on-card"
                         autoComplete="cc-name"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -969,7 +969,7 @@ export default function CheckoutPage2() {
                         name="expiration-date"
                         id="expiration-date"
                         autoComplete="cc-exp"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -987,7 +987,7 @@ export default function CheckoutPage2() {
                         name="cvc"
                         id="cvc"
                         autoComplete="on"
-                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -1001,7 +1001,7 @@ export default function CheckoutPage2() {
                 Order summary
               </h2>
 
-              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+              <div className="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">
                 <h3 className="sr-only">Items in your cart</h3>
                 <ul role="list" className="divide-y divide-gray-200">
                   {products.map(product => (
@@ -1014,7 +1014,7 @@ export default function CheckoutPage2() {
                         />
                       </div>
 
-                      <div className="ml-6 flex-1 flex flex-col">
+                      <div className="ml-6 flex flex-1 flex-col">
                         <div className="flex">
                           <div className="min-w-0 flex-1">
                             <h4 className="text-sm">
@@ -1033,10 +1033,10 @@ export default function CheckoutPage2() {
                             </p>
                           </div>
 
-                          <div className="ml-4 flex-shrink-0 flow-root">
+                          <div className="ml-4 flow-root flex-shrink-0">
                             <button
                               type="button"
-                              className="-m-2.5 bg-white p-2.5 flex items-center justify-center text-gray-400 hover:text-gray-500"
+                              className="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
                             >
                               <span className="sr-only">Remove</span>
                               <TrashIcon
@@ -1047,7 +1047,7 @@ export default function CheckoutPage2() {
                           </div>
                         </div>
 
-                        <div className="flex-1 pt-2 flex items-end justify-between">
+                        <div className="flex flex-1 items-end justify-between pt-2">
                           <p className="mt-1 text-sm font-medium text-gray-900">
                             {product.price}
                           </p>
@@ -1059,7 +1059,7 @@ export default function CheckoutPage2() {
                             <select
                               id="quantity"
                               name="quantity"
-                              className="rounded-md border border-gray-300 text-base font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                              className="rounded-md border border-gray-300 text-left text-base font-medium text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             >
                               <option value={1}>1</option>
                               <option value={2}>2</option>
@@ -1076,7 +1076,7 @@ export default function CheckoutPage2() {
                     </li>
                   ))}
                 </ul>
-                <dl className="border-t border-gray-200 py-6 px-4 space-y-6 sm:px-6">
+                <dl className="space-y-6 border-t border-gray-200 py-6 px-4 sm:px-6">
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Subtotal</dt>
                     <dd className="text-sm font-medium text-gray-900">
@@ -1102,7 +1102,7 @@ export default function CheckoutPage2() {
                 <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                    className="w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                   >
                     Confirm order
                   </button>
@@ -1115,16 +1115,16 @@ export default function CheckoutPage2() {
 
       <footer
         aria-labelledby="footer-heading"
-        className="bg-white border-t border-gray-200"
+        className="border-t border-gray-200 bg-white"
       >
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-20">
-            <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
+            <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
               {/* Image section */}
-              <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
+              <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
                 <img
                   src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                   alt=""
@@ -1133,7 +1133,7 @@ export default function CheckoutPage2() {
               </div>
 
               {/* Sitemap sections */}
-              <div className="mt-10 col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3 md:mt-0 md:row-start-1 md:col-start-3 md:col-span-8 lg:col-start-2 lg:col-span-6">
+              <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
                 <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">
@@ -1190,7 +1190,7 @@ export default function CheckoutPage2() {
               </div>
 
               {/* Newsletter section */}
-              <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
+              <div className="mt-12 md:col-span-8 md:col-start-3 md:row-start-2 md:mt-0 lg:col-span-4 lg:col-start-9 lg:row-start-1">
                 <h3 className="text-sm font-medium text-gray-900">
                   Sign up for our newsletter
                 </h3>
@@ -1206,12 +1206,12 @@ export default function CheckoutPage2() {
                     type="text"
                     autoComplete="email"
                     required
-                    className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                    className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
                   <div className="ml-4 flex-shrink-0">
                     <button
                       type="submit"
-                      className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Sign up
                     </button>

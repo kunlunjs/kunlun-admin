@@ -10,7 +10,7 @@ export default function PromoSection8() {
           <img
             src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
             alt=""
-            className="w-full h-full object-center object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
         <div
@@ -18,7 +18,7 @@ export default function PromoSection8() {
           className="absolute inset-0 bg-gray-900 opacity-50"
         />
 
-        <div className="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center py-32 px-6 text-center sm:py-64 lg:px-0">
           <h1 className="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">
             New arrivals are here
           </h1>
@@ -29,7 +29,7 @@ export default function PromoSection8() {
           </p>
           <a
             href="#"
-            className="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
+            className="mt-8 inline-block rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
             Shop New Arrivals
           </a>

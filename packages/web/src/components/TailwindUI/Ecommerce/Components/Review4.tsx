@@ -42,13 +42,13 @@ export default function Review4() {
           {reviews.map((review, reviewIdx) => (
             <div
               key={review.id}
-              className="flex text-sm text-gray-500 space-x-4"
+              className="flex space-x-4 text-sm text-gray-500"
             >
               <div className="flex-none py-10">
                 <img
                   src={review.avatarSrc}
                   alt=""
-                  className="w-10 h-10 bg-gray-100 rounded-full"
+                  className="h-10 w-10 rounded-full bg-gray-100"
                 />
               </div>
               <div
@@ -62,7 +62,7 @@ export default function Review4() {
                   <time dateTime={review.datetime}>{review.date}</time>
                 </p>
 
-                <div className="flex items-center mt-4">
+                <div className="mt-4 flex items-center">
                   {[0, 1, 2, 3, 4].map(rating => (
                     <StarIcon
                       key={rating}
@@ -79,7 +79,7 @@ export default function Review4() {
                 <p className="sr-only">{review.rating} out of 5 stars</p>
 
                 <div
-                  className="mt-4 prose prose-sm max-w-none text-gray-500"
+                  className="prose prose-sm mt-4 max-w-none text-gray-500"
                   dangerouslySetInnerHTML={{ __html: review.content }}
                 />
               </div>

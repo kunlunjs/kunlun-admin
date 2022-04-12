@@ -37,7 +37,7 @@ export default function ProductOverview3() {
 
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         {/* Product details */}
         <div className="lg:max-w-lg lg:self-end">
           <nav aria-label="Breadcrumb">
@@ -57,7 +57,7 @@ export default function ProductOverview3() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         aria-hidden="true"
-                        className="ml-2 flex-shrink-0 h-5 w-5 text-gray-300"
+                        className="ml-2 h-5 w-5 flex-shrink-0 text-gray-300"
                       >
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                       </svg>
@@ -84,7 +84,7 @@ export default function ProductOverview3() {
                 {product.price}
               </p>
 
-              <div className="ml-4 pl-4 border-l border-gray-300">
+              <div className="ml-4 border-l border-gray-300 pl-4">
                 <h2 className="sr-only">Reviews</h2>
                 <div className="flex items-center">
                   <div>
@@ -117,7 +117,7 @@ export default function ProductOverview3() {
 
             <div className="mt-6 flex items-center">
               <CheckIcon
-                className="flex-shrink-0 w-5 h-5 text-green-500"
+                className="h-5 w-5 flex-shrink-0 text-green-500"
                 aria-hidden="true"
               />
               <p className="ml-2 text-sm text-gray-500">
@@ -128,18 +128,18 @@ export default function ProductOverview3() {
         </div>
 
         {/* Product image */}
-        <div className="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
-          <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+        <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+          <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
             <img
               src={product.imageSrc}
               alt={product.imageAlt}
-              className="w-full h-full object-center object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </div>
 
         {/* Product form */}
-        <div className="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+        <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
           <section aria-labelledby="options-heading">
             <h2 id="options-heading" className="sr-only">
               Product options
@@ -161,7 +161,7 @@ export default function ProductOverview3() {
                         className={({ active }) =>
                           clsx(
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
+                            'relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none'
                           )
                         }
                       >
@@ -185,7 +185,7 @@ export default function ProductOverview3() {
                                 checked
                                   ? 'border-indigo-500'
                                   : 'border-transparent',
-                                'absolute -inset-px rounded-lg pointer-events-none'
+                                'pointer-events-none absolute -inset-px rounded-lg'
                               )}
                               aria-hidden="true"
                             />
@@ -203,7 +203,7 @@ export default function ProductOverview3() {
                 >
                   <span>What size should I buy?</span>
                   <QuestionMarkCircleIcon
-                    className="flex-shrink-0 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                    className="ml-2 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                 </a>
@@ -211,7 +211,7 @@ export default function ProductOverview3() {
               <div className="mt-10">
                 <button
                   type="submit"
-                  className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
                   Add to bag
                 </button>
@@ -219,7 +219,7 @@ export default function ProductOverview3() {
               <div className="mt-6 text-center">
                 <a href="#" className="group inline-flex text-base font-medium">
                   <ShieldCheckIcon
-                    className="flex-shrink-0 mr-2 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                    className="mr-2 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                   <span className="text-gray-500 hover:text-gray-700">

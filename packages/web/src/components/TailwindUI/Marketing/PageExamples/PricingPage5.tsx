@@ -193,8 +193,8 @@ export default function PricingPage5() {
       <div className="relative">
         {/* Header */}
         <Popover as="header" className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center border-b border-gray-200 py-6 md:justify-start md:space-x-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between border-b border-gray-200 py-6 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
@@ -205,20 +205,20 @@ export default function PricingPage5() {
                   />
                 </a>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
-                <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
+              <div className="-my-2 -mr-2 md:hidden">
+                <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
                   <span className="sr-only">Open menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
-              <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              <Popover.Group as="nav" className="hidden space-x-10 md:flex">
                 <Popover className="relative">
                   {({ open }) => (
                     <>
                       <Popover.Button
                         className={clsx(
                           open ? 'text-gray-900' : 'text-gray-500',
-                          'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500'
+                          'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2'
                         )}
                       >
                         <span>Solutions</span>
@@ -240,17 +240,17 @@ export default function PricingPage5() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                               {header.solutions.map(solution => (
                                 <a
                                   key={solution.name}
                                   href={solution.href}
-                                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                  className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                                 >
                                   <solution.icon
-                                    className="flex-shrink-0 h-6 w-6 text-rose-400"
+                                    className="h-6 w-6 flex-shrink-0 text-rose-400"
                                     aria-hidden="true"
                                   />
                                   <div className="ml-4">
@@ -264,15 +264,15 @@ export default function PricingPage5() {
                                 </a>
                               ))}
                             </div>
-                            <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                            <div className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                               {header.callsToAction.map(cta => (
                                 <div key={cta.name} className="flow-root">
                                   <a
                                     href={cta.href}
-                                    className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                    className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
                                   >
                                     <cta.icon
-                                      className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                      className="h-6 w-6 flex-shrink-0 text-gray-400"
                                       aria-hidden="true"
                                     />
                                     <span className="ml-3">{cta.name}</span>
@@ -306,7 +306,7 @@ export default function PricingPage5() {
                       <Popover.Button
                         className={clsx(
                           open ? 'text-gray-900' : 'text-gray-500',
-                          'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500'
+                          'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2'
                         )}
                       >
                         <span>More</span>
@@ -328,17 +328,17 @@ export default function PricingPage5() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
+                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                               {header.resources.map(resource => (
                                 <a
                                   key={resource.name}
                                   href={resource.href}
-                                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                  className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                                 >
                                   <resource.icon
-                                    className="flex-shrink-0 h-6 w-6 text-rose-400"
+                                    className="h-6 w-6 flex-shrink-0 text-rose-400"
                                     aria-hidden="true"
                                   />
                                   <div className="ml-4">
@@ -352,16 +352,16 @@ export default function PricingPage5() {
                                 </a>
                               ))}
                             </div>
-                            <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+                            <div className="bg-gray-50 px-5 py-5 sm:px-8 sm:py-8">
                               <div>
-                                <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
+                                <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                   Recent Posts
                                 </h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                   {header.recentPosts.map(post => (
                                     <li
                                       key={post.name}
-                                      className="text-base truncate"
+                                      className="truncate text-base"
                                     >
                                       <a
                                         href={post.href}
@@ -391,7 +391,7 @@ export default function PricingPage5() {
                   )}
                 </Popover>
               </Popover.Group>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                 <a
                   href="#"
                   className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -400,7 +400,7 @@ export default function PricingPage5() {
                 </a>
                 <a
                   href="#"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-500 hover:bg-rose-600"
+                  className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-rose-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-rose-600"
                 >
                   Sign up
                 </a>
@@ -419,10 +419,10 @@ export default function PricingPage5() {
           >
             <Popover.Panel
               focus
-              className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
             >
-              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                <div className="pt-5 pb-6 px-5">
+              <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="px-5 pt-5 pb-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <img
@@ -432,7 +432,7 @@ export default function PricingPage5() {
                       />
                     </div>
                     <div className="-mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
+                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
                         <span className="sr-only">Close menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -444,10 +444,10 @@ export default function PricingPage5() {
                         <a
                           key={solution.name}
                           href={solution.href}
-                          className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                          className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                         >
                           <solution.icon
-                            className="flex-shrink-0 h-6 w-6 text-rose-400"
+                            className="h-6 w-6 flex-shrink-0 text-rose-400"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-base font-medium text-gray-900">
@@ -458,7 +458,7 @@ export default function PricingPage5() {
                     </nav>
                   </div>
                 </div>
-                <div className="py-6 px-5 space-y-6">
+                <div className="space-y-6 py-6 px-5">
                   <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                     <a
                       href="#"
@@ -486,7 +486,7 @@ export default function PricingPage5() {
                   <div>
                     <a
                       href="#"
-                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-500 hover:bg-rose-600"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-rose-600"
                     >
                       Sign up
                     </a>
@@ -504,7 +504,7 @@ export default function PricingPage5() {
         </Popover>
 
         {/* Page Header */}
-        <div className="relative max-w-2xl mx-auto py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8">
+        <div className="relative mx-auto max-w-2xl py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8">
           <div className="relative">
             <h1 className="text-3xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
               Pricing plans for teams of all sizes
@@ -526,18 +526,18 @@ export default function PricingPage5() {
           </h2>
 
           {/* Tiers */}
-          <div className="max-w-2xl mx-auto px-4 space-y-12 sm:px-6 lg:max-w-7xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
+          <div className="mx-auto max-w-2xl space-y-12 px-4 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:space-y-0 lg:px-8">
             {pricing.tiers.map(tier => (
               <div
                 key={tier.title}
-                className="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col"
+                className="relative flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
               >
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900">
                     {tier.title}
                   </h3>
                   {tier.mostPopular ? (
-                    <p className="absolute top-0 py-1.5 px-4 bg-rose-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
+                    <p className="absolute top-0 -translate-y-1/2 transform rounded-full bg-rose-500 py-1.5 px-4 text-xs font-semibold uppercase tracking-wide text-white">
                       Most popular
                     </p>
                   ) : null}
@@ -556,7 +556,7 @@ export default function PricingPage5() {
                     {tier.features.map(feature => (
                       <li key={feature} className="flex">
                         <CheckIcon
-                          className="flex-shrink-0 w-6 h-6 text-rose-500"
+                          className="h-6 w-6 flex-shrink-0 text-rose-500"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-gray-500">{feature}</span>
@@ -571,7 +571,7 @@ export default function PricingPage5() {
                     tier.mostPopular
                       ? 'bg-rose-500 text-white hover:bg-rose-600'
                       : 'bg-rose-50 text-rose-700 hover:bg-rose-100',
-                    'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
+                    'mt-8 block w-full rounded-md border border-transparent py-3 px-6 text-center font-medium'
                   )}
                 >
                   {tier.cta}
@@ -584,7 +584,7 @@ export default function PricingPage5() {
         {/* Logo Cloud */}
         <section
           aria-labelledby="customer-heading"
-          className="max-w-2xl mx-auto py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
+          className="mx-auto max-w-2xl py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
         >
           <h2 id="customer-heading" className="sr-only">
             Our customers
@@ -636,13 +636,13 @@ export default function PricingPage5() {
             className="absolute inset-x-0 h-1/2 bg-gradient-to-b from-white to-gray-50"
           />
 
-          <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <div className="relative py-24 px-8 bg-rose-500 rounded-xl shadow-2xl overflow-hidden lg:px-16 lg:grid lg:grid-cols-2 lg:gap-x-8">
-              <div className="absolute inset-0 opacity-50 filter saturate-0 mix-blend-multiply">
+          <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div className="relative overflow-hidden rounded-xl bg-rose-500 py-24 px-8 shadow-2xl lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-16">
+              <div className="absolute inset-0 opacity-50 mix-blend-multiply saturate-0 filter">
                 <img
                   src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="relative lg:col-span-1">
@@ -672,7 +672,7 @@ export default function PricingPage5() {
         {/* FAQ */}
         <section
           aria-labelledby="faq-heading"
-          className="max-w-2xl mx-auto py-24 px-4 divide-y divide-gray-200 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
+          className="mx-auto max-w-2xl divide-y divide-gray-200 py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
         >
           <h2
             id="faq-heading"
@@ -690,7 +690,7 @@ export default function PricingPage5() {
                   <dt className="text-base font-medium text-gray-900 md:col-span-5">
                     {faq.question}
                   </dt>
-                  <dd className="mt-2 md:mt-0 md:col-span-7">
+                  <dd className="mt-2 md:col-span-7 md:mt-0">
                     <p className="text-base text-gray-500">{faq.answer}</p>
                   </dd>
                 </div>
@@ -705,7 +705,7 @@ export default function PricingPage5() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8 xl:col-span-1">
               <img
@@ -713,7 +713,7 @@ export default function PricingPage5() {
                 src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
                 alt="Company name"
               />
-              <p className="text-gray-500 text-base">
+              <p className="text-base text-gray-500">
                 Making the world a better place through constructing elegant
                 hierarchies.
               </p>
@@ -730,10 +730,10 @@ export default function PricingPage5() {
                 ))}
               </div>
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+            <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Solutions
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -750,7 +750,7 @@ export default function PricingPage5() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Support
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -769,7 +769,7 @@ export default function PricingPage5() {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Company
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -786,7 +786,7 @@ export default function PricingPage5() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Legal
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">

@@ -6,7 +6,7 @@ export const Dashboard = () => {
   const { user } = useAuth()
   return (
     <ContentLayout title="Dashboard">
-      <h1 className="text-xl mt-2">
+      <h1 className="mt-2 text-xl">
         Welcome <b>{`${user?.firstName} ${user?.lastName}`}</b>
       </h1>
       <h4 className="my-3">

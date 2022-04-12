@@ -47,8 +47,8 @@ export const config = {
 export default function OrderSummarie2() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-2xl mx-auto pt-16 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="px-4 space-y-2 sm:px-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
+      <div className="mx-auto max-w-2xl pt-16 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="space-y-2 px-4 sm:flex sm:items-baseline sm:justify-between sm:space-y-0 sm:px-0">
           <div className="flex sm:items-baseline sm:space-x-4">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               Order #54879
@@ -82,15 +82,15 @@ export default function OrderSummarie2() {
             {products.map(product => (
               <div
                 key={product.id}
-                className="bg-white border-t border-b border-gray-200 shadow-sm sm:border sm:rounded-lg"
+                className="border-t border-b border-gray-200 bg-white shadow-sm sm:rounded-lg sm:border"
               >
                 <div className="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                   <div className="sm:flex lg:col-span-7">
-                    <div className="flex-shrink-0 w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-none sm:w-40 sm:h-40">
+                    <div className="aspect-w-1 aspect-h-1 w-full flex-shrink-0 overflow-hidden rounded-lg sm:aspect-none sm:h-40 sm:w-40">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover sm:w-full sm:h-full"
+                        className="h-full w-full object-cover object-center sm:h-full sm:w-full"
                       />
                     </div>
 
@@ -107,7 +107,7 @@ export default function OrderSummarie2() {
                     </div>
                   </div>
 
-                  <div className="mt-6 lg:mt-0 lg:col-span-5">
+                  <div className="mt-6 lg:col-span-5 lg:mt-0">
                     <dl className="grid grid-cols-2 gap-x-6 text-sm">
                       <div>
                         <dt className="font-medium text-gray-900">
@@ -123,7 +123,7 @@ export default function OrderSummarie2() {
                         <dt className="font-medium text-gray-900">
                           Shipping updates
                         </dt>
-                        <dd className="mt-3 text-gray-500 space-y-3">
+                        <dd className="mt-3 space-y-3 text-gray-500">
                           <p>{product.email}</p>
                           <p>{product.phone}</p>
                           <button
@@ -145,15 +145,15 @@ export default function OrderSummarie2() {
                     <time dateTime={product.datetime}>{product.date}</time>
                   </p>
                   <div className="mt-6" aria-hidden="true">
-                    <div className="bg-gray-200 rounded-full overflow-hidden">
+                    <div className="overflow-hidden rounded-full bg-gray-200">
                       <div
-                        className="h-2 bg-indigo-600 rounded-full"
+                        className="h-2 rounded-full bg-indigo-600"
                         style={{
                           width: `calc((${product.step} * 2 + 1) / 8 * 100%)`
                         }}
                       />
                     </div>
-                    <div className="hidden sm:grid grid-cols-4 text-sm font-medium text-gray-600 mt-6">
+                    <div className="mt-6 hidden grid-cols-4 text-sm font-medium text-gray-600 sm:grid">
                       <div className="text-indigo-600">Order placed</div>
                       <div
                         className={clsx(
@@ -191,7 +191,7 @@ export default function OrderSummarie2() {
         <div className="mt-16">
           <h2 className="sr-only">Billing Summary</h2>
 
-          <div className="bg-gray-100 py-6 px-4 sm:px-6 sm:rounded-lg lg:px-8 lg:py-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+          <div className="bg-gray-100 py-6 px-4 sm:rounded-lg sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-8">
             <dl className="grid grid-cols-2 gap-6 text-sm sm:grid-cols-2 md:gap-x-8 lg:col-span-7">
               <div>
                 <dt className="font-medium text-gray-900">Billing address</dt>
@@ -233,20 +233,20 @@ export default function OrderSummarie2() {
               </div>
             </dl>
 
-            <dl className="mt-8 divide-y divide-gray-200 text-sm lg:mt-0 lg:col-span-5">
-              <div className="pb-4 flex items-center justify-between">
+            <dl className="mt-8 divide-y divide-gray-200 text-sm lg:col-span-5 lg:mt-0">
+              <div className="flex items-center justify-between pb-4">
                 <dt className="text-gray-600">Subtotal</dt>
                 <dd className="font-medium text-gray-900">$72</dd>
               </div>
-              <div className="py-4 flex items-center justify-between">
+              <div className="flex items-center justify-between py-4">
                 <dt className="text-gray-600">Shipping</dt>
                 <dd className="font-medium text-gray-900">$5</dd>
               </div>
-              <div className="py-4 flex items-center justify-between">
+              <div className="flex items-center justify-between py-4">
                 <dt className="text-gray-600">Tax</dt>
                 <dd className="font-medium text-gray-900">$6.16</dd>
               </div>
-              <div className="pt-4 flex items-center justify-between">
+              <div className="flex items-center justify-between pt-4">
                 <dt className="font-medium text-gray-900">Order total</dt>
                 <dd className="font-medium text-indigo-600">$83.16</dd>
               </div>

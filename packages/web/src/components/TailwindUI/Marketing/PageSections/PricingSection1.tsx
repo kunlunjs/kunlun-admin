@@ -58,8 +58,8 @@ export const config = {
 export default function PricingSection1() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
-        <div className="sm:flex sm:flex-col sm:align-center">
+      <div className="mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
+        <div className="sm:align-center sm:flex sm:flex-col">
           <h1 className="text-5xl font-extrabold text-gray-900 sm:text-center">
             Pricing Plans
           </h1>
@@ -67,29 +67,29 @@ export default function PricingSection1() {
             Start building for free, then add a site plan to go live. Account
             plans unlock additional features.
           </p>
-          <div className="relative self-center mt-6 bg-gray-100 rounded-lg p-0.5 flex sm:mt-8">
+          <div className="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
             <button
               type="button"
-              className="relative w-1/2 bg-white border-gray-200 rounded-md shadow-sm py-2 text-sm font-medium text-gray-900 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8"
+              className="relative w-1/2 whitespace-nowrap rounded-md border-gray-200 bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8"
             >
               Monthly billing
             </button>
             <button
               type="button"
-              className="ml-0.5 relative w-1/2 border border-transparent rounded-md py-2 text-sm font-medium text-gray-700 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8"
+              className="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border border-transparent py-2 text-sm font-medium text-gray-700 focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8"
             >
               Yearly billing
             </button>
           </div>
         </div>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
+        <div className="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
           {tiers.map(tier => (
             <div
               key={tier.name}
-              className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200"
+              className="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm"
             >
               <div className="p-6">
-                <h2 className="text-lg leading-6 font-medium text-gray-900">
+                <h2 className="text-lg font-medium leading-6 text-gray-900">
                   {tier.name}
                 </h2>
                 <p className="mt-4 text-sm text-gray-500">{tier.description}</p>
@@ -103,20 +103,20 @@ export default function PricingSection1() {
                 </p>
                 <a
                   href={tier.href}
-                  className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                  className="mt-8 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                 >
                   Buy {tier.name}
                 </a>
               </div>
-              <div className="pt-6 pb-8 px-6">
-                <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">
+              <div className="px-6 pt-6 pb-8">
+                <h3 className="text-xs font-medium uppercase tracking-wide text-gray-900">
                   What's included
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {tier.includedFeatures.map(feature => (
                     <li key={feature} className="flex space-x-3">
                       <CheckIcon
-                        className="flex-shrink-0 h-5 w-5 text-green-500"
+                        className="h-5 w-5 flex-shrink-0 text-green-500"
                         aria-hidden="true"
                       />
                       <span className="text-sm text-gray-500">{feature}</span>

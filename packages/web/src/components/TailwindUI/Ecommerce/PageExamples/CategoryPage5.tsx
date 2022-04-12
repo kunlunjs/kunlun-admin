@@ -269,7 +269,7 @@ export default function CategoryPage5() {
         <Transition.Root show={mobileMenuOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 flex z-40 lg:hidden"
+            className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
             <Transition.Child
@@ -293,11 +293,11 @@ export default function CategoryPage5() {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 pt-5 pb-2 flex">
+              <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                <div className="flex px-4 pt-5 pb-2">
                   <button
                     type="button"
-                    className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -308,16 +308,16 @@ export default function CategoryPage5() {
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex px-4 space-x-8">
+                    <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map(category => (
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
                             clsx(
                               selected
-                                ? 'text-indigo-600 border-indigo-600'
-                                : 'text-gray-900 border-transparent',
-                              'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                                ? 'border-indigo-600 text-indigo-600'
+                                : 'border-transparent text-gray-900',
+                              'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                             )
                           }
                         >
@@ -330,7 +330,7 @@ export default function CategoryPage5() {
                     {navigation.categories.map(category => (
                       <Tab.Panel
                         key={category.name}
-                        className="pt-10 pb-8 px-4 space-y-10"
+                        className="space-y-10 px-4 pt-10 pb-8"
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map(item => (
@@ -338,11 +338,11 @@ export default function CategoryPage5() {
                               key={item.name}
                               className="group relative text-sm"
                             >
-                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
-                                  className="object-center object-cover"
+                                  className="object-cover object-center"
                                 />
                               </div>
                               <a
@@ -350,7 +350,7 @@ export default function CategoryPage5() {
                                 className="mt-6 block font-medium text-gray-900"
                               >
                                 <span
-                                  className="absolute z-10 inset-0"
+                                  className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
                                 {item.name}
@@ -378,7 +378,7 @@ export default function CategoryPage5() {
                                 <li key={item.name} className="flow-root">
                                   <a
                                     href={item.href}
-                                    className="-m-2 p-2 block text-gray-500"
+                                    className="-m-2 block p-2 text-gray-500"
                                   >
                                     {item.name}
                                   </a>
@@ -392,12 +392,12 @@ export default function CategoryPage5() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map(page => (
                     <div key={page.name} className="flow-root">
                       <a
                         href={page.href}
-                        className="-m-2 p-2 block font-medium text-gray-900"
+                        className="-m-2 block p-2 font-medium text-gray-900"
                       >
                         {page.name}
                       </a>
@@ -405,11 +405,11 @@ export default function CategoryPage5() {
                   ))}
                 </div>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <a
                       href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       Sign in
                     </a>
@@ -417,7 +417,7 @@ export default function CategoryPage5() {
                   <div className="flow-root">
                     <a
                       href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       Create account
                     </a>
@@ -425,11 +425,11 @@ export default function CategoryPage5() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <a href="#" className="-m-2 p-2 flex items-center">
+                  <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
-                      className="w-5 h-auto block flex-shrink-0"
+                      className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-base font-medium text-gray-900">
                       CAD
@@ -443,19 +443,19 @@ export default function CategoryPage5() {
         </Transition.Root>
 
         <header className="relative bg-white">
-          <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+          <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             Get free delivery on orders over $100
           </p>
 
           <nav
             aria-label="Top"
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
           >
             <div className="border-b border-gray-200">
-              <div className="h-16 flex items-center">
+              <div className="flex h-16 items-center">
                 <button
                   type="button"
-                  className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
+                  className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
                   onClick={() => setMobileMenuOpen(true)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -476,7 +476,7 @@ export default function CategoryPage5() {
 
                 {/* Flyout menus */}
                 <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
-                  <div className="h-full flex space-x-8">
+                  <div className="flex h-full space-x-8">
                     {navigation.categories.map(category => (
                       <Popover key={category.name} className="flex">
                         {({ open }) => (
@@ -487,7 +487,7 @@ export default function CategoryPage5() {
                                   open
                                     ? 'border-indigo-600 text-indigo-600'
                                     : 'border-transparent text-gray-700 hover:text-gray-800',
-                                  'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                  'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                 )}
                               >
                                 {category.name}
@@ -503,7 +503,7 @@ export default function CategoryPage5() {
                               leaveFrom="opacity-100"
                               leaveTo="opacity-0"
                             >
-                              <Popover.Panel className="absolute z-20 top-full inset-x-0 text-sm text-gray-500">
+                              <Popover.Panel className="absolute inset-x-0 top-full z-20 text-sm text-gray-500">
                                 {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                 <div
                                   className="absolute inset-0 top-1/2 bg-white shadow"
@@ -511,7 +511,7 @@ export default function CategoryPage5() {
                                 />
 
                                 <div className="relative bg-white">
-                                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                     <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                                       <div className="col-start-2 grid grid-cols-2 gap-x-8">
                                         {category.featured.map(item => (
@@ -519,11 +519,11 @@ export default function CategoryPage5() {
                                             key={item.name}
                                             className="group relative text-base sm:text-sm"
                                           >
-                                            <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                               <img
                                                 src={item.imageSrc}
                                                 alt={item.imageAlt}
-                                                className="object-center object-cover"
+                                                className="object-cover object-center"
                                               />
                                             </div>
                                             <a
@@ -531,7 +531,7 @@ export default function CategoryPage5() {
                                               className="mt-6 block font-medium text-gray-900"
                                             >
                                               <span
-                                                className="absolute z-10 inset-0"
+                                                className="absolute inset-0 z-10"
                                                 aria-hidden="true"
                                               />
                                               {item.name}
@@ -618,12 +618,12 @@ export default function CategoryPage5() {
                   <div className="hidden lg:ml-8 lg:flex">
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-800 flex items-center"
+                      className="flex items-center text-gray-700 hover:text-gray-800"
                     >
                       <img
                         src="https://tailwindui.com/img/flags/flag-canada.svg"
                         alt=""
-                        className="w-5 h-auto block flex-shrink-0"
+                        className="block h-auto w-5 flex-shrink-0"
                       />
                       <span className="ml-3 block text-sm font-medium">
                         CAD
@@ -639,15 +639,15 @@ export default function CategoryPage5() {
                       className="p-2 text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Search</span>
-                      <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                      <SearchIcon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   </div>
 
                   {/* Cart */}
                   <div className="ml-4 flow-root lg:ml-6">
-                    <a href="#" className="group -m-2 p-2 flex items-center">
+                    <a href="#" className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
-                        className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                        className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                       <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -668,7 +668,7 @@ export default function CategoryPage5() {
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 flex z-40 lg:hidden"
+            className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileFiltersOpen}
           >
             <Transition.Child
@@ -692,12 +692,12 @@ export default function CategoryPage5() {
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 flex items-center justify-between">
+              <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <div className="flex items-center justify-between px-4">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                   <button
                     type="button"
-                    className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
+                    className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
                     onClick={() => setMobileFiltersOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -710,7 +710,7 @@ export default function CategoryPage5() {
                   <h3 className="sr-only">Categories</h3>
                   <ul
                     role="list"
-                    className="font-medium text-gray-900 px-2 py-3"
+                    className="px-2 py-3 font-medium text-gray-900"
                   >
                     {subCategories.map(category => (
                       <li key={category.name}>
@@ -730,7 +730,7 @@ export default function CategoryPage5() {
                       {({ open }) => (
                         <>
                           <h3 className="-mx-2 -my-3 flow-root">
-                            <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
+                            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
                               <span className="font-medium text-gray-900">
                                 {section.name}
                               </span>
@@ -762,7 +762,7 @@ export default function CategoryPage5() {
                                     defaultValue={option.value}
                                     type="checkbox"
                                     defaultChecked={option.checked}
-                                    className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                   />
                                   <label
                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -784,8 +784,8 @@ export default function CategoryPage5() {
           </Dialog>
         </Transition.Root>
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
               New Arrivals
             </h1>
@@ -796,7 +796,7 @@ export default function CategoryPage5() {
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
                     <ChevronDownIcon
-                      className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                   </Menu.Button>
@@ -811,7 +811,7 @@ export default function CategoryPage5() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                       {sortOptions.map(option => (
                         <Menu.Item key={option.name}>
@@ -838,18 +838,18 @@ export default function CategoryPage5() {
 
               <button
                 type="button"
-                className="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500"
+                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
               >
                 <span className="sr-only">View grid</span>
-                <ViewGridIcon className="w-5 h-5" aria-hidden="true" />
+                <ViewGridIcon className="h-5 w-5" aria-hidden="true" />
               </button>
               <button
                 type="button"
-                className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
+                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
-                <FilterIcon className="w-5 h-5" aria-hidden="true" />
+                <FilterIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -859,13 +859,13 @@ export default function CategoryPage5() {
               Products
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul
                   role="list"
-                  className="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200"
+                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                 >
                   {subCategories.map(category => (
                     <li key={category.name}>
@@ -883,7 +883,7 @@ export default function CategoryPage5() {
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
+                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
                             <span className="font-medium text-gray-900">
                               {section.name}
                             </span>
@@ -915,7 +915,7 @@ export default function CategoryPage5() {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -941,17 +941,17 @@ export default function CategoryPage5() {
                     href={product.href}
                     className="group text-sm"
                   >
-                    <div className="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+                    <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover"
+                        className="h-full w-full object-cover object-center"
                       />
                     </div>
                     <h3 className="mt-4 font-medium text-gray-900">
                       {product.name}
                     </h3>
-                    <p className="text-gray-500 italic">
+                    <p className="italic text-gray-500">
                       {product.availability}
                     </p>
                     <p className="mt-2 font-medium text-gray-900">
@@ -968,8 +968,8 @@ export default function CategoryPage5() {
           <h2 id="footer-heading" className="sr-only">
             Footer
           </h2>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border-t border-gray-200 py-20 grid grid-cols-2 gap-8 sm:gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 gap-8 border-t border-gray-200 py-20 sm:grid-cols-2 sm:gap-y-0 lg:grid-cols-4">
               <div className="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Account</h3>
@@ -1041,7 +1041,7 @@ export default function CategoryPage5() {
                 <p>Shipping to Canada ($CAD)</p>
                 <p className="ml-3 border-l border-gray-200 pl-3">English</p>
               </div>
-              <p className="mt-6 text-sm text-gray-500 text-center sm:mt-0">
+              <p className="mt-6 text-center text-sm text-gray-500 sm:mt-0">
                 &copy; 2021 Clothing Company, Ltd.
               </p>
             </div>

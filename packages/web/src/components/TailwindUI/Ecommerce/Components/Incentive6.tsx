@@ -37,13 +37,13 @@ export default function Incentive6() {
   return (
     <div className="bg-gray-50">
       <h2 className="sr-only">Our perks</h2>
-      <div className="max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4">
-        <div className="max-w-2xl mx-auto px-4 grid grid-cols-1 gap-y-12 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+      <div className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-12 gap-x-8 px-4 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
           {perks.map(perk => (
             <div key={perk.name} className="sm:flex">
               <div className="sm:flex-shrink-0">
                 <div className="flow-root">
-                  <img className="w-28 h-24" src={perk.imageSrc} alt="" />
+                  <img className="h-24 w-28" src={perk.imageSrc} alt="" />
                 </div>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">

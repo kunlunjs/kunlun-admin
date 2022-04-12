@@ -27,16 +27,16 @@ const secondaryNavigation = [
 
 const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
   return (
-    <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-white border-r border-gray-200">
-      <div className="flex items-center flex-shrink-0 px-4">
+    <div className="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5 pb-4">
+      <div className="flex flex-shrink-0 items-center px-4">
         <img
-          className="w-auto h-8"
+          className="h-8 w-auto"
           src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
           alt="Workflow"
         />
       </div>
-      <div className="flex flex-col flex-grow mt-5">
-        <nav className="flex-1 px-2 space-y-8 bg-white" aria-label="Sidebar">
+      <div className="mt-5 flex flex-grow flex-col">
+        <nav className="flex-1 space-y-8 bg-white px-2" aria-label="Sidebar">
           <div className="space-y-1">
             {navigation.map(item => (
               <a
@@ -46,7 +46,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
                   item.current
                     ? 'bg-gray-100 text-gray-900'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                  'group flex items-center rounded-md px-2 py-2 text-sm font-medium'
                 )}
               >
                 <item.icon
@@ -54,7 +54,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
                     item.current
                       ? 'text-gray-500'
                       : 'text-gray-400 group-hover:text-gray-500',
-                    'mr-3 flex-shrink-0 h-6 w-6'
+                    'mr-3 h-6 w-6 flex-shrink-0'
                   )}
                   aria-hidden="true"
                 />
@@ -64,7 +64,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
           </div>
           <div className="space-y-1">
             <h3
-              className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase"
+              className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500"
               id="projects-headline"
             >
               Projects
@@ -78,7 +78,7 @@ const SidebarNavigation8: FC<SidebarNavigation8Props> = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md group hover:text-gray-900 hover:bg-gray-50"
+                  className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 >
                   <span className="truncate">{item.name}</span>
                 </a>

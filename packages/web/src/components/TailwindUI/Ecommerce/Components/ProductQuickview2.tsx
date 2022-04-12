@@ -42,7 +42,7 @@ export default function ProductQuickview2() {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto"
         onClose={setOpen}
       >
         <div
@@ -58,12 +58,12 @@ export default function ProductQuickview2() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity md:block" />
+            <Dialog.Overlay className="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span
-            className="hidden md:inline-block md:align-middle md:h-screen"
+            className="hidden md:inline-block md:h-screen md:align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -77,8 +77,8 @@ export default function ProductQuickview2() {
             leaveFrom="opacity-100 translate-y-0 md:scale-100"
             leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
           >
-            <div className="flex text-base text-left transform transition w-full md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-              <div className="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+            <div className="flex w-full transform text-left text-base transition md:my-8 md:inline-block md:max-w-2xl md:px-4 md:align-middle lg:max-w-4xl">
+              <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                 <button
                   type="button"
                   className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
@@ -88,12 +88,12 @@ export default function ProductQuickview2() {
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
-                  <div className="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
+                <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
+                  <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="object-center object-cover"
+                      className="object-cover object-center"
                     />
                   </div>
                   <div className="sm:col-span-8 lg:col-span-7">
@@ -153,7 +153,7 @@ export default function ProductQuickview2() {
                       <form>
                         {/* Colors */}
                         <div>
-                          <h4 className="text-sm text-gray-900 font-medium">
+                          <h4 className="text-sm font-medium text-gray-900">
                             Color
                           </h4>
 
@@ -177,7 +177,7 @@ export default function ProductQuickview2() {
                                         ? 'ring ring-offset-1'
                                         : '',
                                       !active && checked ? 'ring-2' : '',
-                                      '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                                      'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
                                     )
                                   }
                                 >
@@ -188,7 +188,7 @@ export default function ProductQuickview2() {
                                     aria-hidden="true"
                                     className={clsx(
                                       color.class,
-                                      'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                                      'h-8 w-8 rounded-full border border-black border-opacity-10'
                                     )}
                                   />
                                 </RadioGroup.Option>
@@ -200,7 +200,7 @@ export default function ProductQuickview2() {
                         {/* Sizes */}
                         <div className="mt-10">
                           <div className="flex items-center justify-between">
-                            <h4 className="text-sm text-gray-900 font-medium">
+                            <h4 className="text-sm font-medium text-gray-900">
                               Size
                             </h4>
                             <a
@@ -228,10 +228,10 @@ export default function ProductQuickview2() {
                                   className={({ active }) =>
                                     clsx(
                                       size.inStock
-                                        ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
-                                        : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                                        ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
+                                        : 'cursor-not-allowed bg-gray-50 text-gray-200',
                                       active ? 'ring-2 ring-indigo-500' : '',
-                                      'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1'
+                                      'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1'
                                     )
                                   }
                                 >
@@ -247,17 +247,17 @@ export default function ProductQuickview2() {
                                             checked
                                               ? 'border-indigo-500'
                                               : 'border-transparent',
-                                            'absolute -inset-px rounded-md pointer-events-none'
+                                            'pointer-events-none absolute -inset-px rounded-md'
                                           )}
                                           aria-hidden="true"
                                         />
                                       ) : (
                                         <div
                                           aria-hidden="true"
-                                          className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
+                                          className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
                                         >
                                           <svg
-                                            className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
+                                            className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
                                             viewBox="0 0 100 100"
                                             preserveAspectRatio="none"
                                             stroke="currentColor"
@@ -282,7 +282,7 @@ export default function ProductQuickview2() {
 
                         <button
                           type="submit"
-                          className="mt-6 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                           Add to bag
                         </button>

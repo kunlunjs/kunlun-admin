@@ -25,7 +25,7 @@ const CommandPalette2: FC<CommandPalette2Props> = () => {
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20"
+        className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
         <Transition.Child
@@ -37,7 +37,7 @@ const CommandPalette2: FC<CommandPalette2Props> = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -51,7 +51,7 @@ const CommandPalette2: FC<CommandPalette2Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-xl p-2 mx-auto transition-all transform bg-white shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            className="mx-auto max-w-xl transform rounded-xl bg-white p-2 shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
             value=""
             onChange={(person: any) => (window.location = person.url)}
           >
@@ -64,7 +64,7 @@ const CommandPalette2: FC<CommandPalette2Props> = () => {
             {filteredPeople.length > 0 && (
               <Combobox.Options
                 static
-                className="py-2 -mb-2 overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2"
+                className="-mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
               >
                 {filteredPeople.map(person => (
                   <Combobox.Option
@@ -84,9 +84,9 @@ const CommandPalette2: FC<CommandPalette2Props> = () => {
             )}
 
             {query !== '' && filteredPeople.length === 0 && (
-              <div className="px-4 text-center py-14 sm:px-14">
+              <div className="px-4 py-14 text-center sm:px-14">
                 <UsersIcon
-                  className="w-6 h-6 mx-auto text-gray-400"
+                  className="mx-auto h-6 w-6 text-gray-400"
                   aria-hidden="true"
                 />
                 <p className="mt-4 text-sm text-gray-900">

@@ -39,12 +39,12 @@ export default function Footer3() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Solutions
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -61,7 +61,7 @@ export default function Footer3() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Support
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -80,7 +80,7 @@ export default function Footer3() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Company
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -97,7 +97,7 @@ export default function Footer3() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Legal
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -116,7 +116,7 @@ export default function Footer3() {
             </div>
           </div>
           <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
               Language &amp; Currency
             </h3>
             <form className="mt-4 sm:max-w-xs">
@@ -128,7 +128,7 @@ export default function Footer3() {
                   <select
                     id="language"
                     name="language"
-                    className="appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white bg-none py-2 pl-3 pr-10 text-base text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     defaultValue="English"
                   >
                     <option>English</option>
@@ -137,7 +137,7 @@ export default function Footer3() {
                     <option>Japanese</option>
                     <option>Spanish</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                     <ChevronDownIcon
                       className="h-4 w-4 text-gray-400"
                       aria-hidden="true"
@@ -153,7 +153,7 @@ export default function Footer3() {
                   <select
                     id="currency"
                     name="currency"
-                    className="appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white bg-none py-2 pl-3 pr-10 text-base text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     defaultValue="AUD"
                   >
                     <option>ARS</option>
@@ -165,7 +165,7 @@ export default function Footer3() {
                     <option>JPY</option>
                     <option>USD</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                     <ChevronDownIcon
                       className="h-4 w-4 text-gray-400"
                       aria-hidden="true"
@@ -178,7 +178,7 @@ export default function Footer3() {
         </div>
         <div className="border-t border-gray-200 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
-            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
               Subscribe to our newsletter
             </h3>
             <p className="mt-2 text-base text-gray-500">
@@ -196,13 +196,13 @@ export default function Footer3() {
               id="email-address"
               autoComplete="email"
               required
-              className="appearance-none min-w-0 w-full bg-white border border-gray-300 py-2 px-4 text-base rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400 sm:max-w-xs"
+              className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Subscribe
               </button>
@@ -222,7 +222,7 @@ export default function Footer3() {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
             &copy; 2020 Workflow, Inc. All rights reserved.
           </p>
         </div>

@@ -13,7 +13,7 @@ const InputGroup15: FC<InputGroup15Props> = () => {
         <legend className="block text-sm font-medium text-gray-700">
           Card Details
         </legend>
-        <div className="mt-1 bg-white rounded-md shadow-sm -space-y-px">
+        <div className="mt-1 -space-y-px rounded-md bg-white shadow-sm">
           <div>
             <label htmlFor="card-number" className="sr-only">
               Card number
@@ -22,12 +22,12 @@ const InputGroup15: FC<InputGroup15Props> = () => {
               type="text"
               name="card-number"
               id="card-number"
-              className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-t-md bg-transparent focus:z-10 sm:text-sm border-gray-300"
+              className="relative block w-full rounded-none rounded-t-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               placeholder="Card number"
             />
           </div>
           <div className="flex -space-x-px">
-            <div className="w-1/2 flex-1 min-w-0">
+            <div className="w-1/2 min-w-0 flex-1">
               <label htmlFor="card-expiration-date" className="sr-only">
                 Expiration date
               </label>
@@ -35,11 +35,11 @@ const InputGroup15: FC<InputGroup15Props> = () => {
                 type="text"
                 name="card-expiration-date"
                 id="card-expiration-date"
-                className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-bl-md bg-transparent focus:z-10 sm:text-sm border-gray-300"
+                className="relative block w-full rounded-none rounded-bl-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="MM / YY"
               />
             </div>
-            <div className="flex-1 min-w-0">
+            <div className="min-w-0 flex-1">
               <label htmlFor="card-cvc" className="sr-only">
                 CVC
               </label>
@@ -47,7 +47,7 @@ const InputGroup15: FC<InputGroup15Props> = () => {
                 type="text"
                 name="card-cvc"
                 id="card-cvc"
-                className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-br-md bg-transparent focus:z-10 sm:text-sm border-gray-300"
+                className="relative block w-full rounded-none rounded-br-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="CVC"
               />
             </div>
@@ -58,7 +58,7 @@ const InputGroup15: FC<InputGroup15Props> = () => {
         <legend className="block text-sm font-medium text-gray-700">
           Billing address
         </legend>
-        <div className="mt-1 rounded-md shadow-sm -space-y-px">
+        <div className="mt-1 -space-y-px rounded-md shadow-sm">
           <div>
             <label htmlFor="country" className="sr-only">
               Country
@@ -67,7 +67,7 @@ const InputGroup15: FC<InputGroup15Props> = () => {
               id="country"
               name="country"
               autoComplete="country-name"
-              className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-t-md bg-transparent focus:z-10 sm:text-sm border-gray-300"
+              className="relative block w-full rounded-none rounded-t-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             >
               <option>United States</option>
               <option>Canada</option>
@@ -83,7 +83,7 @@ const InputGroup15: FC<InputGroup15Props> = () => {
               name="postal-code"
               id="postal-code"
               autoComplete="postal-code"
-              className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-b-md bg-transparent focus:z-10 sm:text-sm border-gray-300"
+              className="relative block w-full rounded-none rounded-b-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               placeholder="ZIP / Postal code"
             />
           </div>

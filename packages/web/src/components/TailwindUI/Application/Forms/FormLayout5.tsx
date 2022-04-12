@@ -25,7 +25,7 @@ const navigation = [
 const FormLayout5: FC<FormLayout5Props> = () => {
   return (
     <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
-      <aside className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
+      <aside className="py-6 px-2 sm:px-6 lg:col-span-3 lg:py-0 lg:px-0">
         <nav className="space-y-1">
           {navigation.map(item => (
             <a
@@ -33,9 +33,9 @@ const FormLayout5: FC<FormLayout5Props> = () => {
               href={item.href}
               className={clsx(
                 item.current
-                  ? 'bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white'
-                  : 'text-gray-900 hover:text-gray-900 hover:bg-gray-50',
-                'group rounded-md px-3 py-2 flex items-center text-sm font-medium'
+                  ? 'bg-gray-50 text-indigo-700 hover:bg-white hover:text-indigo-700'
+                  : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
+                'group flex items-center rounded-md px-3 py-2 text-sm font-medium'
               )}
               aria-current={item.current ? 'page' : undefined}
             >
@@ -44,7 +44,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                   item.current
                     ? 'text-indigo-500 group-hover:text-indigo-500'
                     : 'text-gray-400 group-hover:text-gray-500',
-                  'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
+                  '-ml-1 mr-3 h-6 w-6 flex-shrink-0'
                 )}
                 aria-hidden="true"
               />
@@ -54,12 +54,12 @@ const FormLayout5: FC<FormLayout5Props> = () => {
         </nav>
       </aside>
 
-      <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+      <div className="space-y-6 sm:px-6 lg:col-span-9 lg:px-0">
         <form action="#" method="POST">
-          <div className="shadow sm:rounded-md sm:overflow-hidden">
-            <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
+          <div className="shadow sm:overflow-hidden sm:rounded-md">
+            <div className="space-y-6 bg-white py-6 px-4 sm:p-6">
               <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Profile
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
@@ -76,8 +76,8 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                   >
                     Username
                   </label>
-                  <div className="mt-1 rounded-md shadow-sm flex">
-                    <span className="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm">
+                  <div className="mt-1 flex rounded-md shadow-sm">
+                    <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
                       workcation.com/
                     </span>
                     <input
@@ -85,7 +85,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       name="username"
                       id="username"
                       autoComplete="username"
-                      className="focus:ring-indigo-500 focus:border-indigo-500 flex-grow block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                      className="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -102,7 +102,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       id="about"
                       name="about"
                       rows={3}
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                      className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       placeholder="you@example.com"
                       defaultValue={''}
                     />
@@ -120,7 +120,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     Photo
                   </label>
                   <div className="mt-1 flex items-center">
-                    <span className="inline-block bg-gray-100 rounded-full overflow-hidden h-12 w-12">
+                    <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
                       <svg
                         className="h-full w-full text-gray-300"
                         fill="currentColor"
@@ -131,7 +131,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     </span>
                     <button
                       type="button"
-                      className="ml-5 bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Change
                     </button>
@@ -145,7 +145,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                   >
                     Cover photo
                   </label>
-                  <div className="mt-1 border-2 border-gray-300 border-dashed rounded-md px-6 pt-5 pb-6 flex justify-center">
+                  <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                     <div className="space-y-1 text-center">
                       <svg
                         className="mx-auto h-12 w-12 text-gray-400"
@@ -164,7 +164,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       <div className="flex text-sm text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                          className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
@@ -184,10 +184,10 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                 </div>
               </div>
             </div>
-            <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
               <button
                 type="submit"
-                className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Save
               </button>
@@ -196,10 +196,10 @@ const FormLayout5: FC<FormLayout5Props> = () => {
         </form>
 
         <form action="#" method="POST">
-          <div className="shadow sm:rounded-md sm:overflow-hidden">
-            <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
+          <div className="shadow sm:overflow-hidden sm:rounded-md">
+            <div className="space-y-6 bg-white py-6 px-4 sm:p-6">
               <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Personal Information
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
@@ -220,7 +220,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -236,7 +236,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -252,7 +252,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="email-address"
                     id="email-address"
                     autoComplete="email"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -267,7 +267,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     id="country"
                     name="country"
                     autoComplete="country-name"
-                    className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   >
                     <option>United States</option>
                     <option>Canada</option>
@@ -287,7 +287,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="street-address"
                     id="street-address"
                     autoComplete="street-address"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -303,7 +303,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="city"
                     id="city"
                     autoComplete="address-level2"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -319,7 +319,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="region"
                     id="region"
                     autoComplete="address-level1"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -335,15 +335,15 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                     name="postal-code"
                     id="postal-code"
                     autoComplete="postal-code"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
             </div>
-            <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
               <button
                 type="submit"
-                className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Save
               </button>
@@ -352,10 +352,10 @@ const FormLayout5: FC<FormLayout5Props> = () => {
         </form>
 
         <form action="#" method="POST">
-          <div className="shadow sm:rounded-md sm:overflow-hidden">
-            <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
+          <div className="shadow sm:overflow-hidden sm:rounded-md">
+            <div className="space-y-6 bg-white py-6 px-4 sm:p-6">
               <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Notifications
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
@@ -370,12 +370,12 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                 </legend>
                 <div className="mt-4 space-y-4">
                   <div className="flex items-start">
-                    <div className="h-5 flex items-center">
+                    <div className="flex h-5 items-center">
                       <input
                         id="comments"
                         name="comments"
                         type="checkbox"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                       />
                     </div>
                     <div className="ml-3 text-sm">
@@ -392,12 +392,12 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                   </div>
                   <div>
                     <div className="flex items-start">
-                      <div className="h-5 flex items-center">
+                      <div className="flex h-5 items-center">
                         <input
                           id="candidates"
                           name="candidates"
                           type="checkbox"
-                          className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                       </div>
                       <div className="ml-3 text-sm">
@@ -415,12 +415,12 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                   </div>
                   <div>
                     <div className="flex items-start">
-                      <div className="h-5 flex items-center">
+                      <div className="flex h-5 items-center">
                         <input
                           id="offers"
                           name="offers"
                           type="checkbox"
-                          className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                       </div>
                       <div className="ml-3 text-sm">
@@ -452,7 +452,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       id="push-everything"
                       name="push-notifications"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="push-everything" className="ml-3">
                       <span className="block text-sm font-medium text-gray-700">
@@ -465,7 +465,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       id="push-email"
                       name="push-notifications"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="push-email" className="ml-3">
                       <span className="block text-sm font-medium text-gray-700">
@@ -478,7 +478,7 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                       id="push-nothing"
                       name="push-notifications"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="push-nothing" className="ml-3">
                       <span className="block text-sm font-medium text-gray-700">
@@ -489,10 +489,10 @@ const FormLayout5: FC<FormLayout5Props> = () => {
                 </div>
               </fieldset>
             </div>
-            <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
               <button
                 type="submit"
-                className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
               >
                 Save
               </button>

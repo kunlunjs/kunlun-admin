@@ -40,7 +40,7 @@ export const config = {
 export default function ProductFeature8() {
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl py-24 px-4 sm:py-32 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="max-w-3xl">
           <h2 id="features-heading" className="font-medium text-gray-500">
             Focus
@@ -55,7 +55,7 @@ export default function ProductFeature8() {
           </p>
         </div>
 
-        <div className="mt-11 grid items-start grid-cols-1 gap-y-16 gap-x-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+        <div className="mt-11 grid grid-cols-1 items-start gap-y-16 gap-x-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
           {features.map(feature => (
             <div key={feature.name} className="flex flex-col-reverse">
               <div className="mt-6">
@@ -66,11 +66,11 @@ export default function ProductFeature8() {
                   {feature.description}
                 </p>
               </div>
-              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
+              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100">
                 <img
                   src={feature.imageSrc}
                   alt={feature.imageAlt}
-                  className="object-center object-cover"
+                  className="object-cover object-center"
                 />
               </div>
             </div>

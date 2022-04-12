@@ -7,19 +7,19 @@ export const config = {
 export default function ContactSection7() {
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="relative bg-white shadow-xl">
           <h2 className="sr-only">Contact us</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
             {/* Contact information */}
-            <div className="relative overflow-hidden py-10 px-6 bg-indigo-700 sm:px-10 xl:p-12">
+            <div className="relative overflow-hidden bg-indigo-700 py-10 px-6 sm:px-10 xl:p-12">
               <div
-                className="absolute inset-0 pointer-events-none sm:hidden"
+                className="pointer-events-none absolute inset-0 sm:hidden"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={343}
                   height={388}
                   viewBox="0 0 343 388"
@@ -48,11 +48,11 @@ export default function ContactSection7() {
                 </svg>
               </div>
               <div
-                className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 sm:block lg:hidden"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={359}
                   height={339}
                   viewBox="0 0 359 339"
@@ -81,11 +81,11 @@ export default function ContactSection7() {
                 </svg>
               </div>
               <div
-                className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 lg:block"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={160}
                   height={678}
                   viewBox="0 0 160 678"
@@ -116,7 +116,7 @@ export default function ContactSection7() {
               <h3 className="text-lg font-medium text-white">
                 Contact information
               </h3>
-              <p className="mt-6 text-base text-indigo-50 max-w-3xl">
+              <p className="mt-6 max-w-3xl text-base text-indigo-50">
                 Nullam risus blandit ac aliquam justo ipsum. Quam mauris
                 volutpat massa dictumst amet. Sapien tortor lacus arcu.
               </p>
@@ -126,7 +126,7 @@ export default function ContactSection7() {
                 </dt>
                 <dd className="flex text-base text-indigo-50">
                   <PhoneIcon
-                    className="flex-shrink-0 w-6 h-6 text-indigo-200"
+                    className="h-6 w-6 flex-shrink-0 text-indigo-200"
                     aria-hidden="true"
                   />
                   <span className="ml-3">+1 (555) 123-4567</span>
@@ -136,7 +136,7 @@ export default function ContactSection7() {
                 </dt>
                 <dd className="flex text-base text-indigo-50">
                   <MailIcon
-                    className="flex-shrink-0 w-6 h-6 text-indigo-200"
+                    className="h-6 w-6 flex-shrink-0 text-indigo-200"
                     aria-hidden="true"
                   />
                   <span className="ml-3">support@workcation.com</span>
@@ -152,7 +152,7 @@ export default function ContactSection7() {
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       aria-hidden="true"
                     >
                       <path
@@ -171,7 +171,7 @@ export default function ContactSection7() {
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       aria-hidden="true"
                     >
                       <path
@@ -190,7 +190,7 @@ export default function ContactSection7() {
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       aria-hidden="true"
                     >
                       <path
@@ -226,7 +226,7 @@ export default function ContactSection7() {
                       name="first-name"
                       id="first-name"
                       autoComplete="given-name"
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function ContactSection7() {
                       name="last-name"
                       id="last-name"
                       autoComplete="family-name"
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export default function ContactSection7() {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export default function ContactSection7() {
                       name="phone"
                       id="phone"
                       autoComplete="tel"
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                       aria-describedby="phone-optional"
                     />
                   </div>
@@ -299,7 +299,7 @@ export default function ContactSection7() {
                       type="text"
                       name="subject"
                       id="subject"
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export default function ContactSection7() {
                       id="message"
                       name="message"
                       rows={4}
-                      className="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
+                      className="block w-full rounded-md border border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                       aria-describedby="message-max"
                       defaultValue={''}
                     />
@@ -329,7 +329,7 @@ export default function ContactSection7() {
                 <div className="sm:col-span-2 sm:flex sm:justify-end">
                   <button
                     type="submit"
-                    className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto"
+                    className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
                   >
                     Submit
                   </button>

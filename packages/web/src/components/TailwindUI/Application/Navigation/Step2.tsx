@@ -12,16 +12,16 @@ const Step2: FC<Step2Props> = () => {
     <nav aria-label="Progress">
       <ol
         role="list"
-        className="border border-gray-300 divide-y divide-gray-300 rounded-md md:flex md:divide-y-0"
+        className="divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0"
       >
         {steps.map((step, stepIdx) => (
-          <li key={step.name} className="relative md:flex-1 md:flex">
+          <li key={step.name} className="relative md:flex md:flex-1">
             {step.status === 'complete' ? (
-              <a href={step.href} className="flex items-center w-full group">
+              <a href={step.href} className="group flex w-full items-center">
                 <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 group-hover:bg-indigo-800">
                     <CheckIcon
-                      className="w-6 h-6 text-white"
+                      className="h-6 w-6 text-white"
                       aria-hidden="true"
                     />
                   </span>
@@ -36,7 +36,7 @@ const Step2: FC<Step2Props> = () => {
                 className="flex items-center px-6 py-4 text-sm font-medium"
                 aria-current="step"
               >
-                <span className="flex items-center justify-center flex-shrink-0 w-10 h-10 border-2 border-indigo-600 rounded-full">
+                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-indigo-600">
                   <span className="text-indigo-600">{step.id}</span>
                 </span>
                 <span className="ml-4 text-sm font-medium text-indigo-600">
@@ -44,9 +44,9 @@ const Step2: FC<Step2Props> = () => {
                 </span>
               </a>
             ) : (
-              <a href={step.href} className="flex items-center group">
+              <a href={step.href} className="group flex items-center">
                 <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex items-center justify-center flex-shrink-0 w-10 h-10 border-2 border-gray-300 rounded-full group-hover:border-gray-400">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300 group-hover:border-gray-400">
                     <span className="text-gray-500 group-hover:text-gray-900">
                       {step.id}
                     </span>
@@ -62,11 +62,11 @@ const Step2: FC<Step2Props> = () => {
               <>
                 {/* Arrow separator for lg screens and up */}
                 <div
-                  className="absolute top-0 right-0 hidden w-5 h-full md:block"
+                  className="absolute top-0 right-0 hidden h-full w-5 md:block"
                   aria-hidden="true"
                 >
                   <svg
-                    className="w-full h-full text-gray-300"
+                    className="h-full w-full text-gray-300"
                     viewBox="0 0 22 80"
                     fill="none"
                     preserveAspectRatio="none"

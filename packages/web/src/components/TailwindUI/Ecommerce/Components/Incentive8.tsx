@@ -26,7 +26,7 @@ export default function Incentive8() {
               className="flex items-center text-sm font-medium text-indigo-600"
             >
               <incentive.icon
-                className="mr-2 flex-none w-6 h-6"
+                className="mr-2 h-6 w-6 flex-none"
                 aria-hidden="true"
               />
               <p>{incentive.name}</p>

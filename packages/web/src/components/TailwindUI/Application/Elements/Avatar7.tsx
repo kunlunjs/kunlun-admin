@@ -9,7 +9,7 @@ export const config = {
 const Avatar7: FC<Avatar7Props> = () => {
   return (
     <>
-      <span className="inline-block h-6 w-6 rounded-full overflow-hidden bg-gray-100">
+      <span className="inline-block h-6 w-6 overflow-hidden rounded-full bg-gray-100">
         <svg
           className="h-full w-full text-gray-300"
           fill="currentColor"
@@ -19,7 +19,7 @@ const Avatar7: FC<Avatar7Props> = () => {
         </svg>
       </span>
 
-      <span className="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+      <span className="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
         <svg
           className="h-full w-full text-gray-300"
           fill="currentColor"
@@ -29,7 +29,7 @@ const Avatar7: FC<Avatar7Props> = () => {
         </svg>
       </span>
 
-      <span className="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100">
+      <span className="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
         <svg
           className="h-full w-full text-gray-300"
           fill="currentColor"
@@ -39,7 +39,7 @@ const Avatar7: FC<Avatar7Props> = () => {
         </svg>
       </span>
 
-      <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+      <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
         <svg
           className="h-full w-full text-gray-300"
           fill="currentColor"
@@ -49,7 +49,7 @@ const Avatar7: FC<Avatar7Props> = () => {
         </svg>
       </span>
 
-      <span className="inline-block h-14 w-14 rounded-full overflow-hidden bg-gray-100">
+      <span className="inline-block h-14 w-14 overflow-hidden rounded-full bg-gray-100">
         <svg
           className="h-full w-full text-gray-300"
           fill="currentColor"

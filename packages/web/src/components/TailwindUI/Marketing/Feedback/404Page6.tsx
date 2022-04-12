@@ -62,10 +62,10 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
         <body class="h-full">
         ```
       */}
-      <div className="min-h-full flex flex-col">
+      <div className="flex min-h-full flex-col">
         <Popover className="relative bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
@@ -76,13 +76,13 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                   />
                 </a>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
-                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <div className="-my-2 -mr-2 md:hidden">
+                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
-              <nav className="hidden md:flex space-x-10">
+              <nav className="hidden space-x-10 md:flex">
                 {navigation.map((item, itemIdx) => (
                   <a
                     key={itemIdx}
@@ -93,7 +93,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                   </a>
                 ))}
               </nav>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                 <a
                   href="#"
                   className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -102,7 +102,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                 </a>
                 <a
                   href="#"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
                   Sign up
                 </a>
@@ -121,10 +121,10 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
           >
             <Popover.Panel
               focus
-              className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
+              className="absolute inset-x-0 top-0 origin-top transform p-2 transition md:hidden"
             >
-              <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div className="px-5 pt-4 flex items-center justify-between">
+              <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+                <div className="flex items-center justify-between px-5 pt-4">
                   <div>
                     <img
                       className="h-8 w-auto"
@@ -133,19 +133,19 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
                   </div>
                 </div>
                 <div className="pt-5 pb-6">
-                  <div className="px-2 space-y-1">
+                  <div className="space-y-1 px-2">
                     {navigation.map(item => (
                       <a
                         key={item.name}
                         href={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
                       </a>
@@ -154,7 +154,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                   <div className="mt-6 px-5">
                     <a
                       href="#"
-                      className="block text-center w-full py-3 px-4 rounded-md shadow bg-indigo-600 text-white font-medium hover:bg-indigo-700"
+                      className="block w-full rounded-md bg-indigo-600 py-3 px-4 text-center font-medium text-white shadow hover:bg-indigo-700"
                     >
                       Sign up
                     </a>
@@ -173,12 +173,12 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
           </Transition>
         </Popover>
 
-        <main className="flex-grow mx-auto max-w-7xl w-full flex flex-col px-4 sm:px-6 lg:px-8">
-          <div className="flex-shrink-0 my-auto py-16 sm:py-32">
-            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wide">
+        <main className="mx-auto flex w-full max-w-7xl flex-grow flex-col px-4 sm:px-6 lg:px-8">
+          <div className="my-auto flex-shrink-0 py-16 sm:py-32">
+            <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
               404 error
             </p>
-            <h1 className="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
+            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
               Page not found
             </h1>
             <p className="mt-2 text-base text-gray-500">
@@ -199,7 +199,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
           <h2 id="footer-heading" className="sr-only">
             Footer
           </h2>
-          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+          <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
             <div className="xl:grid xl:grid-cols-3 xl:gap-8">
               <div className="space-y-8 xl:col-span-1">
                 <img
@@ -207,7 +207,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                   src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
                   alt="Company name"
                 />
-                <p className="text-gray-500 text-base">
+                <p className="text-base text-gray-500">
                   Making the world a better place through constructing elegant
                   hierarchies.
                 </p>
@@ -224,10 +224,10 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                   ))}
                 </div>
               </div>
-              <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+              <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                 <div className="md:grid md:grid-cols-2 md:gap-8">
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Solutions
                     </h3>
                     <ul role="list" className="mt-4 space-y-4">
@@ -244,7 +244,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                     </ul>
                   </div>
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Support
                     </h3>
                     <ul role="list" className="mt-4 space-y-4">
@@ -263,7 +263,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                 </div>
                 <div className="md:grid md:grid-cols-2 md:gap-8">
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Company
                     </h3>
                     <ul role="list" className="mt-4 space-y-4">
@@ -280,7 +280,7 @@ const NotFoundPage6: FC<NotFoundPage6Props> = () => {
                     </ul>
                   </div>
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Legal
                     </h3>
                     <ul role="list" className="mt-4 space-y-4">

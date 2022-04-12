@@ -89,17 +89,17 @@ const Textarea3: FC<Textarea3Props> = () => {
               rows={3}
               name="comment"
               id="comment"
-              className="block w-full border-0 border-b border-transparent p-0 pb-2 resize-none focus:ring-0 focus:border-indigo-600 sm:text-sm"
+              className="block w-full resize-none border-0 border-b border-transparent p-0 pb-2 focus:border-indigo-600 focus:ring-0 sm:text-sm"
               placeholder="Add your comment..."
               defaultValue={''}
             />
           </div>
-          <div className="pt-2 flex justify-between">
+          <div className="flex justify-between pt-2">
             <div className="flex items-center space-x-5">
               <div className="flow-root">
                 <button
                   type="button"
-                  className="-m-2 w-10 h-10 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                  className="-m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
                 >
                   <PaperClipIcon className="h-6 w-6" aria-hidden="true" />
                   <span className="sr-only">Attach a file</span>
@@ -113,12 +113,12 @@ const Textarea3: FC<Textarea3Props> = () => {
                         Your mood
                       </Listbox.Label>
                       <div className="relative">
-                        <Listbox.Button className="relative -m-2 w-10 h-10 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500">
+                        <Listbox.Button className="relative -m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500">
                           <span className="flex items-center justify-center">
                             {selected.value === null ? (
                               <span>
                                 <EmojiHappyIconOutline
-                                  className="flex-shrink-0 h-6 w-6"
+                                  className="h-6 w-6 flex-shrink-0"
                                   aria-hidden="true"
                                 />
                                 <span className="sr-only">Add your mood</span>
@@ -128,11 +128,11 @@ const Textarea3: FC<Textarea3Props> = () => {
                                 <div
                                   className={clsx(
                                     selected.bgColor,
-                                    'w-8 h-8 rounded-full flex items-center justify-center'
+                                    'flex h-8 w-8 items-center justify-center rounded-full'
                                   )}
                                 >
                                   <selected.icon
-                                    className="flex-shrink-0 h-5 w-5 text-white"
+                                    className="h-5 w-5 flex-shrink-0 text-white"
                                     aria-hidden="true"
                                   />
                                 </div>
@@ -149,14 +149,14 @@ const Textarea3: FC<Textarea3Props> = () => {
                           leaveFrom="opacity-100"
                           leaveTo="opacity-0"
                         >
-                          <Listbox.Options className="absolute z-10 -ml-6 w-60 bg-white shadow rounded-lg py-3 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm">
+                          <Listbox.Options className="absolute z-10 -ml-6 w-60 rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm">
                             {moods.map(mood => (
                               <Listbox.Option
                                 key={mood.value}
                                 className={({ active }) =>
                                   clsx(
                                     active ? 'bg-gray-100' : 'bg-white',
-                                    'cursor-default select-none relative py-2 px-3'
+                                    'relative cursor-default select-none py-2 px-3'
                                   )
                                 }
                                 value={mood}
@@ -165,18 +165,18 @@ const Textarea3: FC<Textarea3Props> = () => {
                                   <div
                                     className={clsx(
                                       mood.bgColor,
-                                      'w-8 h-8 rounded-full flex items-center justify-center'
+                                      'flex h-8 w-8 items-center justify-center rounded-full'
                                     )}
                                   >
                                     <mood.icon
                                       className={clsx(
                                         mood.iconColor,
-                                        'flex-shrink-0 h-5 w-5'
+                                        'h-5 w-5 flex-shrink-0'
                                       )}
                                       aria-hidden="true"
                                     />
                                   </div>
-                                  <span className="ml-3 block font-medium truncate">
+                                  <span className="ml-3 block truncate font-medium">
                                     {mood.name}
                                   </span>
                                 </div>
@@ -193,7 +193,7 @@ const Textarea3: FC<Textarea3Props> = () => {
             <div className="flex-shrink-0">
               <button
                 type="submit"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Post
               </button>

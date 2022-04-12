@@ -11,7 +11,7 @@ interface IconsProps {}
 export const Icons: FC<IconsProps> = () => {
   return (
     <>
-      <h1 className="text-lg text-black font-bold mb-4">
+      <h1 className="mb-4 text-lg font-bold text-black">
         <pre>@ant-design/icons</pre>
       </h1>
       {/* <div className="flex flex-wrap border-t border-l border-gray-200">
@@ -27,7 +27,7 @@ export const Icons: FC<IconsProps> = () => {
           )
         })}
       </div> */}
-      <h1 className="text-lg text-black font-bold my-4">
+      <h1 className="my-4 text-lg font-bold text-black">
         <pre>@heroicons/react</pre>
       </h1>
       {/* <div className="flex flex-wrap border-t border-l border-gray-200">

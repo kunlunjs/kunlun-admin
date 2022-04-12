@@ -18,7 +18,7 @@ export const config = {
 export default function TeamSection5() {
   return (
     <div className="bg-white">
-      <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
           <div className="space-y-5 sm:space-y-4">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -40,12 +40,12 @@ export default function TeamSection5() {
                   <div className="space-y-4">
                     <div className="aspect-w-3 aspect-h-2">
                       <img
-                        className="object-cover shadow-lg rounded-lg"
+                        className="rounded-lg object-cover shadow-lg"
                         src={person.imageUrl}
                         alt=""
                       />
                     </div>
-                    <div className="text-lg leading-6 font-medium space-y-1">
+                    <div className="space-y-1 text-lg font-medium leading-6">
                       <h3>{person.name}</h3>
                       <p className="text-indigo-600">{person.role}</p>
                     </div>
@@ -61,7 +61,7 @@ export default function TeamSection5() {
                         >
                           <span className="sr-only">Twitter</span>
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"
@@ -77,7 +77,7 @@ export default function TeamSection5() {
                         >
                           <span className="sr-only">LinkedIn</span>
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"

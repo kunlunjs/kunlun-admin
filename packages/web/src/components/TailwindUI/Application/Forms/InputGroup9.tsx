@@ -15,15 +15,15 @@ const InputGroup9: FC<InputGroup9Props> = () => {
       >
         Company Website
       </label>
-      <div className="mt-1 relative rounded-md shadow-sm">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <div className="relative mt-1 rounded-md shadow-sm">
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <span className="text-gray-500 sm:text-sm">http://</span>
         </div>
         <input
           type="text"
           name="company-website"
           id="company-website"
-          className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-16 sm:pl-14 sm:text-sm border-gray-300 rounded-md"
+          className="block w-full rounded-md border-gray-300 pl-16 focus:border-indigo-500 focus:ring-indigo-500 sm:pl-14 sm:text-sm"
           placeholder="www.example.com"
         />
       </div>

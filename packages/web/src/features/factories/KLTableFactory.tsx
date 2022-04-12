@@ -271,7 +271,7 @@ export const KLTableFactory: FC<KLTableFactoryProps> = () => {
   return (
     <div>
       <div>search block</div>
-      <div className="flex justify-between items-baseline">
+      <div className="flex items-baseline justify-between">
         <div>
           <Button type="primary" icon={<Icon name="PlusOutlined" />}>
             新建
@@ -286,7 +286,7 @@ export const KLTableFactory: FC<KLTableFactoryProps> = () => {
         </div>
         <FullScreen handle={handle} className="bg-white pt-4 pb-1">
           <div>
-            <div className={`flex mb-3 justify-end items-center`}>
+            <div className={`mb-3 flex items-center justify-end`}>
               <KLTableButtons buttons={tableSetting} />
             </div>
           </div>

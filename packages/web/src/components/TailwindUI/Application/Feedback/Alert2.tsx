@@ -19,7 +19,7 @@ const Alert2: FC<Alert2Props> = () => {
             There were 2 errors with your submission
           </h3>
           <div className="mt-2 text-sm text-red-700">
-            <ul role="list" className="list-disc pl-5 space-y-1">
+            <ul role="list" className="list-disc space-y-1 pl-5">
               <li>Your password must be at least 8 characters</li>
               <li>
                 Your password must include at least one pro wrestling finishing

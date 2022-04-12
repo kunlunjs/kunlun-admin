@@ -51,7 +51,7 @@ export default function Review3() {
         <div className="space-y-10">
           {reviews.map(review => (
             <div key={review.id} className="flex flex-col sm:flex-row">
-              <div className="mt-6 order-2 sm:mt-0 sm:ml-16">
+              <div className="order-2 mt-6 sm:mt-0 sm:ml-16">
                 <h3 className="text-sm font-medium text-gray-900">
                   {review.title}
                 </h3>

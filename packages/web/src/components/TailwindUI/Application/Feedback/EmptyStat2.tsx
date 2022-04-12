@@ -10,7 +10,7 @@ const EmptyState2: FC<EmptyState2Props> = () => {
   return (
     <button
       type="button"
-      className="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      className="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
     >
       <svg
         className="mx-auto h-12 w-12 text-gray-400"

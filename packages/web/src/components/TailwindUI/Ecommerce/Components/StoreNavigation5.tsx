@@ -85,11 +85,11 @@ export default function StoreNavigation5() {
   return (
     <div className="bg-white">
       <header className="relative bg-white">
-        <nav aria-label="Top" className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="border-b border-gray-200 px-4 pb-14 sm:px-0 sm:pb-0">
-            <div className="h-16 flex items-center justify-between">
+            <div className="flex h-16 items-center justify-between">
               {/* Logo */}
-              <div className="flex-1 flex">
+              <div className="flex flex-1">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
                   <img
@@ -101,8 +101,8 @@ export default function StoreNavigation5() {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="absolute bottom-0 inset-x-0 sm:static sm:flex-1 sm:self-stretch">
-                <div className="border-t h-14 px-4 flex space-x-8 overflow-x-auto pb-px sm:h-full sm:border-t-0 sm:justify-center sm:overflow-visible sm:pb-0">
+              <Popover.Group className="absolute inset-x-0 bottom-0 sm:static sm:flex-1 sm:self-stretch">
+                <div className="flex h-14 space-x-8 overflow-x-auto border-t px-4 pb-px sm:h-full sm:justify-center sm:overflow-visible sm:border-t-0 sm:pb-0">
                   {navigation.categories.map((category, categoryIdx) => (
                     <Popover key={categoryIdx} className="flex">
                       {({ open }) => (
@@ -113,7 +113,7 @@ export default function StoreNavigation5() {
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
@@ -129,7 +129,7 @@ export default function StoreNavigation5() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute top-full inset-x-0 text-gray-500 sm:text-sm">
+                            <Popover.Panel className="absolute inset-x-0 top-full text-gray-500 sm:text-sm">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -137,7 +137,7 @@ export default function StoreNavigation5() {
                               />
 
                               <div className="relative bg-white">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                   <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6 pt-10 pb-12 md:grid-cols-2 lg:gap-x-8">
                                     <div className="grid grid-cols-1 gap-y-10 gap-x-6 lg:gap-x-8">
                                       <div>
@@ -200,7 +200,7 @@ export default function StoreNavigation5() {
                                         <ul
                                           role="list"
                                           aria-labelledby="accessories-heading"
-                                          className="mt-4 border-t border-gray-200 pt-6 space-y-6 sm:space-y-4"
+                                          className="mt-4 space-y-6 border-t border-gray-200 pt-6 sm:space-y-4"
                                         >
                                           {category.accessories.map(item => (
                                             <li
@@ -227,7 +227,7 @@ export default function StoreNavigation5() {
                                         <ul
                                           role="list"
                                           aria-labelledby="categories-heading"
-                                          className="mt-4 border-t border-gray-200 pt-6 space-y-6 sm:space-y-4"
+                                          className="mt-4 space-y-6 border-t border-gray-200 pt-6 sm:space-y-4"
                                         >
                                           {category.categories.map(item => (
                                             <li
@@ -267,18 +267,18 @@ export default function StoreNavigation5() {
                 </div>
               </Popover.Group>
 
-              <div className="flex-1 flex items-center justify-end">
+              <div className="flex flex-1 items-center justify-end">
                 {/* Search */}
                 <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                   <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-8">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">

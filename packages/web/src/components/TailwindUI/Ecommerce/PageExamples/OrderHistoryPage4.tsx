@@ -138,7 +138,7 @@ export default function OrderHistoryPage4() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -162,11 +162,11 @@ export default function OrderHistoryPage4() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -177,16 +177,16 @@ export default function OrderHistoryPage4() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -199,7 +199,7 @@ export default function OrderHistoryPage4() {
                   {navigation.categories.map((category, categoryIdx) => (
                     <Tab.Panel
                       key={category.name}
-                      className="px-4 pt-10 pb-6 space-y-12"
+                      className="space-y-12 px-4 pt-10 pb-6"
                     >
                       <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6">
                         <div className="grid grid-cols-1 gap-y-10 gap-x-6">
@@ -297,12 +297,12 @@ export default function OrderHistoryPage4() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -310,11 +310,11 @@ export default function OrderHistoryPage4() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create an account
                   </a>
@@ -322,37 +322,37 @@ export default function OrderHistoryPage4() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {/* Currency selector */}
                 <form>
                   <div className="inline-block">
                     <label htmlFor="mobile-currency" className="sr-only">
                       Currency
                     </label>
-                    <div className="-ml-2 group relative border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                    <div className="group relative -ml-2 rounded-md border-transparent focus-within:ring-2 focus-within:ring-white">
                       <select
                         id="mobile-currency"
                         name="currency"
-                        className="bg-none border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-800 focus:outline-none focus:ring-0 focus:border-transparent"
+                        className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
                       >
                         {currencies.map(currency => (
                           <option key={currency}>{currency}</option>
                         ))}
                       </select>
-                      <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                         <svg
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 20 20"
-                          className="w-5 h-5 text-gray-500"
+                          className="h-5 w-5 text-gray-500"
                         >
                           <path
                             stroke="currentColor"
@@ -376,30 +376,30 @@ export default function OrderHistoryPage4() {
         <nav aria-label="Top">
           {/* Top navigation */}
           <div className="bg-gray-900">
-            <div className="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
               {/* Currency selector */}
               <form className="hidden lg:block lg:flex-1">
                 <div className="flex">
                   <label htmlFor="desktop-currency" className="sr-only">
                     Currency
                   </label>
-                  <div className="-ml-2 group relative bg-gray-900 border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
                     <select
                       id="desktop-currency"
                       name="currency"
-                      className="bg-none bg-gray-900 border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-white group-hover:text-gray-100 focus:outline-none focus:ring-0 focus:border-transparent"
+                      className="flex items-center rounded-md border-transparent bg-gray-900 bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-white focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
                     >
                       {currencies.map(currency => (
                         <option key={currency}>{currency}</option>
                       ))}
                     </select>
-                    <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                       <svg
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 20 20"
-                        className="w-5 h-5 text-gray-300"
+                        className="h-5 w-5 text-gray-300"
                       >
                         <path
                           stroke="currentColor"
@@ -438,9 +438,9 @@ export default function OrderHistoryPage4() {
 
           {/* Secondary navigation */}
           <div className="bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="border-b border-gray-200">
-                <div className="h-16 flex items-center justify-between">
+                <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:items-center">
                     <a href="#">
@@ -456,7 +456,7 @@ export default function OrderHistoryPage4() {
                   <div className="hidden h-full lg:flex">
                     {/* Mega menus */}
                     <Popover.Group className="ml-8">
-                      <div className="h-full flex justify-center space-x-8">
+                      <div className="flex h-full justify-center space-x-8">
                         {navigation.categories.map((category, categoryIdx) => (
                           <Popover key={category.name} className="flex">
                             {({ open }) => (
@@ -467,7 +467,7 @@ export default function OrderHistoryPage4() {
                                       open
                                         ? 'border-indigo-600 text-indigo-600'
                                         : 'border-transparent text-gray-700 hover:text-gray-800',
-                                      'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                      'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                     )}
                                   >
                                     {category.name}
@@ -483,7 +483,7 @@ export default function OrderHistoryPage4() {
                                   leaveFrom="opacity-100"
                                   leaveTo="opacity-0"
                                 >
-                                  <Popover.Panel className="absolute top-full inset-x-0 text-gray-500 sm:text-sm">
+                                  <Popover.Panel className="absolute inset-x-0 top-full text-gray-500 sm:text-sm">
                                     {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                     <div
                                       className="absolute inset-0 top-1/2 bg-white shadow"
@@ -491,7 +491,7 @@ export default function OrderHistoryPage4() {
                                     />
 
                                     <div className="relative bg-white">
-                                      <div className="max-w-7xl mx-auto px-8">
+                                      <div className="mx-auto max-w-7xl px-8">
                                         <div className="grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12">
                                           <div className="grid grid-cols-2 gap-y-10 gap-x-8">
                                             <div>
@@ -634,10 +634,10 @@ export default function OrderHistoryPage4() {
                   </div>
 
                   {/* Mobile menu and search (lg-) */}
-                  <div className="flex-1 flex items-center lg:hidden">
+                  <div className="flex flex-1 items-center lg:hidden">
                     <button
                       type="button"
-                      className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                      className="-ml-2 rounded-md bg-white p-2 text-gray-400"
                       onClick={() => setOpen(true)}
                     >
                       <span className="sr-only">Open menu</span>
@@ -650,7 +650,7 @@ export default function OrderHistoryPage4() {
                       className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Search</span>
-                      <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                      <SearchIcon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   </div>
 
@@ -664,7 +664,7 @@ export default function OrderHistoryPage4() {
                     />
                   </a>
 
-                  <div className="flex-1 flex items-center justify-end">
+                  <div className="flex flex-1 items-center justify-end">
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
@@ -674,7 +674,7 @@ export default function OrderHistoryPage4() {
                           >
                             <span className="sr-only">Search</span>
                             <SearchIcon
-                              className="w-6 h-6"
+                              className="h-6 w-6"
                               aria-hidden="true"
                             />
                           </a>
@@ -686,7 +686,7 @@ export default function OrderHistoryPage4() {
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
                             <span className="sr-only">Account</span>
-                            <UserIcon className="w-6 h-6" aria-hidden="true" />
+                            <UserIcon className="h-6 w-6" aria-hidden="true" />
                           </a>
                         </div>
                       </div>
@@ -699,10 +699,10 @@ export default function OrderHistoryPage4() {
                       <div className="flow-root">
                         <a
                           href="#"
-                          className="group -m-2 p-2 flex items-center"
+                          className="group -m-2 flex items-center p-2"
                         >
                           <ShoppingCartIcon
-                            className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                            className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                             aria-hidden="true"
                           />
                           <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -722,7 +722,7 @@ export default function OrderHistoryPage4() {
         </nav>
       </header>
 
-      <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:pb-24 lg:px-8">
+      <main className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24">
         <div className="max-w-xl">
           <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
             Order history
@@ -746,8 +746,8 @@ export default function OrderHistoryPage4() {
                   <time dateTime={order.datetime}>{order.date}</time>
                 </h3>
 
-                <div className="bg-gray-50 rounded-lg py-6 px-4 sm:px-6 sm:flex sm:items-center sm:justify-between sm:space-x-6 lg:space-x-8">
-                  <dl className="divide-y divide-gray-200 space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
+                <div className="rounded-lg bg-gray-50 py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
+                  <dl className="flex-auto space-y-6 divide-y divide-gray-200 text-sm text-gray-600 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:space-y-0 sm:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
                     <div className="flex justify-between sm:block">
                       <dt className="font-medium text-gray-900">Date placed</dt>
                       <dd className="sm:mt-1">
@@ -767,7 +767,7 @@ export default function OrderHistoryPage4() {
                   </dl>
                   <a
                     href={order.invoiceHref}
-                    className="w-full flex items-center justify-center bg-white mt-6 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:mt-0"
+                    className="mt-6 flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto"
                   >
                     View Invoice
                     <span className="sr-only">for order {order.number}</span>
@@ -776,35 +776,35 @@ export default function OrderHistoryPage4() {
 
                 <table className="mt-4 w-full text-gray-500 sm:mt-6">
                   <caption className="sr-only">Products</caption>
-                  <thead className="sr-only text-sm text-gray-500 text-left sm:not-sr-only">
+                  <thead className="sr-only text-left text-sm text-gray-500 sm:not-sr-only">
                     <tr>
                       <th
                         scope="col"
-                        className="sm:w-2/5 lg:w-1/3 pr-8 py-3 font-normal"
+                        className="py-3 pr-8 font-normal sm:w-2/5 lg:w-1/3"
                       >
                         Product
                       </th>
                       <th
                         scope="col"
-                        className="hidden w-1/5 pr-8 py-3 font-normal sm:table-cell"
+                        className="hidden w-1/5 py-3 pr-8 font-normal sm:table-cell"
                       >
                         Price
                       </th>
                       <th
                         scope="col"
-                        className="hidden pr-8 py-3 font-normal sm:table-cell"
+                        className="hidden py-3 pr-8 font-normal sm:table-cell"
                       >
                         Status
                       </th>
                       <th
                         scope="col"
-                        className="w-0 py-3 font-normal text-right"
+                        className="w-0 py-3 text-right font-normal"
                       >
                         Info
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="border-b border-gray-200 divide-y divide-gray-200 text-sm sm:border-t">
+                  <tbody className="divide-y divide-gray-200 border-b border-gray-200 text-sm sm:border-t">
                     {order.products.map(product => (
                       <tr key={product.id}>
                         <td className="py-6 pr-8">
@@ -812,7 +812,7 @@ export default function OrderHistoryPage4() {
                             <img
                               src={product.imageSrc}
                               alt={product.imageAlt}
-                              className="w-16 h-16 object-center object-cover rounded mr-6"
+                              className="mr-6 h-16 w-16 rounded object-cover object-center"
                             />
                             <div>
                               <div className="font-medium text-gray-900">
@@ -830,7 +830,7 @@ export default function OrderHistoryPage4() {
                         <td className="hidden py-6 pr-8 sm:table-cell">
                           {product.status}
                         </td>
-                        <td className="py-6 font-medium text-right whitespace-nowrap">
+                        <td className="whitespace-nowrap py-6 text-right font-medium">
                           <a href={product.href} className="text-indigo-600">
                             View
                             <span className="hidden lg:inline"> Product</span>
@@ -851,8 +851,8 @@ export default function OrderHistoryPage4() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-20 grid grid-cols-2 gap-8 sm:gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 py-20 sm:grid-cols-2 sm:gap-y-0 lg:grid-cols-4">
             <div className="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Account</h3>
@@ -924,7 +924,7 @@ export default function OrderHistoryPage4() {
               <p>Shipping to Canada ($CAD)</p>
               <p className="ml-3 border-l border-gray-200 pl-3">English</p>
             </div>
-            <p className="mt-6 text-sm text-gray-500 text-center sm:mt-0">
+            <p className="mt-6 text-center text-sm text-gray-500 sm:mt-0">
               &copy; 2021 Clothing Company, Ltd.
             </p>
           </div>

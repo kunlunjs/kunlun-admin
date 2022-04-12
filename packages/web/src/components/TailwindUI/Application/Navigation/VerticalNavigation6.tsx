@@ -37,7 +37,7 @@ const VerticalNavigation6: FC<VerticalNavigation6Props> = () => {
               item.current
                 ? 'bg-gray-100 text-gray-900'
                 : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-              'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
+              'group flex items-center rounded-md px-3 py-2 text-sm font-medium'
             )}
             aria-current={item.current ? 'page' : undefined}
           >
@@ -46,7 +46,7 @@ const VerticalNavigation6: FC<VerticalNavigation6Props> = () => {
                 item.current
                   ? 'text-gray-500'
                   : 'text-gray-400 group-hover:text-gray-500',
-                'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
+                '-ml-1 mr-3 h-6 w-6 flex-shrink-0'
               )}
               aria-hidden="true"
             />
@@ -56,7 +56,7 @@ const VerticalNavigation6: FC<VerticalNavigation6Props> = () => {
       </div>
       <div className="mt-8">
         <h3
-          className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase"
+          className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500"
           id="projects-headline"
         >
           Projects
@@ -66,7 +66,7 @@ const VerticalNavigation6: FC<VerticalNavigation6Props> = () => {
             <a
               key={item.name}
               href={item.href}
-              className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md group hover:text-gray-900 hover:bg-gray-50"
+              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
             >
               <span className="truncate">{item.name}</span>
             </a>

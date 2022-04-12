@@ -17,7 +17,7 @@ export const config = {
 export default function TeamSection8() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-12">
           <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -30,18 +30,18 @@ export default function TeamSection8() {
           </div>
           <ul
             role="list"
-            className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl"
+            className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-3"
           >
             {people.map(person => (
               <li key={person.name}>
                 <div className="space-y-6">
                   <img
-                    className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                    className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56"
                     src={person.imageUrl}
                     alt=""
                   />
                   <div className="space-y-2">
-                    <div className="text-lg leading-6 font-medium space-y-1">
+                    <div className="space-y-1 text-lg font-medium leading-6">
                       <h3>{person.name}</h3>
                       <p className="text-indigo-600">{person.role}</p>
                     </div>
@@ -53,7 +53,7 @@ export default function TeamSection8() {
                         >
                           <span className="sr-only">Twitter</span>
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"
@@ -69,7 +69,7 @@ export default function TeamSection8() {
                         >
                           <span className="sr-only">LinkedIn</span>
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"

@@ -18,23 +18,23 @@ const Checkbox4: FC<Checkbox4Props> = () => {
   return (
     <fieldset>
       <legend className="text-lg font-medium text-gray-900">Members</legend>
-      <div className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
+      <div className="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200">
         {people.map((person, personIdx) => (
           <div key={personIdx} className="relative flex items-start py-4">
             <div className="min-w-0 flex-1 text-sm">
               <label
                 htmlFor={`person-${person.id}`}
-                className="font-medium text-gray-700 select-none"
+                className="select-none font-medium text-gray-700"
               >
                 {person.name}
               </label>
             </div>
-            <div className="ml-3 flex items-center h-5">
+            <div className="ml-3 flex h-5 items-center">
               <input
                 id={`person-${person.id}`}
                 name={`person-${person.id}`}
                 type="checkbox"
-                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
               />
             </div>
           </div>

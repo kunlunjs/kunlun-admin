@@ -16,9 +16,9 @@ export const Notification5: FC<Notification5Props> = () => {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+        className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
       >
-        <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
+        <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
           <Transition
             show={show}
@@ -30,8 +30,8 @@ export const Notification5: FC<Notification5Props> = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 divide-x divide-gray-200">
-              <div className="w-0 flex-1 flex items-center p-4">
+            <div className="pointer-events-auto flex w-full max-w-md divide-x divide-gray-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="flex w-0 flex-1 items-center p-4">
                 <div className="w-full">
                   <p className="text-sm font-medium text-gray-900">
                     Receive notifications
@@ -43,9 +43,9 @@ export const Notification5: FC<Notification5Props> = () => {
               </div>
               <div className="flex">
                 <div className="flex flex-col divide-y divide-gray-200">
-                  <div className="h-0 flex-1 flex">
+                  <div className="flex h-0 flex-1">
                     <button
-                      className="w-full border border-transparent rounded-none rounded-tr-lg px-4 py-3 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:z-10 focus:ring-2 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-none rounded-tr-lg border border-transparent px-4 py-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       onClick={() => {
                         setShow(false)
                       }}
@@ -53,9 +53,9 @@ export const Notification5: FC<Notification5Props> = () => {
                       Reply
                     </button>
                   </div>
-                  <div className="h-0 flex-1 flex">
+                  <div className="flex h-0 flex-1">
                     <button
-                      className="w-full border border-transparent rounded-none rounded-br-lg px-4 py-3 flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-none rounded-br-lg border border-transparent px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       onClick={() => {
                         setShow(false)
                       }}

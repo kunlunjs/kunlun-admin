@@ -17,7 +17,7 @@ export const CommentsList = ({ discussionId }: CommentsListProps) => {
 
   if (commentsQuery.isLoading) {
     return (
-      <div className="w-full h-48 flex justify-center items-center">
+      <div className="flex h-48 w-full items-center justify-center">
         <Spinner size="lg" />
       </div>
     )
@@ -28,7 +28,7 @@ export const CommentsList = ({ discussionId }: CommentsListProps) => {
       <div
         role="list"
         aria-label="comments"
-        className="bg-white text-gray-500 h-40 flex justify-center items-center flex-col"
+        className="flex h-40 flex-col items-center justify-center bg-white text-gray-500"
       >
         <ArchiveIcon className="h-10 w-10" />
         <h4>No Comments Found</h4>
@@ -41,7 +41,7 @@ export const CommentsList = ({ discussionId }: CommentsListProps) => {
         <li
           aria-label={`comment-${comment.body}-${index}`}
           key={comment.id || index}
-          className="w-full bg-white shadow-sm p-4"
+          className="w-full bg-white p-4 shadow-sm"
         >
           <Authorization
             policyCheck={POLICIES['comment:delete'](user as User, comment)}

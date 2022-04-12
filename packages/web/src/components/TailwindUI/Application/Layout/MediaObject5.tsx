@@ -12,9 +12,9 @@ const MediaObject5: FC<MediaObject5Props> = () => {
           expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
         </p>
       </div>
-      <div className="flex-shrink-0 ml-4">
+      <div className="ml-4 flex-shrink-0">
         <svg
-          className="w-16 h-16 text-gray-300 bg-white border border-gray-300"
+          className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
           preserveAspectRatio="none"
           stroke="currentColor"
           fill="none"

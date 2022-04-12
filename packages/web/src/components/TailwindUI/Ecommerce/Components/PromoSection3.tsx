@@ -4,9 +4,9 @@ export const config = {
 export default function PromoSection3() {
   return (
     <div className="bg-white">
-      <div className="pt-32 overflow-hidden sm:pt-14">
+      <div className="overflow-hidden pt-32 sm:pt-14">
         <div className="bg-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative pt-48 pb-16 sm:pb-24">
               <div>
                 <h2
@@ -24,8 +24,8 @@ export default function PromoSection3() {
                 </div>
               </div>
 
-              <div className="absolute -top-32 left-1/2 transform -translate-x-1/2 sm:top-6 sm:translate-x-0">
-                <div className="ml-24 flex space-x-6 min-w-max sm:ml-3 lg:space-x-8">
+              <div className="absolute -top-32 left-1/2 -translate-x-1/2 transform sm:top-6 sm:translate-x-0">
+                <div className="ml-24 flex min-w-max space-x-6 sm:ml-3 lg:space-x-8">
                   <div className="flex space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                     <div className="flex-shrink-0">
                       <img

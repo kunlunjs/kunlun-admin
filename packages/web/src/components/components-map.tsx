@@ -73,23 +73,26 @@ import type {
   UploadProps
 } from '@/types'
 
-const KLGrid = forwardRef(function KLGrid(props, ref) {
+export const KLGrid = forwardRef(function KLGrid(props, ref) {
   return (
     <Row>
       <Col span={24}>col</Col>
     </Row>
   )
 })
-const KLMenu = forwardRef(function KLMenu(props: MenuProps, ref) {
+export const KLMenu = forwardRef(function KLMenu(props: MenuProps, ref) {
   return <div>Menu</div>
 })
-const KLCheckbox = forwardRef(function KLCheckbox(props: CheckboxProps, ref) {
+export const KLCheckbox = forwardRef(function KLCheckbox(
+  props: CheckboxProps,
+  ref
+) {
   return <div>Checkbox</div>
 })
-const KLInput = forwardRef(function KLInput(props: InputProps, ref) {
+export const KLInput = forwardRef(function KLInput(props: InputProps, ref) {
   return <Input {...props} />
 })
-const KLSelect = forwardRef(function KLSelect(props: SelectProps, ref) {
+export const KLSelect = forwardRef(function KLSelect(props: SelectProps, ref) {
   return (
     <Select {...props}>
       {props.options?.map((i, ix) => (
@@ -100,7 +103,7 @@ const KLSelect = forwardRef(function KLSelect(props: SelectProps, ref) {
     </Select>
   )
 })
-const KLButton = forwardRef(function KLButton(props: ButtonProps, ref) {
+export const KLButton = forwardRef(function KLButton(props: ButtonProps, ref) {
   console.log('KLButton props: ', props)
   const { changeSelected, selected } = useDroppedStore()
   return (
@@ -117,52 +120,61 @@ const KLButton = forwardRef(function KLButton(props: ButtonProps, ref) {
     </Button>
   )
 })
-const KLDivider = forwardRef(function KLDivider(props: DividerProps, ref) {
+export const KLDivider = forwardRef(function KLDivider(
+  props: DividerProps,
+  ref
+) {
   return <Divider {...props} />
 })
-const KLTable = forwardRef(function KLTable(props: TableProps, ref) {
+export const KLTable = forwardRef(function KLTable(props: TableProps, ref) {
   return <Table {...props} />
 })
-const KLTypography = forwardRef(function KLTypography(
+export const KLTypography = forwardRef(function KLTypography(
   props: TypographyProps,
   ref
 ) {
   return <div>Typegraphy</div>
 })
-const KLDropdown = forwardRef(function KLDropdown(props: DropdownProps, ref) {
+export const KLDropdown = forwardRef(function KLDropdown(
+  props: DropdownProps,
+  ref
+) {
   return <div>Dropdown</div>
 })
-const KLInputNumber = forwardRef(function KLInputNumber(
+export const KLInputNumber = forwardRef(function KLInputNumber(
   props: InputNumberProps,
   ref
 ) {
   return <InputNumber {...props} />
 })
-const KLPageHeader = forwardRef(function KLPageHeader(
+export const KLPageHeader = forwardRef(function KLPageHeader(
   props: PageHeaderProps,
   ref
 ) {
   return <div>PageHeader</div>
 })
-const KLProgress = forwardRef(function KLProgress(props: ProgressProps, ref) {
+export const KLProgress = forwardRef(function KLProgress(
+  props: ProgressProps,
+  ref
+) {
   return <Progress {...props} />
 })
 // const KLSpace = forwardRef(function KLSpace(props: SpaceProps, ref) {
 //   return <Space {...props}>{props.children}</Space>
 // })
-const KLSlider = forwardRef(function KLSlider(props: SliderProps, ref) {
+export const KLSlider = forwardRef(function KLSlider(props: SliderProps, ref) {
   return <Slider {...props} />
 })
-const KLBadge = forwardRef(function KLBadge(props: BadgeProps, ref) {
+export const KLBadge = forwardRef(function KLBadge(props: BadgeProps, ref) {
   return <Badge {...props} />
 })
-const KLLayout = forwardRef(function KLLayout(props: LayoutProps, ref) {
+export const KLLayout = forwardRef(function KLLayout(props: LayoutProps, ref) {
   return <div>Layout</div>
 })
-const KLAffix = forwardRef(function KLAffix(props: AffixProps, ref) {
+export const KLAffix = forwardRef(function KLAffix(props: AffixProps, ref) {
   return <Affix {...props} />
 })
-const KLBreadcrumb = forwardRef(function KLBreadcrumb(
+export const KLBreadcrumb = forwardRef(function KLBreadcrumb(
   props: BreadcrumbProps,
   ref
 ) {
@@ -174,94 +186,112 @@ const KLBreadcrumb = forwardRef(function KLBreadcrumb(
 // ) {
 //   return <div>Popconfirm</div>
 // })
-const KLForm = forwardRef(function KLForm(props: FormProps, ref) {
+export const KLForm = forwardRef(function KLForm(props: FormProps, ref) {
   return <div>Form</div>
 })
-const KLPagination = forwardRef(function KLPagination(
+export const KLPagination = forwardRef(function KLPagination(
   props: PaginationProps,
   ref
 ) {
   return <div>Pagination</div>
 })
-const KLSteps = forwardRef(function KLSteps(props: StepsProps, ref) {
+export const KLSteps = forwardRef(function KLSteps(props: StepsProps, ref) {
   return <div>Steps</div>
 })
-const KLCascader = forwardRef(function KLCascader(props: CascaderProps, ref) {
+export const KLCascader = forwardRef(function KLCascader(
+  props: CascaderProps,
+  ref
+) {
   return <div>Cascader</div>
 })
 const KLRadio = forwardRef(function KLRadio(props: RadioProps, ref) {
   return <div>Radio</div>
 })
-const KLAutoComplete = forwardRef(function KLAutoComplete(
+export const KLAutoComplete = forwardRef(function KLAutoComplete(
   props: AutoCompleteProps,
   ref
 ) {
   return <div>AutoComplate</div>
 })
-const KLCalendar = forwardRef(function KLCalendar(props: CalendarProps, ref) {
+export const KLCalendar = forwardRef(function KLCalendar(
+  props: CalendarProps,
+  ref
+) {
   return <div>Calendar</div>
 })
-const KLAvatar = forwardRef(function KLAvatar(props: AvatarProps, ref) {
+export const KLAvatar = forwardRef(function KLAvatar(props: AvatarProps, ref) {
   return <Avatar {...props} />
 })
 // const KLAlert = forwardRef(function KLAlert(props: AlertProps, ref) {
 //   return <div>Alert</div>
 // })
-const KLTransfer = forwardRef(function KLTransfer(props: TransferProps, ref) {
+export const KLTransfer = forwardRef(function KLTransfer(
+  props: TransferProps,
+  ref
+) {
   return <div>Transfer</div>
 })
-const KLTreeSelect = forwardRef(function KLTreeSelect(
+export const KLTreeSelect = forwardRef(function KLTreeSelect(
   props: TreeSelectProps,
   ref
 ) {
   return <div>TreeSelect</div>
 })
-const KLRate = forwardRef(function KLRate(props: RateProps, ref) {
+export const KLRate = forwardRef(function KLRate(props: RateProps, ref) {
   return <div>Rate</div>
 })
 const KLMentions = forwardRef(function KLMentions(props: MentionsProps, ref) {
   return <div>Mentions</div>
 })
-const KLCarousel = forwardRef(function KLCarousel(props: CarouselProps, ref) {
+export const KLCarousel = forwardRef(function KLCarousel(
+  props: CarouselProps,
+  ref
+) {
   return <div>Carousel</div>
 })
-const KLDescription = forwardRef(function KLDescription(
+export const KLDescription = forwardRef(function KLDescription(
   props: DescriptionsProps,
   ref
 ) {
   return <div>Description</div>
 })
-const KLDatePicker = forwardRef(function KLDatePicker(
+export const KLDatePicker = forwardRef(function KLDatePicker(
   props: DatePickerProps,
   ref
 ) {
   return <div>DatePicker</div>
 })
-const KLImage = forwardRef(function KLImage(props: ImageProps, ref) {
+export const KLImage = forwardRef(function KLImage(props: ImageProps, ref) {
   return <Image {...props} />
 })
-const KLComment = forwardRef(function KLComment(props: CommentProps, ref) {
+export const KLComment = forwardRef(function KLComment(
+  props: CommentProps,
+  ref
+) {
   return <div>Comment</div>
 })
-const KLUpload = forwardRef(function KLUpload(props: UploadProps, ref) {
+export const KLUpload = forwardRef(function KLUpload(props: UploadProps, ref) {
   return <div>Upload</div>
 })
-const KLSwitch = forwardRef(function KLSwitch(props: SwitchProps, ref) {
+export const KLSwitch = forwardRef(function KLSwitch(props: SwitchProps, ref) {
   return <div>Switch</div>
 })
-const KLStatistic = forwardRef(function KLStatistic(
+export const KLStatistic = forwardRef(function KLStatistic(
   props: StatisticProps,
   ref
 ) {
   return <div>Statistic</div>
 })
-const KLCollapse = forwardRef(function KLCollapse(props: CollapseProps, ref) {
+export const KLCollapse = forwardRef(function KLCollapse(
+  props: CollapseProps,
+  ref
+) {
   return <div>Collapse</div>
 })
-const KLEmpty = forwardRef(function KLEmpty(props: EmptyProps, ref) {
+export const KLEmpty = forwardRef(function KLEmpty(props: EmptyProps, ref) {
   return <div>Empty</div>
 })
-const KLTimePicker = forwardRef(function KLTimePicker(
+export const KLTimePicker = forwardRef(function KLTimePicker(
   props: TimePickerProps,
   ref
 ) {
@@ -276,10 +306,13 @@ const KLTimeline = forwardRef(function KLTimeline(props: TimelineProps, ref) {
 // const KLSpin = forwardRef(function KLSpin(props: SpinProps, ref) {
 //   return <div>Spin</div>
 // })
-const KLSkeleton = forwardRef(function KLSkeleton(props: SkeletonProps, ref) {
+export const KLSkeleton = forwardRef(function KLSkeleton(
+  props: SkeletonProps,
+  ref
+) {
   return <div>Skelteton</div>
 })
-const KLTabs = forwardRef(function KLTabs(props: TabsProps, ref) {
+export const KLTabs = forwardRef(function KLTabs(props: TabsProps, ref) {
   return <div>Tabs</div>
 })
 // const KLModal = forwardRef(function KLModal(props: ModalProps, ref) {
@@ -291,13 +324,13 @@ const KLTabs = forwardRef(function KLTabs(props: TabsProps, ref) {
 // const KLDrawer = forwardRef(function KLDrawer(props: DrawerProps, ref) {
 //   return <div>Drawer</div>
 // })
-const KLTree = forwardRef(function KLTree(props: TreeProps, ref) {
+export const KLTree = forwardRef(function KLTree(props: TreeProps, ref) {
   return <div>Tree</div>
 })
-const KLResult = forwardRef(function KLResult(props: ResultProps, ref) {
+export const KLResult = forwardRef(function KLResult(props: ResultProps, ref) {
   return <div>Result</div>
 })
-const KLCard = forwardRef(function KLCard(props: CardProps, ref) {
+export const KLCard = forwardRef(function KLCard(props: CardProps, ref) {
   console.log('KLCard props: ', props)
   const { changeSelected, selected } = useDroppedStore()
   return (
@@ -318,10 +351,10 @@ const KLCard = forwardRef(function KLCard(props: CardProps, ref) {
     </Card>
   )
 })
-const KLTag = forwardRef(function KLTags(props: TagProps, ref) {
+export const KLTag = forwardRef(function KLTags(props: TagProps, ref) {
   return <div>Tag</div>
 })
-const KLList = forwardRef(function KLList(props: ListProps, ref) {
+export const KLList = forwardRef(function KLList(props: ListProps, ref) {
   return <div>List</div>
 })
 /* 布局 */

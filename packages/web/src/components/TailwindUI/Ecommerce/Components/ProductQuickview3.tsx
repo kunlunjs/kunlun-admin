@@ -34,7 +34,7 @@ export default function ProductQuickview3() {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto"
         onClose={setOpen}
       >
         <div
@@ -50,12 +50,12 @@ export default function ProductQuickview3() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity md:block" />
+            <Dialog.Overlay className="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span
-            className="hidden md:inline-block md:align-middle md:h-screen"
+            className="hidden md:inline-block md:h-screen md:align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -69,8 +69,8 @@ export default function ProductQuickview3() {
             leaveFrom="opacity-100 translate-y-0 md:scale-100"
             leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
           >
-            <div className="flex text-base text-left transform transition w-full md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-              <div className="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+            <div className="flex w-full transform text-left text-base transition md:my-8 md:inline-block md:max-w-2xl md:px-4 md:align-middle lg:max-w-4xl">
+              <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                 <button
                   type="button"
                   className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
@@ -80,13 +80,13 @@ export default function ProductQuickview3() {
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+                <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
                   <div className="sm:col-span-4 lg:col-span-5">
-                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
+                    <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="object-center object-cover"
+                        className="object-cover object-center"
                       />
                     </div>
                     <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
@@ -116,7 +116,7 @@ export default function ProductQuickview3() {
                           {product.price}
                         </p>
 
-                        <div className="ml-4 pl-4 border-l border-gray-300">
+                        <div className="ml-4 border-l border-gray-300 pl-4">
                           <h4 className="sr-only">Reviews</h4>
                           <div className="flex items-center">
                             <div className="flex items-center">
@@ -142,7 +142,7 @@ export default function ProductQuickview3() {
 
                       <div className="mt-6 flex items-center">
                         <CheckIcon
-                          className="flex-shrink-0 w-5 h-5 text-green-500"
+                          className="h-5 w-5 flex-shrink-0 text-green-500"
                           aria-hidden="true"
                         />
                         <p className="ml-2 font-medium text-gray-500">
@@ -175,7 +175,7 @@ export default function ProductQuickview3() {
                                   className={({ active }) =>
                                     clsx(
                                       active ? 'ring-2 ring-indigo-500' : '',
-                                      'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
+                                      'relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none'
                                     )
                                   }
                                 >
@@ -199,7 +199,7 @@ export default function ProductQuickview3() {
                                           checked
                                             ? 'border-indigo-500'
                                             : 'border-transparent',
-                                          'absolute -inset-px rounded-lg pointer-events-none'
+                                          'pointer-events-none absolute -inset-px rounded-lg'
                                         )}
                                         aria-hidden="true"
                                       />
@@ -217,7 +217,7 @@ export default function ProductQuickview3() {
                           >
                             <span>What size should I buy?</span>
                             <QuestionMarkCircleIcon
-                              className="flex-shrink-0 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                              className="ml-2 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                               aria-hidden="true"
                             />
                           </a>
@@ -225,7 +225,7 @@ export default function ProductQuickview3() {
                         <div className="mt-6">
                           <button
                             type="submit"
-                            className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                            className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                           >
                             Add to bag
                           </button>
@@ -236,7 +236,7 @@ export default function ProductQuickview3() {
                             className="group inline-flex text-base font-medium"
                           >
                             <ShieldCheckIcon
-                              className="flex-shrink-0 mr-2 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                              className="mr-2 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                               aria-hidden="true"
                             />
                             <span className="text-gray-500 group-hover:text-gray-700">

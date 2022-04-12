@@ -20,9 +20,9 @@ const Textarea5: FC<Textarea5Props> = () => {
                 className={({ selected }) =>
                   clsx(
                     selected
-                      ? 'text-gray-900 bg-gray-100 hover:bg-gray-200'
-                      : 'text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100',
-                    'px-3 py-1.5 border border-transparent text-sm font-medium rounded-md'
+                      ? 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-900',
+                    'rounded-md border border-transparent px-3 py-1.5 text-sm font-medium'
                   )
                 }
               >
@@ -32,9 +32,9 @@ const Textarea5: FC<Textarea5Props> = () => {
                 className={({ selected }) =>
                   clsx(
                     selected
-                      ? 'text-gray-900 bg-gray-100 hover:bg-gray-200'
-                      : 'text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100',
-                    'ml-2 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md'
+                      ? 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-900',
+                    'ml-2 rounded-md border border-transparent px-3 py-1.5 text-sm font-medium'
                   )
                 }
               >
@@ -47,7 +47,7 @@ const Textarea5: FC<Textarea5Props> = () => {
                   <div className="flex items-center">
                     <button
                       type="button"
-                      className="-m-2.5 w-10 h-10 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                      className="-m-2.5 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Insert link</span>
                       <LinkIcon className="h-5 w-5" aria-hidden="true" />
@@ -56,7 +56,7 @@ const Textarea5: FC<Textarea5Props> = () => {
                   <div className="flex items-center">
                     <button
                       type="button"
-                      className="-m-2.5 w-10 h-10 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                      className="-m-2.5 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Insert code</span>
                       <CodeIcon className="h-5 w-5" aria-hidden="true" />
@@ -65,7 +65,7 @@ const Textarea5: FC<Textarea5Props> = () => {
                   <div className="flex items-center">
                     <button
                       type="button"
-                      className="-m-2.5 w-10 h-10 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                      className="-m-2.5 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Mention someone</span>
                       <AtSymbolIcon className="h-5 w-5" aria-hidden="true" />
@@ -75,7 +75,7 @@ const Textarea5: FC<Textarea5Props> = () => {
               ) : null}
             </Tab.List>
             <Tab.Panels className="mt-2">
-              <Tab.Panel className="p-0.5 -m-0.5 rounded-lg">
+              <Tab.Panel className="-m-0.5 rounded-lg p-0.5">
                 <label htmlFor="comment" className="sr-only">
                   Comment
                 </label>
@@ -84,13 +84,13 @@ const Textarea5: FC<Textarea5Props> = () => {
                     rows={5}
                     name="comment"
                     id="comment"
-                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     placeholder="Add your comment..."
                     defaultValue={''}
                   />
                 </div>
               </Tab.Panel>
-              <Tab.Panel className="p-0.5 -m-0.5 rounded-lg">
+              <Tab.Panel className="-m-0.5 rounded-lg p-0.5">
                 <div className="border-b">
                   <div className="mx-px mt-px px-3 pt-2 pb-12 text-sm leading-5 text-gray-800">
                     Preview content will render here.
@@ -104,7 +104,7 @@ const Textarea5: FC<Textarea5Props> = () => {
       <div className="mt-2 flex justify-end">
         <button
           type="submit"
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Post
         </button>

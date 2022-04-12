@@ -33,32 +33,32 @@ export default function CheckoutPage4() {
           <a href="#" className="text-sm font-medium text-gray-700">
             Contact support
           </a>
-          <a href="#" className="p-2 -m-2 text-gray-400 hover:text-gray-500">
+          <a href="#" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
             <span className="sr-only">Account</span>
-            <UserIcon className="w-6 h-6" aria-hidden="true" />
+            <UserIcon className="h-6 w-6" aria-hidden="true" />
           </a>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
+      <main className="mx-auto max-w-7xl px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
         <h1 className="sr-only">Checkout</h1>
 
-        <div className="max-w-lg mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div className="max-w-lg mx-auto w-full">
+        <div className="mx-auto grid max-w-lg grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+          <div className="mx-auto w-full max-w-lg">
             <h2 className="sr-only">Order summary</h2>
 
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
                 {products.map(product => (
-                  <li key={product.id} className="py-6 flex space-x-6">
+                  <li key={product.id} className="flex space-x-6 py-6">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="flex-none w-24 h-24 object-center object-cover bg-gray-100 rounded-md"
+                      className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                     />
                     <div className="flex-auto">
                       <div className="space-y-1 sm:flex sm:items-start sm:justify-between sm:space-x-6">
-                        <div className="flex-auto text-sm font-medium space-y-1">
+                        <div className="flex-auto space-y-1 text-sm font-medium">
                           <h3 className="text-gray-900">
                             <a href={product.href}>{product.name}</a>
                           </h3>
@@ -70,7 +70,7 @@ export default function CheckoutPage4() {
                             {product.size}
                           </p>
                         </div>
-                        <div className="flex-none flex space-x-4">
+                        <div className="flex flex-none space-x-4">
                           <button
                             type="button"
                             className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
@@ -93,7 +93,7 @@ export default function CheckoutPage4() {
               </ul>
             </div>
 
-            <dl className="text-sm font-medium text-gray-500 mt-10 space-y-6">
+            <dl className="mt-10 space-y-6 text-sm font-medium text-gray-500">
               <div className="flex justify-between">
                 <dt>Subtotal</dt>
                 <dd className="text-gray-900">$104.00</dd>
@@ -106,17 +106,17 @@ export default function CheckoutPage4() {
                 <dt>Shipping</dt>
                 <dd className="text-gray-900">$14.00</dd>
               </div>
-              <div className="flex justify-between border-t border-gray-200 text-gray-900 pt-6">
+              <div className="flex justify-between border-t border-gray-200 pt-6 text-gray-900">
                 <dt className="text-base">Total</dt>
                 <dd className="text-base">$126.32</dd>
               </div>
             </dl>
           </div>
 
-          <div className="max-w-lg mx-auto w-full">
+          <div className="mx-auto w-full max-w-lg">
             <button
               type="button"
-              className="w-full flex items-center justify-center bg-black border border-transparent text-white rounded-md py-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              className="flex w-full items-center justify-center rounded-md border border-transparent bg-black py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
               <span className="sr-only">Pay with Apple Pay</span>
               <svg
@@ -137,7 +137,7 @@ export default function CheckoutPage4() {
                 <div className="w-full border-t border-gray-200" />
               </div>
               <div className="relative flex justify-center">
-                <span className="px-4 bg-white text-sm font-medium text-gray-500">
+                <span className="bg-white px-4 text-sm font-medium text-gray-500">
                   or
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function CheckoutPage4() {
                     id="email-address"
                     name="email-address"
                     autoComplete="email"
-                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -179,18 +179,18 @@ export default function CheckoutPage4() {
                     name="phone"
                     id="phone"
                     autoComplete="tel"
-                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
 
               <div className="mt-6 flex space-x-2">
-                <div className="flex items-center h-5">
+                <div className="flex h-5 items-center">
                   <input
                     id="terms"
                     name="terms"
                     type="checkbox"
-                    className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
                 </div>
                 <label htmlFor="terms" className="text-sm text-gray-500">
@@ -202,38 +202,38 @@ export default function CheckoutPage4() {
               <button
                 type="submit"
                 disabled
-                className="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed"
+                className="mt-6 w-full rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500"
               >
                 Continue
               </button>
             </form>
 
-            <div className="mt-10 border-t border-b border-gray-200 divide-y divide-gray-200">
+            <div className="mt-10 divide-y divide-gray-200 border-t border-b border-gray-200">
               <button
                 type="button"
                 disabled
-                className="w-full py-6 text-left text-lg font-medium text-gray-500 cursor-auto"
+                className="w-full cursor-auto py-6 text-left text-lg font-medium text-gray-500"
               >
                 Payment details
               </button>
               <button
                 type="button"
                 disabled
-                className="w-full py-6 text-left text-lg font-medium text-gray-500 cursor-auto"
+                className="w-full cursor-auto py-6 text-left text-lg font-medium text-gray-500"
               >
                 Shipping address
               </button>
               <button
                 type="button"
                 disabled
-                className="w-full py-6 text-left text-lg font-medium text-gray-500 cursor-auto"
+                className="w-full cursor-auto py-6 text-left text-lg font-medium text-gray-500"
               >
                 Billing address
               </button>
               <button
                 type="button"
                 disabled
-                className="w-full py-6 text-left text-lg font-medium text-gray-500 cursor-auto"
+                className="w-full cursor-auto py-6 text-left text-lg font-medium text-gray-500"
               >
                 Review
               </button>

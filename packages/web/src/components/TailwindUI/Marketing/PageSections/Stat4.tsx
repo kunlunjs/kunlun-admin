@@ -32,7 +32,7 @@ export const config = {
 export default function Stat4() {
   return (
     <div className="relative bg-gray-900">
-      <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">
+      <div className="absolute bottom-0 h-80 w-full xl:inset-0 xl:h-full">
         <div className="h-full w-full xl:grid xl:grid-cols-2">
           <div className="h-full xl:relative xl:col-start-2">
             <img
@@ -47,9 +47,9 @@ export default function Stat4() {
           </div>
         </div>
       </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-flow-col-dense xl:grid-cols-2 xl:gap-x-8">
         <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
-          <h2 className="text-sm font-semibold text-indigo-300 tracking-wide uppercase">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-indigo-300">
             Valuable Metrics
           </h2>
           <p className="mt-3 text-3xl font-extrabold text-white">

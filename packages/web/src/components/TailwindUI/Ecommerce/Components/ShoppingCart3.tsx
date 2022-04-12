@@ -32,7 +32,7 @@ export const config = {
 export default function ShoppingCart3() {
   return (
     <div className="bg-white">
-      <div className="max-w-4xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
           Shopping Cart
         </h1>
@@ -43,7 +43,7 @@ export default function ShoppingCart3() {
 
             <ul
               role="list"
-              className="border-t border-b border-gray-200 divide-y divide-gray-200"
+              className="divide-y divide-gray-200 border-t border-b border-gray-200"
             >
               {products.map((product: any, productIdx) => (
                 <li key={product.id} className="flex py-6 sm:py-10">
@@ -51,11 +51,11 @@ export default function ShoppingCart3() {
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="w-24 h-24 rounded-lg object-center object-cover sm:w-32 sm:h-32"
+                      className="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32"
                     />
                   </div>
 
-                  <div className="relative ml-4 flex-1 flex flex-col justify-between sm:ml-6">
+                  <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                     <div>
                       <div className="flex justify-between sm:grid sm:grid-cols-2">
                         <div className="pr-6">
@@ -77,12 +77,12 @@ export default function ShoppingCart3() {
                           ) : null}
                         </div>
 
-                        <p className="text-sm font-medium text-gray-900 text-right">
+                        <p className="text-right text-sm font-medium text-gray-900">
                           {product.price}
                         </p>
                       </div>
 
-                      <div className="mt-4 flex items-center sm:block sm:absolute sm:top-0 sm:left-1/2 sm:mt-0">
+                      <div className="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
                         <label
                           htmlFor={`quantity-${productIdx}`}
                           className="sr-only"
@@ -92,7 +92,7 @@ export default function ShoppingCart3() {
                         <select
                           id={`quantity-${productIdx}`}
                           name={`quantity-${productIdx}`}
-                          className="block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          className="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                         >
                           <option value={1}>1</option>
                           <option value={2}>2</option>
@@ -113,15 +113,15 @@ export default function ShoppingCart3() {
                       </div>
                     </div>
 
-                    <p className="mt-4 flex text-sm text-gray-700 space-x-2">
+                    <p className="mt-4 flex space-x-2 text-sm text-gray-700">
                       {product.inStock ? (
                         <CheckIcon
-                          className="flex-shrink-0 h-5 w-5 text-green-500"
+                          className="h-5 w-5 flex-shrink-0 text-green-500"
                           aria-hidden="true"
                         />
                       ) : (
                         <ClockIcon
-                          className="flex-shrink-0 h-5 w-5 text-gray-300"
+                          className="h-5 w-5 flex-shrink-0 text-gray-300"
                           aria-hidden="true"
                         />
                       )}
@@ -140,24 +140,24 @@ export default function ShoppingCart3() {
 
           {/* Order summary */}
           <div className="mt-10 sm:ml-32 sm:pl-6">
-            <div className="bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8">
+            <div className="rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:p-8">
               <h2 className="sr-only">Order summary</h2>
 
               <div className="flow-root">
-                <dl className="-my-4 text-sm divide-y divide-gray-200">
-                  <div className="py-4 flex items-center justify-between">
+                <dl className="-my-4 divide-y divide-gray-200 text-sm">
+                  <div className="flex items-center justify-between py-4">
                     <dt className="text-gray-600">Subtotal</dt>
                     <dd className="font-medium text-gray-900">$99.00</dd>
                   </div>
-                  <div className="py-4 flex items-center justify-between">
+                  <div className="flex items-center justify-between py-4">
                     <dt className="text-gray-600">Shipping</dt>
                     <dd className="font-medium text-gray-900">$5.00</dd>
                   </div>
-                  <div className="py-4 flex items-center justify-between">
+                  <div className="flex items-center justify-between py-4">
                     <dt className="text-gray-600">Tax</dt>
                     <dd className="font-medium text-gray-900">$8.32</dd>
                   </div>
-                  <div className="py-4 flex items-center justify-between">
+                  <div className="flex items-center justify-between py-4">
                     <dt className="text-base font-medium text-gray-900">
                       Order total
                     </dt>
@@ -171,18 +171,18 @@ export default function ShoppingCart3() {
             <div className="mt-10">
               <button
                 type="submit"
-                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                className="w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Checkout
               </button>
             </div>
 
-            <div className="mt-6 text-sm text-center text-gray-500">
+            <div className="mt-6 text-center text-sm text-gray-500">
               <p>
                 or{' '}
                 <a
                   href="#"
-                  className="text-indigo-600 font-medium hover:text-indigo-500"
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Continue Shopping<span aria-hidden="true"> &rarr;</span>
                 </a>

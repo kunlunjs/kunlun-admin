@@ -30,7 +30,7 @@ export const config = {
 
 const EmptyState4: FC<EmptyState4Props> = () => {
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="mx-auto max-w-lg">
       <div>
         <div className="text-center">
           <svg
@@ -63,31 +63,31 @@ const EmptyState4: FC<EmptyState4Props> = () => {
             type="email"
             name="email"
             id="email"
-            className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter an email"
           />
           <button
             type="submit"
-            className="ml-4 flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="ml-4 flex-shrink-0 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Send invite
           </button>
         </form>
       </div>
       <div className="mt-10">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500">
           Team members previously added to projects
         </h3>
         <ul
           role="list"
-          className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200"
+          className="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200"
         >
           {people.map((person, personIdx) => (
             <li
               key={personIdx}
-              className="py-4 flex items-center justify-between space-x-3"
+              className="flex items-center justify-between space-x-3 py-4"
             >
-              <div className="min-w-0 flex-1 flex items-center space-x-3">
+              <div className="flex min-w-0 flex-1 items-center space-x-3">
                 <div className="flex-shrink-0">
                   <img
                     className="h-10 w-10 rounded-full"
@@ -96,10 +96,10 @@ const EmptyState4: FC<EmptyState4Props> = () => {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-gray-900 truncate">
+                  <p className="truncate text-sm font-medium text-gray-900">
                     {person.name}
                   </p>
-                  <p className="text-sm font-medium text-gray-500 truncate">
+                  <p className="truncate text-sm font-medium text-gray-500">
                     {person.role}
                   </p>
                 </div>
@@ -107,7 +107,7 @@ const EmptyState4: FC<EmptyState4Props> = () => {
               <div className="flex-shrink-0">
                 <button
                   type="button"
-                  className="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="inline-flex items-center rounded-full border border-transparent bg-gray-100 py-2 px-3 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <PlusSmIcon
                     className="-ml-1 mr-0.5 h-5 w-5 text-gray-400"

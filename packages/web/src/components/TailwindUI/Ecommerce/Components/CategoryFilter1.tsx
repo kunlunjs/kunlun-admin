@@ -66,7 +66,7 @@ export default function CategoryFilter1() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 sm:hidden"
+          className="fixed inset-0 z-40 flex sm:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -90,12 +90,12 @@ export default function CategoryFilter1() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-6 flex flex-col overflow-y-auto">
-              <div className="px-4 flex items-center justify-between">
+            <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+              <div className="flex items-center justify-between px-4">
                 <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                 <button
                   type="button"
-                  className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -114,7 +114,7 @@ export default function CategoryFilter1() {
                     {({ open }) => (
                       <>
                         <h3 className="-mx-2 -my-3 flow-root">
-                          <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400">
+                          <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-sm text-gray-400">
                             <span className="font-medium text-gray-900">
                               {section.name}
                             </span>
@@ -141,7 +141,7 @@ export default function CategoryFilter1() {
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
                                   type="checkbox"
-                                  className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
                                   htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -163,12 +163,12 @@ export default function CategoryFilter1() {
         </Dialog>
       </Transition.Root>
 
-      <div className="max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="py-24">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
             New Arrivals
           </h1>
-          <p className="mt-4 max-w-3xl mx-auto text-base text-gray-500">
+          <p className="mx-auto mt-4 max-w-3xl text-base text-gray-500">
             Thoughtfully designed objects for the workspace, home, and travel.
           </p>
         </div>
@@ -187,7 +187,7 @@ export default function CategoryFilter1() {
                 <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                   Sort
                   <ChevronDownIcon
-                    className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                    className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                 </Menu.Button>
@@ -202,7 +202,7 @@ export default function CategoryFilter1() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     {sortOptions.map((option: any) => (
                       <Menu.Item key={option}>
@@ -244,12 +244,12 @@ export default function CategoryFilter1() {
                     <Popover.Button className="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                       <span>{section.name}</span>
                       {sectionIdx === 0 ? (
-                        <span className="ml-1.5 rounded py-0.5 px-1.5 bg-gray-200 text-xs font-semibold text-gray-700 tabular-nums">
+                        <span className="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700">
                           1
                         </span>
                       ) : null}
                       <ChevronDownIcon
-                        className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                     </Popover.Button>
@@ -264,7 +264,7 @@ export default function CategoryFilter1() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Popover.Panel className="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Popover.Panel className="absolute right-0 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <form className="space-y-4">
                         {section.options.map((option, optionIdx) => (
                           <div key={option.value} className="flex items-center">
@@ -273,11 +273,11 @@ export default function CategoryFilter1() {
                               name={`${section.id}[]`}
                               defaultValue={option.value}
                               type="checkbox"
-                              className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
                             <label
                               htmlFor={`filter-${section.id}-${optionIdx}`}
-                              className="ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap"
+                              className="ml-3 whitespace-nowrap pr-6 text-sm font-medium text-gray-900"
                             >
                               {option.label}
                             </label>

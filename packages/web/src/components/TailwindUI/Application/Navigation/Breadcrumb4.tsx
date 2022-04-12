@@ -14,7 +14,7 @@ const Breadcrumb4: FC<Breadcrumb4Props> = () => {
         <li>
           <div>
             <a href="#" className="text-gray-400 hover:text-gray-500">
-              <HomeIcon className="flex-shrink-0 w-5 h-5" aria-hidden="true" />
+              <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
               <span className="sr-only">Home</span>
             </a>
           </div>
@@ -23,7 +23,7 @@ const Breadcrumb4: FC<Breadcrumb4Props> = () => {
           <li key={page.name}>
             <div className="flex items-center">
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-300"
+                className="h-5 w-5 flex-shrink-0 text-gray-300"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 20"

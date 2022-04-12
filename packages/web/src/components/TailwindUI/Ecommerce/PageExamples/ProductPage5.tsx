@@ -266,7 +266,7 @@ export default function ProductPage5() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -290,11 +290,11 @@ export default function ProductPage5() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -305,16 +305,16 @@ export default function ProductPage5() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -327,7 +327,7 @@ export default function ProductPage5() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="pt-10 pb-8 px-4 space-y-10"
+                      className="space-y-10 px-4 pt-10 pb-8"
                     >
                       <div className="grid grid-cols-2 gap-x-4">
                         {category.featured.map(item => (
@@ -335,11 +335,11 @@ export default function ProductPage5() {
                             key={item.name}
                             className="group relative text-sm"
                           >
-                            <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
-                                className="object-center object-cover"
+                                className="object-cover object-center"
                               />
                             </div>
                             <a
@@ -347,7 +347,7 @@ export default function ProductPage5() {
                               className="mt-6 block font-medium text-gray-900"
                             >
                               <span
-                                className="absolute z-10 inset-0"
+                                className="absolute inset-0 z-10"
                                 aria-hidden="true"
                               />
                               {item.name}
@@ -375,7 +375,7 @@ export default function ProductPage5() {
                               <li key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-2 p-2 block text-gray-500"
+                                  className="-m-2 block p-2 text-gray-500"
                                 >
                                   {item.name}
                                 </a>
@@ -389,12 +389,12 @@ export default function ProductPage5() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -402,11 +402,11 @@ export default function ProductPage5() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
@@ -414,7 +414,7 @@ export default function ProductPage5() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create account
                   </a>
@@ -422,11 +422,11 @@ export default function ProductPage5() {
               </div>
 
               <div className="border-t border-gray-200 py-6 px-4">
-                <a href="#" className="-m-2 p-2 flex items-center">
+                <a href="#" className="-m-2 flex items-center p-2">
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-base font-medium text-gray-900">
                     CAD
@@ -440,19 +440,19 @@ export default function ProductPage5() {
       </Transition.Root>
 
       <header className="relative bg-white">
-        <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Save 20% when you buy two or more kits
         </p>
 
         <nav
           aria-label="Top"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="h-16 flex items-center">
+            <div className="flex h-16 items-center">
               <button
                 type="button"
-                className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
+                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
@@ -473,7 +473,7 @@ export default function ProductPage5() {
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
-                <div className="h-full flex space-x-8">
+                <div className="flex h-full space-x-8">
                   {navigation.categories.map(category => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
@@ -484,7 +484,7 @@ export default function ProductPage5() {
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
@@ -500,7 +500,7 @@ export default function ProductPage5() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute z-10 top-full inset-x-0 text-sm text-gray-500">
+                            <Popover.Panel className="absolute inset-x-0 top-full z-10 text-sm text-gray-500">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -508,7 +508,7 @@ export default function ProductPage5() {
                               />
 
                               <div className="relative bg-white">
-                                <div className="max-w-7xl mx-auto px-8">
+                                <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                                     <div className="col-start-2 grid grid-cols-2 gap-x-8">
                                       {category.featured.map(item => (
@@ -516,11 +516,11 @@ export default function ProductPage5() {
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
                                         >
-                                          <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                          <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                             <img
                                               src={item.imageSrc}
                                               alt={item.imageAlt}
-                                              className="object-center object-cover"
+                                              className="object-cover object-center"
                                             />
                                           </div>
                                           <a
@@ -528,7 +528,7 @@ export default function ProductPage5() {
                                             className="mt-6 block font-medium text-gray-900"
                                           >
                                             <span
-                                              className="absolute z-10 inset-0"
+                                              className="absolute inset-0 z-10"
                                               aria-hidden="true"
                                             />
                                             {item.name}
@@ -615,12 +615,12 @@ export default function ProductPage5() {
                 <div className="hidden lg:ml-8 lg:flex">
                   <a
                     href="#"
-                    className="text-gray-700 hover:text-gray-800 flex items-center"
+                    className="flex items-center text-gray-700 hover:text-gray-800"
                   >
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
-                      className="w-5 h-auto block flex-shrink-0"
+                      className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
@@ -631,15 +631,15 @@ export default function ProductPage5() {
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                    <SearchIcon className="h-6 w-6" aria-hidden="true" />
                   </a>
                 </div>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -654,22 +654,22 @@ export default function ProductPage5() {
         </nav>
       </header>
 
-      <main className="mx-auto pt-14 pb-24 px-4 sm:pt-16 sm:pb-32 sm:px-6 lg:max-w-7xl lg:px-8">
+      <main className="mx-auto px-4 pt-14 pb-24 sm:px-6 sm:pt-16 sm:pb-32 lg:max-w-7xl lg:px-8">
         {/* Product */}
-        <div className="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+        <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
           {/* Product image */}
-          <div className="lg:row-end-1 lg:col-span-4">
-            <div className="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden">
+          <div className="lg:col-span-4 lg:row-end-1">
+            <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg bg-gray-100">
               <img
                 src={product.imageSrc}
                 alt={product.imageAlt}
-                className="object-center object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>
 
           {/* Product details */}
-          <div className="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
+          <div className="mx-auto mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
             <div className="flex flex-col-reverse">
               <div className="mt-4">
                 <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
@@ -679,7 +679,7 @@ export default function ProductPage5() {
                 <h2 id="information-heading" className="sr-only">
                   Product information
                 </h2>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="mt-2 text-sm text-gray-500">
                   Version {product.version.name} (Updated{' '}
                   <time dateTime={product.version.datetime}>
                     {product.version.date}
@@ -708,26 +708,26 @@ export default function ProductPage5() {
               </div>
             </div>
 
-            <p className="text-gray-500 mt-6">{product.description}</p>
+            <p className="mt-6 text-gray-500">{product.description}</p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
               <button
                 type="button"
-                className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Pay {product.price}
               </button>
               <button
                 type="button"
-                className="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-50 py-3 px-8 text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Preview
               </button>
             </div>
 
-            <div className="border-t border-gray-200 mt-10 pt-10">
+            <div className="mt-10 border-t border-gray-200 pt-10">
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
-              <div className="mt-4 prose prose-sm text-gray-500">
+              <div className="prose prose-sm mt-4 text-gray-500">
                 <ul role="list">
                   {product.highlights.map(highlight => (
                     <li key={highlight}>{highlight}</li>
@@ -736,7 +736,7 @@ export default function ProductPage5() {
               </div>
             </div>
 
-            <div className="border-t border-gray-200 mt-10 pt-10">
+            <div className="mt-10 border-t border-gray-200 pt-10">
               <h3 className="text-sm font-medium text-gray-900">License</h3>
               <p className="mt-4 text-sm text-gray-500">
                 {license.summary}{' '}
@@ -749,17 +749,17 @@ export default function ProductPage5() {
               </p>
             </div>
 
-            <div className="border-t border-gray-200 mt-10 pt-10">
+            <div className="mt-10 border-t border-gray-200 pt-10">
               <h3 className="text-sm font-medium text-gray-900">Share</h3>
-              <ul role="list" className="flex items-center space-x-6 mt-4">
+              <ul role="list" className="mt-4 flex items-center space-x-6">
                 <li>
                   <a
                     href="#"
-                    className="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500"
+                    className="flex h-6 w-6 items-center justify-center text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Share on Facebook</span>
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -775,11 +775,11 @@ export default function ProductPage5() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500"
+                    className="flex h-6 w-6 items-center justify-center text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Share on Instagram</span>
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 24 24"
@@ -795,11 +795,11 @@ export default function ProductPage5() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500"
+                    className="flex h-6 w-6 items-center justify-center text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Share on Twitter</span>
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -812,7 +812,7 @@ export default function ProductPage5() {
             </div>
           </div>
 
-          <div className="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
+          <div className="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
             <Tab.Group as="div">
               <div className="border-b border-gray-200">
                 <Tab.List className="-mb-px flex space-x-8">
@@ -821,8 +821,8 @@ export default function ProductPage5() {
                       clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
-                          : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
-                        'whitespace-nowrap py-6 border-b-2 font-medium text-sm'
+                          : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800',
+                        'whitespace-nowrap border-b-2 py-6 text-sm font-medium'
                       )
                     }
                   >
@@ -833,8 +833,8 @@ export default function ProductPage5() {
                       clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
-                          : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
-                        'whitespace-nowrap py-6 border-b-2 font-medium text-sm'
+                          : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800',
+                        'whitespace-nowrap border-b-2 py-6 text-sm font-medium'
                       )
                     }
                   >
@@ -845,8 +845,8 @@ export default function ProductPage5() {
                       clsx(
                         selected
                           ? 'border-indigo-600 text-indigo-600'
-                          : 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300',
-                        'whitespace-nowrap py-6 border-b-2 font-medium text-sm'
+                          : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800',
+                        'whitespace-nowrap border-b-2 py-6 text-sm font-medium'
                       )
                     }
                   >
@@ -861,13 +861,13 @@ export default function ProductPage5() {
                   {reviews.featured.map((review, reviewIdx) => (
                     <div
                       key={review.id}
-                      className="flex text-sm text-gray-500 space-x-4"
+                      className="flex space-x-4 text-sm text-gray-500"
                     >
                       <div className="flex-none py-10">
                         <img
                           src={review.avatarSrc}
                           alt=""
-                          className="w-10 h-10 bg-gray-100 rounded-full"
+                          className="h-10 w-10 rounded-full bg-gray-100"
                         />
                       </div>
                       <div
@@ -883,7 +883,7 @@ export default function ProductPage5() {
                           <time dateTime={review.datetime}>{review.date}</time>
                         </p>
 
-                        <div className="flex items-center mt-4">
+                        <div className="mt-4 flex items-center">
                           {[0, 1, 2, 3, 4].map(rating => (
                             <StarIcon
                               key={rating}
@@ -902,7 +902,7 @@ export default function ProductPage5() {
                         </p>
 
                         <div
-                          className="mt-4 prose prose-sm max-w-none text-gray-500"
+                          className="prose prose-sm mt-4 max-w-none text-gray-500"
                           dangerouslySetInnerHTML={{ __html: review.content }}
                         />
                       </div>
@@ -918,7 +918,7 @@ export default function ProductPage5() {
                       <dt className="mt-10 font-medium text-gray-900">
                         {faq.question}
                       </dt>
-                      <dd className="mt-2 prose prose-sm max-w-none text-gray-500">
+                      <dd className="prose prose-sm mt-2 max-w-none text-gray-500">
                         <p>{faq.answer}</p>
                       </dd>
                     </Fragment>
@@ -939,7 +939,7 @@ export default function ProductPage5() {
         </div>
 
         {/* Related products */}
-        <div className="max-w-2xl mx-auto mt-24 sm:mt-32 lg:max-w-none">
+        <div className="mx-auto mt-24 max-w-2xl sm:mt-32 lg:max-w-none">
           <div className="flex items-center justify-between space-x-4">
             <h2 className="text-lg font-medium text-gray-900">
               Customers also viewed
@@ -953,23 +953,23 @@ export default function ProductPage5() {
           </div>
           <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
             {relatedProducts.map(product => (
-              <div key={product.id} className="relative group">
-                <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-100">
+              <div key={product.id} className="group relative">
+                <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg bg-gray-100">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="object-center object-cover"
+                    className="object-cover object-center"
                   />
                   <div
-                    className="flex items-end opacity-0 p-4 group-hover:opacity-100"
+                    className="flex items-end p-4 opacity-0 group-hover:opacity-100"
                     aria-hidden="true"
                   >
-                    <div className="w-full bg-white bg-opacity-75 backdrop-filter backdrop-blur py-2 px-4 rounded-md text-sm font-medium text-gray-900 text-center">
+                    <div className="w-full rounded-md bg-white bg-opacity-75 py-2 px-4 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
                       View Product
                     </div>
                   </div>
                 </div>
-                <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900 space-x-8">
+                <div className="mt-4 flex items-center justify-between space-x-8 text-base font-medium text-gray-900">
                   <h3>
                     <a href="#">
                       <span aria-hidden="true" className="absolute inset-0" />
@@ -989,10 +989,10 @@ export default function ProductPage5() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-20 grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 py-20 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
             {/* Image section */}
-            <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
+            <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
               <img
                 src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                 alt=""
@@ -1001,7 +1001,7 @@ export default function ProductPage5() {
             </div>
 
             {/* Sitemap sections */}
-            <div className="mt-10 col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3 md:mt-0 md:row-start-1 md:col-start-3 md:col-span-8 lg:col-start-2 lg:col-span-6">
+            <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
               <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">
@@ -1056,7 +1056,7 @@ export default function ProductPage5() {
             </div>
 
             {/* Newsletter section */}
-            <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
+            <div className="mt-12 md:col-span-8 md:col-start-3 md:row-start-2 md:mt-0 lg:col-span-4 lg:col-start-9 lg:row-start-1">
               <h3 className="text-sm font-medium text-gray-900">
                 Sign up for our newsletter
               </h3>
@@ -1072,12 +1072,12 @@ export default function ProductPage5() {
                   type="text"
                   autoComplete="email"
                   required
-                  className="block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 sm:flex-1 sm:min-w-0 sm:max-w-xs lg:max-w-none"
+                  className="block w-full rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:min-w-0 sm:max-w-xs sm:flex-1 lg:max-w-none"
                 />
                 <div className="mt-4 sm:mt-0 sm:ml-4 sm:flex-shrink-0 lg:mt-4 lg:ml-0 xl:mt-0 xl:ml-4">
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     Sign up
                   </button>

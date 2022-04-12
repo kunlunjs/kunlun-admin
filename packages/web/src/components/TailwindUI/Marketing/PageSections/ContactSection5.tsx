@@ -14,9 +14,9 @@ export default function ContactSection5() {
           />
         </div>
       </div>
-      <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-32 lg:grid lg:grid-cols-2">
+      <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 lg:py-32">
         <div className="lg:pr-8">
-          <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
+          <div className="mx-auto max-w-md sm:max-w-lg lg:mx-0">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Let's work together
             </h2>
@@ -43,7 +43,7 @@ export default function ContactSection5() {
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function ContactSection5() {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function ContactSection5() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function ContactSection5() {
                     name="company"
                     id="company"
                     autoComplete="organization"
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function ContactSection5() {
                     id="phone"
                     autoComplete="tel"
                     aria-describedby="phone-description"
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function ContactSection5() {
                     name="how-can-we-help"
                     aria-describedby="how-can-we-help-description"
                     rows={4}
-                    className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
+                    className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     defaultValue={''}
                   />
                 </div>
@@ -161,7 +161,7 @@ export default function ContactSection5() {
                       name="budget"
                       defaultValue="under_25k"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="budget-under-25k" className="ml-3">
                       <span className="block text-sm text-gray-700">
@@ -175,7 +175,7 @@ export default function ContactSection5() {
                       name="budget"
                       defaultValue="25k-50k"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="budget-25k-50k" className="ml-3">
                       <span className="block text-sm text-gray-700">
@@ -189,7 +189,7 @@ export default function ContactSection5() {
                       name="budget"
                       defaultValue="50k-100k"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="budget-50k-100k" className="ml-3">
                       <span className="block text-sm text-gray-700">
@@ -203,7 +203,7 @@ export default function ContactSection5() {
                       name="budget"
                       defaultValue="over_100k"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor="budget-over-100k" className="ml-3">
                       <span className="block text-sm text-gray-700">
@@ -225,14 +225,14 @@ export default function ContactSection5() {
                     type="text"
                     name="how-did-you-hear-about-us"
                     id="how-did-you-hear-about-us"
-                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
               <div className="text-right sm:col-span-2">
                 <button
                   type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Submit
                 </button>

@@ -18,7 +18,7 @@ export const config = {
 export default function OrderSummarie4() {
   return (
     <div className="bg-white">
-      <div className="max-w-3xl mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="max-w-xl">
           <h1 className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
             Thank you!
@@ -32,7 +32,7 @@ export default function OrderSummarie4() {
 
           <dl className="mt-12 text-sm font-medium">
             <dt className="text-gray-900">Tracking number</dt>
-            <dd className="text-indigo-600 mt-2">51547878755545848512</dd>
+            <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
           </dl>
         </div>
 
@@ -43,14 +43,14 @@ export default function OrderSummarie4() {
           {products.map(product => (
             <div
               key={product.id}
-              className="py-10 border-b border-gray-200 flex space-x-6"
+              className="flex space-x-6 border-b border-gray-200 py-10"
             >
               <img
                 src={product.imageSrc}
                 alt={product.imageAlt}
-                className="flex-none w-20 h-20 object-center object-cover bg-gray-100 rounded-lg sm:w-40 sm:h-40"
+                className="h-20 w-20 flex-none rounded-lg bg-gray-100 object-cover object-center sm:h-40 sm:w-40"
               />
-              <div className="flex-auto flex flex-col">
+              <div className="flex flex-auto flex-col">
                 <div>
                   <h4 className="font-medium text-gray-900">
                     <a href={product.href}>{product.name}</a>
@@ -59,13 +59,13 @@ export default function OrderSummarie4() {
                     {product.description}
                   </p>
                 </div>
-                <div className="mt-6 flex-1 flex items-end">
-                  <dl className="flex text-sm divide-x divide-gray-200 space-x-4 sm:space-x-6">
+                <div className="mt-6 flex flex-1 items-end">
+                  <dl className="flex space-x-4 divide-x divide-gray-200 text-sm sm:space-x-6">
                     <div className="flex">
                       <dt className="font-medium text-gray-900">Quantity</dt>
                       <dd className="ml-2 text-gray-700">{product.quantity}</dd>
                     </div>
-                    <div className="pl-4 flex sm:pl-6">
+                    <div className="flex pl-4 sm:pl-6">
                       <dt className="font-medium text-gray-900">Price</dt>
                       <dd className="ml-2 text-gray-700">{product.price}</dd>
                     </div>
@@ -79,7 +79,7 @@ export default function OrderSummarie4() {
             <h3 className="sr-only">Your information</h3>
 
             <h4 className="sr-only">Addresses</h4>
-            <dl className="grid grid-cols-2 gap-x-6 text-sm py-10">
+            <dl className="grid grid-cols-2 gap-x-6 py-10 text-sm">
               <div>
                 <dt className="font-medium text-gray-900">Shipping address</dt>
                 <dd className="mt-2 text-gray-700">
@@ -103,7 +103,7 @@ export default function OrderSummarie4() {
             </dl>
 
             <h4 className="sr-only">Payment</h4>
-            <dl className="grid grid-cols-2 gap-x-6 border-t border-gray-200 text-sm py-10">
+            <dl className="grid grid-cols-2 gap-x-6 border-t border-gray-200 py-10 text-sm">
               <div>
                 <dt className="font-medium text-gray-900">Payment method</dt>
                 <dd className="mt-2 text-gray-700">
@@ -126,7 +126,7 @@ export default function OrderSummarie4() {
 
             <h3 className="sr-only">Summary</h3>
 
-            <dl className="space-y-6 border-t border-gray-200 text-sm pt-10">
+            <dl className="space-y-6 border-t border-gray-200 pt-10 text-sm">
               <div className="flex justify-between">
                 <dt className="font-medium text-gray-900">Subtotal</dt>
                 <dd className="text-gray-700">$36.00</dd>
@@ -134,7 +134,7 @@ export default function OrderSummarie4() {
               <div className="flex justify-between">
                 <dt className="flex font-medium text-gray-900">
                   Discount
-                  <span className="rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 ml-2">
+                  <span className="ml-2 rounded-full bg-gray-200 py-0.5 px-2 text-xs text-gray-600">
                     STUDENT50
                   </span>
                 </dt>

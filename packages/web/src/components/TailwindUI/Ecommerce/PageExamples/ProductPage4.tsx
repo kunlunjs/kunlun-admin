@@ -259,7 +259,7 @@ export default function ProductPage4() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -283,11 +283,11 @@ export default function ProductPage4() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -298,16 +298,16 @@ export default function ProductPage4() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -320,7 +320,7 @@ export default function ProductPage4() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="pt-10 pb-8 px-4 space-y-10"
+                      className="space-y-10 px-4 pt-10 pb-8"
                     >
                       <div className="grid grid-cols-2 gap-x-4">
                         {category.featured.map(item => (
@@ -328,11 +328,11 @@ export default function ProductPage4() {
                             key={item.name}
                             className="group relative text-sm"
                           >
-                            <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
-                                className="object-center object-cover"
+                                className="object-cover object-center"
                               />
                             </div>
                             <a
@@ -340,7 +340,7 @@ export default function ProductPage4() {
                               className="mt-6 block font-medium text-gray-900"
                             >
                               <span
-                                className="absolute z-10 inset-0"
+                                className="absolute inset-0 z-10"
                                 aria-hidden="true"
                               />
                               {item.name}
@@ -368,7 +368,7 @@ export default function ProductPage4() {
                               <li key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-2 p-2 block text-gray-500"
+                                  className="-m-2 block p-2 text-gray-500"
                                 >
                                   {item.name}
                                 </a>
@@ -382,12 +382,12 @@ export default function ProductPage4() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -395,11 +395,11 @@ export default function ProductPage4() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
@@ -407,7 +407,7 @@ export default function ProductPage4() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create account
                   </a>
@@ -415,11 +415,11 @@ export default function ProductPage4() {
               </div>
 
               <div className="border-t border-gray-200 py-6 px-4">
-                <a href="#" className="-m-2 p-2 flex items-center">
+                <a href="#" className="-m-2 flex items-center p-2">
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-base font-medium text-gray-900">
                     CAD
@@ -433,19 +433,19 @@ export default function ProductPage4() {
       </Transition.Root>
 
       <header className="relative bg-white">
-        <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p>
 
         <nav
           aria-label="Top"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="h-16 flex items-center">
+            <div className="flex h-16 items-center">
               <button
                 type="button"
-                className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
+                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
@@ -466,7 +466,7 @@ export default function ProductPage4() {
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
-                <div className="h-full flex space-x-8">
+                <div className="flex h-full space-x-8">
                   {navigation.categories.map(category => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
@@ -477,7 +477,7 @@ export default function ProductPage4() {
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
@@ -493,7 +493,7 @@ export default function ProductPage4() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute z-10 top-full inset-x-0 text-sm text-gray-500">
+                            <Popover.Panel className="absolute inset-x-0 top-full z-10 text-sm text-gray-500">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -501,7 +501,7 @@ export default function ProductPage4() {
                               />
 
                               <div className="relative bg-white">
-                                <div className="max-w-7xl mx-auto px-8">
+                                <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                                     <div className="col-start-2 grid grid-cols-2 gap-x-8">
                                       {category.featured.map(item => (
@@ -509,11 +509,11 @@ export default function ProductPage4() {
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
                                         >
-                                          <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                          <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                             <img
                                               src={item.imageSrc}
                                               alt={item.imageAlt}
-                                              className="object-center object-cover"
+                                              className="object-cover object-center"
                                             />
                                           </div>
                                           <a
@@ -521,7 +521,7 @@ export default function ProductPage4() {
                                             className="mt-6 block font-medium text-gray-900"
                                           >
                                             <span
-                                              className="absolute z-10 inset-0"
+                                              className="absolute inset-0 z-10"
                                               aria-hidden="true"
                                             />
                                             {item.name}
@@ -608,12 +608,12 @@ export default function ProductPage4() {
                 <div className="hidden lg:ml-8 lg:flex">
                   <a
                     href="#"
-                    className="text-gray-700 hover:text-gray-800 flex items-center"
+                    className="flex items-center text-gray-700 hover:text-gray-800"
                   >
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
-                      className="w-5 h-auto block flex-shrink-0"
+                      className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
@@ -624,15 +624,15 @@ export default function ProductPage4() {
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                    <SearchIcon className="h-6 w-6" aria-hidden="true" />
                   </a>
                 </div>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -650,7 +650,7 @@ export default function ProductPage4() {
       <main>
         {/* Product */}
         <div className="bg-white">
-          <div className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pt-24 sm:pb-32 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+          <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 sm:pt-24 sm:pb-32 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             {/* Product details */}
             <div className="lg:max-w-lg lg:self-end">
               <nav aria-label="Breadcrumb">
@@ -670,7 +670,7 @@ export default function ProductPage4() {
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
                             aria-hidden="true"
-                            className="ml-2 flex-shrink-0 h-5 w-5 text-gray-300"
+                            className="ml-2 h-5 w-5 flex-shrink-0 text-gray-300"
                           >
                             <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                           </svg>
@@ -697,7 +697,7 @@ export default function ProductPage4() {
                     {product.price}
                   </p>
 
-                  <div className="ml-4 pl-4 border-l border-gray-300">
+                  <div className="ml-4 border-l border-gray-300 pl-4">
                     <h2 className="sr-only">Reviews</h2>
                     <div className="flex items-center">
                       <div>
@@ -734,7 +734,7 @@ export default function ProductPage4() {
 
                 <div className="mt-6 flex items-center">
                   <CheckIcon
-                    className="flex-shrink-0 w-5 h-5 text-green-500"
+                    className="h-5 w-5 flex-shrink-0 text-green-500"
                     aria-hidden="true"
                   />
                   <p className="ml-2 text-sm text-gray-500">
@@ -745,18 +745,18 @@ export default function ProductPage4() {
             </div>
 
             {/* Product image */}
-            <div className="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
-              <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+            <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
-                  className="w-full h-full object-center object-cover"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </div>
 
             {/* Product form */}
-            <div className="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+            <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
               <section aria-labelledby="options-heading">
                 <h2 id="options-heading" className="sr-only">
                   Product options
@@ -778,7 +778,7 @@ export default function ProductPage4() {
                             className={({ active }) =>
                               clsx(
                                 active ? 'ring-2 ring-indigo-500' : '',
-                                'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
+                                'relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none'
                               )
                             }
                           >
@@ -802,7 +802,7 @@ export default function ProductPage4() {
                                     checked
                                       ? 'border-indigo-500'
                                       : 'border-transparent',
-                                    'absolute -inset-px rounded-lg pointer-events-none'
+                                    'pointer-events-none absolute -inset-px rounded-lg'
                                   )}
                                   aria-hidden="true"
                                 />
@@ -820,7 +820,7 @@ export default function ProductPage4() {
                     >
                       <span>What size should I buy?</span>
                       <QuestionMarkCircleIcon
-                        className="flex-shrink-0 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        className="ml-2 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                     </a>
@@ -828,7 +828,7 @@ export default function ProductPage4() {
                   <div className="mt-10">
                     <button
                       type="submit"
-                      className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                     >
                       Add to bag
                     </button>
@@ -839,7 +839,7 @@ export default function ProductPage4() {
                       className="group inline-flex text-base font-medium"
                     >
                       <ShieldCheckIcon
-                        className="flex-shrink-0 mr-2 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                        className="mr-2 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                       <span className="text-gray-500 hover:text-gray-700">
@@ -853,7 +853,7 @@ export default function ProductPage4() {
           </div>
         </div>
 
-        <div className="max-w-2xl mx-auto px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
           {/* Details section */}
           <section aria-labelledby="details-heading">
             <div className="flex flex-col items-center text-center">
@@ -872,11 +872,11 @@ export default function ProductPage4() {
 
             <div className="mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8">
               <div>
-                <div className="w-full aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+                <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
                     alt="Drawstring top with elastic loop closure and textured interior padding."
-                    className="w-full h-full object-center object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <p className="mt-8 text-base text-gray-500">
@@ -887,11 +887,11 @@ export default function ProductPage4() {
                 </p>
               </div>
               <div>
-                <div className="w-full aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+                <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-02.jpg"
                     alt="Front zipper pouch with included key ring."
-                    className="w-full h-full object-center object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <p className="mt-8 text-base text-gray-500">
@@ -925,7 +925,7 @@ export default function ProductPage4() {
         </div>
 
         <section aria-labelledby="reviews-heading" className="bg-white">
-          <div className="max-w-2xl mx-auto py-24 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+          <div className="mx-auto max-w-2xl py-24 px-4 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:py-32 lg:px-8">
             <div className="lg:col-span-4">
               <h2
                 id="reviews-heading"
@@ -944,7 +944,7 @@ export default function ProductPage4() {
                           reviews.average > rating
                             ? 'text-yellow-400'
                             : 'text-gray-300',
-                          'flex-shrink-0 h-5 w-5'
+                          'h-5 w-5 flex-shrink-0'
                         )}
                         aria-hidden="true"
                       />
@@ -966,30 +966,30 @@ export default function ProductPage4() {
                       key={count.rating}
                       className="flex items-center text-sm"
                     >
-                      <dt className="flex-1 flex items-center">
+                      <dt className="flex flex-1 items-center">
                         <p className="w-3 font-medium text-gray-900">
                           {count.rating}
                           <span className="sr-only"> star reviews</span>
                         </p>
                         <div
                           aria-hidden="true"
-                          className="ml-1 flex-1 flex items-center"
+                          className="ml-1 flex flex-1 items-center"
                         >
                           <StarIcon
                             className={clsx(
                               count.count > 0
                                 ? 'text-yellow-400'
                                 : 'text-gray-300',
-                              'flex-shrink-0 h-5 w-5'
+                              'h-5 w-5 flex-shrink-0'
                             )}
                             aria-hidden="true"
                           />
 
-                          <div className="ml-3 relative flex-1">
-                            <div className="h-3 bg-gray-100 border border-gray-200 rounded-full" />
+                          <div className="relative ml-3 flex-1">
+                            <div className="h-3 rounded-full border border-gray-200 bg-gray-100" />
                             {count.count > 0 ? (
                               <div
-                                className="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
+                                className="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"
                                 style={{
                                   width: `calc(${count.count} / ${reviews.totalCount} * 100%)`
                                 }}
@@ -998,7 +998,7 @@ export default function ProductPage4() {
                           </div>
                         </div>
                       </dt>
-                      <dd className="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">
+                      <dd className="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">
                         {Math.round((count.count / reviews.totalCount) * 100)}%
                       </dd>
                     </div>
@@ -1017,14 +1017,14 @@ export default function ProductPage4() {
 
                 <a
                   href="#"
-                  className="mt-6 inline-flex w-full bg-white border border-gray-300 rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
                 >
                   Write a review
                 </a>
               </div>
             </div>
 
-            <div className="mt-16 lg:mt-0 lg:col-start-6 lg:col-span-7">
+            <div className="mt-16 lg:col-span-7 lg:col-start-6 lg:mt-0">
               <h3 className="sr-only">Recent reviews</h3>
 
               <div className="flow-root">
@@ -1078,11 +1078,11 @@ export default function ProductPage4() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 py-20">
-            <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
+            <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
               {/* Image section */}
-              <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
+              <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
                 <img
                   src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                   alt=""
@@ -1091,7 +1091,7 @@ export default function ProductPage4() {
               </div>
 
               {/* Sitemap sections */}
-              <div className="mt-10 col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3 md:mt-0 md:row-start-1 md:col-start-3 md:col-span-8 lg:col-start-2 lg:col-span-6">
+              <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
                 <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">
@@ -1148,7 +1148,7 @@ export default function ProductPage4() {
               </div>
 
               {/* Newsletter section */}
-              <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
+              <div className="mt-12 md:col-span-8 md:col-start-3 md:row-start-2 md:mt-0 lg:col-span-4 lg:col-start-9 lg:row-start-1">
                 <h3 className="text-sm font-medium text-gray-900">
                   Sign up for our newsletter
                 </h3>
@@ -1164,12 +1164,12 @@ export default function ProductPage4() {
                     type="text"
                     autoComplete="email"
                     required
-                    className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                    className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
                   <div className="ml-4 flex-shrink-0">
                     <button
                       type="submit"
-                      className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Sign up
                     </button>

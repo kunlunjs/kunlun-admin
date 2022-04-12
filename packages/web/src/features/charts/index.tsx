@@ -12,7 +12,7 @@ export const Charts: FC<ChartsProps> = () => {
           return (
             <div
               key={i.name}
-              className="mb-4 mr-1 p-2 w-64 border border-solid border-gray-200 text-center flex flex-col items-center justify-between cursor-pointer"
+              className="mb-4 mr-1 flex w-64 cursor-pointer flex-col items-center justify-between border border-solid border-gray-200 p-2 text-center"
             >
               <img alt={i.name} src={i.src} className="w-full" />
               <p className="mt-1">{i.name}</p>

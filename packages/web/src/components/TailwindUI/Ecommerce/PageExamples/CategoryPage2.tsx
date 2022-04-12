@@ -245,7 +245,7 @@ export default function CategoryPage2() {
         <Transition.Root show={mobileMenuOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 flex z-40 lg:hidden"
+            className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
             <Transition.Child
@@ -269,11 +269,11 @@ export default function CategoryPage2() {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 pt-5 pb-2 flex">
+              <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                <div className="flex px-4 pt-5 pb-2">
                   <button
                     type="button"
-                    className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -284,16 +284,16 @@ export default function CategoryPage2() {
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex px-4 space-x-8">
+                    <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map(category => (
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
                             clsx(
                               selected
-                                ? 'text-indigo-600 border-indigo-600'
-                                : 'text-gray-900 border-transparent',
-                              'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                                ? 'border-indigo-600 text-indigo-600'
+                                : 'border-transparent text-gray-900',
+                              'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                             )
                           }
                         >
@@ -306,7 +306,7 @@ export default function CategoryPage2() {
                     {navigation.categories.map(category => (
                       <Tab.Panel
                         key={category.name}
-                        className="pt-10 pb-8 px-4 space-y-10"
+                        className="space-y-10 px-4 pt-10 pb-8"
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map(item => (
@@ -314,11 +314,11 @@ export default function CategoryPage2() {
                               key={item.name}
                               className="group relative text-sm"
                             >
-                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
-                                  className="object-center object-cover"
+                                  className="object-cover object-center"
                                 />
                               </div>
                               <a
@@ -326,7 +326,7 @@ export default function CategoryPage2() {
                                 className="mt-6 block font-medium text-gray-900"
                               >
                                 <span
-                                  className="absolute z-10 inset-0"
+                                  className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
                                 {item.name}
@@ -354,7 +354,7 @@ export default function CategoryPage2() {
                                 <li key={item.name} className="flow-root">
                                   <a
                                     href={item.href}
-                                    className="-m-2 p-2 block text-gray-500"
+                                    className="-m-2 block p-2 text-gray-500"
                                   >
                                     {item.name}
                                   </a>
@@ -368,12 +368,12 @@ export default function CategoryPage2() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map(page => (
                     <div key={page.name} className="flow-root">
                       <a
                         href={page.href}
-                        className="-m-2 p-2 block font-medium text-gray-900"
+                        className="-m-2 block p-2 font-medium text-gray-900"
                       >
                         {page.name}
                       </a>
@@ -381,11 +381,11 @@ export default function CategoryPage2() {
                   ))}
                 </div>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <a
                       href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       Sign in
                     </a>
@@ -393,7 +393,7 @@ export default function CategoryPage2() {
                   <div className="flow-root">
                     <a
                       href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       Create account
                     </a>
@@ -401,11 +401,11 @@ export default function CategoryPage2() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <a href="#" className="-m-2 p-2 flex items-center">
+                  <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
-                      className="w-5 h-auto block flex-shrink-0"
+                      className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-base font-medium text-gray-900">
                       CAD
@@ -419,19 +419,19 @@ export default function CategoryPage2() {
         </Transition.Root>
 
         <header className="relative bg-white">
-          <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+          <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             Get free delivery on orders over $100
           </p>
 
           <nav
             aria-label="Top"
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
           >
             <div className="border-b border-gray-200">
-              <div className="h-16 flex items-center">
+              <div className="flex h-16 items-center">
                 <button
                   type="button"
-                  className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
+                  className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
                   onClick={() => setMobileMenuOpen(true)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -452,7 +452,7 @@ export default function CategoryPage2() {
 
                 {/* Flyout menus */}
                 <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
-                  <div className="h-full flex space-x-8">
+                  <div className="flex h-full space-x-8">
                     {navigation.categories.map(category => (
                       <Popover key={category.name} className="flex">
                         {({ open }) => (
@@ -463,7 +463,7 @@ export default function CategoryPage2() {
                                   open
                                     ? 'border-indigo-600 text-indigo-600'
                                     : 'border-transparent text-gray-700 hover:text-gray-800',
-                                  'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                  'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                 )}
                               >
                                 {category.name}
@@ -479,7 +479,7 @@ export default function CategoryPage2() {
                               leaveFrom="opacity-100"
                               leaveTo="opacity-0"
                             >
-                              <Popover.Panel className="absolute z-10 top-full inset-x-0 text-sm text-gray-500">
+                              <Popover.Panel className="absolute inset-x-0 top-full z-10 text-sm text-gray-500">
                                 {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                 <div
                                   className="absolute inset-0 top-1/2 bg-white shadow"
@@ -487,7 +487,7 @@ export default function CategoryPage2() {
                                 />
 
                                 <div className="relative bg-white">
-                                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                     <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                                       <div className="col-start-2 grid grid-cols-2 gap-x-8">
                                         {category.featured.map(item => (
@@ -495,11 +495,11 @@ export default function CategoryPage2() {
                                             key={item.name}
                                             className="group relative text-base sm:text-sm"
                                           >
-                                            <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                               <img
                                                 src={item.imageSrc}
                                                 alt={item.imageAlt}
-                                                className="object-center object-cover"
+                                                className="object-cover object-center"
                                               />
                                             </div>
                                             <a
@@ -507,7 +507,7 @@ export default function CategoryPage2() {
                                               className="mt-6 block font-medium text-gray-900"
                                             >
                                               <span
-                                                className="absolute z-10 inset-0"
+                                                className="absolute inset-0 z-10"
                                                 aria-hidden="true"
                                               />
                                               {item.name}
@@ -594,12 +594,12 @@ export default function CategoryPage2() {
                   <div className="hidden lg:ml-8 lg:flex">
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-800 flex items-center"
+                      className="flex items-center text-gray-700 hover:text-gray-800"
                     >
                       <img
                         src="https://tailwindui.com/img/flags/flag-canada.svg"
                         alt=""
-                        className="w-5 h-auto block flex-shrink-0"
+                        className="block h-auto w-5 flex-shrink-0"
                       />
                       <span className="ml-3 block text-sm font-medium">
                         CAD
@@ -615,15 +615,15 @@ export default function CategoryPage2() {
                       className="p-2 text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Search</span>
-                      <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                      <SearchIcon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   </div>
 
                   {/* Cart */}
                   <div className="ml-4 flow-root lg:ml-6">
-                    <a href="#" className="group -m-2 p-2 flex items-center">
+                    <a href="#" className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
-                        className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                        className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                       <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -644,7 +644,7 @@ export default function CategoryPage2() {
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 flex z-40 lg:hidden"
+            className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileFiltersOpen}
           >
             <Transition.Child
@@ -668,12 +668,12 @@ export default function CategoryPage2() {
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-6 flex flex-col overflow-y-auto">
-                <div className="px-4 flex items-center justify-between">
+              <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+                <div className="flex items-center justify-between px-4">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                   <button
                     type="button"
-                    className="-mr-2 w-10 h-10 p-2 flex items-center justify-center text-gray-400 hover:text-gray-500"
+                    className="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
                     onClick={() => setMobileFiltersOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -692,11 +692,11 @@ export default function CategoryPage2() {
                       {({ open }) => (
                         <fieldset>
                           <legend className="w-full px-2">
-                            <Disclosure.Button className="w-full p-2 flex items-center justify-between text-gray-400 hover:text-gray-500">
+                            <Disclosure.Button className="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500">
                               <span className="text-sm font-medium text-gray-900">
                                 {section.name}
                               </span>
-                              <span className="ml-6 h-7 flex items-center">
+                              <span className="ml-6 flex h-7 items-center">
                                 <ChevronDownIcon
                                   className={clsx(
                                     open ? '-rotate-180' : 'rotate-0',
@@ -707,7 +707,7 @@ export default function CategoryPage2() {
                               </span>
                             </Disclosure.Button>
                           </legend>
-                          <Disclosure.Panel className="pt-4 pb-2 px-4">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2">
                             <div className="space-y-6">
                               {section.options.map((option, optionIdx) => (
                                 <div
@@ -719,7 +719,7 @@ export default function CategoryPage2() {
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="checkbox"
-                                    className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                   />
                                   <label
                                     htmlFor={`${section.id}-${optionIdx}-mobile`}
@@ -744,7 +744,7 @@ export default function CategoryPage2() {
         <div className="border-b border-gray-200">
           <nav
             aria-label="Breadcrumb"
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
           >
             <ol role="list" className="flex items-center space-x-4 py-4">
               {breadcrumbs.map(breadcrumb => (
@@ -783,7 +783,7 @@ export default function CategoryPage2() {
           </nav>
         </div>
 
-        <main className="max-w-2xl mx-auto px-4 lg:max-w-7xl lg:px-8">
+        <main className="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8">
           <div className="border-b border-gray-200 pt-24 pb-10">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
               New Arrivals
@@ -807,13 +807,13 @@ export default function CategoryPage2() {
                   Filters
                 </span>
                 <PlusSmIcon
-                  className="flex-shrink-0 ml-1 h-5 w-5 text-gray-400"
+                  className="ml-1 h-5 w-5 flex-shrink-0 text-gray-400"
                   aria-hidden="true"
                 />
               </button>
 
               <div className="hidden lg:block">
-                <form className="divide-y divide-gray-200 space-y-10">
+                <form className="space-y-10 divide-y divide-gray-200">
                   {filters.map((section, sectionIdx) => (
                     <div
                       key={section.name}
@@ -823,7 +823,7 @@ export default function CategoryPage2() {
                         <legend className="block text-sm font-medium text-gray-900">
                           {section.name}
                         </legend>
-                        <div className="pt-6 space-y-3">
+                        <div className="space-y-3 pt-6">
                           {section.options.map((option, optionIdx) => (
                             <div
                               key={option.value}
@@ -834,7 +834,7 @@ export default function CategoryPage2() {
                                 name={`${section.id}[]`}
                                 defaultValue={option.value}
                                 type="checkbox"
-                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
                               <label
                                 htmlFor={`${section.id}-${optionIdx}`}
@@ -854,7 +854,7 @@ export default function CategoryPage2() {
 
             <section
               aria-labelledby="product-heading"
-              className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3"
+              className="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3"
             >
               <h2 id="product-heading" className="sr-only">
                 Products
@@ -864,16 +864,16 @@ export default function CategoryPage2() {
                 {products.map(product => (
                   <div
                     key={product.id}
-                    className="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden"
+                    className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                   >
                     <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover sm:w-full sm:h-full"
+                        className="h-full w-full object-cover object-center sm:h-full sm:w-full"
                       />
                     </div>
-                    <div className="flex-1 p-4 space-y-2 flex flex-col">
+                    <div className="flex flex-1 flex-col space-y-2 p-4">
                       <h3 className="text-sm font-medium text-gray-900">
                         <a href={product.href}>
                           <span
@@ -886,7 +886,7 @@ export default function CategoryPage2() {
                       <p className="text-sm text-gray-500">
                         {product.description}
                       </p>
-                      <div className="flex-1 flex flex-col justify-end">
+                      <div className="flex flex-1 flex-col justify-end">
                         <p className="text-sm italic text-gray-500">
                           {product.options}
                         </p>
@@ -904,16 +904,16 @@ export default function CategoryPage2() {
 
         <footer
           aria-labelledby="footer-heading"
-          className="bg-white border-t border-gray-200"
+          className="border-t border-gray-200 bg-white"
         >
           <h2 id="footer-heading" className="sr-only">
             Footer
           </h2>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="py-20">
-              <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
+              <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
                 {/* Image section */}
-                <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
+                <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
                   <img
                     src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                     alt=""
@@ -922,7 +922,7 @@ export default function CategoryPage2() {
                 </div>
 
                 {/* Sitemap sections */}
-                <div className="mt-10 col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3 md:mt-0 md:row-start-1 md:col-start-3 md:col-span-8 lg:col-start-2 lg:col-span-6">
+                <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
                   <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                     <div>
                       <h3 className="text-sm font-medium text-gray-900">
@@ -979,7 +979,7 @@ export default function CategoryPage2() {
                 </div>
 
                 {/* Newsletter section */}
-                <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
+                <div className="mt-12 md:col-span-8 md:col-start-3 md:row-start-2 md:mt-0 lg:col-span-4 lg:col-start-9 lg:row-start-1">
                   <h3 className="text-sm font-medium text-gray-900">
                     Sign up for our newsletter
                   </h3>
@@ -995,12 +995,12 @@ export default function CategoryPage2() {
                       type="text"
                       autoComplete="email"
                       required
-                      className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                      className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                     />
                     <div className="ml-4 flex-shrink-0">
                       <button
                         type="submit"
-                        className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >
                         Sign up
                       </button>

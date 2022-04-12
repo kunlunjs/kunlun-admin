@@ -21,7 +21,7 @@ const VerticalNavigation3: FC<VerticalNavigation3Props> = () => {
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-            'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
+            'group flex items-center rounded-md px-3 py-2 text-sm font-medium'
           )}
           aria-current={item.current ? 'page' : undefined}
         >
@@ -32,7 +32,7 @@ const VerticalNavigation3: FC<VerticalNavigation3Props> = () => {
                 item.current
                   ? 'bg-white'
                   : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200',
-                'ml-auto inline-block py-0.5 px-3 text-xs rounded-full'
+                'ml-auto inline-block rounded-full py-0.5 px-3 text-xs'
               )}
             >
               {item.count}

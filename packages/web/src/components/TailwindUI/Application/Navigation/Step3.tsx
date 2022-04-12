@@ -15,13 +15,13 @@ const Step3: FC<Step3Props> = () => {
         Step {steps.findIndex(step => step.status === 'current') + 1} of{' '}
         {steps.length}
       </p>
-      <ol role="list" className="flex items-center ml-8 space-x-5">
+      <ol role="list" className="ml-8 flex items-center space-x-5">
         {steps.map(step => (
           <li key={step.name}>
             {step.status === 'complete' ? (
               <a
                 href={step.href}
-                className="block w-2.5 h-2.5 bg-indigo-600 rounded-full hover:bg-indigo-900"
+                className="block h-2.5 w-2.5 rounded-full bg-indigo-600 hover:bg-indigo-900"
               >
                 <span className="sr-only">{step.name}</span>
               </a>
@@ -31,11 +31,11 @@ const Step3: FC<Step3Props> = () => {
                 className="relative flex items-center justify-center"
                 aria-current="step"
               >
-                <span className="absolute flex w-5 h-5 p-px" aria-hidden="true">
-                  <span className="w-full h-full bg-indigo-200 rounded-full" />
+                <span className="absolute flex h-5 w-5 p-px" aria-hidden="true">
+                  <span className="h-full w-full rounded-full bg-indigo-200" />
                 </span>
                 <span
-                  className="relative block w-2.5 h-2.5 bg-indigo-600 rounded-full"
+                  className="relative block h-2.5 w-2.5 rounded-full bg-indigo-600"
                   aria-hidden="true"
                 />
                 <span className="sr-only">{step.name}</span>
@@ -43,7 +43,7 @@ const Step3: FC<Step3Props> = () => {
             ) : (
               <a
                 href={step.href}
-                className="block w-2.5 h-2.5 bg-gray-200 rounded-full hover:bg-gray-400"
+                className="block h-2.5 w-2.5 rounded-full bg-gray-200 hover:bg-gray-400"
               >
                 <span className="sr-only">{step.name}</span>
               </a>

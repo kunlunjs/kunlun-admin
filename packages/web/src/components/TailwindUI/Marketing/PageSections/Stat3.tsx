@@ -9,15 +9,15 @@ export default function Stat3() {
     <div className="relative bg-white">
       <div className="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
         <img
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
           alt="Support team"
         />
       </div>
-      <div className="relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
-        <div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
+        <div className="mx-auto max-w-2xl lg:mr-0 lg:ml-auto lg:w-1/2 lg:max-w-none lg:pl-10">
           <div>
-            <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
               <UsersIcon className="h-6 w-6" aria-hidden="true" />
             </div>
           </div>

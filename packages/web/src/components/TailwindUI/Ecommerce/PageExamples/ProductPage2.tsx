@@ -222,7 +222,7 @@ export default function ProductPage2() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -246,11 +246,11 @@ export default function ProductPage2() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -261,16 +261,16 @@ export default function ProductPage2() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -283,7 +283,7 @@ export default function ProductPage2() {
                   {navigation.categories.map((category, categoryIdx) => (
                     <Tab.Panel
                       key={category.name}
-                      className="px-4 pt-10 pb-6 space-y-12"
+                      className="space-y-12 px-4 pt-10 pb-6"
                     >
                       <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6">
                         <div className="grid grid-cols-1 gap-y-10 gap-x-6">
@@ -381,12 +381,12 @@ export default function ProductPage2() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -394,11 +394,11 @@ export default function ProductPage2() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create an account
                   </a>
@@ -406,37 +406,37 @@ export default function ProductPage2() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {/* Currency selector */}
                 <form>
                   <div className="inline-block">
                     <label htmlFor="mobile-currency" className="sr-only">
                       Currency
                     </label>
-                    <div className="-ml-2 group relative border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                    <div className="group relative -ml-2 rounded-md border-transparent focus-within:ring-2 focus-within:ring-white">
                       <select
                         id="mobile-currency"
                         name="currency"
-                        className="bg-none border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-800 focus:outline-none focus:ring-0 focus:border-transparent"
+                        className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
                       >
                         {currencies.map(currency => (
                           <option key={currency}>{currency}</option>
                         ))}
                       </select>
-                      <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                         <svg
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 20 20"
-                          className="w-5 h-5 text-gray-500"
+                          className="h-5 w-5 text-gray-500"
                         >
                           <path
                             stroke="currentColor"
@@ -460,30 +460,30 @@ export default function ProductPage2() {
         <nav aria-label="Top">
           {/* Top navigation */}
           <div className="bg-gray-900">
-            <div className="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
               {/* Currency selector */}
               <form className="hidden lg:block lg:flex-1">
                 <div className="flex">
                   <label htmlFor="desktop-currency" className="sr-only">
                     Currency
                   </label>
-                  <div className="-ml-2 group relative bg-gray-900 border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
                     <select
                       id="desktop-currency"
                       name="currency"
-                      className="bg-none bg-gray-900 border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-white group-hover:text-gray-100 focus:outline-none focus:ring-0 focus:border-transparent"
+                      className="flex items-center rounded-md border-transparent bg-gray-900 bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-white focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
                     >
                       {currencies.map(currency => (
                         <option key={currency}>{currency}</option>
                       ))}
                     </select>
-                    <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                       <svg
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 20 20"
-                        className="w-5 h-5 text-gray-300"
+                        className="h-5 w-5 text-gray-300"
                       >
                         <path
                           stroke="currentColor"
@@ -522,9 +522,9 @@ export default function ProductPage2() {
 
           {/* Secondary navigation */}
           <div className="bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="border-b border-gray-200">
-                <div className="h-16 flex items-center justify-between">
+                <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:items-center">
                     <a href="#">
@@ -540,7 +540,7 @@ export default function ProductPage2() {
                   <div className="hidden h-full lg:flex">
                     {/* Mega menus */}
                     <Popover.Group className="ml-8">
-                      <div className="h-full flex justify-center space-x-8">
+                      <div className="flex h-full justify-center space-x-8">
                         {navigation.categories.map((category, categoryIdx) => (
                           <Popover key={category.name} className="flex">
                             {({ open }) => (
@@ -551,7 +551,7 @@ export default function ProductPage2() {
                                       open
                                         ? 'border-indigo-600 text-indigo-600'
                                         : 'border-transparent text-gray-700 hover:text-gray-800',
-                                      'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                      'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                     )}
                                   >
                                     {category.name}
@@ -567,7 +567,7 @@ export default function ProductPage2() {
                                   leaveFrom="opacity-100"
                                   leaveTo="opacity-0"
                                 >
-                                  <Popover.Panel className="absolute z-10 top-full inset-x-0 text-gray-500 sm:text-sm">
+                                  <Popover.Panel className="absolute inset-x-0 top-full z-10 text-gray-500 sm:text-sm">
                                     {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                     <div
                                       className="absolute inset-0 top-1/2 bg-white shadow"
@@ -575,7 +575,7 @@ export default function ProductPage2() {
                                     />
 
                                     <div className="relative bg-white">
-                                      <div className="max-w-7xl mx-auto px-8">
+                                      <div className="mx-auto max-w-7xl px-8">
                                         <div className="grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12">
                                           <div className="grid grid-cols-2 gap-y-10 gap-x-8">
                                             <div>
@@ -718,10 +718,10 @@ export default function ProductPage2() {
                   </div>
 
                   {/* Mobile menu and search (lg-) */}
-                  <div className="flex-1 flex items-center lg:hidden">
+                  <div className="flex flex-1 items-center lg:hidden">
                     <button
                       type="button"
-                      className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                      className="-ml-2 rounded-md bg-white p-2 text-gray-400"
                       onClick={() => setOpen(true)}
                     >
                       <span className="sr-only">Open menu</span>
@@ -734,7 +734,7 @@ export default function ProductPage2() {
                       className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Search</span>
-                      <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                      <SearchIcon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   </div>
 
@@ -748,7 +748,7 @@ export default function ProductPage2() {
                     />
                   </a>
 
-                  <div className="flex-1 flex items-center justify-end">
+                  <div className="flex flex-1 items-center justify-end">
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
@@ -758,7 +758,7 @@ export default function ProductPage2() {
                           >
                             <span className="sr-only">Search</span>
                             <SearchIcon
-                              className="w-6 h-6"
+                              className="h-6 w-6"
                               aria-hidden="true"
                             />
                           </a>
@@ -770,7 +770,7 @@ export default function ProductPage2() {
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
                             <span className="sr-only">Account</span>
-                            <UserIcon className="w-6 h-6" aria-hidden="true" />
+                            <UserIcon className="h-6 w-6" aria-hidden="true" />
                           </a>
                         </div>
                       </div>
@@ -783,10 +783,10 @@ export default function ProductPage2() {
                       <div className="flow-root">
                         <a
                           href="#"
-                          className="group -m-2 p-2 flex items-center"
+                          className="group -m-2 flex items-center p-2"
                         >
                           <ShoppingCartIcon
-                            className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                            className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                             aria-hidden="true"
                           />
                           <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -810,7 +810,7 @@ export default function ProductPage2() {
         <nav aria-label="Breadcrumb">
           <ol
             role="list"
-            className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
+            className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
             {product.breadcrumbs.map(breadcrumb => (
               <li key={breadcrumb.id}>
@@ -828,7 +828,7 @@ export default function ProductPage2() {
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
-                    className="w-4 h-5 text-gray-300"
+                    className="h-5 w-4 text-gray-300"
                   >
                     <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                   </svg>
@@ -848,41 +848,41 @@ export default function ProductPage2() {
         </nav>
 
         {/* Image gallery */}
-        <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:grid lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+          <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
               src={product.images[0].src}
               alt={product.images[0].alt}
-              className="w-full h-full object-center object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
                 src={product.images[1].src}
                 alt={product.images[1].alt}
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
                 src={product.images[2].src}
                 alt={product.images[2].alt}
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
-          <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
+          <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
             <img
               src={product.images[3].src}
               alt={product.images[3].alt}
-              className="w-full h-full object-center object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </div>
 
         {/* Product info */}
-        <div className="max-w-2xl mx-auto pt-10 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+        <div className="mx-auto max-w-2xl px-4 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               {product.name}
@@ -890,7 +890,7 @@ export default function ProductPage2() {
           </div>
 
           {/* Options */}
-          <div className="mt-4 lg:mt-0 lg:row-span-3">
+          <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl text-gray-900">{product.price}</p>
 
@@ -925,7 +925,7 @@ export default function ProductPage2() {
             <form className="mt-10">
               {/* Colors */}
               <div>
-                <h3 className="text-sm text-gray-900 font-medium">Color</h3>
+                <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
                 <RadioGroup
                   value={selectedColor}
@@ -945,7 +945,7 @@ export default function ProductPage2() {
                             color.selectedClass,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
-                            '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
                           )
                         }
                       >
@@ -956,7 +956,7 @@ export default function ProductPage2() {
                           aria-hidden="true"
                           className={clsx(
                             color.class,
-                            'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                            'h-8 w-8 rounded-full border border-black border-opacity-10'
                           )}
                         />
                       </RadioGroup.Option>
@@ -968,7 +968,7 @@ export default function ProductPage2() {
               {/* Sizes */}
               <div className="mt-10">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm text-gray-900 font-medium">Size</h3>
+                  <h3 className="text-sm font-medium text-gray-900">Size</h3>
                   <a
                     href="#"
                     className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
@@ -994,10 +994,10 @@ export default function ProductPage2() {
                         className={({ active }) =>
                           clsx(
                             size.inStock
-                              ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
-                              : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                              ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
+                              : 'cursor-not-allowed bg-gray-50 text-gray-200',
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                            'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
                           )
                         }
                       >
@@ -1013,17 +1013,17 @@ export default function ProductPage2() {
                                   checked
                                     ? 'border-indigo-500'
                                     : 'border-transparent',
-                                  'absolute -inset-px rounded-md pointer-events-none'
+                                  'pointer-events-none absolute -inset-px rounded-md'
                                 )}
                                 aria-hidden="true"
                               />
                             ) : (
                               <div
                                 aria-hidden="true"
-                                className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
+                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
                               >
                                 <svg
-                                  className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
+                                  className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
                                   viewBox="0 0 100 100"
                                   preserveAspectRatio="none"
                                   stroke="currentColor"
@@ -1048,14 +1048,14 @@ export default function ProductPage2() {
 
               <button
                 type="submit"
-                className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to bag
               </button>
             </form>
           </div>
 
-          <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+          <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
             {/* Description and details */}
             <div>
               <h3 className="sr-only">Description</h3>
@@ -1069,7 +1069,7 @@ export default function ProductPage2() {
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
               <div className="mt-4">
-                <ul role="list" className="pl-4 list-disc text-sm space-y-2">
+                <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                   {product.highlights.map(highlight => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>
@@ -1106,7 +1106,7 @@ export default function ProductPage2() {
               <div className="space-y-10">
                 {reviews.featured.map(review => (
                   <div key={review.id} className="flex flex-col sm:flex-row">
-                    <div className="mt-6 order-2 sm:mt-0 sm:ml-16">
+                    <div className="order-2 mt-6 sm:mt-0 sm:ml-16">
                       <h3 className="text-sm font-medium text-gray-900">
                         {review.title}
                       </h3>
@@ -1155,7 +1155,7 @@ export default function ProductPage2() {
           aria-labelledby="related-products-heading"
           className="bg-white"
         >
-          <div className="max-w-2xl mx-auto py-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="mx-auto max-w-2xl py-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2
               id="related-products-heading"
               className="text-xl font-bold tracking-tight text-gray-900"
@@ -1166,11 +1166,11 @@ export default function ProductPage2() {
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {products.map(product => (
                 <div key={product.id} className="group relative">
-                  <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                     />
                   </div>
                   <div className="mt-4 flex justify-between">
@@ -1201,13 +1201,13 @@ export default function ProductPage2() {
 
       <footer
         aria-labelledby="footer-heading"
-        className="bg-white border-t border-gray-200"
+        className="border-t border-gray-200 bg-white"
       >
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-20 grid grid-cols-2 gap-8 sm:gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 py-20 sm:grid-cols-2 sm:gap-y-0 lg:grid-cols-4">
             <div className="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Account</h3>
@@ -1279,7 +1279,7 @@ export default function ProductPage2() {
               <p>Shipping to Canada ($CAD)</p>
               <p className="ml-3 border-l border-gray-200 pl-3">English</p>
             </div>
-            <p className="mt-6 text-sm text-gray-500 text-center sm:mt-0">
+            <p className="mt-6 text-center text-sm text-gray-500 sm:mt-0">
               &copy; 2021 Clothing Company, Ltd.
             </p>
           </div>

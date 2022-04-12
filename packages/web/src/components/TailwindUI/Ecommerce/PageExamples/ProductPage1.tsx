@@ -350,7 +350,7 @@ export default function ProductPage1() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -374,11 +374,11 @@ export default function ProductPage1() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -389,16 +389,16 @@ export default function ProductPage1() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -411,21 +411,21 @@ export default function ProductPage1() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="pt-10 pb-8 px-4 space-y-10"
+                      className="space-y-10 px-4 pt-10 pb-8"
                     >
                       <div className="space-y-4">
                         {category.featured.map((item, itemIdx) => (
                           <div
                             key={itemIdx}
-                            className="group relative aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden"
+                            className="group aspect-w-1 aspect-h-1 relative overflow-hidden rounded-md bg-gray-100"
                           >
                             <img
                               src={item.imageSrc}
                               alt={item.imageAlt}
-                              className="object-center object-cover group-hover:opacity-75"
+                              className="object-cover object-center group-hover:opacity-75"
                             />
                             <div className="flex flex-col justify-end">
-                              <div className="p-4 bg-white bg-opacity-60 text-base sm:text-sm">
+                              <div className="bg-white bg-opacity-60 p-4 text-base sm:text-sm">
                                 <a
                                   href={item.href}
                                   className="font-medium text-gray-900"
@@ -466,7 +466,7 @@ export default function ProductPage1() {
                                   <li key={item.name} className="flow-root">
                                     <a
                                       href={item.href}
-                                      className="-m-2 p-2 block text-gray-500"
+                                      className="-m-2 block p-2 text-gray-500"
                                     >
                                       {item.name}
                                     </a>
@@ -482,12 +482,12 @@ export default function ProductPage1() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -496,11 +496,11 @@ export default function ProductPage1() {
               </div>
 
               <div className="border-t border-gray-200 py-6 px-4">
-                <a href="#" className="-m-2 p-2 flex items-center">
+                <a href="#" className="-m-2 flex items-center p-2">
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-base font-medium text-gray-900">
                     CAD
@@ -516,14 +516,14 @@ export default function ProductPage1() {
       <header className="relative bg-white">
         <nav
           aria-label="Top"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="h-16 flex items-center justify-between">
-              <div className="flex-1 flex items-center lg:hidden">
+            <div className="flex h-16 items-center justify-between">
+              <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                  className="-ml-2 rounded-md bg-white p-2 text-gray-400"
                   onClick={() => setOpen(true)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -535,13 +535,13 @@ export default function ProductPage1() {
                   className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:flex-1 lg:block lg:self-stretch">
-                <div className="h-full flex space-x-8">
+              <Popover.Group className="hidden lg:block lg:flex-1 lg:self-stretch">
+                <div className="flex h-full space-x-8">
                   {navigation.categories.map(category => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
@@ -552,14 +552,14 @@ export default function ProductPage1() {
                                 open
                                   ? 'text-indigo-600'
                                   : 'text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium'
+                                'relative z-10 flex items-center justify-center text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
                               <span
                                 className={clsx(
                                   open ? 'bg-indigo-600' : '',
-                                  'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
+                                  'absolute inset-x-0 bottom-0 h-0.5 transition-colors duration-200 ease-out sm:mt-5 sm:translate-y-px sm:transform'
                                 )}
                                 aria-hidden="true"
                               />
@@ -575,7 +575,7 @@ export default function ProductPage1() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute z-10 top-full inset-x-0">
+                            <Popover.Panel className="absolute inset-x-0 top-full z-10">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -583,27 +583,27 @@ export default function ProductPage1() {
                               />
 
                               <div className="relative bg-white">
-                                <div className="max-w-7xl mx-auto px-8">
+                                <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
-                                    <div className="grid grid-rows-1 grid-cols-2 gap-8 text-sm">
+                                    <div className="grid grid-cols-2 grid-rows-1 gap-8 text-sm">
                                       {category.featured.map(
                                         (item, itemIdx) => (
                                           <div
                                             key={item.name}
                                             className={clsx(
                                               itemIdx === 0
-                                                ? 'col-span-2 aspect-w-2'
+                                                ? 'aspect-w-2 col-span-2'
                                                 : '',
-                                              'group relative aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden'
+                                              'group aspect-w-1 aspect-h-1 relative overflow-hidden rounded-md bg-gray-100'
                                             )}
                                           >
                                             <img
                                               src={item.imageSrc}
                                               alt={item.imageAlt}
-                                              className="object-center object-cover group-hover:opacity-75"
+                                              className="object-cover object-center group-hover:opacity-75"
                                             />
                                             <div className="flex flex-col justify-end">
-                                              <div className="p-4 bg-white bg-opacity-60 text-sm">
+                                              <div className="bg-white bg-opacity-60 p-4 text-sm">
                                                 <a
                                                   href={item.href}
                                                   className="font-medium text-gray-900"
@@ -698,7 +698,7 @@ export default function ProductPage1() {
                 />
               </a>
 
-              <div className="flex-1 flex items-center justify-end">
+              <div className="flex flex-1 items-center justify-end">
                 <a
                   href="#"
                   className="hidden text-gray-700 hover:text-gray-800 lg:flex lg:items-center"
@@ -706,7 +706,7 @@ export default function ProductPage1() {
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-sm font-medium">CAD</span>
                   <span className="sr-only">, change currency</span>
@@ -715,10 +715,10 @@ export default function ProductPage1() {
                 {/* Search */}
                 <a
                   href="#"
-                  className="hidden ml-6 p-2 text-gray-400 hover:text-gray-500 lg:block"
+                  className="ml-6 hidden p-2 text-gray-400 hover:text-gray-500 lg:block"
                 >
                   <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
 
                 {/* Account */}
@@ -727,14 +727,14 @@ export default function ProductPage1() {
                   className="p-2 text-gray-400 hover:text-gray-500 lg:ml-4"
                 >
                   <span className="sr-only">Account</span>
-                  <UserIcon className="w-6 h-6" aria-hidden="true" />
+                  <UserIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -749,9 +749,9 @@ export default function ProductPage1() {
         </nav>
       </header>
 
-      <main className="mt-8 max-w-2xl mx-auto pb-16 px-4 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
-          <div className="lg:col-start-8 lg:col-span-5">
+      <main className="mx-auto mt-8 max-w-2xl px-4 pb-16 sm:px-6 sm:pb-24 lg:max-w-7xl lg:px-8">
+        <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
+          <div className="lg:col-span-5 lg:col-start-8">
             <div className="flex justify-between">
               <h1 className="text-xl font-medium text-gray-900">
                 {product.name}
@@ -798,7 +798,7 @@ export default function ProductPage1() {
           </div>
 
           {/* Image gallery */}
-          <div className="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
+          <div className="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
             <h2 className="sr-only">Images</h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
@@ -842,7 +842,7 @@ export default function ProductPage1() {
                             color.selectedColor,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
-                            '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
                           )
                         }
                       >
@@ -853,7 +853,7 @@ export default function ProductPage1() {
                           aria-hidden="true"
                           className={clsx(
                             color.bgColor,
-                            'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                            'h-8 w-8 rounded-full border border-black border-opacity-10'
                           )}
                         />
                       </RadioGroup.Option>
@@ -891,14 +891,14 @@ export default function ProductPage1() {
                           clsx(
                             size.inStock
                               ? 'cursor-pointer focus:outline-none'
-                              : 'opacity-25 cursor-not-allowed',
+                              : 'cursor-not-allowed opacity-25',
                             active
-                              ? 'ring-2 ring-offset-2 ring-indigo-500'
+                              ? 'ring-2 ring-indigo-500 ring-offset-2'
                               : '',
                             checked
-                              ? 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'
-                              : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50',
-                            'border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1'
+                              ? 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700'
+                              : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
+                            'flex items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1'
                           )
                         }
                         disabled={!size.inStock}
@@ -912,7 +912,7 @@ export default function ProductPage1() {
 
               <button
                 type="submit"
-                className="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to cart
               </button>
@@ -923,7 +923,7 @@ export default function ProductPage1() {
               <h2 className="text-sm font-medium text-gray-900">Description</h2>
 
               <div
-                className="mt-4 prose prose-sm text-gray-500"
+                className="prose prose-sm mt-4 text-gray-500"
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
             </div>
@@ -933,7 +933,7 @@ export default function ProductPage1() {
                 Fabric &amp; Care
               </h2>
 
-              <div className="mt-4 prose prose-sm text-gray-500">
+              <div className="prose prose-sm mt-4 text-gray-500">
                 <ul role="list">
                   {product.details.map(item => (
                     <li key={item}>{item}</li>
@@ -952,7 +952,7 @@ export default function ProductPage1() {
                 {policies.map(policy => (
                   <div
                     key={policy.name}
-                    className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center"
+                    className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center"
                   >
                     <dt>
                       <policy.icon
@@ -982,13 +982,13 @@ export default function ProductPage1() {
             Recent reviews
           </h2>
 
-          <div className="mt-6 border-t border-b border-gray-200 pb-10 divide-y divide-gray-200 space-y-10">
+          <div className="mt-6 space-y-10 divide-y divide-gray-200 border-t border-b border-gray-200 pb-10">
             {reviews.featured.map(review => (
               <div
                 key={review.id}
                 className="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8"
               >
-                <div className="lg:col-start-5 lg:col-span-8 xl:col-start-4 xl:col-span-9 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:items-start">
+                <div className="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
                   <div className="flex items-center xl:col-span-1">
                     <div className="flex items-center">
                       {[0, 1, 2, 3, 4].map(rating => (
@@ -1010,7 +1010,7 @@ export default function ProductPage1() {
                     </p>
                   </div>
 
-                  <div className="mt-4 lg:mt-6 xl:mt-0 xl:col-span-2">
+                  <div className="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
                     <h3 className="text-sm font-medium text-gray-900">
                       {review.title}
                     </h3>
@@ -1022,7 +1022,7 @@ export default function ProductPage1() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center text-sm lg:mt-0 lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:flex-col lg:items-start xl:col-span-3">
+                <div className="mt-6 flex items-center text-sm lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
                   <p className="font-medium text-gray-900">{review.author}</p>
                   <time
                     dateTime={review.datetime}
@@ -1048,11 +1048,11 @@ export default function ProductPage1() {
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {relatedProducts.map(relatedProduct => (
               <div key={relatedProduct.id} className="group relative">
-                <div className="w-full min-h-80 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
                     src={relatedProduct.imageSrc}
                     alt={relatedProduct.imageAlt}
-                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
                 </div>
                 <div className="mt-4 flex justify-between">
@@ -1081,11 +1081,11 @@ export default function ProductPage1() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 py-20">
-            <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
+            <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
               {/* Image section */}
-              <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
+              <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
                 <img
                   src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                   alt=""
@@ -1094,7 +1094,7 @@ export default function ProductPage1() {
               </div>
 
               {/* Sitemap sections */}
-              <div className="mt-10 col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3 md:mt-0 md:row-start-1 md:col-start-3 md:col-span-8 lg:col-start-2 lg:col-span-6">
+              <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
                 <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">
@@ -1151,7 +1151,7 @@ export default function ProductPage1() {
               </div>
 
               {/* Newsletter section */}
-              <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
+              <div className="mt-12 md:col-span-8 md:col-start-3 md:row-start-2 md:mt-0 lg:col-span-4 lg:col-start-9 lg:row-start-1">
                 <h3 className="text-sm font-medium text-gray-900">
                   Sign up for our newsletter
                 </h3>
@@ -1167,12 +1167,12 @@ export default function ProductPage1() {
                     type="text"
                     autoComplete="email"
                     required
-                    className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                    className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
                   <div className="ml-4 flex-shrink-0">
                     <button
                       type="submit"
-                      className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Sign up
                     </button>

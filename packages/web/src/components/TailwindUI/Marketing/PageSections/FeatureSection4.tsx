@@ -50,9 +50,9 @@ export const config = {
 export default function FeatureSection4() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8">
         <div>
-          <h2 className="text-base font-semibold text-indigo-600 uppercase tracking-wide">
+          <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
             Everything you need
           </h2>
           <p className="mt-2 text-3xl font-extrabold text-gray-900">
@@ -63,8 +63,8 @@ export default function FeatureSection4() {
             Malesuada adipiscing sagittis vel nulla nec.
           </p>
         </div>
-        <div className="mt-12 lg:mt-0 lg:col-span-2">
-          <dl className="space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:grid-rows-4 sm:grid-flow-col sm:gap-x-6 sm:gap-y-10 lg:gap-x-8">
+        <div className="mt-12 lg:col-span-2 lg:mt-0">
+          <dl className="space-y-10 sm:grid sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8">
             {features.map(feature => (
               <div key={feature.name} className="relative">
                 <dt>
@@ -72,7 +72,7 @@ export default function FeatureSection4() {
                     className="absolute h-6 w-6 text-green-500"
                     aria-hidden="true"
                   />
-                  <p className="ml-9 text-lg leading-6 font-medium text-gray-900">
+                  <p className="ml-9 text-lg font-medium leading-6 text-gray-900">
                     {feature.name}
                   </p>
                 </dt>

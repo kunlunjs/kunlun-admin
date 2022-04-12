@@ -57,7 +57,7 @@ export const config = {
 
 export default function PricingSection8() {
   return (
-    <div className="max-w-7xl mx-auto py-24 px-4 bg-white sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl bg-white py-24 px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
         Pricing plans for teams of all sizes
       </h2>
@@ -67,18 +67,18 @@ export default function PricingSection8() {
       </p>
 
       {/* Tiers */}
-      <div className="mt-24 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
+      <div className="mt-24 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
         {pricing.tiers.map(tier => (
           <div
             key={tier.title}
-            className="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col"
+            className="relative flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
           >
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-900">
                 {tier.title}
               </h3>
               {tier.mostPopular ? (
-                <p className="absolute top-0 py-1.5 px-4 bg-indigo-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
+                <p className="absolute top-0 -translate-y-1/2 transform rounded-full bg-indigo-500 py-1.5 px-4 text-xs font-semibold uppercase tracking-wide text-white">
                   Most popular
                 </p>
               ) : null}
@@ -97,7 +97,7 @@ export default function PricingSection8() {
                 {tier.features.map(feature => (
                   <li key={feature} className="flex">
                     <CheckIcon
-                      className="flex-shrink-0 w-6 h-6 text-indigo-500"
+                      className="h-6 w-6 flex-shrink-0 text-indigo-500"
                       aria-hidden="true"
                     />
                     <span className="ml-3 text-gray-500">{feature}</span>
@@ -112,7 +112,7 @@ export default function PricingSection8() {
                 tier.mostPopular
                   ? 'bg-indigo-500 text-white hover:bg-indigo-600'
                   : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100',
-                'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
+                'mt-8 block w-full rounded-md border border-transparent py-3 px-6 text-center font-medium'
               )}
             >
               {tier.cta}

@@ -38,7 +38,7 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20"
+        className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
         <Transition.Child
@@ -50,7 +50,7 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -64,7 +64,7 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-2xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            className="mx-auto max-w-2xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
             value=""
             onChange={(item: any) => (window.location = item.url)}
           >
@@ -74,7 +74,7 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
                 aria-hidden="true"
               />
               <Combobox.Input
-                className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                className="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                 placeholder="Search..."
                 onChange={event => setQuery(event.target.value)}
               />
@@ -83,11 +83,11 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
             {(query === '' || filteredProjects.length > 0) && (
               <Combobox.Options
                 static
-                className="overflow-y-auto divide-y divide-gray-100 max-h-80 scroll-py-2"
+                className="max-h-80 scroll-py-2 divide-y divide-gray-100 overflow-y-auto"
               >
                 <li className="p-2">
                   {query === '' && (
-                    <h2 className="px-3 mt-4 mb-2 text-xs font-semibold text-gray-500">
+                    <h2 className="mt-4 mb-2 px-3 text-xs font-semibold text-gray-500">
                       Recent searches
                     </h2>
                   )}
@@ -112,11 +112,11 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
                               )}
                               aria-hidden="true"
                             />
-                            <span className="flex-auto ml-3 truncate">
+                            <span className="ml-3 flex-auto truncate">
                               {project.name}
                             </span>
                             {active && (
-                              <span className="flex-none ml-3 text-indigo-100">
+                              <span className="ml-3 flex-none text-indigo-100">
                                 Jump to...
                               </span>
                             )}
@@ -150,7 +150,7 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
                                 )}
                                 aria-hidden="true"
                               />
-                              <span className="flex-auto ml-3 truncate">
+                              <span className="ml-3 flex-auto truncate">
                                 {action.name}
                               </span>
                               <span
@@ -175,9 +175,9 @@ const CommandPalette5: FC<CommandPalette5Props> = () => {
             )}
 
             {query !== '' && filteredProjects.length === 0 && (
-              <div className="px-6 text-center py-14 sm:px-14">
+              <div className="px-6 py-14 text-center sm:px-14">
                 <FolderIcon
-                  className="w-6 h-6 mx-auto text-gray-400"
+                  className="mx-auto h-6 w-6 text-gray-400"
                   aria-hidden="true"
                 />
                 <p className="mt-4 text-sm text-gray-900">

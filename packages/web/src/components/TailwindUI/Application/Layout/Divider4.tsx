@@ -8,7 +8,7 @@ const Dividers4: FC<Dividers4Props> = () => {
         <div className="w-full border-t border-gray-300" />
       </div>
       <div className="relative flex justify-center">
-        <span className="px-3 text-lg font-medium text-gray-900 bg-white">
+        <span className="bg-white px-3 text-lg font-medium text-gray-900">
           Projects
         </span>
       </div>

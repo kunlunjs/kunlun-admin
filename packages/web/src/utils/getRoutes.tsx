@@ -1,5 +1,6 @@
 import loadable from '@loadable/component'
 import { isElement, isValidElementType } from 'react-is'
+import { Developing } from '@/components/Developing'
 import type { RouteItem, RouteItems } from '@/types'
 
 // ['./KLChartFactory.tsx', ...]
@@ -12,15 +13,6 @@ export const FactoryNames = Factories.map(
 )
 // ['KLChartFactory', ...]
 const FactoryFileNames = Factories.map(i => i.slice(2, -4))
-
-export const Developing = () => (
-  <div
-    className="flex items-center justify-center text-xl text-orange-400"
-    style={{ height: '100vh' }}
-  >
-    开发中，敬请期待...
-  </div>
-)
 
 /**
  *

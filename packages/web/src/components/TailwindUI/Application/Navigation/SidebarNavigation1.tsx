@@ -22,16 +22,16 @@ const navigation = [
 
 const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
   return (
-    <div className="flex flex-col flex-1 min-h-0 bg-indigo-700">
-      <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-        <div className="flex items-center flex-shrink-0 px-4">
+    <div className="flex min-h-0 flex-1 flex-col bg-indigo-700">
+      <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+        <div className="flex flex-shrink-0 items-center px-4">
           <img
-            className="w-auto h-8"
+            className="h-8 w-auto"
             src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
             alt="Workflow"
           />
         </div>
-        <nav className="flex-1 px-2 mt-5 space-y-1" aria-label="Sidebar">
+        <nav className="mt-5 flex-1 space-y-1 px-2" aria-label="Sidebar">
           {navigation.map(item => (
             <a
               key={item.name}
@@ -40,11 +40,11 @@ const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
                 item.current
                   ? 'bg-indigo-800 text-white'
                   : 'text-indigo-100 hover:bg-indigo-600 hover:bg-opacity-75',
-                'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                'group flex items-center rounded-md px-2 py-2 text-sm font-medium'
               )}
             >
               <item.icon
-                className="flex-shrink-0 w-6 h-6 mr-3 text-indigo-300"
+                className="mr-3 h-6 w-6 flex-shrink-0 text-indigo-300"
                 aria-hidden="true"
               />
               <span className="flex-1">{item.name}</span>
@@ -52,7 +52,7 @@ const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
                 <span
                   className={clsx(
                     item.current ? 'bg-indigo-600' : 'bg-indigo-800',
-                    'ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full'
+                    'ml-3 inline-block rounded-full py-0.5 px-3 text-xs font-medium'
                   )}
                 >
                   {item.count}
@@ -62,12 +62,12 @@ const SidebarNavigation1: FC<SidebarNavigation1Props> = () => {
           ))}
         </nav>
       </div>
-      <div className="flex flex-shrink-0 p-4 border-t border-indigo-800">
-        <a href="#" className="flex-shrink-0 block w-full group">
+      <div className="flex flex-shrink-0 border-t border-indigo-800 p-4">
+        <a href="#" className="group block w-full flex-shrink-0">
           <div className="flex items-center">
             <div>
               <img
-                className="inline-block rounded-full h-9 w-9"
+                className="inline-block h-9 w-9 rounded-full"
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt=""
               />

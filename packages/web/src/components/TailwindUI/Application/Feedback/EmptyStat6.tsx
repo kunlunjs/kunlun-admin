@@ -47,7 +47,7 @@ export const config = {
 
 const EmptyState6: FC<EmptyState6Props> = () => {
   return (
-    <div className="max-w-md mx-auto sm:max-w-3xl">
+    <div className="mx-auto max-w-md sm:max-w-3xl">
       <div>
         <div className="text-center">
           <svg
@@ -80,7 +80,7 @@ const EmptyState6: FC<EmptyState6Props> = () => {
               type="text"
               name="emails"
               id="emails"
-              className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-32 sm:text-sm border-gray-300 rounded-md"
+              className="block w-full rounded-md border-gray-300 pr-32 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               placeholder="Enter an email"
             />
             <div className="absolute inset-y-0 right-0 flex items-center">
@@ -91,7 +91,7 @@ const EmptyState6: FC<EmptyState6Props> = () => {
               <select
                 id="role"
                 name="role"
-                className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-4 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
+                className="h-full rounded-md border-transparent bg-transparent py-0 pl-4 pr-7 text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               >
                 <option>Can edit</option>
                 <option>Can view</option>
@@ -101,7 +101,7 @@ const EmptyState6: FC<EmptyState6Props> = () => {
           <div className="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
             <button
               type="submit"
-              className="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="block w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-center text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Send invite
             </button>
@@ -109,7 +109,7 @@ const EmptyState6: FC<EmptyState6Props> = () => {
         </form>
       </div>
       <div className="mt-10">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500">
           Recommended team members
         </h3>
         <ul role="list" className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -117,9 +117,9 @@ const EmptyState6: FC<EmptyState6Props> = () => {
             <li key={personIdx}>
               <button
                 type="button"
-                className="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group flex w-full items-center justify-between space-x-3 rounded-full border border-gray-300 p-2 text-left shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                <span className="min-w-0 flex-1 flex items-center space-x-3">
+                <span className="flex min-w-0 flex-1 items-center space-x-3">
                   <span className="block flex-shrink-0">
                     <img
                       className="h-10 w-10 rounded-full"
@@ -128,15 +128,15 @@ const EmptyState6: FC<EmptyState6Props> = () => {
                     />
                   </span>
                   <span className="block min-w-0 flex-1">
-                    <span className="block text-sm font-medium text-gray-900 truncate">
+                    <span className="block truncate text-sm font-medium text-gray-900">
                       {person.name}
                     </span>
-                    <span className="block text-sm font-medium text-gray-500 truncate">
+                    <span className="block truncate text-sm font-medium text-gray-500">
                       {person.role}
                     </span>
                   </span>
                 </span>
-                <span className="flex-shrink-0 h-10 w-10 inline-flex items-center justify-center">
+                <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center">
                   <PlusIcon
                     className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"

@@ -20,7 +20,7 @@ export const config = {
 export default function ProductFeature3() {
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Technical Specifications
@@ -47,22 +47,22 @@ export default function ProductFeature3() {
           <img
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
             alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-            className="bg-gray-100 rounded-lg"
+            className="rounded-lg bg-gray-100"
           />
           <img
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
             alt="Top down view of walnut card tray with embedded magnets and card groove."
-            className="bg-gray-100 rounded-lg"
+            className="rounded-lg bg-gray-100"
           />
           <img
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
             alt="Side of walnut card tray with card groove and recessed card area."
-            className="bg-gray-100 rounded-lg"
+            className="rounded-lg bg-gray-100"
           />
           <img
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
             alt="Walnut card tray filled with cards and card angled in dedicated groove."
-            className="bg-gray-100 rounded-lg"
+            className="rounded-lg bg-gray-100"
           />
         </div>
       </div>

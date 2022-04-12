@@ -7,7 +7,7 @@ export const config = {
 export default function HeaderSection2() {
   return (
     <div className="bg-gray-800">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
         <div className="max-w-xl">
           <h2 className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
             Pricing Plans
@@ -24,11 +24,11 @@ export default function HeaderSection2() {
           >
             Currency
           </label>
-          <div className="mt-1.5 relative">
+          <div className="relative mt-1.5">
             <select
               id="currency"
               name="currency"
-              className="appearance-none block w-full bg-none bg-gray-700 border border-transparent rounded-md pl-3 pr-10 py-2 text-base text-white focus:outline-none focus:ring-1 focus:ring-white focus:border-white sm:text-sm"
+              className="block w-full appearance-none rounded-md border border-transparent bg-gray-700 bg-none py-2 pl-3 pr-10 text-base text-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white sm:text-sm"
               defaultValue="United States (USD)"
             >
               <option>Argentina (ARS)</option>
@@ -41,7 +41,7 @@ export default function HeaderSection2() {
               <option>Switzerland (CHF)</option>
               <option>United Kingdom (GBP)</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
               <ChevronDownIcon
                 className="h-4 w-4 text-white"
                 aria-hidden="true"

@@ -19,7 +19,7 @@ const Tab7: FC<Tab7Props> = () => {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
           //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
@@ -43,7 +43,7 @@ const Tab7: FC<Tab7Props> = () => {
                   : 'text-gray-500 hover:text-gray-700',
                 tabIdx === 0 ? 'rounded-l-lg' : '',
                 tabIdx === tabs.length - 1 ? 'rounded-r-lg' : '',
-                'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10'
+                'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium hover:bg-gray-50 focus:z-10'
               )}
               aria-current={tab.current ? 'page' : undefined}
             >

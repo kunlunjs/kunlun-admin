@@ -32,20 +32,20 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-white border-b border-gray-200">
+        <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           {({ open }) => (
             <>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-16 justify-between">
                   <div className="flex">
-                    <div className="flex-shrink-0 flex items-center">
+                    <div className="flex flex-shrink-0 items-center">
                       <img
-                        className="block lg:hidden h-8 w-auto"
+                        className="block h-8 w-auto lg:hidden"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                         alt="Workflow"
                       />
                       <img
-                        className="hidden lg:block h-8 w-auto"
+                        className="hidden h-8 w-auto lg:block"
                         src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
                         alt="Workflow"
                       />
@@ -59,7 +59,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                             item.current
                               ? 'border-indigo-500 text-gray-900'
                               : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                            'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+                            'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -71,16 +71,16 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                   <div className="hidden sm:ml-6 sm:flex sm:items-center">
                     <button
                       type="button"
-                      className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
 
                     {/* Profile dropdown */}
-                    <Menu as="div" className="ml-3 relative">
+                    <Menu as="div" className="relative ml-3">
                       <div>
-                        <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <Menu.Button className="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
@@ -98,7 +98,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           {userNavigation.map(item => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
@@ -120,7 +120,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                   </div>
                   <div className="-mr-2 flex items-center sm:hidden">
                     {/* Mobile menu button */}
-                    <Disclosure.Button className="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -136,7 +136,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
               </div>
 
               <Disclosure.Panel className="sm:hidden">
-                <div className="pt-2 pb-3 space-y-1">
+                <div className="space-y-1 pt-2 pb-3">
                   {navigation.map(item => (
                     <Disclosure.Button
                       key={item.name}
@@ -144,9 +144,9 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                       href={item.href}
                       className={clsx(
                         item.current
-                          ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
-                          : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                          ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
+                          : 'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800',
+                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >
@@ -154,7 +154,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                     </Disclosure.Button>
                   ))}
                 </div>
-                <div className="pt-4 pb-3 border-t border-gray-200">
+                <div className="border-t border-gray-200 pt-4 pb-3">
                   <div className="flex items-center px-4">
                     <div className="flex-shrink-0">
                       <img
@@ -173,7 +173,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                     </div>
                     <button
                       type="button"
-                      className="ml-auto bg-white flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -185,7 +185,7 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                        className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
                       >
                         {item.name}
                       </Disclosure.Button>
@@ -199,17 +199,17 @@ const StackedLayout1: FC<StackedLayout1Props> = () => {
 
         <div className="py-10">
           <header>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <h1 className="text-3xl font-bold leading-tight text-gray-900">
                 Dashboard
               </h1>
             </div>
           </header>
           <main>
-            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
               {/* Replace with your content */}
               <div className="px-4 py-8 sm:px-0">
-                <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
+                <div className="h-96 rounded-lg border-4 border-dashed border-gray-200" />
               </div>
               {/* /End replace */}
             </div>

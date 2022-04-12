@@ -65,12 +65,12 @@ export default function Example() {
                   <>
                     <div className="relative">
                       <img
-                        className="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white"
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white"
                         src={activityItem.imageUrl}
                         alt=""
                       />
 
-                      <span className="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
+                      <span className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
                         <ChatAltIcon
                           className="h-5 w-5 text-gray-400"
                           aria-hidden="true"
@@ -100,7 +100,7 @@ export default function Example() {
                   <>
                     <div>
                       <div className="relative px-1">
-                        <div className="h-8 w-8 bg-gray-100 rounded-full ring-8 ring-white flex items-center justify-center">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
                           <UserCircleIcon
                             className="h-5 w-5 text-gray-500"
                             aria-hidden="true"
@@ -133,7 +133,7 @@ export default function Example() {
                   <>
                     <div>
                       <div className="relative px-1">
-                        <div className="h-8 w-8 bg-gray-100 rounded-full ring-8 ring-white flex items-center justify-center">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
                           <TagIcon
                             className="h-5 w-5 text-gray-500"
                             aria-hidden="true"
@@ -159,7 +159,7 @@ export default function Example() {
                                 href={tag.href}
                                 className="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5 text-sm"
                               >
-                                <span className="absolute flex-shrink-0 flex items-center justify-center">
+                                <span className="absolute flex flex-shrink-0 items-center justify-center">
                                   <span
                                     className={clsx(
                                       tag.color,

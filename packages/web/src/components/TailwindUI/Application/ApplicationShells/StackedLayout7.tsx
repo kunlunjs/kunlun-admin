@@ -36,8 +36,8 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
         <Disclosure as="nav" className="bg-indigo-600">
           {({ open }) => (
             <>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
                       <img
@@ -56,7 +56,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                               item.current
                                 ? 'bg-indigo-700 text-white'
                                 : 'text-white hover:bg-indigo-500 hover:bg-opacity-75',
-                              'px-3 py-2 rounded-md text-sm font-medium'
+                              'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
                           >
@@ -70,16 +70,16 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                     <div className="ml-4 flex items-center md:ml-6">
                       <button
                         type="button"
-                        className="bg-indigo-600 p-1 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white"
+                        className="rounded-full bg-indigo-600 p-1 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                       >
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="h-6 w-6" aria-hidden="true" />
                       </button>
 
                       {/* Profile dropdown */}
-                      <Menu as="div" className="ml-3 relative">
+                      <Menu as="div" className="relative ml-3">
                         <div>
-                          <Menu.Button className="max-w-xs bg-indigo-600 rounded-full flex items-center text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white">
+                          <Menu.Button className="flex max-w-xs items-center rounded-full bg-indigo-600 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600">
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
@@ -97,7 +97,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
-                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             {userNavigation.map(item => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
@@ -120,7 +120,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                   </div>
                   <div className="-mr-2 flex md:hidden">
                     {/* Mobile menu button */}
-                    <Disclosure.Button className="bg-indigo-600 inline-flex items-center justify-center p-2 rounded-md text-indigo-200 hover:text-white hover:bg-indigo-500 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white">
+                    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-indigo-600 p-2 text-indigo-200 hover:bg-indigo-500 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -136,7 +136,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
               </div>
 
               <Disclosure.Panel className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                   {navigation.map(item => (
                     <Disclosure.Button
                       key={item.name}
@@ -146,7 +146,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                         item.current
                           ? 'bg-indigo-700 text-white'
                           : 'text-white hover:bg-indigo-500 hover:bg-opacity-75',
-                        'block px-3 py-2 rounded-md text-base font-medium'
+                        'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >
@@ -154,7 +154,7 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                     </Disclosure.Button>
                   ))}
                 </div>
-                <div className="pt-4 pb-3 border-t border-indigo-700">
+                <div className="border-t border-indigo-700 pt-4 pb-3">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <img
@@ -173,19 +173,19 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
                     </div>
                     <button
                       type="button"
-                      className="ml-auto bg-indigo-600 flex-shrink-0 p-1 border-2 border-transparent rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white"
+                      className="ml-auto flex-shrink-0 rounded-full border-2 border-transparent bg-indigo-600 p-1 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <div className="mt-3 px-2 space-y-1">
+                  <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map(item => (
                       <Disclosure.Button
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75"
+                        className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75"
                       >
                         {item.name}
                       </Disclosure.Button>
@@ -198,17 +198,17 @@ const StackedLayout7: FC<StackedLayout7Props> = () => {
         </Disclosure>
 
         <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold leading-tight text-gray-900">
               Dashboard
             </h1>
           </div>
         </header>
         <main>
-          <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             {/* Replace with your content */}
             <div className="px-4 py-4 sm:px-0">
-              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200" />
             </div>
             {/* /End replace */}
           </div>

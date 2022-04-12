@@ -38,7 +38,7 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20"
+        className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
         <Transition.Child
@@ -50,7 +50,7 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -64,7 +64,7 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-2xl mx-auto overflow-hidden transition-all transform bg-gray-900 divide-y divide-gray-500 shadow-2xl divide-opacity-20 rounded-xl"
+            className="mx-auto max-w-2xl transform divide-y divide-gray-500 divide-opacity-20 overflow-hidden rounded-xl bg-gray-900 shadow-2xl transition-all"
             value=""
             onChange={(item: any) => (window.location = item.url)}
           >
@@ -74,7 +74,7 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
                 aria-hidden="true"
               />
               <Combobox.Input
-                className="w-full h-12 pr-4 text-white placeholder-gray-500 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                className="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-white placeholder-gray-500 focus:ring-0 sm:text-sm"
                 placeholder="Search..."
                 onChange={event => setQuery(event.target.value)}
               />
@@ -83,11 +83,11 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
             {(query === '' || filteredProjects.length > 0) && (
               <Combobox.Options
                 static
-                className="overflow-y-auto divide-y divide-gray-500 max-h-80 scroll-py-2 divide-opacity-20"
+                className="max-h-80 scroll-py-2 divide-y divide-gray-500 divide-opacity-20 overflow-y-auto"
               >
                 <li className="p-2">
                   {query === '' && (
-                    <h2 className="px-3 mt-4 mb-2 text-xs font-semibold text-gray-200">
+                    <h2 className="mt-4 mb-2 px-3 text-xs font-semibold text-gray-200">
                       Recent searches
                     </h2>
                   )}
@@ -112,11 +112,11 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
                               )}
                               aria-hidden="true"
                             />
-                            <span className="flex-auto ml-3 truncate">
+                            <span className="ml-3 flex-auto truncate">
                               {project.name}
                             </span>
                             {active && (
-                              <span className="flex-none ml-3 text-gray-400">
+                              <span className="ml-3 flex-none text-gray-400">
                                 Jump to...
                               </span>
                             )}
@@ -150,10 +150,10 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
                                 )}
                                 aria-hidden="true"
                               />
-                              <span className="flex-auto ml-3 truncate">
+                              <span className="ml-3 flex-auto truncate">
                                 {action.name}
                               </span>
-                              <span className="flex-none ml-3 text-xs font-semibold text-gray-400">
+                              <span className="ml-3 flex-none text-xs font-semibold text-gray-400">
                                 <kbd className="font-sans">⌘</kbd>
                                 <kbd className="font-sans">
                                   {action.shortcut}
@@ -170,9 +170,9 @@ const CommandPalette7: FC<CommandPalette7Props> = () => {
             )}
 
             {query !== '' && filteredProjects.length === 0 && (
-              <div className="px-6 text-center py-14 sm:px-14">
+              <div className="px-6 py-14 text-center sm:px-14">
                 <FolderIcon
-                  className="w-6 h-6 mx-auto text-gray-500"
+                  className="mx-auto h-6 w-6 text-gray-500"
                   aria-hidden="true"
                 />
                 <p className="mt-4 text-sm text-gray-200">

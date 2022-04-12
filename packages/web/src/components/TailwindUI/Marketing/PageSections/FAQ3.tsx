@@ -15,7 +15,7 @@ export const config = {
 export default function FAQ3() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto py-12 px-4 divide-y divide-gray-200 sm:px-6 lg:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl divide-y divide-gray-200 py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <h2 className="text-3xl font-extrabold text-gray-900">
           Frequently asked questions
         </h2>
@@ -29,7 +29,7 @@ export default function FAQ3() {
                 <dt className="text-base font-medium text-gray-900 md:col-span-5">
                   {faq.question}
                 </dt>
-                <dd className="mt-2 md:mt-0 md:col-span-7">
+                <dd className="mt-2 md:col-span-7 md:mt-0">
                   <p className="text-base text-gray-500">{faq.answer}</p>
                 </dd>
               </div>

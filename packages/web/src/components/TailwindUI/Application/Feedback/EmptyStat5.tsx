@@ -39,7 +39,7 @@ export const config = {
 
 const EmptyState5: FC<EmptyState5Props> = () => {
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="mx-auto max-w-lg">
       <h2 className="text-lg font-medium text-gray-900">
         Create your first project
       </h2>
@@ -48,16 +48,16 @@ const EmptyState5: FC<EmptyState5Props> = () => {
       </p>
       <ul
         role="list"
-        className="mt-6 border-t border-b border-gray-200 divide-y divide-gray-200"
+        className="mt-6 divide-y divide-gray-200 border-t border-b border-gray-200"
       >
         {items.map((item, itemIdx) => (
           <li key={itemIdx}>
-            <div className="relative group py-4 flex items-start space-x-3">
+            <div className="group relative flex items-start space-x-3 py-4">
               <div className="flex-shrink-0">
                 <span
                   className={clsx(
                     item.iconColor,
-                    'inline-flex items-center justify-center h-10 w-10 rounded-lg'
+                    'inline-flex h-10 w-10 items-center justify-center rounded-lg'
                   )}
                 >
                   <item.icon

@@ -34,7 +34,7 @@ export const config = { title: 'With popular pages' }
 const NotFoundPage3: FC<NotFoundPage3Props> = () => {
   return (
     <div className="bg-white">
-      <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex-shrink-0 pt-16">
           <img
             className="mx-auto h-12 w-auto"
@@ -42,12 +42,12 @@ const NotFoundPage3: FC<NotFoundPage3Props> = () => {
             alt="Workflow"
           />
         </div>
-        <div className="max-w-xl mx-auto py-16 sm:py-24">
+        <div className="mx-auto max-w-xl py-16 sm:py-24">
           <div className="text-center">
-            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wide">
+            <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
               404 error
             </p>
-            <h1 className="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
+            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
               This page does not exist.
             </h1>
             <p className="mt-2 text-lg text-gray-500">
@@ -55,20 +55,20 @@ const NotFoundPage3: FC<NotFoundPage3Props> = () => {
             </p>
           </div>
           <div className="mt-12">
-            <h2 className="text-sm font-semibold text-gray-500 tracking-wide uppercase">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
               Popular pages
             </h2>
             <ul
               role="list"
-              className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200"
+              className="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200"
             >
               {links.map((link, linkIdx) => (
                 <li
                   key={linkIdx}
-                  className="relative py-6 flex items-start space-x-4"
+                  className="relative flex items-start space-x-4 py-6"
                 >
                   <div className="flex-shrink-0">
-                    <span className="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-50">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50">
                       <link.icon
                         className="h-6 w-6 text-indigo-700"
                         aria-hidden="true"
@@ -77,7 +77,7 @@ const NotFoundPage3: FC<NotFoundPage3Props> = () => {
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base font-medium text-gray-900">
-                      <span className="rounded-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                      <span className="rounded-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
                         <a href="#" className="focus:outline-none">
                           <span
                             className="absolute inset-0"
@@ -111,7 +111,7 @@ const NotFoundPage3: FC<NotFoundPage3Props> = () => {
           </div>
         </div>
       </main>
-      <footer className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-200 py-12 text-center md:flex md:justify-between">
           <p className="text-base text-gray-400">
             &copy; Workflow, Inc. All rights reserved.

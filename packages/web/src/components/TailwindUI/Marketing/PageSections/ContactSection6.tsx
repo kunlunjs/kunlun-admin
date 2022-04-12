@@ -5,9 +5,9 @@ export const config = {
 export default function ContactSection6() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-gray-900">Our offices</h2>
-        <p className="mt-6 text-lg text-gray-500 max-w-3xl">
+        <p className="mt-6 max-w-3xl text-lg text-gray-500">
           Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id
           malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.
         </p>

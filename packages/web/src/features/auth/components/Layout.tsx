@@ -12,7 +12,7 @@ export const Layout = ({ children, title }: LayoutProps) => {
   return (
     <>
       <Head title={title} />
-      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
             <Link className="flex items-center text-white" to="/">

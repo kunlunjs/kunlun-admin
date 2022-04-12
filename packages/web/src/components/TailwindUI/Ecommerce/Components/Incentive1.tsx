@@ -27,8 +27,8 @@ export const config = {
 export default function Incentive1() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4">
-        <div className="max-w-2xl mx-auto px-4 lg:max-w-none">
+      <div className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+        <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
           <div className="grid grid-cols-1 items-center gap-y-10 gap-x-16 lg:grid-cols-2">
             <div>
               <h2 className="text-4xl font-extrabold tracking-tight text-gray-900">
@@ -42,11 +42,11 @@ export default function Incentive1() {
                 don't actually read it.
               </p>
             </div>
-            <div className="aspect-w-3 aspect-h-2 bg-gray-100 rounded-lg overflow-hidden">
+            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg bg-gray-100">
               <img
                 src="https://tailwindui.com/img/ecommerce-images/incentives-07-hero.jpg"
                 alt=""
-                className="object-center object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Incentive1() {
             {incentives.map(incentive => (
               <div key={incentive.name} className="sm:flex lg:block">
                 <div className="sm:flex-shrink-0">
-                  <img className="w-16 h-16" src={incentive.imageSrc} alt="" />
+                  <img className="h-16 w-16" src={incentive.imageSrc} alt="" />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
                   <h3 className="text-sm font-medium text-gray-900">

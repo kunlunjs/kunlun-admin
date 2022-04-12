@@ -28,15 +28,15 @@ export const config = {
 export default function Incentive5() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-        <div className="bg-gray-50 rounded-2xl px-6 py-16 sm:p-16">
-          <div className="max-w-xl mx-auto lg:max-w-none">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <div className="rounded-2xl bg-gray-50 px-6 py-16 sm:p-16">
+          <div className="mx-auto max-w-xl lg:max-w-none">
             <div className="text-center">
               <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
                 We built our business on customer service
               </h2>
             </div>
-            <div className="mt-12 max-w-sm mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-12 grid max-w-sm grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-3">
               {incentives.map(incentive => (
                 <div
                   key={incentive.name}
@@ -45,7 +45,7 @@ export default function Incentive5() {
                   <div className="sm:flex-shrink-0">
                     <div className="flow-root">
                       <img
-                        className="w-16 h-16 mx-auto"
+                        className="mx-auto h-16 w-16"
                         src={incentive.imageSrc}
                         alt=""
                       />

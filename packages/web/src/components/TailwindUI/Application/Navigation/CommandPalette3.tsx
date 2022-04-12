@@ -41,7 +41,7 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20"
+        className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
         <Transition.Child
@@ -53,7 +53,7 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -67,7 +67,7 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-3xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            className="mx-auto max-w-3xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
             value=""
             onChange={(person: any) => (window.location = person.profileUrl)}
           >
@@ -79,7 +79,7 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                     aria-hidden="true"
                   />
                   <Combobox.Input
-                    className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                    className="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                     placeholder="Search..."
                     onChange={event => setQuery(event.target.value)}
                   />
@@ -122,14 +122,14 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                                   <img
                                     src={person.imageUrl}
                                     alt=""
-                                    className="flex-none w-6 h-6 rounded-full"
+                                    className="h-6 w-6 flex-none rounded-full"
                                   />
-                                  <span className="flex-auto ml-3 truncate">
+                                  <span className="ml-3 flex-auto truncate">
                                     {person.name}
                                   </span>
                                   {active && (
                                     <ChevronRightIcon
-                                      className="flex-none w-5 h-5 ml-3 text-gray-400"
+                                      className="ml-3 h-5 w-5 flex-none text-gray-400"
                                       aria-hidden="true"
                                     />
                                   )}
@@ -142,12 +142,12 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                     </div>
 
                     {activeOption && (
-                      <div className="flex-col flex-none hidden w-1/2 overflow-y-auto divide-y divide-gray-100 h-96 sm:flex">
+                      <div className="hidden h-96 w-1/2 flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:flex">
                         <div className="flex-none p-6 text-center">
                           <img
                             src={activeOption.imageUrl}
                             alt=""
-                            className="w-16 h-16 mx-auto rounded-full"
+                            className="mx-auto h-16 w-16 rounded-full"
                           />
                           <h2 className="mt-3 font-semibold text-gray-900">
                             {activeOption.name}
@@ -156,8 +156,8 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                             {activeOption.role}
                           </p>
                         </div>
-                        <div className="flex flex-col justify-between flex-auto p-6">
-                          <dl className="grid grid-cols-1 text-sm text-gray-700 gap-x-6 gap-y-3">
+                        <div className="flex flex-auto flex-col justify-between p-6">
+                          <dl className="grid grid-cols-1 gap-x-6 gap-y-3 text-sm text-gray-700">
                             <dt className="col-end-1 font-semibold text-gray-900">
                               Phone
                             </dt>
@@ -187,7 +187,7 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                           </dl>
                           <button
                             type="button"
-                            className="w-full px-4 py-2 mt-6 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="mt-6 w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >
                             Send message
                           </button>
@@ -198,9 +198,9 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
                 )}
 
                 {query !== '' && filteredPeople.length === 0 && (
-                  <div className="px-6 text-sm text-center py-14 sm:px-14">
+                  <div className="px-6 py-14 text-center text-sm sm:px-14">
                     <UsersIcon
-                      className="w-6 h-6 mx-auto text-gray-400"
+                      className="mx-auto h-6 w-6 text-gray-400"
                       aria-hidden="true"
                     />
                     <p className="mt-4 font-semibold text-gray-900">

@@ -47,11 +47,11 @@ export const DraggableItem = forwardRef<HTMLDivElement, ItemProps>(
         ref={drag}
         key={item.title}
         data-dragid={item.title}
-        className="flex flex-col items-center relative max-h-8 my-4 pb-1 border border-solid border-gray-200 cursor-move"
+        className="relative my-4 flex max-h-8 cursor-move flex-col items-center border border-solid border-gray-200 pb-1"
         style={{ border, opacity }}
       >
-        <img alt={item.title} src={item.src} className="w-full h-full" />
-        <span className="absolute -bottom-5 -translate-x-1/2 mt-2 text-xs">
+        <img alt={item.title} src={item.src} className="h-full w-full" />
+        <span className="absolute -bottom-5 mt-2 -translate-x-1/2 text-xs">
           {item.title}
         </span>
       </div>

@@ -20,7 +20,7 @@ export const config = {
 export default function PricingSection3() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="pb-16 xl:flex xl:items-center xl:justify-between">
           <div>
             <h1 className="text-4xl font-extrabold sm:text-5xl sm:tracking-tight">
@@ -34,14 +34,14 @@ export default function PricingSection3() {
           </div>
           <a
             href="#"
-            className="mt-8 w-full bg-indigo-600 border border-transparent px-5 py-3 inline-flex items-center justify-center text-base font-medium rounded-md text-white hover:bg-indigo-700 sm:mt-10 sm:w-auto xl:mt-0"
+            className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700 sm:mt-10 sm:w-auto xl:mt-0"
           >
             Get started today
           </a>
         </div>
         <div className="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
           <div>
-            <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">
+            <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
               Everything you need
             </h2>
             <p className="mt-2 text-3xl font-extrabold text-gray-900">
@@ -53,13 +53,13 @@ export default function PricingSection3() {
               elementum blandit et.
             </p>
           </div>
-          <div className="mt-4 sm:mt-8 md:mt-10 md:grid md:grid-cols-2 md:gap-x-8 xl:mt-0 xl:col-span-2">
+          <div className="mt-4 sm:mt-8 md:mt-10 md:grid md:grid-cols-2 md:gap-x-8 xl:col-span-2 xl:mt-0">
             <ul role="list" className="divide-y divide-gray-200">
               {features.slice(0, 5).map((feature, featureIdx) =>
                 featureIdx === 0 ? (
-                  <li key={feature} className="py-4 flex md:py-0 md:pb-4">
+                  <li key={feature} className="flex py-4 md:py-0 md:pb-4">
                     <CheckIcon
-                      className="flex-shrink-0 h-6 w-6 text-green-500"
+                      className="h-6 w-6 flex-shrink-0 text-green-500"
                       aria-hidden="true"
                     />
                     <span className="ml-3 text-base text-gray-500">
@@ -67,9 +67,9 @@ export default function PricingSection3() {
                     </span>
                   </li>
                 ) : (
-                  <li key={feature} className="py-4 flex">
+                  <li key={feature} className="flex py-4">
                     <CheckIcon
-                      className="flex-shrink-0 h-6 w-6 text-green-500"
+                      className="h-6 w-6 flex-shrink-0 text-green-500"
                       aria-hidden="true"
                     />
                     <span className="ml-3 text-base text-gray-500">
@@ -81,16 +81,16 @@ export default function PricingSection3() {
             </ul>
             <ul
               role="list"
-              className="border-t border-gray-200 divide-y divide-gray-200 md:border-t-0"
+              className="divide-y divide-gray-200 border-t border-gray-200 md:border-t-0"
             >
               {features.slice(5).map((feature, featureIdx) =>
                 featureIdx === 0 ? (
                   <li
                     key={feature}
-                    className="py-4 flex md:border-t-0 md:py-0 md:pb-4"
+                    className="flex py-4 md:border-t-0 md:py-0 md:pb-4"
                   >
                     <CheckIcon
-                      className="flex-shrink-0 h-6 w-6 text-green-500"
+                      className="h-6 w-6 flex-shrink-0 text-green-500"
                       aria-hidden="true"
                     />
                     <span className="ml-3 text-base text-gray-500">
@@ -98,9 +98,9 @@ export default function PricingSection3() {
                     </span>
                   </li>
                 ) : (
-                  <li key={feature} className="py-4 flex">
+                  <li key={feature} className="flex py-4">
                     <CheckIcon
-                      className="flex-shrink-0 h-6 w-6 text-green-500"
+                      className="h-6 w-6 flex-shrink-0 text-green-500"
                       aria-hidden="true"
                     />
                     <span className="ml-3 text-base text-gray-500">

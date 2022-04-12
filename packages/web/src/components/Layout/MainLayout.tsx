@@ -43,7 +43,7 @@ const SideNavigation = () => {
           to={item.to}
           className={clsx(
             'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'group flex items-center px-2 py-2 text-base font-medium rounded-md'
+            'group flex items-center rounded-md px-2 py-2 text-base font-medium'
           )}
           // @ts-ignore
           activeClassName="bg-gray-900 text-white"
@@ -51,7 +51,7 @@ const SideNavigation = () => {
           <item.icon
             className={clsx(
               'text-gray-400 group-hover:text-gray-300',
-              'mr-4 flex-shrink-0 h-6 w-6'
+              'mr-4 h-6 w-6 flex-shrink-0'
             )}
             aria-hidden="true"
           />
@@ -83,11 +83,11 @@ const UserNavigation = () => {
   ].filter(Boolean) as UserNavigationItem[]
 
   return (
-    <Menu as="div" className="ml-3 relative">
+    <Menu as="div" className="relative ml-3">
       {({ open }) => (
         <>
           <div>
-            <Menu.Button className="max-w-xs  bg-gray-200 p-2 flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <Menu.Button className="flex  max-w-xs items-center rounded-full bg-gray-200 p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
               <span className="sr-only">Open user menu</span>
               <UserIcon className="h-8 w-8 rounded-full" />
             </Menu.Button>
@@ -104,7 +104,7 @@ const UserNavigation = () => {
           >
             <Menu.Items
               static
-              className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
               {userNavigation.map(item => (
                 <Menu.Item key={item.name}>
@@ -141,7 +141,7 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
       <Dialog
         as="div"
         static
-        className="fixed inset-0 flex z-40 md:hidden"
+        className="fixed inset-0 z-40 flex md:hidden"
         open={sidebarOpen}
         onClose={setSidebarOpen}
       >
@@ -165,7 +165,7 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
           leaveFrom="translate-x-0"
           leaveTo="-translate-x-full"
         >
-          <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-800">
+          <div className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-800 pt-5 pb-4">
             <Transition.Child
               as={Fragment}
               enter="ease-in-out duration-300"
@@ -177,7 +177,7 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
             >
               <div className="absolute top-0 right-0 -mr-12 pt-2">
                 <button
-                  className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   onClick={() => setSidebarOpen(false)}
                 >
                   <span className="sr-only">Close sidebar</span>
@@ -185,17 +185,17 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
                 </button>
               </div>
             </Transition.Child>
-            <div className="flex-shrink-0 flex items-center px-4">
+            <div className="flex flex-shrink-0 items-center px-4">
               <Logo />
             </div>
-            <div className="mt-5 flex-1 h-0 overflow-y-auto">
-              <nav className="px-2 space-y-1">
+            <div className="mt-5 h-0 flex-1 overflow-y-auto">
+              <nav className="space-y-1 px-2">
                 <SideNavigation />
               </nav>
             </div>
           </div>
         </Transition.Child>
-        <div className="flex-shrink-0 w-14" aria-hidden="true"></div>
+        <div className="w-14 flex-shrink-0" aria-hidden="true"></div>
       </Dialog>
     </Transition.Root>
   )
@@ -204,13 +204,13 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
 const Sidebar = () => {
   return (
     <div className="hidden md:flex md:flex-shrink-0">
-      <div className="flex flex-col w-64">
-        <div className="flex flex-col h-0 flex-1">
-          <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+      <div className="flex w-64 flex-col">
+        <div className="flex h-0 flex-1 flex-col">
+          <div className="flex h-16 flex-shrink-0 items-center bg-gray-900 px-4">
             <Logo />
           </div>
-          <div className="flex-1 flex flex-col overflow-y-auto">
-            <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
+          <div className="flex flex-1 flex-col overflow-y-auto">
+            <nav className="flex-1 space-y-1 bg-gray-800 px-2 py-4">
               <SideNavigation />
             </nav>
           </div>
@@ -224,7 +224,7 @@ const Logo = () => {
   return (
     <Link className="flex items-center text-white" to=".">
       <img className="h-8 w-auto" src={logo} alt="Workflow" />
-      <span className="text-xl text-white font-semibold">Kunlun Admin</span>
+      <span className="text-xl font-semibold text-white">Kunlun Admin</span>
     </Link>
   )
 }
@@ -237,28 +237,28 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="h-screen flex overflow-hidden bg-gray-100">
+    <div className="flex h-screen overflow-hidden bg-gray-100">
       <MobileSidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
       <Sidebar />
-      <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <div className="flex w-0 flex-1 flex-col overflow-hidden">
+        <div className="relative z-10 flex h-16 flex-shrink-0 bg-white shadow">
           <button
-            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+            className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 px-4 flex justify-end">
+          <div className="flex flex-1 justify-end px-4">
             <div className="ml-4 flex items-center md:ml-6">
               <UserNavigation />
             </div>
           </div>
         </div>
-        <main className="flex-1 relative overflow-y-auto focus:outline-none">
+        <main className="relative flex-1 overflow-y-auto focus:outline-none">
           {children}
         </main>
       </div>

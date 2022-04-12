@@ -5,7 +5,7 @@ interface Panels5Props {}
 const Panel5: FC<Panels5Props> = () => {
   return (
     <>
-      <div className="overflow-hidden bg-white divide-y divide-gray-200 rounded-lg shadow">
+      <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
         <div className="px-4 py-5 sm:px-6">
           {/* Content goes here */}
           {/* We use less vertical padding on card headers on desktop than on body sections */}

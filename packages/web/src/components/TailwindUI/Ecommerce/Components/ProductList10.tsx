@@ -18,7 +18,7 @@ export const config = {
 export default function ProductList10() {
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="flex items-center justify-between space-x-4">
           <h2 className="text-lg font-medium text-gray-900">
             Customers also viewed
@@ -32,23 +32,23 @@ export default function ProductList10() {
         </div>
         <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
           {products.map(product => (
-            <div key={product.id} className="relative group">
-              <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-100">
+            <div key={product.id} className="group relative">
+              <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg bg-gray-100">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
-                  className="object-center object-cover"
+                  className="object-cover object-center"
                 />
                 <div
-                  className="flex items-end opacity-0 p-4 group-hover:opacity-100"
+                  className="flex items-end p-4 opacity-0 group-hover:opacity-100"
                   aria-hidden="true"
                 >
-                  <div className="w-full bg-white bg-opacity-75 backdrop-filter backdrop-blur py-2 px-4 rounded-md text-sm font-medium text-gray-900 text-center">
+                  <div className="w-full rounded-md bg-white bg-opacity-75 py-2 px-4 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
                     View Product
                   </div>
                 </div>
               </div>
-              <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900 space-x-8">
+              <div className="mt-4 flex items-center justify-between space-x-8 text-base font-medium text-gray-900">
                 <h3>
                   <a href="#">
                     <span aria-hidden="true" className="absolute inset-0" />

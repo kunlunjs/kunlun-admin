@@ -44,7 +44,7 @@ export default function ProductQuickview1() {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto"
         onClose={setOpen}
       >
         <div
@@ -60,12 +60,12 @@ export default function ProductQuickview1() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity md:block" />
+            <Dialog.Overlay className="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span
-            className="hidden md:inline-block md:align-middle md:h-screen"
+            className="hidden md:inline-block md:h-screen md:align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -79,8 +79,8 @@ export default function ProductQuickview1() {
             leaveFrom="opacity-100 translate-y-0 md:scale-100"
             leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
           >
-            <div className="flex text-base text-left transform transition w-full md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-              <div className="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+            <div className="flex w-full transform text-left text-base transition md:my-8 md:inline-block md:max-w-2xl md:px-4 md:align-middle lg:max-w-4xl">
+              <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                 <button
                   type="button"
                   className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
@@ -90,12 +90,12 @@ export default function ProductQuickview1() {
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:items-center lg:gap-x-8">
-                  <div className="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
+                <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:items-center lg:gap-x-8">
+                  <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="object-center object-cover"
+                      className="object-cover object-center"
                     />
                   </div>
                   <div className="sm:col-span-8 lg:col-span-7">
@@ -137,7 +137,7 @@ export default function ProductQuickview1() {
                               />
                             ))}
                           </div>
-                          <div className="hidden ml-4 lg:flex lg:items-center">
+                          <div className="ml-4 hidden lg:flex lg:items-center">
                             <span className="text-gray-300" aria-hidden="true">
                               &middot;
                             </span>
@@ -184,7 +184,7 @@ export default function ProductQuickview1() {
                                         ? 'ring ring-offset-1'
                                         : '',
                                       !active && checked ? 'ring-2' : '',
-                                      '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                                      'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
                                     )
                                   }
                                 >
@@ -195,7 +195,7 @@ export default function ProductQuickview1() {
                                     aria-hidden="true"
                                     className={clsx(
                                       color.bgColor,
-                                      'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                                      'h-8 w-8 rounded-full border border-black border-opacity-10'
                                     )}
                                   />
                                 </RadioGroup.Option>
@@ -235,14 +235,14 @@ export default function ProductQuickview1() {
                                     clsx(
                                       size.inStock
                                         ? 'cursor-pointer focus:outline-none'
-                                        : 'opacity-25 cursor-not-allowed',
+                                        : 'cursor-not-allowed opacity-25',
                                       active
-                                        ? 'ring-2 ring-offset-2 ring-indigo-500'
+                                        ? 'ring-2 ring-indigo-500 ring-offset-2'
                                         : '',
                                       checked
-                                        ? 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'
-                                        : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50',
-                                      'border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1'
+                                        ? 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700'
+                                        : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
+                                      'flex items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1'
                                     )
                                   }
                                   disabled={!size.inStock}
@@ -258,7 +258,7 @@ export default function ProductQuickview1() {
 
                         <button
                           type="submit"
-                          className="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                           Add to bag
                         </button>

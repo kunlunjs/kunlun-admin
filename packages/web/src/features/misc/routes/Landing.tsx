@@ -19,8 +19,8 @@ export const Landing = () => {
   return (
     <>
       <Head description="Welcome to Kunlun Admin" />
-      <div className="bg-white h-[100vh] flex items-center">
-        <div className="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="flex h-[100vh] items-center bg-white">
+        <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span className="block">KunlunAdmin</span>
           </h2>

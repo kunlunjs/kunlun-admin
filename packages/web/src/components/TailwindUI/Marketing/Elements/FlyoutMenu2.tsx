@@ -51,15 +51,15 @@ export const config = {
 
 export default function FlyoutMenu2() {
   return (
-    <Popover className="z-0 relative">
+    <Popover className="relative z-0">
       {({ open }) => (
         <>
           <div className="relative z-10 bg-white shadow">
-            <div className="max-w-7xl mx-auto flex px-4 py-6 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
               <Popover.Button
                 className={clsx(
                   open ? 'text-gray-900' : 'text-gray-500',
-                  'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                 )}
               >
                 <span>Solutions</span>
@@ -83,22 +83,22 @@ export default function FlyoutMenu2() {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 -translate-y-1"
           >
-            <Popover.Panel className="absolute z-10 inset-x-0 transform shadow-lg">
+            <Popover.Panel className="absolute inset-x-0 z-10 transform shadow-lg">
               <div className="bg-white">
-                <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
+                <div className="mx-auto grid max-w-7xl gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                   {solutions.map(item => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
+                      className="-m-3 flex flex-col justify-between rounded-lg p-3 transition duration-150 ease-in-out hover:bg-gray-50"
                     >
                       <div className="flex md:h-full lg:flex-col">
                         <div className="flex-shrink-0">
-                          <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                          <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                             <item.icon className="h-6 w-6" aria-hidden="true" />
                           </div>
                         </div>
-                        <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+                        <div className="ml-4 md:flex md:flex-1 md:flex-col md:justify-between lg:ml-0 lg:mt-4">
                           <div>
                             <p className="text-base font-medium text-gray-900">
                               {item.name}
@@ -117,15 +117,15 @@ export default function FlyoutMenu2() {
                 </div>
               </div>
               <div className="bg-gray-50">
-                <div className="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
                   {callsToAction.map(item => (
                     <div key={item.name} className="flow-root">
                       <a
                         href={item.href}
-                        className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150"
+                        className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-100"
                       >
                         <item.icon
-                          className="flex-shrink-0 h-6 w-6 text-gray-400"
+                          className="h-6 w-6 flex-shrink-0 text-gray-400"
                           aria-hidden="true"
                         />
                         <span className="ml-3">{item.name}</span>

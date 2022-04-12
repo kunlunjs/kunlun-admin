@@ -91,12 +91,12 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
                   onChange={setChooseTeam}
                   className={`${
                     chooseTeam ? 'bg-blue-600' : 'bg-gray-200'
-                  } relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
+                  } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
                 >
                   <span
                     className={`${
                       chooseTeam ? 'translate-x-6' : 'translate-x-1'
-                    } inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
+                    } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
                   />
                 </Switch>
                 <Switch.Label className="ml-4">Join Existing Team</Switch.Label>

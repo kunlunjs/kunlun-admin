@@ -96,11 +96,11 @@ export default function Header4() {
   return (
     <Popover className="relative bg-white">
       <div
-        className="absolute inset-0 shadow z-30 pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-30 shadow"
         aria-hidden="true"
       />
       <div className="relative z-20">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
           <div>
             <a href="#" className="flex">
               <span className="sr-only">Workflow</span>
@@ -111,13 +111,13 @@ export default function Header4() {
               />
             </a>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
-            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <div className="-my-2 -mr-2 md:hidden">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+          <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
             <Popover.Group as="nav" className="flex space-x-10">
               <Popover>
                 {({ open }) => (
@@ -125,7 +125,7 @@ export default function Header4() {
                     <Popover.Button
                       className={clsx(
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                       )}
                     >
                       <span>Solutions</span>
@@ -147,24 +147,24 @@ export default function Header4() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 -translate-y-1"
                     >
-                      <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
-                        <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
+                      <Popover.Panel className="absolute inset-x-0 top-full z-10 hidden transform bg-white shadow-lg md:block">
+                        <div className="mx-auto grid max-w-7xl gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                           {solutions.map(item => (
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50"
+                              className="-m-3 flex flex-col justify-between rounded-lg p-3 hover:bg-gray-50"
                             >
                               <div className="flex md:h-full lg:flex-col">
                                 <div className="flex-shrink-0">
-                                  <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                                     <item.icon
                                       className="h-6 w-6"
                                       aria-hidden="true"
                                     />
                                   </span>
                                 </div>
-                                <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+                                <div className="ml-4 md:flex md:flex-1 md:flex-col md:justify-between lg:ml-0 lg:mt-4">
                                   <div>
                                     <p className="text-base font-medium text-gray-900">
                                       {item.name}
@@ -183,15 +183,15 @@ export default function Header4() {
                           ))}
                         </div>
                         <div className="bg-gray-50">
-                          <div className="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
+                          <div className="mx-auto max-w-7xl space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
                             {callsToAction.map(item => (
                               <div key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
                                 >
                                   <item.icon
-                                    className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                    className="h-6 w-6 flex-shrink-0 text-gray-400"
                                     aria-hidden="true"
                                   />
                                   <span className="ml-3">{item.name}</span>
@@ -223,7 +223,7 @@ export default function Header4() {
                     <Popover.Button
                       className={clsx(
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                       )}
                     >
                       <span>More</span>
@@ -245,15 +245,15 @@ export default function Header4() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 -translate-y-1"
                     >
-                      <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg">
+                      <Popover.Panel className="absolute inset-x-0 top-full z-10 hidden transform shadow-lg md:block">
                         <div className="absolute inset-0 flex">
-                          <div className="bg-white w-1/2" />
-                          <div className="bg-gray-50 w-1/2" />
+                          <div className="w-1/2 bg-white" />
+                          <div className="w-1/2 bg-gray-50" />
                         </div>
-                        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
-                          <nav className="grid gap-y-10 px-4 py-8 bg-white sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
+                        <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+                          <nav className="grid gap-y-10 bg-white px-4 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
                             <div>
-                              <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                              <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                 Company
                               </h3>
                               <ul role="list" className="mt-5 space-y-6">
@@ -261,10 +261,10 @@ export default function Header4() {
                                   <li key={item.name} className="flow-root">
                                     <a
                                       href={item.href}
-                                      className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                                      className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-50"
                                     >
                                       <item.icon
-                                        className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                        className="h-6 w-6 flex-shrink-0 text-gray-400"
                                         aria-hidden="true"
                                       />
                                       <span className="ml-4">{item.name}</span>
@@ -274,7 +274,7 @@ export default function Header4() {
                               </ul>
                             </div>
                             <div>
-                              <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                              <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                 Resources
                               </h3>
                               <ul role="list" className="mt-5 space-y-6">
@@ -282,10 +282,10 @@ export default function Header4() {
                                   <li key={item.name} className="flow-root">
                                     <a
                                       href={item.href}
-                                      className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                                      className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-50"
                                     >
                                       <item.icon
-                                        className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                        className="h-6 w-6 flex-shrink-0 text-gray-400"
                                         aria-hidden="true"
                                       />
                                       <span className="ml-4">{item.name}</span>
@@ -297,7 +297,7 @@ export default function Header4() {
                           </nav>
                           <div className="bg-gray-50 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12">
                             <div>
-                              <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                              <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                 From the blog
                               </h3>
                               <ul role="list" className="mt-6 space-y-6">
@@ -305,17 +305,17 @@ export default function Header4() {
                                   <li key={post.id} className="flow-root">
                                     <a
                                       href={post.href}
-                                      className="-m-3 p-3 flex rounded-lg hover:bg-gray-100"
+                                      className="-m-3 flex rounded-lg p-3 hover:bg-gray-100"
                                     >
-                                      <div className="hidden sm:block flex-shrink-0">
+                                      <div className="hidden flex-shrink-0 sm:block">
                                         <img
-                                          className="w-32 h-20 object-cover rounded-md"
+                                          className="h-20 w-32 rounded-md object-cover"
                                           src={post.imageUrl}
                                           alt=""
                                         />
                                       </div>
                                       <div className="w-0 flex-1 sm:ml-8">
-                                        <h4 className="text-base font-medium text-gray-900 truncate">
+                                        <h4 className="truncate text-base font-medium text-gray-900">
                                           {post.name}
                                         </h4>
                                         <p className="mt-1 text-sm text-gray-500">
@@ -354,7 +354,7 @@ export default function Header4() {
               </a>
               <a
                 href="#"
-                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
               >
                 Sign up
               </a>
@@ -374,10 +374,10 @@ export default function Header4() {
       >
         <Popover.Panel
           focus
-          className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="absolute inset-x-0 top-0 z-30 origin-top-right transform p-2 transition md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-            <div className="pt-5 pb-6 px-5 sm:pb-8">
+          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="px-5 pt-5 pb-6 sm:pb-8">
               <div className="flex items-center justify-between">
                 <div>
                   <img
@@ -387,7 +387,7 @@ export default function Header4() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -400,9 +400,9 @@ export default function Header4() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
+                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
                       >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div className="ml-4 text-base font-medium text-gray-900">
@@ -470,7 +470,7 @@ export default function Header4() {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
                   Sign up
                 </a>

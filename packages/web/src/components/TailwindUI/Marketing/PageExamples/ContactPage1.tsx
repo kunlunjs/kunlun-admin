@@ -65,11 +65,11 @@ export default function ContactPage1() {
       <Popover as="header" className="relative">
         <div className="bg-warm-gray-50">
           <nav
-            className="relative max-w-7xl mx-auto flex items-center justify-between pt-6 px-6 xl:px-8"
+            className="relative mx-auto flex max-w-7xl items-center justify-between px-6 pt-6 xl:px-8"
             aria-label="Global"
           >
-            <div className="flex items-center flex-1">
-              <div className="flex items-center justify-between w-full lg:w-auto">
+            <div className="flex flex-1 items-center">
+              <div className="flex w-full items-center justify-between lg:w-auto">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
                   <img
@@ -79,13 +79,13 @@ export default function ContactPage1() {
                   />
                 </a>
                 <div className="-mr-2 flex items-center lg:hidden">
-                  <Popover.Button className="bg-warm-gray-50 rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-teal-500">
+                  <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md bg-warm-gray-50 p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500">
                     <span className="sr-only">Open main menu</span>
                     <MenuIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>
-              <div className="hidden space-x-10 lg:flex lg:ml-10">
+              <div className="hidden space-x-10 lg:ml-10 lg:flex">
                 {navigation.map(item => (
                   <a
                     key={item.name}
@@ -100,7 +100,7 @@ export default function ContactPage1() {
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
               <a
                 href="#"
-                className="py-2 px-6 bg-warm-gray-100 border border-transparent rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200"
+                className="rounded-md border border-transparent bg-warm-gray-100 py-2 px-6 text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200"
               >
                 Login
               </a>
@@ -119,10 +119,10 @@ export default function ContactPage1() {
         >
           <Popover.Panel
             focus
-            className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top lg:hidden"
+            className="absolute inset-x-0 top-0 z-30 origin-top transform p-2 transition lg:hidden"
           >
-            <div className="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-              <div className="px-5 pt-4 flex items-center justify-between">
+            <div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="flex items-center justify-between px-5 pt-4">
                 <div>
                   <img
                     className="h-8 w-auto"
@@ -131,19 +131,19 @@ export default function ContactPage1() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>
               <div className="pt-5 pb-6">
-                <div className="px-2 space-y-1">
+                <div className="space-y-1 px-2">
                   {navigation.map(item => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50"
+                      className="block rounded-md px-3 py-2 text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50"
                     >
                       {item.name}
                     </a>
@@ -152,7 +152,7 @@ export default function ContactPage1() {
                 <div className="mt-6 px-5">
                   <a
                     href="#"
-                    className="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600"
+                    className="block w-full rounded-md border border-transparent bg-teal-500 py-2 px-4 text-center font-medium text-white shadow hover:bg-teal-600"
                   >
                     Login
                   </a>
@@ -167,11 +167,11 @@ export default function ContactPage1() {
         {/* Header */}
         <div className="bg-warm-gray-50">
           <div className="py-24 lg:py-32">
-            <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto max-w-7xl pl-4 pr-8 sm:px-6 lg:px-8">
               <h1 className="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">
                 Get in touch
               </h1>
-              <p className="mt-6 text-xl text-warm-gray-500 max-w-3xl">
+              <p className="mt-6 max-w-3xl text-xl text-warm-gray-500">
                 Vel nunc non ut montes, viverra tempor. Proin lectus nibh
                 phasellus morbi non morbi. In elementum urna ut volutpat.
                 Sagittis et vel et fermentum amet consequat.
@@ -186,13 +186,13 @@ export default function ContactPage1() {
           aria-labelledby="contact-heading"
         >
           <div
-            className="absolute w-full h-1/2 bg-warm-gray-50"
+            className="absolute h-1/2 w-full bg-warm-gray-50"
             aria-hidden="true"
           />
           {/* Decorative dot pattern */}
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <svg
-              className="absolute z-0 top-0 right-0 transform -translate-y-16 translate-x-1/2 sm:translate-x-1/4 md:-translate-y-24 lg:-translate-y-72"
+              className="absolute top-0 right-0 z-0 -translate-y-16 translate-x-1/2 transform sm:translate-x-1/4 md:-translate-y-24 lg:-translate-y-72"
               width={404}
               height={384}
               fill="none"
@@ -225,7 +225,7 @@ export default function ContactPage1() {
               />
             </svg>
           </div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative bg-white shadow-xl">
               <h2 id="contact-heading" className="sr-only">
                 Contact us
@@ -233,14 +233,14 @@ export default function ContactPage1() {
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 {/* Contact information */}
-                <div className="relative overflow-hidden py-10 px-6 bg-gradient-to-b from-teal-500 to-teal-600 sm:px-10 xl:p-12">
+                <div className="relative overflow-hidden bg-gradient-to-b from-teal-500 to-teal-600 py-10 px-6 sm:px-10 xl:p-12">
                   {/* Decorative angle backgrounds */}
                   <div
-                    className="absolute inset-0 pointer-events-none sm:hidden"
+                    className="pointer-events-none absolute inset-0 sm:hidden"
                     aria-hidden="true"
                   >
                     <svg
-                      className="absolute inset-0 w-full h-full"
+                      className="absolute inset-0 h-full w-full"
                       width={343}
                       height={388}
                       viewBox="0 0 343 388"
@@ -269,11 +269,11 @@ export default function ContactPage1() {
                     </svg>
                   </div>
                   <div
-                    className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
+                    className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 sm:block lg:hidden"
                     aria-hidden="true"
                   >
                     <svg
-                      className="absolute inset-0 w-full h-full"
+                      className="absolute inset-0 h-full w-full"
                       width={359}
                       height={339}
                       viewBox="0 0 359 339"
@@ -302,11 +302,11 @@ export default function ContactPage1() {
                     </svg>
                   </div>
                   <div
-                    className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
+                    className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 lg:block"
                     aria-hidden="true"
                   >
                     <svg
-                      className="absolute inset-0 w-full h-full"
+                      className="absolute inset-0 h-full w-full"
                       width={160}
                       height={678}
                       viewBox="0 0 160 678"
@@ -337,7 +337,7 @@ export default function ContactPage1() {
                   <h3 className="text-lg font-medium text-white">
                     Contact information
                   </h3>
-                  <p className="mt-6 text-base text-teal-50 max-w-3xl">
+                  <p className="mt-6 max-w-3xl text-base text-teal-50">
                     Nullam risus blandit ac aliquam justo ipsum. Quam mauris
                     volutpat massa dictumst amet. Sapien tortor lacus arcu.
                   </p>
@@ -347,7 +347,7 @@ export default function ContactPage1() {
                     </dt>
                     <dd className="flex text-base text-teal-50">
                       <PhoneIcon
-                        className="flex-shrink-0 w-6 h-6 text-teal-200"
+                        className="h-6 w-6 flex-shrink-0 text-teal-200"
                         aria-hidden="true"
                       />
                       <span className="ml-3">+1 (555) 123-4567</span>
@@ -357,7 +357,7 @@ export default function ContactPage1() {
                     </dt>
                     <dd className="flex text-base text-teal-50">
                       <MailIcon
-                        className="flex-shrink-0 w-6 h-6 text-teal-200"
+                        className="h-6 w-6 flex-shrink-0 text-teal-200"
                         aria-hidden="true"
                       />
                       <span className="ml-3">support@workcation.com</span>
@@ -368,7 +368,7 @@ export default function ContactPage1() {
                       <a className="text-teal-200 hover:text-teal-100" href="#">
                         <span className="sr-only">Facebook</span>
                         <svg
-                          className="w-7 h-7"
+                          className="h-7 w-7"
                           aria-hidden="true"
                           fill="currentColor"
                           viewBox="0 0 24 24"
@@ -385,7 +385,7 @@ export default function ContactPage1() {
                       <a className="text-teal-200 hover:text-teal-100" href="#">
                         <span className="sr-only">GitHub</span>
                         <svg
-                          className="w-7 h-7"
+                          className="h-7 w-7"
                           aria-hidden="true"
                           fill="currentColor"
                           viewBox="0 0 24 24"
@@ -402,7 +402,7 @@ export default function ContactPage1() {
                       <a className="text-teal-200 hover:text-teal-100" href="#">
                         <span className="sr-only">Twitter</span>
                         <svg
-                          className="w-7 h-7"
+                          className="h-7 w-7"
                           aria-hidden="true"
                           fill="currentColor"
                           viewBox="0 0 24 24"
@@ -437,7 +437,7 @@ export default function ContactPage1() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                         />
                       </div>
                     </div>
@@ -454,7 +454,7 @@ export default function ContactPage1() {
                           name="last-name"
                           id="last-name"
                           autoComplete="family-name"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                         />
                       </div>
                     </div>
@@ -471,7 +471,7 @@ export default function ContactPage1() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                         />
                       </div>
                     </div>
@@ -496,7 +496,7 @@ export default function ContactPage1() {
                           name="phone"
                           id="phone"
                           autoComplete="tel"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                           aria-describedby="phone-optional"
                         />
                       </div>
@@ -513,7 +513,7 @@ export default function ContactPage1() {
                           type="text"
                           name="subject"
                           id="subject"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                         />
                       </div>
                     </div>
@@ -537,7 +537,7 @@ export default function ContactPage1() {
                           id="message"
                           name="message"
                           rows={4}
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
+                          className="block w-full rounded-md border border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                           aria-describedby="message-max"
                           defaultValue={''}
                         />
@@ -546,7 +546,7 @@ export default function ContactPage1() {
                     <div className="sm:col-span-2 sm:flex sm:justify-end">
                       <button
                         type="submit"
-                        className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
+                        className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-teal-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:w-auto"
                       >
                         Submit
                       </button>
@@ -560,14 +560,14 @@ export default function ContactPage1() {
 
         {/* Contact grid */}
         <section aria-labelledby="offices-heading">
-          <div className="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
             <h2
               id="offices-heading"
               className="text-3xl font-extrabold text-warm-gray-900"
             >
               Our offices
             </h2>
-            <p className="mt-6 text-lg text-warm-gray-500 max-w-3xl">
+            <p className="mt-6 max-w-3xl text-lg text-warm-gray-500">
               Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
               id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
               fames.
@@ -596,7 +596,7 @@ export default function ContactPage1() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8 xl:col-span-1">
               <img
@@ -604,7 +604,7 @@ export default function ContactPage1() {
                 src="https://tailwindui.com/img/logos/workflow-mark.svg?color=warmGray&shade=400"
                 alt="Company name"
               />
-              <p className="text-warm-gray-400 text-base">
+              <p className="text-base text-warm-gray-400">
                 Making the world a better place through constructing elegant
                 hierarchies.
               </p>
@@ -621,10 +621,10 @@ export default function ContactPage1() {
                 ))}
               </div>
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+            <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-warm-gray-200">
                     Solutions
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -641,7 +641,7 @@ export default function ContactPage1() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-warm-gray-200">
                     Support
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -660,7 +660,7 @@ export default function ContactPage1() {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-warm-gray-200">
                     Company
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -677,7 +677,7 @@ export default function ContactPage1() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-warm-gray-200">
                     Legal
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">

@@ -9,12 +9,12 @@ const Dividers7: FC<Dividers7Props> = () => {
         <div className="w-full border-t border-gray-300" />
       </div>
       <div className="relative flex items-center justify-between">
-        <span className="pr-3 text-lg font-medium text-gray-900 bg-white">
+        <span className="bg-white pr-3 text-lg font-medium text-gray-900">
           Projects
         </span>
         <button
           type="button"
-          className="inline-flex items-center shadow-sm px-4 py-1.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-1.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <PlusSmIcon
             className="-ml-1.5 mr-1 h-5 w-5 text-gray-400"

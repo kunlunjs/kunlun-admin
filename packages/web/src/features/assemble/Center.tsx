@@ -6,12 +6,12 @@ import type { DropTargetMonitor } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 // import GridLayout from 'react-grid-layout'
 import { componentsMap } from '@/components/components-map'
+import { Developing } from '@/components/Developing'
 import { useConfigStore, useDroppedStore } from '@/stores'
 import type { DragItem } from '@/types'
-import { Developing } from '@/utils'
+import { selectBackgroundColor } from '@/utils'
 import { DropHeader } from './components'
 import { DragItemTypes } from './config'
-import { selectBackgroundColor } from './helpers'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 
@@ -72,7 +72,7 @@ export const Center: FC<CenterProps> = ({ moveIndex, onDrop }) => {
   //   h: 2
   // }))
   return (
-    <div className="w-3/5 h-full border border-solid border-gray-200">
+    <div className="h-full w-3/5 border border-solid border-gray-200">
       <DropHeader grided={grided} onGridChange={handleGridChange} />
       <div
         ref={drop}

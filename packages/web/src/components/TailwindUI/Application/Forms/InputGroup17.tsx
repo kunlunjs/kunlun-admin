@@ -9,7 +9,7 @@ interface InputGroup17Props {}
 const InputGroup17: FC<InputGroup17Props> = () => {
   return (
     <div className="isolate -space-y-px rounded-md shadow-sm">
-      <div className="relative border border-gray-300 rounded-md rounded-b-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+      <div className="relative rounded-md rounded-b-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
         <label
           htmlFor="name"
           className="block text-xs font-medium text-gray-900"
@@ -24,7 +24,7 @@ const InputGroup17: FC<InputGroup17Props> = () => {
           placeholder="Jane Doe"
         />
       </div>
-      <div className="relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+      <div className="relative rounded-md rounded-t-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
         <label
           htmlFor="job-title"
           className="block text-xs font-medium text-gray-900"

@@ -46,7 +46,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
         collapsed={collapsed}
         onCollapse={handleCollapse}
       >
-        <div className="logo flex justify-center items-center mb-8 p-2">
+        <div className="logo mb-8 flex items-center justify-center p-2">
           <img src={logo} alt="昆仑" className="w-full" />
         </div>
         <Menu
@@ -86,7 +86,7 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background p-0 h-12">
+        <Header className="site-layout-background h-12 p-0">
           {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className:
               'px-8 text-lg leading-[64px] cursor-pointer transition transition-colors',
@@ -100,12 +100,12 @@ export const BasicLayout: FC<BasicLayoutProps> = ({ children }) => {
               <Breadcrumb.Item>{selectMenus[0]}</Breadcrumb.Item>
             )}
           </Breadcrumb>
-          <div className="site-layout-background p-6 min-h-full">
+          <div className="site-layout-background min-h-full p-6">
             {/* <Outlet /> */}
             {children}
           </div>
         </Content>
-        <Footer className="text-center p-2">
+        <Footer className="p-2 text-center">
           Kunlun Admin ©2022 Created by Turing FE
         </Footer>
       </Layout>

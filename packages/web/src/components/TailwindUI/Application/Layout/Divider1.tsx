@@ -8,7 +8,7 @@ const Dividers1: FC<Dividers1Props> = () => {
         <div className="w-full border-t border-gray-300" />
       </div>
       <div className="relative flex justify-center">
-        <span className="px-2 text-sm text-gray-500 bg-white">Continue</span>
+        <span className="bg-white px-2 text-sm text-gray-500">Continue</span>
       </div>
     </div>
   )

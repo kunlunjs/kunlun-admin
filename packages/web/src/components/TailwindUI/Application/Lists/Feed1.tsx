@@ -77,7 +77,7 @@ export default function Example() {
                   <span
                     className={clsx(
                       event.iconBackground,
-                      'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
+                      'flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white'
                     )}
                   >
                     <event.icon
@@ -86,7 +86,7 @@ export default function Example() {
                     />
                   </span>
                 </div>
-                <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
                     <p className="text-sm text-gray-500">
                       {event.content}{' '}
@@ -98,7 +98,7 @@ export default function Example() {
                       </a>
                     </p>
                   </div>
-                  <div className="text-right text-sm whitespace-nowrap text-gray-500">
+                  <div className="whitespace-nowrap text-right text-sm text-gray-500">
                     <time dateTime={event.datetime}>{event.date}</time>
                   </div>
                 </div>

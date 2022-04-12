@@ -337,7 +337,7 @@ export default function CategoryPage4() {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child
@@ -361,11 +361,11 @@ export default function CategoryPage4() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -376,16 +376,16 @@ export default function CategoryPage4() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -398,21 +398,21 @@ export default function CategoryPage4() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="pt-10 pb-8 px-4 space-y-10"
+                      className="space-y-10 px-4 pt-10 pb-8"
                     >
                       <div className="space-y-4">
                         {category.featured.map((item, itemIdx) => (
                           <div
                             key={itemIdx}
-                            className="group relative aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden"
+                            className="group aspect-w-1 aspect-h-1 relative overflow-hidden rounded-md bg-gray-100"
                           >
                             <img
                               src={item.imageSrc}
                               alt={item.imageAlt}
-                              className="object-center object-cover group-hover:opacity-75"
+                              className="object-cover object-center group-hover:opacity-75"
                             />
                             <div className="flex flex-col justify-end">
-                              <div className="p-4 bg-white bg-opacity-60 text-base sm:text-sm">
+                              <div className="bg-white bg-opacity-60 p-4 text-base sm:text-sm">
                                 <a
                                   href={item.href}
                                   className="font-medium text-gray-900"
@@ -453,7 +453,7 @@ export default function CategoryPage4() {
                                   <li key={item.name} className="flow-root">
                                     <a
                                       href={item.href}
-                                      className="-m-2 p-2 block text-gray-500"
+                                      className="-m-2 block p-2 text-gray-500"
                                     >
                                       {item.name}
                                     </a>
@@ -469,12 +469,12 @@ export default function CategoryPage4() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -483,11 +483,11 @@ export default function CategoryPage4() {
               </div>
 
               <div className="border-t border-gray-200 py-6 px-4">
-                <a href="#" className="-m-2 p-2 flex items-center">
+                <a href="#" className="-m-2 flex items-center p-2">
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-base font-medium text-gray-900">
                     CAD
@@ -503,14 +503,14 @@ export default function CategoryPage4() {
       <header className="relative bg-white">
         <nav
           aria-label="Top"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="h-16 flex items-center justify-between">
-              <div className="flex-1 flex items-center lg:hidden">
+            <div className="flex h-16 items-center justify-between">
+              <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                  className="-ml-2 rounded-md bg-white p-2 text-gray-400"
                   onClick={() => setOpen(true)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -522,13 +522,13 @@ export default function CategoryPage4() {
                   className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:flex-1 lg:block lg:self-stretch">
-                <div className="h-full flex space-x-8">
+              <Popover.Group className="hidden lg:block lg:flex-1 lg:self-stretch">
+                <div className="flex h-full space-x-8">
                   {navigation.categories.map(category => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
@@ -539,14 +539,14 @@ export default function CategoryPage4() {
                                 open
                                   ? 'text-indigo-600'
                                   : 'text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium'
+                                'relative z-10 flex items-center justify-center text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
                               <span
                                 className={clsx(
                                   open ? 'bg-indigo-600' : '',
-                                  'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
+                                  'absolute inset-x-0 bottom-0 h-0.5 transition-colors duration-200 ease-out sm:mt-5 sm:translate-y-px sm:transform'
                                 )}
                                 aria-hidden="true"
                               />
@@ -562,7 +562,7 @@ export default function CategoryPage4() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute z-20 top-full inset-x-0">
+                            <Popover.Panel className="absolute inset-x-0 top-full z-20">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -570,27 +570,27 @@ export default function CategoryPage4() {
                               />
 
                               <div className="relative bg-white">
-                                <div className="max-w-7xl mx-auto px-8">
+                                <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
-                                    <div className="grid grid-rows-1 grid-cols-2 gap-8 text-sm">
+                                    <div className="grid grid-cols-2 grid-rows-1 gap-8 text-sm">
                                       {category.featured.map(
                                         (item, itemIdx) => (
                                           <div
                                             key={item.name}
                                             className={clsx(
                                               itemIdx === 0
-                                                ? 'col-span-2 aspect-w-2'
+                                                ? 'aspect-w-2 col-span-2'
                                                 : '',
-                                              'group relative aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden'
+                                              'group aspect-w-1 aspect-h-1 relative overflow-hidden rounded-md bg-gray-100'
                                             )}
                                           >
                                             <img
                                               src={item.imageSrc}
                                               alt={item.imageAlt}
-                                              className="object-center object-cover group-hover:opacity-75"
+                                              className="object-cover object-center group-hover:opacity-75"
                                             />
                                             <div className="flex flex-col justify-end">
-                                              <div className="p-4 bg-white bg-opacity-60 text-sm">
+                                              <div className="bg-white bg-opacity-60 p-4 text-sm">
                                                 <a
                                                   href={item.href}
                                                   className="font-medium text-gray-900"
@@ -685,7 +685,7 @@ export default function CategoryPage4() {
                 />
               </a>
 
-              <div className="flex-1 flex items-center justify-end">
+              <div className="flex flex-1 items-center justify-end">
                 <a
                   href="#"
                   className="hidden text-gray-700 hover:text-gray-800 lg:flex lg:items-center"
@@ -693,7 +693,7 @@ export default function CategoryPage4() {
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="w-5 h-auto block flex-shrink-0"
+                    className="block h-auto w-5 flex-shrink-0"
                   />
                   <span className="ml-3 block text-sm font-medium">CAD</span>
                   <span className="sr-only">, change currency</span>
@@ -702,10 +702,10 @@ export default function CategoryPage4() {
                 {/* Search */}
                 <a
                   href="#"
-                  className="hidden ml-6 p-2 text-gray-400 hover:text-gray-500 lg:block"
+                  className="ml-6 hidden p-2 text-gray-400 hover:text-gray-500 lg:block"
                 >
                   <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
 
                 {/* Account */}
@@ -714,14 +714,14 @@ export default function CategoryPage4() {
                   className="p-2 text-gray-400 hover:text-gray-500 lg:ml-4"
                 >
                   <span className="sr-only">Account</span>
-                  <UserIcon className="w-6 h-6" aria-hidden="true" />
+                  <UserIcon className="h-6 w-6" aria-hidden="true" />
                 </a>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
@@ -737,11 +737,11 @@ export default function CategoryPage4() {
       </header>
 
       <main className="pb-24">
-        <div className="text-center py-16 px-4 sm:px-6 lg:px-8">
+        <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
             Workspace
           </h1>
-          <p className="mt-4 max-w-xl mx-auto text-base text-gray-500">
+          <p className="mx-auto mt-4 max-w-xl text-base text-gray-500">
             The secret to a tidy desk? Don't get rid of anything, just put it in
             really really nice looking containers.
           </p>
@@ -751,17 +751,17 @@ export default function CategoryPage4() {
         <Disclosure
           as="section"
           aria-labelledby="filter-heading"
-          className="relative z-10 border-t border-b border-gray-200 grid items-center"
+          className="relative z-10 grid items-center border-t border-b border-gray-200"
         >
           <h2 id="filter-heading" className="sr-only">
             Filters
           </h2>
           <div className="relative col-start-1 row-start-1 py-4">
-            <div className="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-7xl space-x-6 divide-x divide-gray-200 px-4 text-sm sm:px-6 lg:px-8">
               <div>
-                <Disclosure.Button className="group text-gray-700 font-medium flex items-center">
+                <Disclosure.Button className="group flex items-center font-medium text-gray-700">
                   <FilterIcon
-                    className="flex-none w-5 h-5 mr-2 text-gray-400 group-hover:text-gray-500"
+                    className="mr-2 h-5 w-5 flex-none text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                   2 Filters
@@ -775,11 +775,11 @@ export default function CategoryPage4() {
             </div>
           </div>
           <Disclosure.Panel className="border-t border-gray-200 py-10">
-            <div className="max-w-7xl mx-auto grid grid-cols-2 gap-x-4 px-4 text-sm sm:px-6 md:gap-x-6 lg:px-8">
-              <div className="grid grid-cols-1 gap-y-10 auto-rows-min md:grid-cols-2 md:gap-x-6">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 px-4 text-sm sm:px-6 md:gap-x-6 lg:px-8">
+              <div className="grid auto-rows-min grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-6">
                 <fieldset>
                   <legend className="block font-medium">Price</legend>
-                  <div className="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
+                  <div className="space-y-6 pt-6 sm:space-y-4 sm:pt-4">
                     {filters.price.map((option, optionIdx) => (
                       <div
                         key={option.value}
@@ -790,7 +790,7 @@ export default function CategoryPage4() {
                           name="price[]"
                           defaultValue={option.value}
                           type="checkbox"
-                          className="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           defaultChecked={option.checked}
                         />
                         <label
@@ -805,7 +805,7 @@ export default function CategoryPage4() {
                 </fieldset>
                 <fieldset>
                   <legend className="block font-medium">Color</legend>
-                  <div className="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
+                  <div className="space-y-6 pt-6 sm:space-y-4 sm:pt-4">
                     {filters.color.map((option, optionIdx) => (
                       <div
                         key={option.value}
@@ -816,7 +816,7 @@ export default function CategoryPage4() {
                           name="color[]"
                           defaultValue={option.value}
                           type="checkbox"
-                          className="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           defaultChecked={option.checked}
                         />
                         <label
@@ -830,10 +830,10 @@ export default function CategoryPage4() {
                   </div>
                 </fieldset>
               </div>
-              <div className="grid grid-cols-1 gap-y-10 auto-rows-min md:grid-cols-2 md:gap-x-6">
+              <div className="grid auto-rows-min grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-6">
                 <fieldset>
                   <legend className="block font-medium">Size</legend>
-                  <div className="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
+                  <div className="space-y-6 pt-6 sm:space-y-4 sm:pt-4">
                     {filters.size.map((option, optionIdx) => (
                       <div
                         key={option.value}
@@ -844,7 +844,7 @@ export default function CategoryPage4() {
                           name="size[]"
                           defaultValue={option.value}
                           type="checkbox"
-                          className="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           defaultChecked={option.checked}
                         />
                         <label
@@ -859,7 +859,7 @@ export default function CategoryPage4() {
                 </fieldset>
                 <fieldset>
                   <legend className="block font-medium">Category</legend>
-                  <div className="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
+                  <div className="space-y-6 pt-6 sm:space-y-4 sm:pt-4">
                     {filters.category.map((option, optionIdx) => (
                       <div
                         key={option.value}
@@ -870,7 +870,7 @@ export default function CategoryPage4() {
                           name="category[]"
                           defaultValue={option.value}
                           type="checkbox"
-                          className="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           defaultChecked={option.checked}
                         />
                         <label
@@ -887,13 +887,13 @@ export default function CategoryPage4() {
             </div>
           </Disclosure.Panel>
           <div className="col-start-1 row-start-1 py-4">
-            <div className="flex justify-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-7xl justify-end px-4 sm:px-6 lg:px-8">
               <Menu as="div" className="relative inline-block">
                 <div className="flex">
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
                     <ChevronDownIcon
-                      className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                   </Menu.Button>
@@ -908,7 +908,7 @@ export default function CategoryPage4() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                       {sortOptions.map(option => (
                         <Menu.Item key={option.name}>
@@ -939,23 +939,23 @@ export default function CategoryPage4() {
         {/* Product grid */}
         <section
           aria-labelledby="products-heading"
-          className="max-w-7xl mx-auto overflow-hidden sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8"
         >
           <h2 id="products-heading" className="sr-only">
             Products
           </h2>
 
-          <div className="-mx-px border-l border-gray-200 grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
+          <div className="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
             {products.map(product => (
               <div
                 key={product.id}
-                className="group relative p-4 border-r border-b border-gray-200 sm:p-6"
+                className="group relative border-r border-b border-gray-200 p-4 sm:p-6"
               >
-                <div className="rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="w-full h-full object-center object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <div className="pt-10 pb-4 text-center">
@@ -975,7 +975,7 @@ export default function CategoryPage4() {
                             product.rating > rating
                               ? 'text-yellow-400'
                               : 'text-gray-200',
-                            'flex-shrink-0 h-5 w-5'
+                            'h-5 w-5 flex-shrink-0'
                           )}
                           aria-hidden="true"
                         />
@@ -997,12 +997,12 @@ export default function CategoryPage4() {
         {/* Pagination */}
         <nav
           aria-label="Pagination"
-          className="max-w-7xl mx-auto px-4 mt-6 flex justify-between text-sm font-medium text-gray-700 sm:px-6 lg:px-8"
+          className="mx-auto mt-6 flex max-w-7xl justify-between px-4 text-sm font-medium text-gray-700 sm:px-6 lg:px-8"
         >
           <div className="min-w-0 flex-1">
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               Previous
             </a>
@@ -1011,48 +1011,48 @@ export default function CategoryPage4() {
             {/* Current: "border-indigo-600 ring-1 ring-indigo-600", Default: "border-gray-300" */}
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               1
             </a>
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               2
             </a>
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-indigo-600 ring-1 ring-indigo-600 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-indigo-600 bg-white px-4 ring-1 ring-indigo-600 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               3
             </a>
-            <span className="inline-flex items-center text-gray-500 px-1.5 h-10">
+            <span className="inline-flex h-10 items-center px-1.5 text-gray-500">
               ...
             </span>
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               8
             </a>
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               9
             </a>
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               10
             </a>
           </div>
-          <div className="min-w-0 flex-1 flex justify-end">
+          <div className="flex min-w-0 flex-1 justify-end">
             <a
               href="#"
-              className="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"
+              className="inline-flex h-10 items-center rounded-md border border-gray-300 bg-white px-4 hover:bg-gray-100 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-indigo-600"
             >
               Next
             </a>
@@ -1064,8 +1064,8 @@ export default function CategoryPage4() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-gray-200 py-20 grid grid-cols-2 gap-8 sm:gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 border-t border-gray-200 py-20 sm:grid-cols-2 sm:gap-y-0 lg:grid-cols-4">
             <div className="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Account</h3>
@@ -1137,7 +1137,7 @@ export default function CategoryPage4() {
               <p>Shipping to Canada ($CAD)</p>
               <p className="ml-3 border-l border-gray-200 pl-3">English</p>
             </div>
-            <p className="mt-6 text-sm text-gray-500 text-center sm:mt-0">
+            <p className="mt-6 text-center text-sm text-gray-500 sm:mt-0">
               &copy; 2021 Clothing Company, Ltd.
             </p>
           </div>

@@ -166,7 +166,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
     <div className="bg-white">
       <header>
         <Popover className="relative bg-white">
-          <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
                 <span className="sr-only">Workflow</span>
@@ -177,20 +177,20 @@ const LandingPage1: FC<LandingPageProps> = () => {
                 />
               </a>
             </div>
-            <div className="-mr-2 -my-2 md:hidden">
-              <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <div className="-my-2 -mr-2 md:hidden">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
             </div>
-            <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            <Popover.Group as="nav" className="hidden space-x-10 md:flex">
               <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
                       className={clsx(
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                       )}
                     >
                       <span>Solutions</span>
@@ -212,16 +212,16 @@ const LandingPage1: FC<LandingPageProps> = () => {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform lg:left-1/2 lg:ml-0 lg:max-w-2xl lg:-translate-x-1/2">
+                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                             {solutions.map(item => (
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                               >
-                                <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white sm:h-12 sm:w-12">
+                                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white sm:h-12 sm:w-12">
                                   <item.icon
                                     className="h-6 w-6"
                                     aria-hidden="true"
@@ -264,7 +264,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                 Company
               </a>
             </Popover.Group>
-            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
               <a
                 href="#"
                 className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -273,7 +273,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
               </a>
               <a
                 href="#"
-                className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700"
+                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
               >
                 Sign up
               </a>
@@ -291,10 +291,10 @@ const LandingPage1: FC<LandingPageProps> = () => {
           >
             <Popover.Panel
               focus
-              className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="absolute inset-x-0 top-0 z-30 origin-top-right transform p-2 transition md:hidden"
             >
-              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                <div className="pt-5 pb-6 px-5">
+              <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="px-5 pt-5 pb-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <img
@@ -304,7 +304,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                       />
                     </div>
                     <div className="-mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span className="sr-only">Close menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -316,9 +316,9 @@ const LandingPage1: FC<LandingPageProps> = () => {
                         <a
                           key={item.name}
                           href={item.href}
-                          className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
+                          className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
                         >
-                          <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+                          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
                             <item.icon className="h-6 w-6" aria-hidden="true" />
                           </div>
                           <div className="ml-4 text-base font-medium text-gray-900">
@@ -353,7 +353,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                   <div className="mt-6">
                     <a
                       href="#"
-                      className="w-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                     >
                       Sign up
                     </a>
@@ -375,8 +375,8 @@ const LandingPage1: FC<LandingPageProps> = () => {
         {/* Hero section */}
         <div className="relative">
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
-          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
               <div className="absolute inset-0">
                 <img
                   className="h-full w-full object-cover"
@@ -392,22 +392,22 @@ const LandingPage1: FC<LandingPageProps> = () => {
                     customer support
                   </span>
                 </h1>
-                <p className="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">
+                <p className="mx-auto mt-6 max-w-lg text-center text-xl text-indigo-200 sm:max-w-3xl">
                   Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
                   qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
                   occaecat fugiat aliqua.
                 </p>
-                <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                  <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
+                  <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
                     <a
                       href="#"
-                      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-indigo-700 shadow-sm hover:bg-indigo-50 sm:px-8"
                     >
                       Get started
                     </a>
                     <a
                       href="#"
-                      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-indigo-500 bg-opacity-60 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-opacity-70 sm:px-8"
                     >
                       Live demo
                     </a>
@@ -420,8 +420,8 @@ const LandingPage1: FC<LandingPageProps> = () => {
 
         {/* Logo Cloud */}
         <div className="bg-gray-100">
-          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
+          <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-sm font-semibold uppercase tracking-wide text-gray-500">
               Trusted by over 5 very average small businesses
             </p>
             <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
@@ -465,17 +465,17 @@ const LandingPage1: FC<LandingPageProps> = () => {
         </div>
 
         {/* Alternating Feature Sections */}
-        <div className="relative pt-16 pb-32 overflow-hidden">
+        <div className="relative overflow-hidden pt-16 pb-32">
           <div
             aria-hidden="true"
             className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"
           />
           <div className="relative">
-            <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-              <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+              <div className="mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
                 <div>
                   <div>
-                    <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
                       <InboxIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
@@ -496,7 +496,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                     <div className="mt-6">
                       <a
                         href="#"
-                        className="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
+                        className="inline-flex rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                       >
                         Get started
                       </a>
@@ -530,7 +530,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                 </div>
               </div>
               <div className="mt-12 sm:mt-16 lg:mt-0">
-                <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+                <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                   <img
                     // lg:max-w-none lg:h-full
                     className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:w-auto"
@@ -542,11 +542,11 @@ const LandingPage1: FC<LandingPageProps> = () => {
             </div>
           </div>
           <div className="mt-24">
-            <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-              <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
+            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+              <div className="mx-auto max-w-xl px-4 sm:px-6 lg:col-start-2 lg:mx-0 lg:max-w-none lg:py-32 lg:px-0">
                 <div>
                   <div>
-                    <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
                       <SparklesIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
@@ -567,7 +567,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                     <div className="mt-6">
                       <a
                         href="#"
-                        className="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
+                        className="inline-flex rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                       >
                         Get started
                       </a>
@@ -575,8 +575,8 @@ const LandingPage1: FC<LandingPageProps> = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
-                <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+              <div className="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
+                <div className="-ml-48 pr-4 sm:pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                   <img
                     // lg:h-full  lg:max-w-none
                     className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:w-auto"
@@ -591,8 +591,8 @@ const LandingPage1: FC<LandingPageProps> = () => {
 
         {/* Gradient Feature Section */}
         <div className="bg-gradient-to-r from-purple-800 to-indigo-700">
-          <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:px-8 lg:pt-24">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white">
               Inbox support built for efficiency
             </h2>
             <p className="mt-4 max-w-3xl text-lg text-purple-200">
@@ -604,7 +604,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
               {features.map(feature => (
                 <div key={feature.name}>
                   <div>
-                    <span className="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-md bg-white bg-opacity-10">
                       <feature.icon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
@@ -627,7 +627,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
 
         {/* Stats section */}
         <div className="relative bg-gray-900">
-          <div className="h-80 absolute inset-x-0 bottom-0 xl:top-0 xl:h-full">
+          <div className="absolute inset-x-0 bottom-0 h-80 xl:top-0 xl:h-full">
             <div className="h-full w-full xl:grid xl:grid-cols-2">
               <div className="h-full xl:relative xl:col-start-2">
                 <img
@@ -642,9 +642,9 @@ const LandingPage1: FC<LandingPageProps> = () => {
               </div>
             </div>
           </div>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-flow-col-dense xl:grid-cols-2 xl:gap-x-8">
             <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
-              <h2 className="text-sm font-semibold tracking-wide uppercase">
+              <h2 className="text-sm font-semibold uppercase tracking-wide">
                 <span className="bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent">
                   Valuable Metrics
                 </span>
@@ -680,23 +680,23 @@ const LandingPage1: FC<LandingPageProps> = () => {
 
         {/* CTA Section */}
         <div className="bg-white">
-          <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <div className="mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8">
             <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               <span className="block">Ready to get started?</span>
-              <span className="-mb-1 pb-1 block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="-mb-1 block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text pb-1 text-transparent">
                 Get in touch or create an account.
               </span>
             </h2>
-            <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
+            <div className="mt-6 space-y-4 sm:flex sm:space-y-0 sm:space-x-5">
               <a
                 href="#"
-                className="flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
+                className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
               >
                 Learn more
               </a>
               <a
                 href="#"
-                className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-800 bg-indigo-50 hover:bg-indigo-100"
+                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-50 px-4 py-3 text-base font-medium text-indigo-800 shadow-sm hover:bg-indigo-100"
               >
                 Get started
               </a>
@@ -709,12 +709,12 @@ const LandingPage1: FC<LandingPageProps> = () => {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto pt-16 pb-8 px-4 sm:px-6 lg:pt-24 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="grid grid-cols-2 gap-8 xl:col-span-2">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Solutions
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -731,7 +731,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Support
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -750,7 +750,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Company
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -767,7 +767,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Legal
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -786,7 +786,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
               </div>
             </div>
             <div className="mt-12 xl:mt-0">
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Subscribe to our newsletter
               </h3>
               <p className="mt-4 text-base text-gray-500">
@@ -803,13 +803,13 @@ const LandingPage1: FC<LandingPageProps> = () => {
                   id="email-address"
                   autoComplete="email"
                   required
-                  className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
+                  className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500"
                   placeholder="Enter your email"
                 />
                 <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                   >
                     Subscribe
                   </button>
@@ -830,7 +830,7 @@ const LandingPage1: FC<LandingPageProps> = () => {
                 </a>
               ))}
             </div>
-            <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+            <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
               &copy; 2020 Workflow, Inc. All rights reserved.
             </p>
           </div>

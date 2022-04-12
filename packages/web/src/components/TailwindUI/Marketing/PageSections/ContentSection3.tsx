@@ -6,23 +6,23 @@ export const config = {
 
 export default function ContentSection3() {
   return (
-    <div className="bg-white overflow-hidden">
-      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="hidden lg:block bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen" />
-        <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
+    <div className="overflow-hidden bg-white">
+      <div className="relative mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
+        <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
+        <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+            <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
               Case Study
             </h2>
-            <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h3 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               Meet Whitney
             </h3>
           </div>
         </div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="relative lg:row-start-1 lg:col-start-2">
+          <div className="relative lg:col-start-2 lg:row-start-1">
             <svg
-              className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20"
+              className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
               width={404}
               height={384}
               fill="none"
@@ -54,11 +54,11 @@ export default function ContentSection3() {
                 fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"
               />
             </svg>
-            <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
+            <div className="relative mx-auto max-w-prose text-base lg:max-w-none">
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                   <img
-                    className="rounded-lg shadow-lg object-cover object-center"
+                    className="rounded-lg object-cover object-center shadow-lg"
                     src="https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-x=.735&fp-y=.55&w=1184&h=1376&q=80"
                     alt="Whitney leaning against a railing on a downtown street"
                     width={1184}
@@ -67,7 +67,7 @@ export default function ContentSection3() {
                 </div>
                 <figcaption className="mt-3 flex text-sm text-gray-500">
                   <CameraIcon
-                    className="flex-none w-5 h-5 text-gray-400"
+                    className="h-5 w-5 flex-none text-gray-400"
                     aria-hidden="true"
                   />
                   <span className="ml-2">Photograph by Marcus O’Leary</span>
@@ -76,14 +76,14 @@ export default function ContentSection3() {
             </div>
           </div>
           <div className="mt-8 lg:mt-0">
-            <div className="text-base max-w-prose mx-auto lg:max-w-none">
+            <div className="mx-auto max-w-prose text-base lg:max-w-none">
               <p className="text-lg text-gray-500">
                 Sagittis scelerisque nulla cursus in enim consectetur quam.
                 Dictum urna sed consectetur neque tristique pellentesque.
                 Blandit amet, sed aenean erat arcu morbi.
               </p>
             </div>
-            <div className="mt-5 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
+            <div className="prose prose-indigo mx-auto mt-5 text-gray-500 lg:col-start-1 lg:row-start-1 lg:max-w-none">
               <p>
                 Sollicitudin tristique eros erat odio sed vitae, consequat
                 turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros

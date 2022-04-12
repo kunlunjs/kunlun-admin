@@ -49,8 +49,8 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
   }
 
   return (
-    <div className="w-1/5 h-full border border-solid border-gray-200">
-      <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+    <div className="h-full w-1/5 border border-solid border-gray-200">
+      <div className="h-10 border border-t-0 border-l-0 border-r-0 border-solid border-gray-200 py-2 pl-3 font-medium">
         页面/组件
       </div>
       <div className="p-2">
@@ -88,7 +88,7 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
                                 {category}
                               </h5>
                             )}
-                            <div className="grid gap-2 grid-cols-3">
+                            <div className="grid grid-cols-3 gap-2">
                               {items?.map(i => {
                                 return (
                                   <DraggableItem
@@ -106,21 +106,21 @@ export const Left: FC<LeftProps> = ({ items, droppedItems }) => {
                       })
                     : null}
                   {activeTab === 'charts' ? (
-                    <div className="grid gap-2 grid-cols-2">
+                    <div className="grid grid-cols-2 gap-2">
                       {charts.map(i => {
                         return (
                           <img
                             key={i.name}
                             alt={i.name}
                             src={i.src}
-                            className="w-full border border-solid border-gray-200 cursor-move"
+                            className="w-full cursor-move border border-solid border-gray-200"
                           />
                         )
                       })}
                     </div>
                   ) : null}
                   {activeTab === 'templates' ? (
-                    <div className="grid gap-2 grid-cols-2">
+                    <div className="grid grid-cols-2 gap-2">
                       {Object.values(templateItems)
                         ?.flat()
                         ?.map(i => {

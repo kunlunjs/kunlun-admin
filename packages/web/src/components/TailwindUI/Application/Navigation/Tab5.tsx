@@ -19,7 +19,7 @@ const Tab5: FC<Tab5Props> = () => {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
           //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
@@ -38,7 +38,7 @@ const Tab5: FC<Tab5Props> = () => {
                 tab.current
                   ? 'bg-indigo-100 text-indigo-700'
                   : 'text-gray-500 hover:text-gray-700',
-                'px-3 py-2 font-medium text-sm rounded-md'
+                'rounded-md px-3 py-2 text-sm font-medium'
               )}
               aria-current={tab.current ? 'page' : undefined}
             >

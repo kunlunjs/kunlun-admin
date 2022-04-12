@@ -13,7 +13,7 @@ import { queryClient } from '@/lib/react-query'
 const ErrorFallback = () => {
   return (
     <div
-      className="text-red-500 w-screen h-screen flex flex-col justify-center items-center"
+      className="flex h-screen w-screen flex-col items-center justify-center text-red-500"
       role="alert"
     >
       <h2 className="text-lg font-semibold">发生了一些异常 :( </h2>
@@ -35,7 +35,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <Suspense
       fallback={
-        <div className="flex items-center justify-center w-screen h-screen">
+        <div className="flex h-screen w-screen items-center justify-center">
           <Spinner size="xl" />
         </div>
       }

@@ -5,9 +5,9 @@ interface MediaObject8Props {}
 const MediaObject8: FC<MediaObject8Props> = () => {
   return (
     <div className="flex">
-      <div className="flex-shrink-0 mr-4">
+      <div className="mr-4 flex-shrink-0">
         <svg
-          className="w-16 h-16 text-gray-300 bg-white border border-gray-300"
+          className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
           preserveAspectRatio="none"
           stroke="currentColor"
           fill="none"
@@ -28,10 +28,10 @@ const MediaObject8: FC<MediaObject8Props> = () => {
           expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
         </p>
 
-        <div className="flex mt-6">
-          <div className="flex-shrink-0 mr-4">
+        <div className="mt-6 flex">
+          <div className="mr-4 flex-shrink-0">
             <svg
-              className="w-12 h-12 text-gray-300 bg-white border border-gray-300"
+              className="h-12 w-12 border border-gray-300 bg-white text-gray-300"
               preserveAspectRatio="none"
               stroke="currentColor"
               fill="none"
@@ -53,10 +53,10 @@ const MediaObject8: FC<MediaObject8Props> = () => {
             </p>
           </div>
         </div>
-        <div className="flex mt-6">
-          <div className="flex-shrink-0 mr-4">
+        <div className="mt-6 flex">
+          <div className="mr-4 flex-shrink-0">
             <svg
-              className="w-12 h-12 text-gray-300 bg-white border border-gray-300"
+              className="h-12 w-12 border border-gray-300 bg-white text-gray-300"
               preserveAspectRatio="none"
               stroke="currentColor"
               fill="none"

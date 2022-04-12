@@ -8,7 +8,7 @@ interface InputGroup16Props {}
 
 const InputGroup16: FC<InputGroup16Props> = () => {
   return (
-    <div className="border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+    <div className="rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
       <label htmlFor="name" className="block text-xs font-medium text-gray-900">
         Name
       </label>

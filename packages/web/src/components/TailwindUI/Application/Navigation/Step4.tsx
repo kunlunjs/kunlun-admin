@@ -30,44 +30,44 @@ const Step4: FC<Step4Props> = () => {
   return (
     <div className="lg:border-t lg:border-b lg:border-gray-200">
       <nav
-        className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         aria-label="Progress"
       >
         <ol
           role="list"
-          className="overflow-hidden rounded-md lg:flex lg:border-l lg:border-r lg:border-gray-200 lg:rounded-none"
+          className="overflow-hidden rounded-md lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"
         >
           {steps.map((step, stepIdx) => (
             <li key={step.id} className="relative overflow-hidden lg:flex-1">
               <div
                 className={clsx(
-                  stepIdx === 0 ? 'border-b-0 rounded-t-md' : '',
-                  stepIdx === steps.length - 1 ? 'border-t-0 rounded-b-md' : '',
-                  'border border-gray-200 overflow-hidden lg:border-0'
+                  stepIdx === 0 ? 'rounded-t-md border-b-0' : '',
+                  stepIdx === steps.length - 1 ? 'rounded-b-md border-t-0' : '',
+                  'overflow-hidden border border-gray-200 lg:border-0'
                 )}
               >
                 {step.status === 'complete' ? (
                   <a href={step.href} className="group">
                     <span
-                      className="absolute top-0 left-0 w-1 h-full bg-transparent group-hover:bg-gray-200 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"
+                      className="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                       aria-hidden="true"
                     />
                     <span
                       className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
-                        'px-6 py-5 flex items-start text-sm font-medium'
+                        'flex items-start px-6 py-5 text-sm font-medium'
                       )}
                     >
                       <span className="flex-shrink-0">
-                        <span className="flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-full">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600">
                           <CheckIcon
-                            className="w-6 h-6 text-white"
+                            className="h-6 w-6 text-white"
                             aria-hidden="true"
                           />
                         </span>
                       </span>
-                      <span className="mt-0.5 ml-4 min-w-0 flex flex-col">
-                        <span className="text-xs font-semibold tracking-wide uppercase">
+                      <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
+                        <span className="text-xs font-semibold uppercase tracking-wide">
                           {step.name}
                         </span>
                         <span className="text-sm font-medium text-gray-500">
@@ -79,22 +79,22 @@ const Step4: FC<Step4Props> = () => {
                 ) : step.status === 'current' ? (
                   <a href={step.href} aria-current="step">
                     <span
-                      className="absolute top-0 left-0 w-1 h-full bg-indigo-600 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"
+                      className="absolute top-0 left-0 h-full w-1 bg-indigo-600 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                       aria-hidden="true"
                     />
                     <span
                       className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
-                        'px-6 py-5 flex items-start text-sm font-medium'
+                        'flex items-start px-6 py-5 text-sm font-medium'
                       )}
                     >
                       <span className="flex-shrink-0">
-                        <span className="flex items-center justify-center w-10 h-10 border-2 border-indigo-600 rounded-full">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-indigo-600">
                           <span className="text-indigo-600">{step.id}</span>
                         </span>
                       </span>
-                      <span className="mt-0.5 ml-4 min-w-0 flex flex-col">
-                        <span className="text-xs font-semibold tracking-wide text-indigo-600 uppercase">
+                      <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
                           {step.name}
                         </span>
                         <span className="text-sm font-medium text-gray-500">
@@ -106,22 +106,22 @@ const Step4: FC<Step4Props> = () => {
                 ) : (
                   <a href={step.href} className="group">
                     <span
-                      className="absolute top-0 left-0 w-1 h-full bg-transparent group-hover:bg-gray-200 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"
+                      className="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                       aria-hidden="true"
                     />
                     <span
                       className={clsx(
                         stepIdx !== 0 ? 'lg:pl-9' : '',
-                        'px-6 py-5 flex items-start text-sm font-medium'
+                        'flex items-start px-6 py-5 text-sm font-medium'
                       )}
                     >
                       <span className="flex-shrink-0">
-                        <span className="flex items-center justify-center w-10 h-10 border-2 border-gray-300 rounded-full">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300">
                           <span className="text-gray-500">{step.id}</span>
                         </span>
                       </span>
-                      <span className="mt-0.5 ml-4 min-w-0 flex flex-col">
-                        <span className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
+                      <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
                           {step.name}
                         </span>
                         <span className="text-sm font-medium text-gray-500">
@@ -140,7 +140,7 @@ const Step4: FC<Step4Props> = () => {
                       aria-hidden="true"
                     >
                       <svg
-                        className="w-full h-full text-gray-300"
+                        className="h-full w-full text-gray-300"
                         viewBox="0 0 12 82"
                         fill="none"
                         preserveAspectRatio="none"

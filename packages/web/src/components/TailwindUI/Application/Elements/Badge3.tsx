@@ -9,7 +9,7 @@ export const config = {
 const Badge3: FC<Badge3Props> = () => {
   return (
     <>
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+      <span className="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">
         <svg
           className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
           fill="currentColor"
@@ -19,7 +19,7 @@ const Badge3: FC<Badge3Props> = () => {
         </svg>
         Small
       </span>
-      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+      <span className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-0.5 text-sm font-medium text-indigo-800">
         <svg
           className="-ml-1 mr-1.5 h-2 w-2 text-indigo-400"
           fill="currentColor"

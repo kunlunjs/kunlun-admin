@@ -278,8 +278,8 @@ export default function PricingPage3() {
   return (
     <div className="bg-white">
       <Popover className="relative bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center border-b border-gray-200 py-6 md:justify-start md:space-x-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex items-center justify-between border-b border-gray-200 py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
                 <span className="sr-only">Workflow</span>
@@ -290,20 +290,20 @@ export default function PricingPage3() {
                 />
               </a>
             </div>
-            <div className="-mr-2 -my-2 md:hidden">
-              <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+            <div className="-my-2 -mr-2 md:hidden">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
             </div>
-            <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            <Popover.Group as="nav" className="hidden space-x-10 md:flex">
               <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
                       className={clsx(
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+                        'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2'
                       )}
                     >
                       <span>Solutions</span>
@@ -325,17 +325,17 @@ export default function PricingPage3() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                             {solutions.map(item => (
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                               >
                                 <item.icon
-                                  className="flex-shrink-0 h-6 w-6 text-purple-600"
+                                  className="h-6 w-6 flex-shrink-0 text-purple-600"
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
@@ -349,15 +349,15 @@ export default function PricingPage3() {
                               </a>
                             ))}
                           </div>
-                          <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                          <div className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                             {callsToAction.map(item => (
                               <div key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
                                 >
                                   <item.icon
-                                    className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                    className="h-6 w-6 flex-shrink-0 text-gray-400"
                                     aria-hidden="true"
                                   />
                                   <span className="ml-3">{item.name}</span>
@@ -391,7 +391,7 @@ export default function PricingPage3() {
                     <Popover.Button
                       className={clsx(
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+                        'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2'
                       )}
                     >
                       <span>More</span>
@@ -413,17 +413,17 @@ export default function PricingPage3() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
+                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                             {resources.map(item => (
                               <a
                                 key={item.id}
                                 href="#"
-                                className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                               >
                                 <item.icon
-                                  className="flex-shrink-0 h-6 w-6 text-purple-600"
+                                  className="h-6 w-6 flex-shrink-0 text-purple-600"
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
@@ -437,16 +437,16 @@ export default function PricingPage3() {
                               </a>
                             ))}
                           </div>
-                          <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+                          <div className="bg-gray-50 px-5 py-5 sm:px-8 sm:py-8">
                             <div>
-                              <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
+                              <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                 Recent Posts
                               </h3>
                               <ul role="list" className="mt-4 space-y-4">
                                 {recentPosts.map(post => (
                                   <li
                                     key={post.id}
-                                    className="text-base truncate"
+                                    className="truncate text-base"
                                   >
                                     <a
                                       href={post.href}
@@ -476,7 +476,7 @@ export default function PricingPage3() {
                 )}
               </Popover>
             </Popover.Group>
-            <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+            <div className="hidden items-center justify-end space-x-8 md:flex md:flex-1 lg:w-0">
               <a
                 href="#"
                 className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -485,7 +485,7 @@ export default function PricingPage3() {
               </a>
               <a
                 href="#"
-                className="whitespace-nowrap bg-purple-100 border border-transparent rounded-md py-2 px-4 inline-flex items-center justify-center text-base font-medium text-purple-600 hover:bg-purple-200"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-purple-100 py-2 px-4 text-base font-medium text-purple-600 hover:bg-purple-200"
               >
                 Sign up
               </a>
@@ -504,10 +504,10 @@ export default function PricingPage3() {
         >
           <Popover.Panel
             focus
-            className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
           >
-            <div className="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
-              <div className="pt-5 pb-6 px-5 space-y-6">
+            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="space-y-6 px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <img
@@ -517,7 +517,7 @@ export default function PricingPage3() {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -529,10 +529,10 @@ export default function PricingPage3() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                        className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                       >
                         <item.icon
-                          className="flex-shrink-0 h-6 w-6 text-purple-600"
+                          className="h-6 w-6 flex-shrink-0 text-purple-600"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-base font-medium text-gray-900">
@@ -543,7 +543,7 @@ export default function PricingPage3() {
                   </nav>
                 </div>
               </div>
-              <div className="py-6 px-5 space-y-6">
+              <div className="space-y-6 py-6 px-5">
                 <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                   <a
                     href="#"
@@ -585,7 +585,7 @@ export default function PricingPage3() {
                 <div className="space-y-6">
                   <a
                     href="#"
-                    className="w-full bg-purple-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-purple-700"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-purple-600 py-2 px-4 text-base font-medium text-white hover:bg-purple-700"
                   >
                     Sign up
                   </a>
@@ -607,8 +607,8 @@ export default function PricingPage3() {
 
       {/* Pricing with four tiers and toggle */}
       <div className="bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto pt-24 px-4 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:flex-col sm:align-center">
+        <div className="mx-auto max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
+          <div className="sm:align-center sm:flex sm:flex-col">
             <h1 className="text-5xl font-extrabold text-gray-900 sm:text-center">
               Pricing Plans
             </h1>
@@ -616,29 +616,29 @@ export default function PricingPage3() {
               Start building for free, then add a site plan to go live. Account
               plans unlock additional features.
             </p>
-            <div className="relative mt-6 bg-gray-100 rounded-lg p-0.5 flex self-center sm:mt-8">
+            <div className="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
               <button
                 type="button"
-                className="relative bg-white border-gray-200 rounded-md shadow-sm py-2 w-1/2 text-sm font-medium text-gray-900 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-purple-500 focus:z-10 sm:w-auto sm:px-8"
+                className="relative w-1/2 whitespace-nowrap rounded-md border-gray-200 bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-purple-500 sm:w-auto sm:px-8"
               >
                 Monthly billing
               </button>
               <button
                 type="button"
-                className="ml-0.5 relative border border-transparent rounded-md py-2 w-1/2 text-sm font-medium text-gray-700 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-purple-500 focus:z-10 sm:w-auto sm:px-8"
+                className="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border border-transparent py-2 text-sm font-medium text-gray-700 focus:z-10 focus:outline-none focus:ring-2 focus:ring-purple-500 sm:w-auto sm:px-8"
               >
                 Yearly billing
               </button>
             </div>
           </div>
-          <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
+          <div className="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
             {tiers.map(tier => (
               <div
                 key={tier.name}
-                className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200"
+                className="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm"
               >
                 <div className="p-6">
-                  <h2 className="text-lg leading-6 font-medium text-gray-900">
+                  <h2 className="text-lg font-medium leading-6 text-gray-900">
                     {tier.name}
                   </h2>
                   <p className="mt-4 text-sm text-gray-500">
@@ -654,20 +654,20 @@ export default function PricingPage3() {
                   </p>
                   <a
                     href={tier.href}
-                    className="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700"
+                    className="mt-8 block w-full rounded-md border border-transparent bg-purple-600 py-2 text-center text-sm font-semibold text-white hover:bg-purple-700"
                   >
                     Buy {tier.name}
                   </a>
                 </div>
-                <div className="pt-6 pb-8 px-6">
-                  <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">
+                <div className="px-6 pt-6 pb-8">
+                  <h3 className="text-xs font-medium uppercase tracking-wide text-gray-900">
                     What's included
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {tier.features.map(feature => (
                       <li key={feature} className="flex space-x-3">
                         <CheckIconSolid
-                          className="flex-shrink-0 h-5 w-5 text-green-500"
+                          className="h-5 w-5 flex-shrink-0 text-green-500"
                           aria-hidden="true"
                         />
                         <span className="text-sm text-gray-500">{feature}</span>
@@ -681,8 +681,8 @@ export default function PricingPage3() {
         </div>
 
         {/* Feature list */}
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+        <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">
               All-in-one platform
             </h2>
@@ -691,7 +691,7 @@ export default function PricingPage3() {
               Malesuada adipiscing sagittis vel nulla nec.
             </p>
           </div>
-          <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+          <dl className="mt-12 space-y-10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-4 lg:gap-x-8">
             {features.map(feature => (
               <div key={feature.name} className="relative">
                 <dt>
@@ -699,7 +699,7 @@ export default function PricingPage3() {
                     className="absolute h-6 w-6 text-green-500"
                     aria-hidden="true"
                   />
-                  <p className="ml-9 text-lg leading-6 font-medium text-gray-900">
+                  <p className="ml-9 text-lg font-medium leading-6 text-gray-900">
                     {feature.name}
                   </p>
                 </dt>
@@ -714,7 +714,7 @@ export default function PricingPage3() {
 
       {/* Logo cloud on brand */}
       <div className="bg-purple-600">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
           <div className="lg:space-y-10">
             <h2 className="text-3xl font-extrabold text-white">
               The world's most innovative companies use Workflow
@@ -724,7 +724,7 @@ export default function PricingPage3() {
                 {logos.map(logo => (
                   <div
                     key={logo.name}
-                    className="mt-4 ml-8 flex flex-grow flex-shrink-0 lg:flex-grow-0 lg:ml-4"
+                    className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0"
                   >
                     <img className="h-12" src={logo.url} alt={logo.name} />
                   </div>
@@ -736,7 +736,7 @@ export default function PricingPage3() {
       </div>
 
       {/* FAQ offset */}
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           <div className="space-y-4">
             <h2 className="text-3xl font-extrabold text-gray-900">
@@ -753,11 +753,11 @@ export default function PricingPage3() {
               team.
             </p>
           </div>
-          <div className="mt-12 lg:mt-0 lg:col-span-2">
+          <div className="mt-12 lg:col-span-2 lg:mt-0">
             <dl className="space-y-12">
               {faqs.map(faq => (
                 <div key={faq.id}>
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg font-medium leading-6 text-gray-900">
                     {faq.question}
                   </dt>
                   <dd className="mt-2 text-base text-gray-500">{faq.answer}</dd>
@@ -770,13 +770,13 @@ export default function PricingPage3() {
 
       {/* Footer 4-column with newsletter and localization dark */}
       <footer className="bg-gray-900">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <h2 className="sr-only">Footer</h2>
           <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
             <div className="grid grid-cols-2 gap-8 xl:col-span-4">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Solutions
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -793,7 +793,7 @@ export default function PricingPage3() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Support
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -812,7 +812,7 @@ export default function PricingPage3() {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Company
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -829,7 +829,7 @@ export default function PricingPage3() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Legal
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -848,7 +848,7 @@ export default function PricingPage3() {
               </div>
             </div>
             <div className="mt-12 xl:mt-0">
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Language &amp; Currency
               </h3>
               <form className="mt-4 space-y-4 sm:max-w-xs">
@@ -860,7 +860,7 @@ export default function PricingPage3() {
                     <select
                       id="language"
                       name="language"
-                      className="block w-full bg-none bg-gray-800 border border-transparent text-base text-white focus:ring-white focus:border-white sm:text-sm rounded-md"
+                      className="block w-full rounded-md border border-transparent bg-gray-800 bg-none text-base text-white focus:border-white focus:ring-white sm:text-sm"
                       defaultValue="English"
                     >
                       <option>English</option>
@@ -869,7 +869,7 @@ export default function PricingPage3() {
                       <option>Japanese</option>
                       <option>Spanish</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                       <ChevronDownIcon
                         className="h-4 w-4 text-white"
                         aria-hidden="true"
@@ -881,11 +881,11 @@ export default function PricingPage3() {
                   <label htmlFor="currency" className="sr-only">
                     Currency
                   </label>
-                  <div className="mt-1.5 relative">
+                  <div className="relative mt-1.5">
                     <select
                       id="currency"
                       name="currency"
-                      className="block w-full bg-none bg-gray-800 border border-transparent text-base text-white focus:ring-white focus:border-white sm:text-sm rounded-md"
+                      className="block w-full rounded-md border border-transparent bg-gray-800 bg-none text-base text-white focus:border-white focus:ring-white sm:text-sm"
                       defaultValue="AUD"
                     >
                       <option>ARS</option>
@@ -897,7 +897,7 @@ export default function PricingPage3() {
                       <option>JPY</option>
                       <option>USD</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                       <ChevronDownIcon
                         className="h-4 w-4 text-white"
                         aria-hidden="true"
@@ -908,9 +908,9 @@ export default function PricingPage3() {
               </form>
             </div>
           </div>
-          <div className="border-t border-gray-700 pt-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between xl:mt-0">
+          <div className="space-y-4 border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between lg:space-y-0 xl:mt-0">
             <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Subscribe to our newsletter
               </h3>
               <p className="text-base text-gray-300">
@@ -928,13 +928,13 @@ export default function PricingPage3() {
                 id="email-address"
                 autoComplete="email"
                 required
-                className="min-w-0 w-full bg-white border border-transparent py-2 px-4 placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md"
+                className="w-full min-w-0 rounded-md border border-transparent bg-white py-2 px-4 placeholder-gray-500 focus:border-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
                 placeholder="Enter your email"
               />
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="w-full bg-purple-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-purple-600 py-2 px-4 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   Subscribe
                 </button>
@@ -954,7 +954,7 @@ export default function PricingPage3() {
                 </a>
               ))}
             </div>
-            <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+            <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
               &copy; 2020 Workflow, Inc. All rights reserved.
             </p>
           </div>

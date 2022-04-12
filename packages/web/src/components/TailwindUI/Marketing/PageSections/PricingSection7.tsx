@@ -99,13 +99,13 @@ export const config = {
 export default function PricingSection7() {
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto bg-white py-16 sm:py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl bg-white py-16 sm:py-24 sm:px-6 lg:px-8">
         {/* xs to lg */}
-        <div className="max-w-2xl mx-auto space-y-16 lg:hidden">
+        <div className="mx-auto max-w-2xl space-y-16 lg:hidden">
           {tiers.map((tier, tierIdx) => (
             <section key={tier.name}>
-              <div className="px-4 mb-8">
-                <h2 className="text-lg leading-6 font-medium text-gray-900">
+              <div className="mb-8 px-4">
+                <h2 className="text-lg font-medium leading-6 text-gray-900">
                   {tier.name}
                 </h2>
                 <p className="mt-4">
@@ -119,7 +119,7 @@ export default function PricingSection7() {
                 <p className="mt-4 text-sm text-gray-500">{tier.description}</p>
                 <a
                   href={tier.href}
-                  className="mt-6 block border border-gray-800 rounded-md bg-gray-800 w-full py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                  className="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                 >
                   Buy {tier.name}
                 </a>
@@ -127,7 +127,7 @@ export default function PricingSection7() {
 
               {sections.map(section => (
                 <table key={section.name} className="w-full">
-                  <caption className="bg-gray-50 border-t border-gray-200 py-3 px-4 text-sm font-medium text-gray-900 text-left">
+                  <caption className="border-t border-gray-200 bg-gray-50 py-3 px-4 text-left text-sm font-medium text-gray-900">
                     {section.name}
                   </caption>
                   <thead>
@@ -147,7 +147,7 @@ export default function PricingSection7() {
                         className="border-t border-gray-200"
                       >
                         <th
-                          className="py-5 px-4 text-sm font-normal text-gray-500 text-left"
+                          className="py-5 px-4 text-left text-sm font-normal text-gray-500"
                           scope="row"
                         >
                           {feature.name}
@@ -155,7 +155,7 @@ export default function PricingSection7() {
                         <td className="py-5 pr-4">
                           {/* @ts-ignore */}
                           {typeof feature.tiers[tier.name] === 'string' ? (
-                            <span className="block text-sm text-gray-700 text-right">
+                            <span className="block text-right text-sm text-gray-700">
                               {/* @ts-ignore */}
                               {feature.tiers[tier.name]}
                             </span>
@@ -191,13 +191,13 @@ export default function PricingSection7() {
 
               <div
                 className={clsx(
-                  tierIdx < tiers.length - 1 ? 'py-5 border-b' : 'pt-5',
+                  tierIdx < tiers.length - 1 ? 'border-b py-5' : 'pt-5',
                   'border-t border-gray-200 px-4'
                 )}
               >
                 <a
                   href={tier.href}
-                  className="block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                  className="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                 >
                   Buy {tier.name}
                 </a>
@@ -208,12 +208,12 @@ export default function PricingSection7() {
 
         {/* lg+ */}
         <div className="hidden lg:block">
-          <table className="w-full h-px table-fixed">
+          <table className="h-px w-full table-fixed">
             <caption className="sr-only">Pricing plan comparison</caption>
             <thead>
               <tr>
                 <th
-                  className="pb-4 px-6 text-sm font-medium text-gray-900 text-left"
+                  className="px-6 pb-4 text-left text-sm font-medium text-gray-900"
                   scope="col"
                 >
                   <span className="sr-only">Feature by</span>
@@ -222,7 +222,7 @@ export default function PricingSection7() {
                 {tiers.map(tier => (
                   <th
                     key={tier.name}
-                    className="w-1/4 pb-4 px-6 text-lg leading-6 font-medium text-gray-900 text-left"
+                    className="w-1/4 px-6 pb-4 text-left text-lg font-medium leading-6 text-gray-900"
                     scope="col"
                   >
                     {tier.name}
@@ -230,17 +230,17 @@ export default function PricingSection7() {
                 ))}
               </tr>
             </thead>
-            <tbody className="border-t border-gray-200 divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 border-t border-gray-200">
               <tr>
                 <th
-                  className="py-8 px-6 text-sm font-medium text-gray-900 text-left align-top"
+                  className="py-8 px-6 text-left align-top text-sm font-medium text-gray-900"
                   scope="row"
                 >
                   Pricing
                 </th>
                 {tiers.map(tier => (
                   <td key={tier.name} className="h-full py-8 px-6 align-top">
-                    <div className="relative h-full table">
+                    <div className="relative table h-full">
                       <p>
                         <span className="text-4xl font-extrabold text-gray-900">
                           ${tier.priceMonthly}
@@ -254,7 +254,7 @@ export default function PricingSection7() {
                       </p>
                       <a
                         href={tier.href}
-                        className="absolute bottom-0 flex-grow block w-full bg-gray-800 border border-gray-800 rounded-md 5 py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                        className="5 absolute bottom-0 block w-full flex-grow rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                       >
                         Buy {tier.name}
                       </a>
@@ -266,7 +266,7 @@ export default function PricingSection7() {
                 <Fragment key={section.name}>
                   <tr>
                     <th
-                      className="bg-gray-50 py-3 pl-6 text-sm font-medium text-gray-900 text-left"
+                      className="bg-gray-50 py-3 pl-6 text-left text-sm font-medium text-gray-900"
                       colSpan={4}
                       scope="colgroup"
                     >
@@ -276,7 +276,7 @@ export default function PricingSection7() {
                   {section.features.map(feature => (
                     <tr key={feature.name}>
                       <th
-                        className="py-5 px-6 text-sm font-normal text-gray-500 text-left"
+                        className="py-5 px-6 text-left text-sm font-normal text-gray-500"
                         scope="row"
                       >
                         {feature.name}
@@ -327,10 +327,10 @@ export default function PricingSection7() {
                   Choose your plan
                 </th>
                 {tiers.map(tier => (
-                  <td key={tier.name} className="pt-5 px-6">
+                  <td key={tier.name} className="px-6 pt-5">
                     <a
                       href={tier.href}
-                      className="block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                      className="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                     >
                       Buy {tier.name}
                     </a>

@@ -10,7 +10,7 @@ const ActionPanel7: FC<ActionPanel7Props> = () => {
   return (
     <div className="bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
+        <h3 className="text-lg font-medium leading-6 text-gray-900">
           Payment method
         </h3>
         <div className="mt-5">
@@ -18,7 +18,7 @@ const ActionPanel7: FC<ActionPanel7Props> = () => {
             <h4 className="sr-only">Visa</h4>
             <div className="sm:flex sm:items-start">
               <svg
-                className="h-8 w-auto sm:flex-shrink-0 sm:h-6"
+                className="h-8 w-auto sm:h-6 sm:flex-shrink-0"
                 viewBox="0 0 36 24"
                 aria-hidden="true"
               >
@@ -46,7 +46,7 @@ const ActionPanel7: FC<ActionPanel7Props> = () => {
             <div className="mt-4 sm:mt-0 sm:ml-6 sm:flex-shrink-0">
               <button
                 type="button"
-                className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
               >
                 Edit
               </button>

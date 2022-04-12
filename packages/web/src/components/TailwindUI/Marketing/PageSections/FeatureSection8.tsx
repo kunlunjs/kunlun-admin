@@ -67,8 +67,8 @@ export const config = {
 export default function FeatureSection8() {
   return (
     <div className="bg-indigo-700">
-      <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-white tracking-tight">
+      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:px-8 lg:pt-24">
+        <h2 className="text-3xl font-extrabold tracking-tight text-white">
           Inbox support built for efficiency
         </h2>
         <p className="mt-4 max-w-3xl text-lg text-indigo-200">
@@ -79,7 +79,7 @@ export default function FeatureSection8() {
           {features.map(feature => (
             <div key={feature.name}>
               <div>
-                <span className="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                <span className="flex h-12 w-12 items-center justify-center rounded-md bg-white bg-opacity-10">
                   <feature.icon
                     className="h-6 w-6 text-white"
                     aria-hidden="true"

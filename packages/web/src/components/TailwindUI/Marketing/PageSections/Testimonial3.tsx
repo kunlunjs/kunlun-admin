@@ -4,10 +4,10 @@ export const config = {
 
 export default function Testimonial3() {
   return (
-    <section className="bg-white overflow-hidden">
-      <div className="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
+    <section className="overflow-hidden bg-white">
+      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:py-20">
         <svg
-          className="absolute top-full left-0 transform translate-x-80 -translate-y-24 lg:hidden"
+          className="absolute top-full left-0 translate-x-80 -translate-y-24 transform lg:hidden"
           width={784}
           height={404}
           fill="none"
@@ -41,7 +41,7 @@ export default function Testimonial3() {
         </svg>
 
         <svg
-          className="hidden lg:block absolute right-full top-1/2 transform translate-x-1/2 -translate-y-1/2"
+          className="absolute right-full top-1/2 hidden translate-x-1/2 -translate-y-1/2 transform lg:block"
           width={404}
           height={784}
           fill="none"
@@ -85,7 +85,7 @@ export default function Testimonial3() {
 
           <div className="relative lg:ml-10">
             <svg
-              className="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 h-36 w-36 text-indigo-200 opacity-50"
+              className="absolute top-0 left-0 h-36 w-36 -translate-x-8 -translate-y-24 transform text-indigo-200 opacity-50"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 144 144"
@@ -97,7 +97,7 @@ export default function Testimonial3() {
               />
             </svg>
             <blockquote className="relative">
-              <div className="text-2xl leading-9 font-medium text-gray-900">
+              <div className="text-2xl font-medium leading-9 text-gray-900">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
                   expedita voluptas culpa sapiente alias molestiae. Numquam

@@ -57,7 +57,7 @@ export const KLTableColumn: FC<KLTableColumnProps> = ({ item, value }) => {
 
   if (item.isColor && value) {
     return (
-      <span className="h-4 p-1 w-8" style={{ background: value }}>
+      <span className="h-4 w-8 p-1" style={{ background: value }}>
         {value.toUpperCase()}
       </span>
     )
@@ -112,7 +112,7 @@ export const KLTableColumn: FC<KLTableColumnProps> = ({ item, value }) => {
       <Icon
         name="PaperClipOutlined"
         tooltip={{ title: '富文本，点击查看' }}
-        className="text-blue-400 cursor-pointer"
+        className="cursor-pointer text-blue-400"
       />
     )
   }

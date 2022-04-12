@@ -27,16 +27,16 @@ export default function OrderSummarie1() {
         ```
       */}
       <main className="relative lg:min-h-full">
-        <div className="h-80 overflow-hidden lg:absolute lg:w-1/2 lg:h-full lg:pr-4 xl:pr-12">
+        <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
           <img
             src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg"
             alt="TODO"
-            className="h-full w-full object-center object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
 
         <div>
-          <div className="max-w-2xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:py-32 lg:grid lg:grid-cols-2 lg:gap-x-8 xl:gap-x-24">
+          <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24">
             <div className="lg:col-start-2">
               <h1 className="text-sm font-medium text-indigo-600">
                 Payment successful
@@ -56,14 +56,14 @@ export default function OrderSummarie1() {
 
               <ul
                 role="list"
-                className="mt-6 text-sm font-medium text-gray-500 border-t border-gray-200 divide-y divide-gray-200"
+                className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
               >
                 {products.map(product => (
-                  <li key={product.id} className="flex py-6 space-x-6">
+                  <li key={product.id} className="flex space-x-6 py-6">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="flex-none w-24 h-24 bg-gray-100 rounded-md object-center object-cover"
+                      className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                     />
                     <div className="flex-auto space-y-1">
                       <h3 className="text-gray-900">
@@ -79,7 +79,7 @@ export default function OrderSummarie1() {
                 ))}
               </ul>
 
-              <dl className="text-sm font-medium text-gray-500 space-y-6 border-t border-gray-200 pt-6">
+              <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
                 <div className="flex justify-between">
                   <dt>Subtotal</dt>
                   <dd className="text-gray-900">$72.00</dd>
@@ -95,7 +95,7 @@ export default function OrderSummarie1() {
                   <dd className="text-gray-900">$6.40</dd>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
+                <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900">
                   <dt className="text-base">Total</dt>
                   <dd className="text-base">$86.40</dd>
                 </div>

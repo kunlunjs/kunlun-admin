@@ -12,7 +12,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
       <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
         <div>
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <h3 className="text-lg font-medium leading-6 text-gray-900">
               Profile
             </h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -21,17 +21,17 @@ const FormLayout1: FC<FormLayout1Props> = () => {
             </p>
           </div>
 
-          <div className="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <div className="mt-6 space-y-6 sm:mt-5 sm:space-y-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="username"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Username
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
-                <div className="max-w-lg flex rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
+                <div className="flex max-w-lg rounded-md shadow-sm">
+                  <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
                     workcation.com/
                   </span>
                   <input
@@ -39,25 +39,25 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                     name="username"
                     id="username"
                     autoComplete="username"
-                    className="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                    className="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="about"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 About
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <textarea
                   id="about"
                   name="about"
                   rows={3}
-                  className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   defaultValue={''}
                 />
                 <p className="mt-2 text-sm text-gray-500">
@@ -66,16 +66,16 @@ const FormLayout1: FC<FormLayout1Props> = () => {
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-center sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="photo"
                 className="block text-sm font-medium text-gray-700"
               >
                 Photo
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <div className="flex items-center">
-                  <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                  <span className="h-12 w-12 overflow-hidden rounded-full bg-gray-100">
                     <svg
                       className="h-full w-full text-gray-300"
                       fill="currentColor"
@@ -86,7 +86,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                   </span>
                   <button
                     type="button"
-                    className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     Change
                   </button>
@@ -94,15 +94,15 @@ const FormLayout1: FC<FormLayout1Props> = () => {
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="cover-photo"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Cover photo
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
-                <div className="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
+                <div className="flex max-w-lg justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                   <div className="space-y-1 text-center">
                     <svg
                       className="mx-auto h-12 w-12 text-gray-400"
@@ -121,7 +121,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                     <div className="flex text-sm text-gray-600">
                       <label
                         htmlFor="file-upload"
-                        className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                        className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
@@ -143,9 +143,9 @@ const FormLayout1: FC<FormLayout1Props> = () => {
           </div>
         </div>
 
-        <div className="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+        <div className="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <h3 className="text-lg font-medium leading-6 text-gray-900">
               Personal Information
             </h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -153,73 +153,73 @@ const FormLayout1: FC<FormLayout1Props> = () => {
             </p>
           </div>
           <div className="space-y-6 sm:space-y-5">
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="first-name"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 First name
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="last-name"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Last name
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Email address
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   id="email"
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="country"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Country
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <select
                   id="country"
                   name="country"
                   autoComplete="country-name"
-                  className="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 >
                   <option>United States</option>
                   <option>Canada</option>
@@ -228,83 +228,83 @@ const FormLayout1: FC<FormLayout1Props> = () => {
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="street-address"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 Street address
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="street-address"
                   id="street-address"
                   autoComplete="street-address"
-                  className="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="city"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 City
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="city"
                   id="city"
                   autoComplete="address-level2"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="region"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 State / Province
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="region"
                   id="region"
                   autoComplete="address-level1"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 />
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="postal-code"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
               >
                 ZIP / Postal code
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <input
                   type="text"
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="divide-y divide-gray-200 pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+        <div className="space-y-6 divide-y divide-gray-200 pt-8 sm:space-y-5 sm:pt-10">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <h3 className="text-lg font-medium leading-6 text-gray-900">
               Notifications
             </h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -312,10 +312,10 @@ const FormLayout1: FC<FormLayout1Props> = () => {
               what else you want to hear about.
             </p>
           </div>
-          <div className="space-y-6 sm:space-y-5 divide-y divide-gray-200">
+          <div className="space-y-6 divide-y divide-gray-200 sm:space-y-5">
             <div className="pt-6 sm:pt-5">
               <div role="group" aria-labelledby="label-email">
-                <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
+                <div className="sm:grid sm:grid-cols-3 sm:items-baseline sm:gap-4">
                   <div>
                     <div
                       className="text-base font-medium text-gray-900 sm:text-sm sm:text-gray-700"
@@ -324,15 +324,15 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                       By Email
                     </div>
                   </div>
-                  <div className="mt-4 sm:mt-0 sm:col-span-2">
+                  <div className="mt-4 sm:col-span-2 sm:mt-0">
                     <div className="max-w-lg space-y-4">
                       <div className="relative flex items-start">
-                        <div className="flex items-center h-5">
+                        <div className="flex h-5 items-center">
                           <input
                             id="comments"
                             name="comments"
                             type="checkbox"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -350,12 +350,12 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                       </div>
                       <div>
                         <div className="relative flex items-start">
-                          <div className="flex items-center h-5">
+                          <div className="flex h-5 items-center">
                             <input
                               id="candidates"
                               name="candidates"
                               type="checkbox"
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
                           </div>
                           <div className="ml-3 text-sm">
@@ -373,12 +373,12 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                       </div>
                       <div>
                         <div className="relative flex items-start">
-                          <div className="flex items-center h-5">
+                          <div className="flex h-5 items-center">
                             <input
                               id="offers"
                               name="offers"
                               type="checkbox"
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
                           </div>
                           <div className="ml-3 text-sm">
@@ -402,7 +402,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
             </div>
             <div className="pt-6 sm:pt-5">
               <div role="group" aria-labelledby="label-notifications">
-                <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
+                <div className="sm:grid sm:grid-cols-3 sm:items-baseline sm:gap-4">
                   <div>
                     <div
                       className="text-base font-medium text-gray-900 sm:text-sm sm:text-gray-700"
@@ -422,7 +422,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                             id="push-everything"
                             name="push-notifications"
                             type="radio"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                           <label
                             htmlFor="push-everything"
@@ -436,7 +436,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                             id="push-email"
                             name="push-notifications"
                             type="radio"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                           <label
                             htmlFor="push-email"
@@ -450,7 +450,7 @@ const FormLayout1: FC<FormLayout1Props> = () => {
                             id="push-nothing"
                             name="push-notifications"
                             type="radio"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                           <label
                             htmlFor="push-nothing"
@@ -473,13 +473,13 @@ const FormLayout1: FC<FormLayout1Props> = () => {
         <div className="flex justify-end">
           <button
             type="button"
-            className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Save
           </button>

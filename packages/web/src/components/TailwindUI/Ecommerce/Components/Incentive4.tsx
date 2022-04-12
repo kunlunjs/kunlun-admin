@@ -27,8 +27,8 @@ export const config = {
 export default function Incentive4() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4">
-        <div className="max-w-2xl mx-auto px-4 grid grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-10 gap-x-8 px-4 lg:max-w-none lg:grid-cols-3">
           {incentives.map(incentive => (
             <div
               key={incentive.name}
@@ -37,7 +37,7 @@ export default function Incentive4() {
               <div className="sm:flex-shrink-0">
                 <div className="flow-root">
                   <img
-                    className="w-28 h-24 mx-auto"
+                    className="mx-auto h-24 w-28"
                     src={incentive.imageSrc}
                     alt=""
                   />

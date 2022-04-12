@@ -19,7 +19,7 @@ const Tab6: FC<Tab6Props> = () => {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
           //@ts-ignore
           defaultValue={tabs.find(tab => tab.current).name}
         >
@@ -30,7 +30,7 @@ const Tab6: FC<Tab6Props> = () => {
       </div>
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
-          <nav className="flex -mb-px" aria-label="Tabs">
+          <nav className="-mb-px flex" aria-label="Tabs">
             {tabs.map(tab => (
               <a
                 key={tab.name}
@@ -38,8 +38,8 @@ const Tab6: FC<Tab6Props> = () => {
                 className={clsx(
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
-                  'w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm'
+                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                  'w-1/4 border-b-2 py-4 px-1 text-center text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >

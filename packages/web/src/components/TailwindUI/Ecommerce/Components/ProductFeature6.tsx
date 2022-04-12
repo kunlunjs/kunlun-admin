@@ -69,9 +69,9 @@ export default function ProductFeature6() {
     <div className="bg-white">
       <section
         aria-labelledby="features-heading"
-        className="max-w-7xl mx-auto py-32 sm:px-2 lg:px-8"
+        className="mx-auto max-w-7xl py-32 sm:px-2 lg:px-8"
       >
-        <div className="max-w-2xl mx-auto px-4 lg:px-0 lg:max-w-none">
+        <div className="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
           <div className="max-w-3xl">
             <h2
               id="features-heading"
@@ -88,7 +88,7 @@ export default function ProductFeature6() {
 
           <Tab.Group as="div" className="mt-4">
             <div className="-mx-4 flex overflow-x-auto sm:mx-0">
-              <div className="flex-auto px-4 border-b border-gray-200 sm:px-0">
+              <div className="flex-auto border-b border-gray-200 px-4 sm:px-0">
                 <Tab.List className="-mb-px flex space-x-10">
                   {tabs.map(tab => (
                     <Tab
@@ -97,8 +97,8 @@ export default function ProductFeature6() {
                         clsx(
                           selected
                             ? 'border-indigo-500 text-indigo-600'
-                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
-                          'whitespace-nowrap py-6 border-b-2 font-medium text-sm'
+                            : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                          'whitespace-nowrap border-b-2 py-6 text-sm font-medium'
                         )
                       }
                     >
@@ -117,7 +117,7 @@ export default function ProductFeature6() {
                       key={feature.name}
                       className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8"
                     >
-                      <div className="mt-6 lg:mt-0 lg:col-span-5">
+                      <div className="mt-6 lg:col-span-5 lg:mt-0">
                         <h3 className="text-lg font-medium text-gray-900">
                           {feature.name}
                         </h3>
@@ -126,11 +126,11 @@ export default function ProductFeature6() {
                         </p>
                       </div>
                       <div className="lg:col-span-7">
-                        <div className="aspect-w-2 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden sm:aspect-w-5 sm:aspect-h-2">
+                        <div className="aspect-w-2 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 sm:aspect-w-5 sm:aspect-h-2">
                           <img
                             src={feature.imageSrc}
                             alt={feature.imageAlt}
-                            className="object-center object-cover"
+                            className="object-cover object-center"
                           />
                         </div>
                       </div>

@@ -5,9 +5,9 @@ interface MediaObject6Props {}
 const MediaObject6: FC<MediaObject6Props> = () => {
   return (
     <div className="sm:flex">
-      <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+      <div className="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
         <svg
-          className="w-16 h-16 text-gray-300 bg-white border border-gray-300"
+          className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
           preserveAspectRatio="none"
           stroke="currentColor"
           fill="none"

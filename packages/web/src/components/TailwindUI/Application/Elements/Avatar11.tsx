@@ -9,7 +9,7 @@ export const config = {
 const Avatar11: FC<Avatar11Props> = () => {
   return (
     <>
-      <a href="#" className="flex-shrink-0 group block">
+      <a href="#" className="group block flex-shrink-0">
         <div className="flex items-center">
           <div>
             <img

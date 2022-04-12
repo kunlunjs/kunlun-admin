@@ -196,7 +196,7 @@ export default function StorefrontPage1() {
       <Transition.Root show={mobileMenuOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setMobileMenuOpen}
         >
           <Transition.Child
@@ -220,11 +220,11 @@ export default function StorefrontPage1() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <div className="flex px-4 pt-5 pb-2">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -235,16 +235,16 @@ export default function StorefrontPage1() {
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                  <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map(category => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              ? 'border-indigo-600 text-indigo-600'
+                              : 'border-transparent text-gray-900',
+                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                           )
                         }
                       >
@@ -257,16 +257,16 @@ export default function StorefrontPage1() {
                   {navigation.categories.map(category => (
                     <Tab.Panel
                       key={category.name}
-                      className="px-4 py-6 space-y-12"
+                      className="space-y-12 px-4 py-6"
                     >
                       <div className="grid grid-cols-2 gap-x-4 gap-y-10">
                         {category.featured.map(item => (
                           <div key={item.name} className="group relative">
-                            <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
+                            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
-                                className="object-center object-cover"
+                                className="object-cover object-center"
                               />
                             </div>
                             <a
@@ -274,7 +274,7 @@ export default function StorefrontPage1() {
                               className="mt-6 block text-sm font-medium text-gray-900"
                             >
                               <span
-                                className="absolute z-10 inset-0"
+                                className="absolute inset-0 z-10"
                                 aria-hidden="true"
                               />
                               {item.name}
@@ -293,12 +293,12 @@ export default function StorefrontPage1() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {navigation.pages.map(page => (
                   <div key={page.name} className="flow-root">
                     <a
                       href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       {page.name}
                     </a>
@@ -306,11 +306,11 @@ export default function StorefrontPage1() {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Create an account
                   </a>
@@ -318,37 +318,37 @@ export default function StorefrontPage1() {
                 <div className="flow-root">
                   <a
                     href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-900"
                   >
                     Sign in
                   </a>
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                 {/* Currency selector */}
                 <form>
                   <div className="inline-block">
                     <label htmlFor="mobile-currency" className="sr-only">
                       Currency
                     </label>
-                    <div className="-ml-2 group relative border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                    <div className="group relative -ml-2 rounded-md border-transparent focus-within:ring-2 focus-within:ring-white">
                       <select
                         id="mobile-currency"
                         name="currency"
-                        className="bg-none border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-800 focus:outline-none focus:ring-0 focus:border-transparent"
+                        className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
                       >
                         {currencies.map(currency => (
                           <option key={currency}>{currency}</option>
                         ))}
                       </select>
-                      <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                         <svg
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 20 20"
-                          className="w-5 h-5 text-gray-500"
+                          className="h-5 w-5 text-gray-500"
                         >
                           <path
                             stroke="currentColor"
@@ -375,7 +375,7 @@ export default function StorefrontPage1() {
           <img
             src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
             alt=""
-            className="w-full h-full object-center object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
         <div
@@ -388,30 +388,30 @@ export default function StorefrontPage1() {
           <nav aria-label="Top">
             {/* Top navigation */}
             <div className="bg-gray-900">
-              <div className="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+              <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 {/* Currency selector */}
                 <form>
                   <div>
                     <label htmlFor="desktop-currency" className="sr-only">
                       Currency
                     </label>
-                    <div className="-ml-2 group relative bg-gray-900 border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
+                    <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
                       <select
                         id="desktop-currency"
                         name="currency"
-                        className="bg-none bg-gray-900 border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-white group-hover:text-gray-100 focus:outline-none focus:ring-0 focus:border-transparent"
+                        className="flex items-center rounded-md border-transparent bg-gray-900 bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-white focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
                       >
                         {currencies.map(currency => (
                           <option key={currency}>{currency}</option>
                         ))}
                       </select>
-                      <div className="absolute right-0 inset-y-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
                         <svg
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 20 20"
-                          className="w-5 h-5 text-gray-300"
+                          className="h-5 w-5 text-gray-300"
                         >
                           <path
                             stroke="currentColor"
@@ -444,12 +444,12 @@ export default function StorefrontPage1() {
             </div>
 
             {/* Secondary navigation */}
-            <div className="backdrop-blur-md backdrop-filter bg-opacity-10 bg-white">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white bg-opacity-10 backdrop-blur-md backdrop-filter">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div>
-                  <div className="h-16 flex items-center justify-between">
+                  <div className="flex h-16 items-center justify-between">
                     {/* Logo (lg+) */}
-                    <div className="hidden lg:flex-1 lg:flex lg:items-center">
+                    <div className="hidden lg:flex lg:flex-1 lg:items-center">
                       <a href="#">
                         <span className="sr-only">Workflow</span>
                         <img
@@ -462,19 +462,19 @@ export default function StorefrontPage1() {
 
                     <div className="hidden h-full lg:flex">
                       {/* Flyout menus */}
-                      <Popover.Group className="px-4 bottom-0 inset-x-0">
-                        <div className="h-full flex justify-center space-x-8">
+                      <Popover.Group className="inset-x-0 bottom-0 px-4">
+                        <div className="flex h-full justify-center space-x-8">
                           {navigation.categories.map(category => (
                             <Popover key={category.name} className="flex">
                               {({ open }) => (
                                 <>
                                   <div className="relative flex">
-                                    <Popover.Button className="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white">
+                                    <Popover.Button className="relative z-10 flex items-center justify-center text-sm font-medium text-white transition-colors duration-200 ease-out">
                                       {category.name}
                                       <span
                                         className={clsx(
                                           open ? 'bg-white' : '',
-                                          'absolute -bottom-px inset-x-0 h-0.5 transition ease-out duration-200'
+                                          'absolute inset-x-0 -bottom-px h-0.5 transition duration-200 ease-out'
                                         )}
                                         aria-hidden="true"
                                       />
@@ -490,7 +490,7 @@ export default function StorefrontPage1() {
                                     leaveFrom="opacity-100"
                                     leaveTo="opacity-0"
                                   >
-                                    <Popover.Panel className="absolute top-full inset-x-0 text-sm text-gray-500">
+                                    <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
                                       {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                       <div
                                         className="absolute inset-0 top-1/2 bg-white shadow"
@@ -498,18 +498,18 @@ export default function StorefrontPage1() {
                                       />
 
                                       <div className="relative bg-white">
-                                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                           <div className="grid grid-cols-4 gap-y-10 gap-x-8 py-16">
                                             {category.featured.map(item => (
                                               <div
                                                 key={item.name}
                                                 className="group relative"
                                               >
-                                                <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                                <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                                   <img
                                                     src={item.imageSrc}
                                                     alt={item.imageAlt}
-                                                    className="object-center object-cover"
+                                                    className="object-cover object-center"
                                                   />
                                                 </div>
                                                 <a
@@ -517,7 +517,7 @@ export default function StorefrontPage1() {
                                                   className="mt-4 block font-medium text-gray-900"
                                                 >
                                                   <span
-                                                    className="absolute z-10 inset-0"
+                                                    className="absolute inset-0 z-10"
                                                     aria-hidden="true"
                                                   />
                                                   {item.name}
@@ -554,7 +554,7 @@ export default function StorefrontPage1() {
                     </div>
 
                     {/* Mobile menu and search (lg-) */}
-                    <div className="flex-1 flex items-center lg:hidden">
+                    <div className="flex flex-1 items-center lg:hidden">
                       <button
                         type="button"
                         className="-ml-2 p-2 text-white"
@@ -567,7 +567,7 @@ export default function StorefrontPage1() {
                       {/* Search */}
                       <a href="#" className="ml-2 p-2 text-white">
                         <span className="sr-only">Search</span>
-                        <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                        <SearchIcon className="h-6 w-6" aria-hidden="true" />
                       </a>
                     </div>
 
@@ -581,7 +581,7 @@ export default function StorefrontPage1() {
                       />
                     </a>
 
-                    <div className="flex-1 flex items-center justify-end">
+                    <div className="flex flex-1 items-center justify-end">
                       <a
                         href="#"
                         className="hidden text-sm font-medium text-white lg:block"
@@ -594,7 +594,7 @@ export default function StorefrontPage1() {
                         <a href="#" className="p-2 text-white lg:hidden">
                           <span className="sr-only">Help</span>
                           <QuestionMarkCircleIcon
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                             aria-hidden="true"
                           />
                         </a>
@@ -609,10 +609,10 @@ export default function StorefrontPage1() {
                         <div className="ml-4 flow-root lg:ml-8">
                           <a
                             href="#"
-                            className="group -m-2 p-2 flex items-center"
+                            className="group -m-2 flex items-center p-2"
                           >
                             <ShoppingBagIcon
-                              className="flex-shrink-0 h-6 w-6 text-white"
+                              className="h-6 w-6 flex-shrink-0 text-white"
                               aria-hidden="true"
                             />
                             <span className="ml-2 text-sm font-medium text-white">
@@ -632,7 +632,7 @@ export default function StorefrontPage1() {
           </nav>
         </header>
 
-        <div className="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center py-32 px-6 text-center sm:py-64 lg:px-0">
           <h1 className="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">
             New arrivals are here
           </h1>
@@ -643,7 +643,7 @@ export default function StorefrontPage1() {
           </p>
           <a
             href="#"
-            className="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
+            className="mt-8 inline-block rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
             Shop New Arrivals
           </a>
@@ -654,9 +654,9 @@ export default function StorefrontPage1() {
         {/* Category section */}
         <section
           aria-labelledby="category-heading"
-          className="pt-24 sm:pt-32 xl:max-w-7xl xl:mx-auto xl:px-8"
+          className="pt-24 sm:pt-32 xl:mx-auto xl:max-w-7xl xl:px-8"
         >
-          <div className="px-4 sm:px-6 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0">
+          <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
             <h2
               id="category-heading"
               className="text-2xl font-extrabold tracking-tight text-gray-900"
@@ -673,19 +673,19 @@ export default function StorefrontPage1() {
 
           <div className="mt-4 flow-root">
             <div className="-my-2">
-              <div className="box-content py-2 relative h-80 overflow-x-auto xl:overflow-visible">
-                <div className="absolute min-w-screen-xl px-4 flex space-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:grid xl:grid-cols-5 xl:gap-x-8">
+              <div className="relative box-content h-80 overflow-x-auto py-2 xl:overflow-visible">
+                <div className="min-w-screen-xl absolute flex space-x-8 px-4 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0">
                   {categories.map(category => (
                     <a
                       key={category.name}
                       href={category.href}
-                      className="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto"
+                      className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
                     >
                       <span aria-hidden="true" className="absolute inset-0">
                         <img
                           src={category.imageSrc}
                           alt=""
-                          className="w-full h-full object-center object-cover"
+                          className="h-full w-full object-cover object-center"
                         />
                       </span>
                       <span
@@ -715,18 +715,18 @@ export default function StorefrontPage1() {
         {/* Featured section */}
         <section
           aria-labelledby="social-impact-heading"
-          className="max-w-7xl mx-auto pt-24 px-4 sm:pt-32 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl px-4 pt-24 sm:px-6 sm:pt-32 lg:px-8"
         >
-          <div className="relative rounded-lg overflow-hidden">
+          <div className="relative overflow-hidden rounded-lg">
             <div className="absolute inset-0">
               <img
                 src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-01.jpg"
                 alt=""
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="relative bg-gray-900 bg-opacity-75 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
-              <div className="relative max-w-3xl mx-auto flex flex-col items-center text-center">
+              <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                 <h2
                   id="social-impact-heading"
                   className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
@@ -742,7 +742,7 @@ export default function StorefrontPage1() {
                 </p>
                 <a
                   href="#"
-                  className="mt-8 w-full block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
+                  className="mt-8 block w-full rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
                   Shop Workspace
                 </a>
@@ -754,7 +754,7 @@ export default function StorefrontPage1() {
         {/* Collection section */}
         <section
           aria-labelledby="collection-heading"
-          className="max-w-xl mx-auto pt-24 px-4 sm:pt-32 sm:px-6 lg:max-w-7xl lg:px-8"
+          className="mx-auto max-w-xl px-4 pt-24 sm:px-6 sm:pt-32 lg:max-w-7xl lg:px-8"
         >
           <h2
             id="collection-heading"
@@ -767,7 +767,7 @@ export default function StorefrontPage1() {
             collection inspired by the natural world.
           </p>
 
-          <div className="mt-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
+          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
             {collections.map(collection => (
               <a
                 key={collection.name}
@@ -776,12 +776,12 @@ export default function StorefrontPage1() {
               >
                 <div
                   aria-hidden="true"
-                  className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden group-hover:opacity-75 lg:aspect-w-5 lg:aspect-h-6"
+                  className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg group-hover:opacity-75 lg:aspect-w-5 lg:aspect-h-6"
                 >
                   <img
                     src={collection.imageSrc}
                     alt={collection.imageAlt}
-                    className="w-full h-full object-center object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-gray-900">
@@ -798,18 +798,18 @@ export default function StorefrontPage1() {
         {/* Featured section */}
         <section
           aria-labelledby="comfort-heading"
-          className="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8"
+          className="mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8"
         >
-          <div className="relative rounded-lg overflow-hidden">
+          <div className="relative overflow-hidden rounded-lg">
             <div className="absolute inset-0">
               <img
                 src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-02.jpg"
                 alt=""
-                className="w-full h-full object-center object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="relative bg-gray-900 bg-opacity-75 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
-              <div className="relative max-w-3xl mx-auto flex flex-col items-center text-center">
+              <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                 <h2
                   id="comfort-heading"
                   className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
@@ -824,7 +824,7 @@ export default function StorefrontPage1() {
                 </p>
                 <a
                   href="#"
-                  className="mt-8 w-full block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
+                  className="mt-8 block w-full rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
                   Shop Focus
                 </a>
@@ -838,10 +838,10 @@ export default function StorefrontPage1() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-20 xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-              <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
+              <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                 <div>
                   <h3 className="text-sm font-medium text-white">Shop</h3>
                   <ul role="list" className="mt-6 space-y-6">
@@ -873,7 +873,7 @@ export default function StorefrontPage1() {
                   </ul>
                 </div>
               </div>
-              <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
+              <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                 <div>
                   <h3 className="text-sm font-medium text-white">Account</h3>
                   <ul role="list" className="mt-6 space-y-6">
@@ -922,12 +922,12 @@ export default function StorefrontPage1() {
                   type="text"
                   autoComplete="email"
                   required
-                  className="appearance-none min-w-0 w-full bg-white border border-white rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
+                  className="w-full min-w-0 appearance-none rounded-md border border-white bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
                 />
                 <div className="ml-4 flex-shrink-0">
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900"
                   >
                     Sign up
                   </button>

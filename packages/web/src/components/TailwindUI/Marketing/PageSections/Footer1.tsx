@@ -26,7 +26,7 @@ const Footer1: FC<Footer1Props> = () => {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <img
@@ -34,7 +34,7 @@ const Footer1: FC<Footer1Props> = () => {
               src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
               alt="Company name"
             />
-            <p className="text-gray-500 text-base">
+            <p className="text-base text-gray-500">
               Making the world a better place through constructing elegant
               hierarchies.
             </p>
@@ -51,7 +51,7 @@ const Footer1: FC<Footer1Props> = () => {
               ))}
             </div>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             {navs.map((item, ix) => {
               return (
                 <div
@@ -64,7 +64,7 @@ const Footer1: FC<Footer1Props> = () => {
                         key={k + iix}
                         className={clsx(ix % 2 !== 0 && 'mt-12 md:mt-0')}
                       >
-                        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                           {k}
                         </h3>
                         <ul role="list" className="mt-4 space-y-4">
@@ -72,7 +72,7 @@ const Footer1: FC<Footer1Props> = () => {
                             <li key={item.name + iix}>
                               <a
                                 href={item.href}
-                                className="text-base text-gray-500 hover:text-gray-900 capitalize"
+                                className="text-base capitalize text-gray-500 hover:text-gray-900"
                               >
                                 {item.name}
                               </a>

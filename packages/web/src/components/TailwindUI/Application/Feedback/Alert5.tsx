@@ -9,7 +9,7 @@ export const config = {
 
 const Alert5: FC<Alert5Props> = () => {
   return (
-    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+    <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
       <div className="flex">
         <div className="flex-shrink-0">
           <ExclamationIcon
@@ -22,7 +22,7 @@ const Alert5: FC<Alert5Props> = () => {
             You have no credits left.{' '}
             <a
               href="#"
-              className="font-medium underline text-yellow-700 hover:text-yellow-600"
+              className="font-medium text-yellow-700 underline hover:text-yellow-600"
             >
               Upgrade your account to add more credits.
             </a>

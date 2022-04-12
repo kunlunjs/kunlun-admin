@@ -23,7 +23,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
     <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20"
+        className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
         <Transition.Child
@@ -35,7 +35,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -49,7 +49,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
         >
           <Combobox
             as="div"
-            className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5"
+            className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
             value=""
             onChange={(person: any) => (window.location = person.url)}
           >
@@ -59,7 +59,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
                 aria-hidden="true"
               />
               <Combobox.Input
-                className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                className="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                 placeholder="Search..."
                 onChange={event => setQuery(event.target.value)}
               />
@@ -68,7 +68,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
             {filteredPeople.length > 0 && (
               <Combobox.Options
                 static
-                className="py-2 overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2"
+                className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
               >
                 {filteredPeople.map(person => (
                   <Combobox.Option

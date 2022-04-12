@@ -28,33 +28,33 @@ const Navbar9: FC<Navbar9Props> = () => {
     <Disclosure as="header" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
-            <div className="relative flex justify-between h-16">
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+            <div className="relative flex h-16 justify-between">
               <div className="relative z-10 flex px-2 lg:px-0">
-                <div className="flex items-center flex-shrink-0">
+                <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block w-auto h-8"
+                    className="block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   />
                 </div>
               </div>
-              <div className="relative z-0 flex items-center justify-center flex-1 px-2 sm:absolute sm:inset-0">
+              <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <div className="w-full sm:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                       <SearchIcon
-                        className="w-5 h-5 text-gray-400"
+                        className="h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       />
                     </div>
                     <input
                       id="search"
                       name="search"
-                      className="block w-full py-2 pl-10 pr-3 text-sm placeholder-gray-400 bg-gray-700 border border-transparent rounded-md focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                      className="block w-full rounded-md border border-transparent bg-gray-700 py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-white focus:bg-white focus:text-gray-900 focus:placeholder-gray-500 focus:outline-none focus:ring-white sm:text-sm"
                       placeholder="Search"
                       type="search"
                     />
@@ -63,31 +63,31 @@ const Navbar9: FC<Navbar9Props> = () => {
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open menu</span>
                   {open ? (
-                    <XIcon className="block w-6 h-6" aria-hidden="true" />
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block w-6 h-6" aria-hidden="true" />
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
                 <button
                   type="button"
-                  className="flex-shrink-0 p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="w-6 h-6" aria-hidden="true" />
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative flex-shrink-0 ml-4">
+                <Menu as="div" className="relative ml-4 flex-shrink-0">
                   <div>
-                    <Menu.Button className="flex text-sm text-white bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="w-8 h-8 rounded-full"
+                        className="h-8 w-8 rounded-full"
                         src={user.imageUrl}
                         alt=""
                       />
@@ -102,7 +102,7 @@ const Navbar9: FC<Navbar9Props> = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {userNavigation.map(item => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
@@ -124,7 +124,7 @@ const Navbar9: FC<Navbar9Props> = () => {
               </div>
             </div>
             <nav
-              className="hidden lg:py-2 lg:flex lg:space-x-8"
+              className="hidden lg:flex lg:space-x-8 lg:py-2"
               aria-label="Global"
             >
               {navigation.map(item => (
@@ -135,7 +135,7 @@ const Navbar9: FC<Navbar9Props> = () => {
                     item.current
                       ? 'bg-gray-900 text-white'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
+                    'inline-flex items-center rounded-md py-2 px-3 text-sm font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -146,7 +146,7 @@ const Navbar9: FC<Navbar9Props> = () => {
           </div>
 
           <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map(item => (
                 <Disclosure.Button
                   key={item.name}
@@ -164,11 +164,11 @@ const Navbar9: FC<Navbar9Props> = () => {
                 </Disclosure.Button>
               ))}
             </div>
-            <div className="pt-4 pb-3 border-t border-gray-700">
+            <div className="border-t border-gray-700 pt-4 pb-3">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
                   <img
-                    className="w-10 h-10 rounded-full"
+                    className="h-10 w-10 rounded-full"
                     src={user.imageUrl}
                     alt=""
                   />
@@ -183,19 +183,19 @@ const Navbar9: FC<Navbar9Props> = () => {
                 </div>
                 <button
                   type="button"
-                  className="flex-shrink-0 p-1 ml-auto text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="w-6 h-6" aria-hidden="true" />
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-              <div className="px-2 mt-3 space-y-1">
+              <div className="mt-3 space-y-1 px-2">
                 {userNavigation.map(item => (
                   <Disclosure.Button
                     key={item.name}
                     as="a"
                     href={item.href}
-                    className="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:bg-gray-700 hover:text-white"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     {item.name}
                   </Disclosure.Button>

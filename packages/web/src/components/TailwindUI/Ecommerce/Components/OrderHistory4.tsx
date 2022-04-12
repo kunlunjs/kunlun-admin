@@ -28,7 +28,7 @@ export const config = {
 export default function OrderHistory4() {
   return (
     <div className="bg-white">
-      <div className="max-w-3xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="max-w-xl">
           <h1
             id="your-orders-heading"
@@ -55,7 +55,7 @@ export default function OrderHistory4() {
                 >
                   Order #{order.number}
                 </h2>
-                <div className="space-y-5 md:flex-1 md:min-w-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
+                <div className="space-y-5 sm:flex sm:items-baseline sm:justify-between sm:space-y-0 md:min-w-0 md:flex-1">
                   <p className="text-sm font-medium text-gray-500">
                     {order.status}
                   </p>
@@ -66,7 +66,7 @@ export default function OrderHistory4() {
                     >
                       Manage order
                     </a>
-                    <div className="border-l border-gray-200 ml-4 pl-4 sm:ml-6 sm:pl-6">
+                    <div className="ml-4 border-l border-gray-200 pl-4 sm:ml-6 sm:pl-6">
                       <a
                         href={order.invoiceHref}
                         className="text-indigo-600 hover:text-indigo-500"
@@ -78,20 +78,20 @@ export default function OrderHistory4() {
                 </div>
               </div>
 
-              <div className="mt-6 -mb-6 flow-root border-t border-gray-200 divide-y divide-gray-200">
+              <div className="mt-6 -mb-6 flow-root divide-y divide-gray-200 border-t border-gray-200">
                 {order.products.map(product => (
                   <div key={product.id} className="py-6 sm:flex">
                     <div className="flex space-x-4 sm:min-w-0 sm:flex-1 sm:space-x-6 lg:space-x-8">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="flex-none w-20 h-20 rounded-md object-center object-cover sm:w-48 sm:h-48"
+                        className="h-20 w-20 flex-none rounded-md object-cover object-center sm:h-48 sm:w-48"
                       />
-                      <div className="pt-1.5 min-w-0 flex-1 sm:pt-0">
+                      <div className="min-w-0 flex-1 pt-1.5 sm:pt-0">
                         <h3 className="text-sm font-medium text-gray-900">
                           <a href={product.href}>{product.name}</a>
                         </h3>
-                        <p className="text-sm text-gray-500 truncate">
+                        <p className="truncate text-sm text-gray-500">
                           <span>{product.color}</span>{' '}
                           <span
                             className="mx-1 text-gray-400"
@@ -106,16 +106,16 @@ export default function OrderHistory4() {
                         </p>
                       </div>
                     </div>
-                    <div className="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
+                    <div className="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:w-40 sm:flex-none">
                       <button
                         type="button"
-                        className="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-2.5 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full sm:flex-grow-0"
                       >
                         Buy again
                       </button>
                       <button
                         type="button"
-                        className="w-full flex items-center justify-center bg-white py-2 px-2.5 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0"
+                        className="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-2.5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full sm:flex-grow-0"
                       >
                         Shop similar
                       </button>

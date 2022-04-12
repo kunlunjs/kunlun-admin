@@ -4,7 +4,7 @@ export const config = {
 export default function ProductFeature1() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
         {/* Details section */}
         <section aria-labelledby="details-heading">
           <div className="flex flex-col items-center text-center">
@@ -23,11 +23,11 @@ export default function ProductFeature1() {
 
           <div className="mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8">
             <div>
-              <div className="w-full aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+              <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg">
                 <img
                   src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
                   alt="Drawstring top with elastic loop closure and textured interior padding."
-                  className="w-full h-full object-center object-cover"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
               <p className="mt-8 text-base text-gray-500">
@@ -37,11 +37,11 @@ export default function ProductFeature1() {
               </p>
             </div>
             <div>
-              <div className="w-full aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+              <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg">
                 <img
                   src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-02.jpg"
                   alt="Front zipper pouch with included key ring."
-                  className="w-full h-full object-center object-cover"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
               <p className="mt-8 text-base text-gray-500">

@@ -5,7 +5,7 @@ export const config = {
 export default function NewsletterSection3() {
   return (
     <div className="bg-gray-800">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:py-16 lg:px-8">
         <div className="lg:w-0 lg:flex-1">
           <h2
             className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
@@ -30,13 +30,13 @@ export default function NewsletterSection3() {
               type="email"
               autoComplete="email"
               required
-              className="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md"
+              className="w-full rounded-md border border-transparent px-5 py-3 placeholder-gray-500 focus:border-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-500 px-5 py-3 text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               >
                 Notify me
               </button>
@@ -44,7 +44,7 @@ export default function NewsletterSection3() {
           </form>
           <p className="mt-3 text-sm text-gray-300">
             We care about the protection of your data. Read our{' '}
-            <a href="#" className="text-white font-medium underline">
+            <a href="#" className="font-medium text-white underline">
               Privacy Policy.
             </a>
           </p>

@@ -483,7 +483,7 @@ export const Templates: FC<TemplatesProps> = () => {
                 id="components"
                 // onClick={handleSelect}
                 onChange={handleSelect}
-                className="mt-1 block w-full pl-3 pr-10 py-0 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                className="mt-1 block w-full rounded-md border-gray-300 py-0 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               >
                 {templateItems[blockType]
                   .find(i => i.name === blockName)
@@ -564,7 +564,7 @@ export const Templates: FC<TemplatesProps> = () => {
                   href="/static/style/tailwind2.0.2.min.css"
                   rel="stylesheet"
                 />
-                {
+                {/* {
                   <style
                     dangerouslySetInnerHTML={{
                       __html: `img { filter:
@@ -575,7 +575,7 @@ export const Templates: FC<TemplatesProps> = () => {
                       }`
                     }}
                   />
-                }
+                } */}
                 {/* <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.2/src/index.min.js"></script> */}
               </>
             }

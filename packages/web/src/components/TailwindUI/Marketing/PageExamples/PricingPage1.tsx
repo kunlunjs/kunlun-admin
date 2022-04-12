@@ -249,8 +249,8 @@ export default function PricingPage1() {
       <div className="bg-indigo-900">
         {/* Header */}
         <Popover className="relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center border-b border-indigo-400 border-opacity-25 py-6 md:justify-start md:space-x-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="flex items-center justify-between border-b border-indigo-400 border-opacity-25 py-6 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
@@ -261,20 +261,20 @@ export default function PricingPage1() {
                   />
                 </a>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
-                <Popover.Button className="bg-indigo-900 rounded-md p-2 inline-flex items-center justify-center text-indigo-300 hover:text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <div className="-my-2 -mr-2 md:hidden">
+                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-indigo-900 p-2 text-indigo-300 hover:bg-indigo-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
-              <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              <Popover.Group as="nav" className="hidden space-x-10 md:flex">
                 <Popover className="relative">
                   {({ open }) => (
                     <>
                       <Popover.Button
                         className={clsx(
                           open ? 'text-white' : 'text-indigo-300',
-                          'group bg-indigo-900 rounded-md inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-900 focus:ring-white'
+                          'group inline-flex items-center rounded-md bg-indigo-900 text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900'
                         )}
                       >
                         <span>Solutions</span>
@@ -296,17 +296,17 @@ export default function PricingPage1() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md px-2 sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div className="relative bg-white py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
+                        <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                            <div className="relative grid gap-6 bg-white py-6 px-5 sm:gap-8 sm:p-8">
                               {solutions.map(item => (
                                 <a
                                   key={item.name}
                                   href={item.href}
-                                  className="-m-3 rounded-lg p-3 flex items-start hover:bg-gray-50"
+                                  className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                                 >
                                   <item.icon
-                                    className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                    className="h-6 w-6 flex-shrink-0 text-indigo-600"
                                     aria-hidden="true"
                                   />
                                   <div className="ml-4">
@@ -320,15 +320,15 @@ export default function PricingPage1() {
                                 </a>
                               ))}
                             </div>
-                            <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                            <div className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                               {callsToAction.map(item => (
                                 <div key={item.name} className="flow-root">
                                   <a
                                     href={item.href}
-                                    className="-m-3 rounded-md p-3 flex items-center text-base font-medium text-gray-900 hover:bg-gray-100"
+                                    className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
                                   >
                                     <item.icon
-                                      className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                      className="h-6 w-6 flex-shrink-0 text-gray-400"
                                       aria-hidden="true"
                                     />
                                     <span className="ml-3">{item.name}</span>
@@ -362,7 +362,7 @@ export default function PricingPage1() {
                       <Popover.Button
                         className={clsx(
                           open ? 'text-white' : 'text-indigo-300',
-                          'group bg-indigo-900 rounded-md inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-900 focus:ring-white'
+                          'group inline-flex items-center rounded-md bg-indigo-900 text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900'
                         )}
                       >
                         <span>More</span>
@@ -384,17 +384,17 @@ export default function PricingPage1() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div className="relative bg-white py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
+                        <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
+                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                            <div className="relative grid gap-6 bg-white py-6 px-5 sm:gap-8 sm:p-8">
                               {resources.map(item => (
                                 <a
                                   key={item.name}
                                   href={item.href}
-                                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                  className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                                 >
                                   <item.icon
-                                    className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                    className="h-6 w-6 flex-shrink-0 text-indigo-600"
                                     aria-hidden="true"
                                   />
                                   <div className="ml-4">
@@ -408,16 +408,16 @@ export default function PricingPage1() {
                                 </a>
                               ))}
                             </div>
-                            <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+                            <div className="bg-gray-50 px-5 py-5 sm:px-8 sm:py-8">
                               <div>
-                                <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
+                                <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                                   Recent Posts
                                 </h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                   {recentPosts.map(post => (
                                     <li
                                       key={post.id}
-                                      className="text-base truncate"
+                                      className="truncate text-base"
                                     >
                                       <a
                                         href={post.href}
@@ -447,7 +447,7 @@ export default function PricingPage1() {
                   )}
                 </Popover>
               </Popover.Group>
-              <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+              <div className="hidden items-center justify-end space-x-8 md:flex md:flex-1 lg:w-0">
                 <a
                   href="#"
                   className="whitespace-nowrap text-base font-medium text-indigo-300 hover:text-white"
@@ -456,7 +456,7 @@ export default function PricingPage1() {
                 </a>
                 <a
                   href="#"
-                  className="whitespace-nowrap bg-white border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium text-indigo-600 hover:bg-indigo-50"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"
                 >
                   Sign up
                 </a>
@@ -475,10 +475,10 @@ export default function PricingPage1() {
           >
             <Popover.Panel
               focus
-              className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
             >
-              <div className="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
-                <div className="pt-5 pb-6 px-5 space-y-6">
+              <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="space-y-6 px-5 pt-5 pb-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <img
@@ -488,7 +488,7 @@ export default function PricingPage1() {
                       />
                     </div>
                     <div className="-mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span className="sr-only">Close menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -500,10 +500,10 @@ export default function PricingPage1() {
                         <a
                           key={item.name}
                           href={item.href}
-                          className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                          className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                         >
                           <item.icon
-                            className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                            className="h-6 w-6 flex-shrink-0 text-indigo-600"
                             aria-hidden="true"
                           />
                           <span className="ml-3 text-base font-medium text-gray-900">
@@ -514,7 +514,7 @@ export default function PricingPage1() {
                     </nav>
                   </div>
                 </div>
-                <div className="py-6 px-5 space-y-6">
+                <div className="space-y-6 py-6 px-5">
                   <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                     <a
                       href="#"
@@ -556,7 +556,7 @@ export default function PricingPage1() {
                   <div>
                     <a
                       href="#"
-                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                     >
                       Sign up
                     </a>
@@ -577,8 +577,8 @@ export default function PricingPage1() {
         </Popover>
 
         {/* Header section with select menu */}
-        <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:max-w-7xl">
-          <div className="px-0 sm:px-4 lg:px-0 lg:flex lg:justify-between lg:items-center">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="px-0 sm:px-4 lg:flex lg:items-center lg:justify-between lg:px-0">
             <div className="max-w-xl">
               <h2 className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
                 Pricing Plans
@@ -595,11 +595,11 @@ export default function PricingPage1() {
               >
                 Currency
               </label>
-              <div className="mt-1.5 relative">
+              <div className="relative mt-1.5">
                 <select
                   id="currency"
                   name="currency"
-                  className="block w-full bg-none bg-indigo-400 bg-opacity-25 border border-transparent text-white focus:ring-white focus:border-white rounded-md"
+                  className="block w-full rounded-md border border-transparent bg-indigo-400 bg-opacity-25 bg-none text-white focus:border-white focus:ring-white"
                   defaultValue="United States (USD)"
                 >
                   <option className="bg-gray-900">Argentina (ARS)</option>
@@ -612,7 +612,7 @@ export default function PricingPage1() {
                   <option className="bg-gray-900">Switzerland (CHF)</option>
                   <option className="bg-gray-900">United Kingdom (GBP)</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                   <ChevronDownIcon
                     className="h-4 w-4 text-indigo-300"
                     aria-hidden="true"
@@ -625,13 +625,13 @@ export default function PricingPage1() {
       </div>
 
       {/* Comparison table */}
-      <div className="max-w-2xl mx-auto bg-white py-16 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl bg-white py-16 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* xs to lg */}
         <div className="space-y-24 lg:hidden">
           {tiers.map(tier => (
             <section key={tier.name}>
-              <div className="px-4 mb-8">
-                <h2 className="text-lg leading-6 font-medium text-gray-900">
+              <div className="mb-8 px-4">
+                <h2 className="text-lg font-medium leading-6 text-gray-900">
                   {tier.name}
                 </h2>
                 <p className="mt-4">
@@ -645,7 +645,7 @@ export default function PricingPage1() {
                 <p className="mt-4 text-sm text-gray-500">{tier.description}</p>
                 <a
                   href={tier.href}
-                  className="mt-6 block w-full bg-gradient-to-r from-orange-500 to-pink-500 border border-transparent rounded-md shadow py-2 text-sm font-semibold text-white text-center hover:to-pink-600"
+                  className="mt-6 block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                 >
                   Buy {tier.name}
                 </a>
@@ -653,7 +653,7 @@ export default function PricingPage1() {
 
               {sections.map(section => (
                 <table key={section.name} className="w-full">
-                  <caption className="bg-gray-50 border-t border-gray-200 py-3 px-4 text-sm font-medium text-gray-900 text-left">
+                  <caption className="border-t border-gray-200 bg-gray-50 py-3 px-4 text-left text-sm font-medium text-gray-900">
                     {section.name}
                   </caption>
                   <thead>
@@ -673,7 +673,7 @@ export default function PricingPage1() {
                         className="border-t border-gray-200"
                       >
                         <th
-                          className="py-5 px-4 text-sm font-normal text-gray-500 text-left"
+                          className="py-5 px-4 text-left text-sm font-normal text-gray-500"
                           scope="row"
                         >
                           {feature.name}
@@ -681,7 +681,7 @@ export default function PricingPage1() {
                         <td className="py-5 pr-4">
                           {/* @ts-ignore */}
                           {typeof feature?.tiers?.[tier.name] === 'string' ? (
-                            <span className="block text-sm text-gray-700 text-right">
+                            <span className="block text-right text-sm text-gray-700">
                               {/* @ts-ignore */}
                               {feature.tiers[tier.name]}
                             </span>
@@ -718,7 +718,7 @@ export default function PricingPage1() {
               <div className="border-t border-gray-200 px-4 pt-5">
                 <a
                   href="#"
-                  className="block w-full bg-gradient-to-r from-orange-500 to-pink-500 border border-transparent rounded-md shadow py-2 text-sm font-semibold text-white text-center hover:to-pink-600"
+                  className="block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                 >
                   Buy {tier.name}
                 </a>
@@ -729,12 +729,12 @@ export default function PricingPage1() {
 
         {/* lg+ */}
         <div className="hidden lg:block">
-          <table className="w-full h-px table-fixed">
+          <table className="h-px w-full table-fixed">
             <caption className="sr-only">Pricing plan comparison</caption>
             <thead>
               <tr>
                 <th
-                  className="pb-4 pl-6 pr-6 text-sm font-medium text-gray-900 text-left"
+                  className="pb-4 pl-6 pr-6 text-left text-sm font-medium text-gray-900"
                   scope="col"
                 >
                   <span className="sr-only">Feature by</span>
@@ -743,7 +743,7 @@ export default function PricingPage1() {
                 {tiers.map(tier => (
                   <th
                     key={tier.name}
-                    className="w-1/4 pb-4 px-6 text-lg leading-6 font-medium text-gray-900 text-left"
+                    className="w-1/4 px-6 pb-4 text-left text-lg font-medium leading-6 text-gray-900"
                     scope="col"
                   >
                     {tier.name}
@@ -751,17 +751,17 @@ export default function PricingPage1() {
                 ))}
               </tr>
             </thead>
-            <tbody className="border-t border-gray-200 divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 border-t border-gray-200">
               <tr>
                 <th
-                  className="py-8 pl-6 pr-6 align-top text-sm font-medium text-gray-900 text-left"
+                  className="py-8 pl-6 pr-6 text-left align-top text-sm font-medium text-gray-900"
                   scope="row"
                 >
                   Pricing
                 </th>
                 {tiers.map(tier => (
                   <td key={tier.name} className="h-full py-8 px-6 align-top">
-                    <div className="h-full flex flex-col justify-between">
+                    <div className="flex h-full flex-col justify-between">
                       <div>
                         <p>
                           <span className="text-4xl font-extrabold text-gray-900">
@@ -777,7 +777,7 @@ export default function PricingPage1() {
                       </div>
                       <a
                         href={tier.href}
-                        className="mt-6 block w-full bg-gradient-to-r from-orange-500 to-pink-500 border border-transparent rounded-md shadow py-2 text-sm font-semibold text-white text-center hover:to-pink-600"
+                        className="mt-6 block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                       >
                         Buy {tier.name}
                       </a>
@@ -789,7 +789,7 @@ export default function PricingPage1() {
                 <Fragment key={section.name}>
                   <tr>
                     <th
-                      className="py-3 pl-6 bg-gray-50 text-sm font-medium text-gray-900 text-left"
+                      className="bg-gray-50 py-3 pl-6 text-left text-sm font-medium text-gray-900"
                       colSpan={4}
                       scope="colgroup"
                     >
@@ -799,7 +799,7 @@ export default function PricingPage1() {
                   {section.features.map(feature => (
                     <tr key={feature.name}>
                       <th
-                        className="py-5 pl-6 pr-6 text-sm font-normal text-gray-500 text-left"
+                        className="py-5 pl-6 pr-6 text-left text-sm font-normal text-gray-500"
                         scope="row"
                       >
                         {feature.name}
@@ -849,10 +849,10 @@ export default function PricingPage1() {
                   Choose your plan
                 </th>
                 {tiers.map(tier => (
-                  <td key={tier.name} className="pt-5 px-6">
+                  <td key={tier.name} className="px-6 pt-5">
                     <a
                       href="#"
-                      className="block w-full bg-gradient-to-r from-orange-500 to-pink-500 border border-transparent rounded-md shadow py-2 text-sm font-semibold text-white text-center hover:to-pink-600"
+                      className="block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                     >
                       Buy {tier.name}
                     </a>
@@ -865,7 +865,7 @@ export default function PricingPage1() {
       </div>
 
       {/* Logo cloud */}
-      <div className="max-w-7xl mx-auto border-t border-gray-200 py-12 px-4 sm:px-6 lg:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl border-t border-gray-200 py-12 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
           <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
             <img
@@ -907,15 +907,15 @@ export default function PricingPage1() {
 
       <div className="bg-gray-50">
         {/* FAQ */}
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center">
+        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-extrabold text-gray-900">
             Frequently asked questions
           </h2>
           <div className="mt-12">
-            <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
+            <dl className="space-y-10 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12 md:space-y-0 lg:grid-cols-3">
               {faqs.map(faq => (
                 <div key={faq.id} className="space-y-2">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg font-medium leading-6 text-gray-900">
                     {faq.question}
                   </dt>
                   <dd className="text-base text-gray-500">{faq.answer}</dd>
@@ -932,9 +932,9 @@ export default function PricingPage1() {
           <div className="flex-1 bg-gray-50" />
           <div className="flex-1" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-            <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-lg bg-gradient-to-r from-orange-400 to-pink-500 shadow-xl lg:grid lg:grid-cols-2 lg:gap-4">
+            <div className="px-6 pt-10 pb-12 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
               <div className="lg:self-center">
                 <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
                   <span className="block">Ready to dive in?</span>
@@ -948,15 +948,15 @@ export default function PricingPage1() {
                 </p>
                 <a
                   href="#"
-                  className="mt-8 bg-orange-100 border border-transparent rounded-md shadow py-3 px-6 inline-flex items-center text-base font-medium text-red-600 hover:text-red-500"
+                  className="mt-8 inline-flex items-center rounded-md border border-transparent bg-orange-100 py-3 px-6 text-base font-medium text-red-600 shadow hover:text-red-500"
                 >
                   Sign up for free
                 </a>
               </div>
             </div>
-            <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+            <div className="aspect-w-5 aspect-h-3 -mt-6 md:aspect-w-2 md:aspect-h-1">
               <img
-                className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
+                className="translate-x-6 translate-y-6 transform rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
                 src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
                 alt="App screenshot"
               />
@@ -966,13 +966,13 @@ export default function PricingPage1() {
       </div>
 
       {/* Footer */}
-      <footer className="mt-12 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <footer className="mx-auto mt-12 max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <h2 className="sr-only">Footer</h2>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h4 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Solutions
                 </h4>
                 <ul role="list" className="mt-4 space-y-4">
@@ -989,7 +989,7 @@ export default function PricingPage1() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h4 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Support
                 </h4>
                 <ul role="list" className="mt-4 space-y-4">
@@ -1008,7 +1008,7 @@ export default function PricingPage1() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h4 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Company
                 </h4>
                 <ul role="list" className="mt-4 space-y-4">
@@ -1025,7 +1025,7 @@ export default function PricingPage1() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h4 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                   Legal
                 </h4>
                 <ul role="list" className="mt-4 space-y-4">
@@ -1044,10 +1044,10 @@ export default function PricingPage1() {
             </div>
           </div>
           <div className="mt-8 xl:mt-0">
-            <h4 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
               Subscribe to our newsletter
             </h4>
-            <p className="mt-4 text-gray-500 text-base">
+            <p className="mt-4 text-base text-gray-500">
               The latest news, articles, and resources, sent to your inbox
               weekly.
             </p>
@@ -1061,13 +1061,13 @@ export default function PricingPage1() {
                 id="email-address"
                 autoComplete="email"
                 required
-                className="min-w-0 w-full bg-white shadow-sm py-2 px-4 placeholder-gray-500 focus:outline-none focus:ring-orange-500 focus:border-orange-500 border-gray-300 rounded-md"
+                className="w-full min-w-0 rounded-md border-gray-300 bg-white py-2 px-4 placeholder-gray-500 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
                 placeholder="Enter your email"
               />
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="w-full bg-orange-100 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-red-600 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-100 py-2 px-4 text-base font-medium text-red-600 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
                   Subscribe
                 </button>
@@ -1088,7 +1088,7 @@ export default function PricingPage1() {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
             &copy; 2020 Workflow, Inc. All rights reserved.
           </p>
         </div>

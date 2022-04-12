@@ -7,7 +7,7 @@ const items = [
 ]
 const ListContainer2: FC<ListContainers2Props> = () => {
   return (
-    <div className="overflow-hidden bg-white rounded-md shadow">
+    <div className="overflow-hidden rounded-md bg-white shadow">
       <ul role="list" className="divide-y divide-gray-200">
         {items.map(item => (
           <li key={item.id} className="px-6 py-4">

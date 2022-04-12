@@ -25,7 +25,7 @@ const InputGroup5: FC<InputGroup5Props> = () => {
           type="email"
           name="email"
           id="email"
-          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           placeholder="you@example.com"
           aria-describedby="email-optional"
         />

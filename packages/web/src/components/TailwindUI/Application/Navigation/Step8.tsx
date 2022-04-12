@@ -9,13 +9,13 @@ const Step8: FC<Step8Props> = () => {
         Migrating MySQL database...
       </p>
       <div className="mt-6" aria-hidden="true">
-        <div className="overflow-hidden bg-gray-200 rounded-full">
+        <div className="overflow-hidden rounded-full bg-gray-200">
           <div
-            className="h-2 bg-indigo-600 rounded-full"
+            className="h-2 rounded-full bg-indigo-600"
             style={{ width: '37.5%' }}
           />
         </div>
-        <div className="hidden grid-cols-4 mt-6 text-sm font-medium text-gray-600 sm:grid">
+        <div className="mt-6 hidden grid-cols-4 text-sm font-medium text-gray-600 sm:grid">
           <div className="text-indigo-600">Copying files</div>
           <div className="text-center text-indigo-600">Migrating database</div>
           <div className="text-center">Compiling assets</div>

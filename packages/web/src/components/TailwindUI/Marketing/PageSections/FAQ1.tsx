@@ -18,8 +18,8 @@ export const config = {
 export default function FAQ1() {
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl divide-y-2 divide-gray-200">
           <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Frequently asked questions
           </h2>
@@ -29,11 +29,11 @@ export default function FAQ1() {
                 {({ open }) => (
                   <>
                     <dt className="text-lg">
-                      <Disclosure.Button className="text-left w-full flex justify-between items-start text-gray-400">
+                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-400">
                         <span className="font-medium text-gray-900">
                           {faq.question}
                         </span>
-                        <span className="ml-6 h-7 flex items-center">
+                        <span className="ml-6 flex h-7 items-center">
                           <ChevronDownIcon
                             className={clsx(
                               open ? '-rotate-180' : 'rotate-0',

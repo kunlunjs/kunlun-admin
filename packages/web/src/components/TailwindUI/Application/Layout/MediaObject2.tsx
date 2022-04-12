@@ -5,9 +5,9 @@ interface MediaObject2Props {}
 const MediaObject2: FC<MediaObject2Props> = () => {
   return (
     <div className="flex">
-      <div className="self-center flex-shrink-0 mr-4">
+      <div className="mr-4 flex-shrink-0 self-center">
         <svg
-          className="w-16 h-16 text-gray-300 bg-white border border-gray-300"
+          className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
           preserveAspectRatio="none"
           stroke="currentColor"
           fill="none"

@@ -16,7 +16,7 @@ const ActionPanel5: FC<ActionPanel5Props> = () => {
       <Switch.Group as="div" className="px-4 py-5 sm:p-6">
         <Switch.Label
           as="h3"
-          className="text-lg leading-6 font-medium text-gray-900"
+          className="text-lg font-medium leading-6 text-gray-900"
           passive
         >
           Renew subscription automatically
@@ -28,20 +28,20 @@ const ActionPanel5: FC<ActionPanel5Props> = () => {
               totam non cumque deserunt officiis ex maiores nostrum.
             </Switch.Description>
           </div>
-          <div className="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
+          <div className="mt-5 sm:mt-0 sm:ml-6 sm:flex sm:flex-shrink-0 sm:items-center">
             <Switch
               checked={enabled}
               onChange={setEnabled}
               className={clsx(
                 enabled ? 'bg-indigo-600' : 'bg-gray-200',
-                'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
               )}
             >
               <span
                 aria-hidden="true"
                 className={clsx(
                   enabled ? 'translate-x-5' : 'translate-x-0',
-                  'inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'
+                  'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
                 )}
               />
             </Switch>

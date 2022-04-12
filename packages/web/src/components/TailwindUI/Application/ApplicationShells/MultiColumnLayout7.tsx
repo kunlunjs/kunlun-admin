@@ -61,7 +61,7 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <div className="relative flex flex-col flex-1 w-full max-w-xs bg-white focus:outline-none">
+              <div className="relative flex w-full max-w-xs flex-1 flex-col bg-white focus:outline-none">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -71,38 +71,38 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="absolute top-0 right-0 pt-4 -mr-12">
+                  <div className="absolute top-0 right-0 -mr-12 pt-4">
                     <button
                       type="button"
-                      className="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                      className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <span className="sr-only">Close sidebar</span>
                       <XIcon
-                        className="w-6 h-6 text-white"
+                        className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
                     </button>
                   </div>
                 </Transition.Child>
                 <div className="pt-5 pb-4">
-                  <div className="flex items-center flex-shrink-0 px-4">
+                  <div className="flex flex-shrink-0 items-center px-4">
                     <img
-                      className="w-auto h-8"
+                      className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                       alt="Workflow"
                     />
                   </div>
                   <nav aria-label="Sidebar" className="mt-5">
-                    <div className="px-2 space-y-1">
+                    <div className="space-y-1 px-2">
                       {navigation.map(item => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center p-2 text-base font-medium text-gray-600 rounded-md group hover:bg-gray-50 hover:text-gray-900"
+                          className="group flex items-center rounded-md p-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                         >
                           <item.icon
-                            className="w-6 h-6 mr-4 text-gray-400 group-hover:text-gray-500"
+                            className="mr-4 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                             aria-hidden="true"
                           />
                           {item.name}
@@ -111,12 +111,12 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
                     </div>
                   </nav>
                 </div>
-                <div className="flex flex-shrink-0 p-4 border-t border-gray-200">
-                  <a href="#" className="flex-shrink-0 block group">
+                <div className="flex flex-shrink-0 border-t border-gray-200 p-4">
+                  <a href="#" className="group block flex-shrink-0">
                     <div className="flex items-center">
                       <div>
                         <img
-                          className="inline-block w-10 h-10 rounded-full"
+                          className="inline-block h-10 w-10 rounded-full"
                           src={user.imageUrl}
                           alt=""
                         />
@@ -134,7 +134,7 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
                 </div>
               </div>
             </Transition.Child>
-            <div className="flex-shrink-0 w-14" aria-hidden="true">
+            <div className="w-14 flex-shrink-0" aria-hidden="true">
               {/* Force sidebar to shrink to fit close icon */}
             </div>
           </Dialog>
@@ -142,36 +142,36 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
 
         {/* Static sidebar for desktop */}
         <div className="hidden lg:flex lg:flex-shrink-0">
-          <div className="flex flex-col w-20">
-            <div className="flex flex-col flex-1 min-h-0 overflow-y-auto bg-indigo-600">
+          <div className="flex w-20 flex-col">
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-indigo-600">
               <div className="flex-1">
-                <div className="flex items-center justify-center py-4 bg-indigo-700">
+                <div className="flex items-center justify-center bg-indigo-700 py-4">
                   <img
-                    className="w-auto h-8"
+                    className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
                     alt="Workflow"
                   />
                 </div>
                 <nav
                   aria-label="Sidebar"
-                  className="flex flex-col items-center py-6 space-y-3"
+                  className="flex flex-col items-center space-y-3 py-6"
                 >
                   {navigation.map(item => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="flex items-center p-4 text-indigo-200 rounded-lg hover:bg-indigo-700"
+                      className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700"
                     >
-                      <item.icon className="w-6 h-6" aria-hidden="true" />
+                      <item.icon className="h-6 w-6" aria-hidden="true" />
                       <span className="sr-only">{item.name}</span>
                     </a>
                   ))}
                 </nav>
               </div>
               <div className="flex flex-shrink-0 pb-5">
-                <a href="#" className="flex-shrink-0 w-full">
+                <a href="#" className="w-full flex-shrink-0">
                   <img
-                    className="block w-10 h-10 mx-auto rounded-full"
+                    className="mx-auto block h-10 w-10 rounded-full"
                     src={user.imageUrl}
                     alt=""
                   />
@@ -185,13 +185,13 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
           {/* Mobile top navigation */}
           <div className="lg:hidden">
-            <div className="flex items-center justify-between px-4 py-2 bg-indigo-600 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between bg-indigo-600 px-4 py-2 sm:px-6 lg:px-8">
               <div>
                 <img
-                  className="w-auto h-8"
+                  className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
                   alt="Workflow"
                 />
@@ -199,11 +199,11 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
               <div>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center w-12 h-12 -mr-3 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  className="-mr-3 inline-flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   onClick={() => setMobileMenuOpen(true)}
                 >
                   <span className="sr-only">Open sidebar</span>
-                  <MenuIcon className="w-6 h-6" aria-hidden="true" />
+                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -213,7 +213,7 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
             {/* Primary column */}
             <section
               aria-labelledby="primary-heading"
-              className="flex flex-col flex-1 h-full min-w-0 overflow-y-auto lg:order-last"
+              className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last"
             >
               <h1 id="primary-heading" className="sr-only">
                 Account
@@ -222,8 +222,8 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
             </section>
 
             {/* Secondary column (hidden on smaller screens) */}
-            <aside className="hidden lg:block lg:flex-shrink-0 lg:order-first">
-              <div className="relative flex flex-col h-full overflow-y-auto bg-white border-r border-gray-200 w-96">
+            <aside className="hidden lg:order-first lg:block lg:flex-shrink-0">
+              <div className="relative flex h-full w-96 flex-col overflow-y-auto border-r border-gray-200 bg-white">
                 {/* Your content */}
               </div>
             </aside>

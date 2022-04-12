@@ -83,7 +83,7 @@ const MultiColumnLayout5: FC<MultiColumnLayout5Props> = () => {
               <select
                 id="inbox-select"
                 className="rounded-md border-0 bg-none pl-3 pr-8 text-base font-medium text-gray-900 focus:ring-2 focus:ring-indigo-600"
-                //@ts-ignore
+                // @ts-ignore
                 defaultValue={sidebarNavigation.find(item => item.current).name}
               >
                 {sidebarNavigation.map(item => (

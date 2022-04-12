@@ -11,7 +11,6 @@ import './index.css'
 
 SyntaxHighlighter.registerLanguage('js', js)
 // SyntaxHighlighter.registerLanguage('jsx', jsx)
-console.log(templateItems)
 const blockList: string[] = []
 const thumbnailEntries = Object.entries(templateItems)
 thumbnailEntries.forEach(([type, coms]) => {
@@ -227,6 +226,14 @@ export const Templates: FC<TemplatesProps> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    const [type, name] = window.location.hash.slice(1).split('/')
+    if (type && name && (type !== blockType || name !== blockName)) {
+      setState({ ...state, blockType: type, blockName: name })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.location.href])
+
   const hideSidebar = () => {
     const sidebar = sidebarRef.current!
     const opener = openerRef.current!
@@ -253,16 +260,13 @@ export const Templates: FC<TemplatesProps> = () => {
       'keydown',
       keyboardNavigation
     )
-    const _state = state
+    // const _state = state
     iframe.contentWindow?.document.addEventListener('click', e => {
-      console.log('iframe click: ', e)
-      e.preventDefault()
-      // e.stopPropagation()
-      setState({
-        ..._state,
-        ...lastedState.current.values,
-        sidebar: false
-      })
+      // setState({
+      //   ..._state,
+      //   ...lastedState.current.values,
+      //   sidebar: false
+      // })
     })
     timeout = setTimeout(() => {
       setState({
@@ -319,8 +323,10 @@ export const Templates: FC<TemplatesProps> = () => {
     const blockType = currentTarget.getAttribute('block-type') as string
     const blockName = currentTarget.getAttribute('block-name') as string
     const blockTitle = currentTarget.getAttribute('block-title') as string
-    const { protocol, host, pathname } = window.location
-    window.location.href = `${protocol}//${host}${pathname}#${blockType}/${blockName}`
+    const { protocol, host, pathname, hash } = window.location
+    if (hash !== `#${blockType}/${blockName}`) {
+      window.location.href = `${protocol}//${host}${pathname}#${blockType}/${blockName}`
+    }
     setState({
       ...state,
       index: 0,
@@ -484,7 +490,7 @@ export const Templates: FC<TemplatesProps> = () => {
         {Block && (
           <>
             {/* <span className="ml-4 font-bold text-white">{blockTitle}</span> */}
-            <div className="flex ml-4 h-7">
+            <div className="ml-4 flex h-7">
               <label htmlFor="components" className="hidden">
                 选择组件
               </label>
@@ -493,7 +499,7 @@ export const Templates: FC<TemplatesProps> = () => {
                 id="components"
                 // onClick={handleSelect}
                 onChange={handleSelect}
-                className="block w-full py-0 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 py-0 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               >
                 {templateItems[blockType]
                   .find(i => i.name === blockName)

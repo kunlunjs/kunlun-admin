@@ -47,16 +47,16 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
       */}
       <div className="flex h-full">
         {/* Narrow sidebar */}
-        <div className="hidden overflow-y-auto bg-indigo-700 w-28 md:block">
-          <div className="flex flex-col items-center w-full py-6">
-            <div className="flex items-center flex-shrink-0">
+        <div className="hidden w-28 overflow-y-auto bg-indigo-700 md:block">
+          <div className="flex w-full flex-col items-center py-6">
+            <div className="flex flex-shrink-0 items-center">
               <img
-                className="w-auto h-8"
+                className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
                 alt="Workflow"
               />
             </div>
-            <div className="flex-1 w-full px-2 mt-6 space-y-1">
+            <div className="mt-6 w-full flex-1 space-y-1 px-2">
               {sidebarNavigation.map(item => (
                 <a
                   key={item.name}
@@ -65,7 +65,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                     item.current
                       ? 'bg-indigo-800 text-white'
                       : 'text-indigo-100 hover:bg-indigo-800 hover:text-white',
-                    'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium'
+                    'group flex w-full flex-col items-center rounded-md p-3 text-xs font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -109,7 +109,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <div className="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-indigo-700">
+                <div className="relative flex w-full max-w-xs flex-1 flex-col bg-indigo-700 pt-5 pb-4">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -119,29 +119,29 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <div className="absolute right-0 p-1 top-1 -mr-14">
+                    <div className="absolute right-0 top-1 -mr-14 p-1">
                       <button
                         type="button"
-                        className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:ring-2 focus:ring-white"
+                        className="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <XIcon
-                          className="w-6 h-6 text-white"
+                          className="h-6 w-6 text-white"
                           aria-hidden="true"
                         />
                         <span className="sr-only">Close sidebar</span>
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className="flex items-center flex-shrink-0 px-4">
+                  <div className="flex flex-shrink-0 items-center px-4">
                     <img
-                      className="w-auto h-8"
+                      className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
                       alt="Workflow"
                     />
                   </div>
-                  <div className="flex-1 h-0 px-2 mt-5 overflow-y-auto">
-                    <nav className="flex flex-col h-full">
+                  <div className="mt-5 h-0 flex-1 overflow-y-auto px-2">
+                    <nav className="flex h-full flex-col">
                       <div className="space-y-1">
                         {sidebarNavigation.map(item => (
                           <a
@@ -151,7 +151,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                               item.current
                                 ? 'bg-indigo-800 text-white'
                                 : 'text-indigo-100 hover:bg-indigo-800 hover:text-white',
-                              'group py-2 px-3 rounded-md flex items-center text-sm font-medium'
+                              'group flex items-center rounded-md py-2 px-3 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
                           >
@@ -172,7 +172,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                   </div>
                 </div>
               </Transition.Child>
-              <div className="flex-shrink-0 w-14" aria-hidden="true">
+              <div className="w-14 flex-shrink-0" aria-hidden="true">
                 {/* Dummy element to force sidebar to shrink to fit close icon */}
               </div>
             </div>
@@ -180,48 +180,48 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
         </Transition.Root>
 
         {/* Content area */}
-        <div className="flex flex-col flex-1 overflow-hidden">
+        <div className="flex flex-1 flex-col overflow-hidden">
           <header className="w-full">
-            <div className="relative z-10 flex flex-shrink-0 h-16 bg-white border-b border-gray-200 shadow-sm">
+            <div className="relative z-10 flex h-16 flex-shrink-0 border-b border-gray-200 bg-white shadow-sm">
               <button
                 type="button"
-                className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+                className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
                 onClick={() => setMobileMenuOpen(true)}
               >
                 <span className="sr-only">Open sidebar</span>
-                <MenuAlt2Icon className="w-6 h-6" aria-hidden="true" />
+                <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
               </button>
-              <div className="flex justify-between flex-1 px-4 sm:px-6">
+              <div className="flex flex-1 justify-between px-4 sm:px-6">
                 <div className="flex flex-1">
                   <form className="flex w-full md:ml-0" action="#" method="GET">
                     <label htmlFor="search-field" className="sr-only">
                       Search all files
                     </label>
                     <div className="relative w-full text-gray-400 focus-within:text-gray-600">
-                      <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
                         <SearchIcon
-                          className="flex-shrink-0 w-5 h-5"
+                          className="h-5 w-5 flex-shrink-0"
                           aria-hidden="true"
                         />
                       </div>
                       <input
                         name="search-field"
                         id="search-field"
-                        className="w-full h-full py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 border-transparent focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400"
+                        className="h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0"
                         placeholder="Search"
                         type="search"
                       />
                     </div>
                   </form>
                 </div>
-                <div className="flex items-center ml-2 space-x-4 sm:ml-6 sm:space-x-6">
+                <div className="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative flex-shrink-0">
                     <div>
-                      <Menu.Button className="flex text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         <span className="sr-only">Open user menu</span>
                         <img
-                          className="w-8 h-8 rounded-full"
+                          className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
                           alt=""
                         />
@@ -236,7 +236,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {userNavigation.map(item => (
                           <Menu.Item key={item.name}>
                             {({ active }) => (
@@ -258,9 +258,9 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
 
                   <button
                     type="button"
-                    className="flex items-center justify-center p-1 text-white bg-indigo-600 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="flex items-center justify-center rounded-full bg-indigo-600 p-1 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
-                    <PlusSmIcon className="w-6 h-6" aria-hidden="true" />
+                    <PlusSmIcon className="h-6 w-6" aria-hidden="true" />
                     <span className="sr-only">Add file</span>
                   </button>
                 </div>
@@ -269,12 +269,12 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
           </header>
 
           {/* Main content */}
-          <div className="flex items-stretch flex-1 overflow-hidden">
+          <div className="flex flex-1 items-stretch overflow-hidden">
             <main className="flex-1 overflow-y-auto">
               {/* Primary column */}
               <section
                 aria-labelledby="primary-heading"
-                className="flex flex-col flex-1 h-full min-w-0 lg:order-last"
+                className="flex h-full min-w-0 flex-1 flex-col lg:order-last"
               >
                 <h1 id="primary-heading" className="sr-only">
                   Photos
@@ -284,7 +284,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
             </main>
 
             {/* Secondary column (hidden on smaller screens) */}
-            <aside className="hidden overflow-y-auto bg-white border-l border-gray-200 w-96 lg:block">
+            <aside className="hidden w-96 overflow-y-auto border-l border-gray-200 bg-white lg:block">
               {/* Your content */}
             </aside>
           </div>

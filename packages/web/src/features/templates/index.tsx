@@ -11,7 +11,7 @@ import './index.css'
 
 SyntaxHighlighter.registerLanguage('js', js)
 // SyntaxHighlighter.registerLanguage('jsx', jsx)
-
+console.log(templateItems)
 const blockList: string[] = []
 const thumbnailEntries = Object.entries(templateItems)
 thumbnailEntries.forEach(([type, coms]) => {
@@ -473,8 +473,8 @@ export const Templates: FC<TemplatesProps> = () => {
         </button>
         {Block && (
           <>
-            {/* <span className="ml-4 text-white font-bold">{blockTitle}</span> */}
-            <div className="ml-4 flex h-7">
+            {/* <span className="ml-4 font-bold text-white">{blockTitle}</span> */}
+            <div className="flex ml-4 h-7">
               <label htmlFor="components" className="hidden">
                 选择组件
               </label>
@@ -483,7 +483,7 @@ export const Templates: FC<TemplatesProps> = () => {
                 id="components"
                 // onClick={handleSelect}
                 onChange={handleSelect}
-                className="mt-1 block w-full rounded-md border-gray-300 py-0 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full py-0 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
                 {templateItems[blockType]
                   .find(i => i.name === blockName)

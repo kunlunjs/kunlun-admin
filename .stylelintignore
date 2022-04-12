@@ -1,5 +1,6 @@
 **/dist/*.css
 **/*/*.min.css
+*.js
 **/*/*.js
 **/*/*.jsx
 **/*/*.ts

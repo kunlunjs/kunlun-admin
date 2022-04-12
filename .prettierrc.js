@@ -12,6 +12,8 @@ module.exports = {
   rangeStart: 0,
   rangeEnd: Infinity,
   endOfLine: 'auto',
+  plugins: [require('prettier-plugin-tailwindcss')],
+  tailwindConfig: './packages/web/tailwind.config.js',
   overrides: [
     {
       files:

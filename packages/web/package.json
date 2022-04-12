@@ -102,5 +102,8 @@
     "web-vitals": "^2.1.4",
     "zod": "^3.14.3",
     "zustand": "^3.7.1"
+  },
+  "workspaces": {
+    "nohoist": ["**/tailwindcss", "**/@tailwindcss/**"]
   }
 }

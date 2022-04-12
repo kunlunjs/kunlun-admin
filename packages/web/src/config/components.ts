@@ -74,6 +74,7 @@ export const componentConfigs: Partial<
       }
     }
   },
+  /*----------------------------------------------------------------*/
   Card: {
     properties: {
       title: {

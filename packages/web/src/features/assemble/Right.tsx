@@ -34,8 +34,8 @@ export const Right: FC<RightProps> = () => {
 
   if (!name) {
     return (
-      <div className="w-1/5 h-full border border-solid border-gray-200">
-        <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+      <div className="h-full w-1/5 border border-solid border-gray-200">
+        <div className="h-10 border border-t-0 border-l-0 border-r-0 border-solid border-gray-200 py-2 pl-3 font-medium">
           配置
         </div>
       </div>
@@ -58,9 +58,9 @@ export const Right: FC<RightProps> = () => {
   }, {} as Record<string, any>)
 
   return (
-    <div className="w-1/5 h-full border border-solid border-gray-200">
+    <div className="h-full w-1/5 border border-solid border-gray-200">
       <div>
-        <div className="h-10 border border-solid border-gray-200 border-t-0 border-l-0 border-r-0 pl-3 py-2 font-medium">
+        <div className="h-10 border border-t-0 border-l-0 border-r-0 border-solid border-gray-200 py-2 pl-3 font-medium">
           配置
         </div>
         <Form
@@ -86,7 +86,7 @@ export const Right: FC<RightProps> = () => {
                   return { label: i, value: i }
                 }
                 return i
-              })
+              }) as { label: string; value: string | boolean | number }[]
             }
             const enumLabelLen =
               // @ts-ignore
@@ -123,7 +123,7 @@ export const Right: FC<RightProps> = () => {
                 name={name}
                 label={obj.title}
                 valuePropName={obj.type === 'boolean' ? 'checked' : 'value'}
-                className="flex justify-between !mb-2 assembly-rightpanel"
+                className="assembly-rightpanel !mb-2 flex justify-between"
               >
                 {item}
               </Form.Item>

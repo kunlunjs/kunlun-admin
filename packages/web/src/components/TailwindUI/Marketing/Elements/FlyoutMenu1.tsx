@@ -54,15 +54,15 @@ export const config = {
 
 export default function FlyoutMenu1() {
   return (
-    <Popover className="z-0 relative">
+    <Popover className="relative z-0">
       {({ open }) => (
         <>
           <div className="relative z-10 bg-white shadow">
-            <div className="max-w-7xl mx-auto flex px-4 py-6 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
               <Popover.Button
                 className={clsx(
                   open ? 'text-gray-900' : 'text-gray-500',
-                  'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                 )}
               >
                 <span>Solutions</span>
@@ -86,21 +86,21 @@ export default function FlyoutMenu1() {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 -translate-y-1"
           >
-            <Popover.Panel className="absolute z-10 inset-x-0 transform shadow-lg">
+            <Popover.Panel className="absolute inset-x-0 z-10 transform shadow-lg">
               <div className="absolute inset-0 flex" aria-hidden="true">
-                <div className="bg-white w-1/2" />
-                <div className="bg-gray-50 w-1/2" />
+                <div className="w-1/2 bg-white" />
+                <div className="w-1/2 bg-gray-50" />
               </div>
-              <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+              <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
                 <nav
-                  className="grid gap-y-10 px-4 py-8 bg-white sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
+                  className="grid gap-y-10 bg-white px-4 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
                   aria-labelledby="solutions-heading"
                 >
                   <h2 id="solutions-heading" className="sr-only">
                     Solutions menu
                   </h2>
                   <div>
-                    <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                    <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                       Company
                     </h3>
                     <ul role="list" className="mt-5 space-y-6">
@@ -108,10 +108,10 @@ export default function FlyoutMenu1() {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
+                            className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
                           >
                             <item.icon
-                              className="flex-shrink-0 h-6 w-6 text-gray-400"
+                              className="h-6 w-6 flex-shrink-0 text-gray-400"
                               aria-hidden="true"
                             />
                             <span className="ml-4">{item.name}</span>
@@ -121,7 +121,7 @@ export default function FlyoutMenu1() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                    <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                       Resources
                     </h3>
                     <ul role="list" className="mt-5 space-y-6">
@@ -129,10 +129,10 @@ export default function FlyoutMenu1() {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
+                            className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
                           >
                             <item.icon
-                              className="flex-shrink-0 h-6 w-6 text-gray-400"
+                              className="h-6 w-6 flex-shrink-0 text-gray-400"
                               aria-hidden="true"
                             />
                             <span className="ml-4">{item.name}</span>
@@ -144,7 +144,7 @@ export default function FlyoutMenu1() {
                 </nav>
                 <div className="bg-gray-50 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12">
                   <div>
-                    <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                    <h3 className="text-sm font-medium uppercase tracking-wide text-gray-500">
                       From the blog
                     </h3>
                     <ul role="list" className="mt-6 space-y-6">
@@ -152,17 +152,17 @@ export default function FlyoutMenu1() {
                         <li key={post.id} className="flow-root">
                           <a
                             href={post.href}
-                            className="-m-3 p-3 flex rounded-lg hover:bg-gray-100 transition ease-in-out duration-150"
+                            className="-m-3 flex rounded-lg p-3 transition duration-150 ease-in-out hover:bg-gray-100"
                           >
-                            <div className="hidden sm:block flex-shrink-0">
+                            <div className="hidden flex-shrink-0 sm:block">
                               <img
-                                className="w-32 h-20 object-cover rounded-md"
+                                className="h-20 w-32 rounded-md object-cover"
                                 src={post.imageUrl}
                                 alt=""
                               />
                             </div>
                             <div className="min-w-0 flex-1 sm:ml-8">
-                              <h4 className="text-base font-medium text-gray-900 truncate">
+                              <h4 className="truncate text-base font-medium text-gray-900">
                                 {post.name}
                               </h4>
                               <p className="mt-1 text-sm text-gray-500">
@@ -177,7 +177,7 @@ export default function FlyoutMenu1() {
                   <div className="mt-6 text-sm font-medium">
                     <a
                       href="#"
-                      className="text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150"
+                      className="text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
                     >
                       View all posts <span aria-hidden="true">&rarr;</span>
                     </a>

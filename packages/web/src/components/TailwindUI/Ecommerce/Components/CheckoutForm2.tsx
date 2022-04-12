@@ -117,15 +117,7 @@ export default function CheckoutForm2() {
                     <Popover.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
                   </KLTransitionChild>
 
-                  <Transition.Child
-                    as={Fragment}
-                    enter="transition ease-in-out duration-300 transform"
-                    enterFrom="translate-y-full"
-                    enterTo="translate-y-0"
-                    leave="transition ease-in-out duration-300 transform"
-                    leaveFrom="translate-y-0"
-                    leaveTo="translate-y-full"
-                  >
+                  <KLTransitionChild isEaseInOut>
                     <Popover.Panel className="relative bg-white px-4 py-6 sm:px-6">
                       <dl className="mx-auto max-w-lg space-y-6">
                         <div className="flex items-center justify-between">
@@ -144,7 +136,7 @@ export default function CheckoutForm2() {
                         </div>
                       </dl>
                     </Popover.Panel>
-                  </Transition.Child>
+                  </KLTransitionChild>
                 </div>
               </Transition.Root>
             </Popover>

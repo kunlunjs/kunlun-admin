@@ -57,15 +57,7 @@ const SidebarLayout2: FC<SidebarLayout2Props> = () => {
             <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
             </KLTransitionChild>
-            <Transition.Child
-              as={Fragment}
-              enter="transition ease-in-out duration-300 transform"
-              enterFrom="-translate-x-full"
-              enterTo="translate-x-0"
-              leave="transition ease-in-out duration-300 transform"
-              leaveFrom="translate-x-0"
-              leaveTo="-translate-x-full"
-            >
+            <KLTransitionChild isEaseInOut>
               <div className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-800 pt-5 pb-4">
                 <Transition.Child
                   as={Fragment}
@@ -125,7 +117,7 @@ const SidebarLayout2: FC<SidebarLayout2Props> = () => {
                   </nav>
                 </div>
               </div>
-            </Transition.Child>
+            </KLTransitionChild>
             <div className="w-14 flex-shrink-0" aria-hidden="true">
               {/* Dummy element to force sidebar to shrink to fit close icon */}
             </div>

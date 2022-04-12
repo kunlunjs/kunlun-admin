@@ -112,15 +112,7 @@ export default function StoreNavigation1() {
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
           </KLTransitionChild>
 
-          <Transition.Child
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
+          <KLTransitionChild isEaseInOut>
             <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
               <div className="flex px-4 pt-5 pb-2">
                 <button
@@ -265,7 +257,7 @@ export default function StoreNavigation1() {
                 </form>
               </div>
             </div>
-          </Transition.Child>
+          </KLTransitionChild>
         </Dialog>
       </Transition.Root>
 

@@ -67,15 +67,7 @@ export default function CategoryFilter2() {
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
           </KLTransitionChild>
 
-          <Transition.Child
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="translate-x-full"
-          >
+          <KLTransitionChild isEaseInOut>
             <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
               <div className="flex items-center justify-between px-4">
                 <h2 className="text-lg font-medium text-gray-900">Filters</h2>
@@ -146,7 +138,7 @@ export default function CategoryFilter2() {
                 ))}
               </form>
             </div>
-          </Transition.Child>
+          </KLTransitionChild>
         </Dialog>
       </Transition.Root>
 

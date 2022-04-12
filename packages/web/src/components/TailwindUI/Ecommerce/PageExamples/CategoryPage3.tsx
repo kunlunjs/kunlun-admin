@@ -16,6 +16,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
+import { KLTransition, KLTransitionChild } from '@/components/Animation'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 const navigation = {
@@ -219,17 +220,9 @@ export default function CategoryPage3() {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+            <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
+            </KLTransitionChild>
 
             <Transition.Child
               as={Fragment}
@@ -830,17 +823,9 @@ export default function CategoryPage3() {
             className="fixed inset-0 z-40 flex sm:hidden"
             onClose={setMobileFiltersOpen}
           >
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+            <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
+            </KLTransitionChild>
 
             <Transition.Child
               as={Fragment}
@@ -958,15 +943,7 @@ export default function CategoryPage3() {
                     </Menu.Button>
                   </div>
 
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
+                  <KLTransition>
                     <Menu.Items className="absolute left-0 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="py-1">
                         {sortOptions.map(option => (
@@ -989,7 +966,7 @@ export default function CategoryPage3() {
                         ))}
                       </div>
                     </Menu.Items>
-                  </Transition>
+                  </KLTransition>
                 </Menu>
 
                 <button
@@ -1021,15 +998,7 @@ export default function CategoryPage3() {
                             />
                           </Popover.Button>
 
-                          <Transition
-                            as={Fragment}
-                            enter="transition ease-out duration-100"
-                            enterFrom="transform opacity-0 scale-95"
-                            enterTo="transform opacity-100 scale-100"
-                            leave="transition ease-in duration-75"
-                            leaveFrom="transform opacity-100 scale-100"
-                            leaveTo="transform opacity-0 scale-95"
-                          >
+                          <KLTransition>
                             <Popover.Panel className="absolute right-0 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                               <form className="space-y-4">
                                 {section.options.map((option, optionIdx) => (
@@ -1055,7 +1024,7 @@ export default function CategoryPage3() {
                                 ))}
                               </form>
                             </Popover.Panel>
-                          </Transition>
+                          </KLTransition>
                         </Popover>
                       ))}
                     </Popover.Group>

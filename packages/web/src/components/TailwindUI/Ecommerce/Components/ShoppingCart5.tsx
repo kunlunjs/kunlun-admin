@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const products = [
   {
@@ -44,17 +45,9 @@ export default function ShoppingCart5() {
           className="flex min-h-screen text-center sm:block sm:px-6 lg:px-8"
           style={{ fontSize: 0 }}
         >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+          <KLTransitionChild>
             <Dialog.Overlay className="hidden sm:fixed sm:inset-0 sm:block sm:bg-gray-500 sm:bg-opacity-75 sm:transition-opacity" />
-          </Transition.Child>
+          </KLTransitionChild>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span

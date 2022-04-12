@@ -5,6 +5,7 @@ import { ChevronRightIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 interface CommandPalette3Props {}
 
@@ -44,17 +45,9 @@ const CommandPalette3: FC<CommandPalette3Props> = () => {
         className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20"
         onClose={setOpen}
       >
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
+        <KLTransitionChild>
           <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
-        </Transition.Child>
+        </KLTransitionChild>
 
         <Transition.Child
           as={Fragment}

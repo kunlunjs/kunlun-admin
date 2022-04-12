@@ -1,6 +1,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
 import { Fragment } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const products = [
   {
@@ -112,17 +113,9 @@ export default function CheckoutForm2() {
 
               <Transition.Root as={Fragment}>
                 <div>
-                  <Transition.Child
-                    as={Fragment}
-                    enter="transition-opacity ease-linear duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity ease-linear duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
+                  <KLTransitionChild isLinear>
                     <Popover.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-                  </Transition.Child>
+                  </KLTransitionChild>
 
                   <Transition.Child
                     as={Fragment}

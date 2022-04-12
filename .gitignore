@@ -108,6 +108,7 @@ yarn.lock
 pnpm-lock.yaml
 !packages/web/.env
 packages/web/pnpm-lock.yaml
+packages/web/src/tutorial
 packages/web/src/features/dnd
 packages/server/src/@generated
 db/

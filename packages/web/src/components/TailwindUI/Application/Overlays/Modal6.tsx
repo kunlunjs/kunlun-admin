@@ -3,6 +3,7 @@ import { ExclamationIcon } from '@heroicons/react/outline'
 import type { FC } from 'react'
 import { useRef } from 'react'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 interface Modal1Props {}
 
@@ -24,17 +25,9 @@ const Modal1: FC<Modal1Props> = () => {
         onClose={setOpen}
       >
         <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+          <KLTransitionChild>
             <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
+          </KLTransitionChild>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span

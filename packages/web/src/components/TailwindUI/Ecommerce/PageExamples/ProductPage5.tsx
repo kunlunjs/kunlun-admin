@@ -8,6 +8,7 @@ import {
 import { StarIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const navigation = {
   categories: [
@@ -194,23 +195,23 @@ const license = {
     'For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.',
   content: `
     <h4>Overview</h4>
-    
+
     <p>For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.</p>
-    
+
     <ul role="list">
     <li>You're allowed to use the icons in unlimited projects.</li>
     <li>Attribution is not required to use the icons.</li>
     </ul>
-    
+
     <h4>What you can do with it</h4>
-    
+
     <ul role="list">
     <li>Use them freely in your personal and professional work.</li>
     <li>Make them your own. Change the colors to suit your project or brand.</li>
     </ul>
-    
+
     <h4>What you can't do with it</h4>
-    
+
     <ul role="list">
     <li>Don't be greedy. Selling or distributing these icons in their original or modified state is prohibited.</li>
     <li>Don't be evil. These icons cannot be used on websites or applications that promote illegal or immoral beliefs or activities.</li>
@@ -269,17 +270,9 @@ export default function ProductPage5() {
           className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+          <KLTransitionChild isLinear>
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
+          </KLTransitionChild>
 
           <Transition.Child
             as={Fragment}

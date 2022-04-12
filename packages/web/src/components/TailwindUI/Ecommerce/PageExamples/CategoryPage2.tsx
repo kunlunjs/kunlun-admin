@@ -8,6 +8,7 @@ import {
 import { ChevronDownIcon, PlusSmIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const navigation = {
   categories: [
@@ -248,17 +249,9 @@ export default function CategoryPage2() {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+            <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
+            </KLTransitionChild>
 
             <Transition.Child
               as={Fragment}
@@ -647,17 +640,9 @@ export default function CategoryPage2() {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileFiltersOpen}
           >
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+            <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
+            </KLTransitionChild>
 
             <Transition.Child
               as={Fragment}

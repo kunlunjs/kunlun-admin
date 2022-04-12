@@ -1,8 +1,8 @@
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
-import { Fragment } from 'react'
+import { KLTransition } from '@/components/Animation'
 
 const orders = [
   {
@@ -112,15 +112,7 @@ export default function OrderHistory1() {
                         </Menu.Button>
                       </div>
 
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
+                      <KLTransition>
                         <Menu.Items className="absolute right-0 mt-2 w-40 origin-bottom-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <div className="py-1">
                             <Menu.Item>
@@ -155,7 +147,7 @@ export default function OrderHistory1() {
                             </Menu.Item>
                           </div>
                         </Menu.Items>
-                      </Transition>
+                      </KLTransition>
                     </Menu>
 
                     <div className="hidden lg:col-span-2 lg:flex lg:items-center lg:justify-end lg:space-x-4">

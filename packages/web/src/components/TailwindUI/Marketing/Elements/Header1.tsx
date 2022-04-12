@@ -373,7 +373,7 @@ const Header1: FC<Header1Props> = () => {
 }
 
 export const config = {
-  title: 'Centered with botton border'
+  title: 'Centered with bottom border'
 }
 
 export default Header1

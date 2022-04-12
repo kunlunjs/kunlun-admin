@@ -166,6 +166,10 @@ export const Templates: FC<TemplatesProps> = () => {
               blockType: newBlockType,
               blockName: newBlockName
             })
+            const { protocol, host, pathname, hash } = window.location
+            if (hash !== `#${newBlockType}/${newBlockType}`) {
+              window.location.href = `${protocol}//${host}${pathname}#${newBlockType}/${newBlockName}`
+            }
           }
         })
         break
@@ -197,6 +201,10 @@ export const Templates: FC<TemplatesProps> = () => {
               blockType: newBlockType,
               blockName: newBlockName
             })
+            const { protocol, host, pathname, hash } = window.location
+            if (hash !== `#${newBlockType}/${newBlockType}`) {
+              window.location.href = `${protocol}//${host}${pathname}#${newBlockType}/${newBlockName}`
+            }
           }
         })
         break

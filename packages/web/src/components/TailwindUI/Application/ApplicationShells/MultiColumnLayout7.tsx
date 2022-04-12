@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/outline'
 import type { FC } from 'react'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 const user = {
   name: 'Emily Selman',
   email: 'emily.selman@example.com',
@@ -41,17 +42,9 @@ const MultiColumnLayout7: FC<MultiColumnLayout7Props> = () => {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+            <KLTransitionChild isLinear>
               <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
-            </Transition.Child>
+            </KLTransitionChild>
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"

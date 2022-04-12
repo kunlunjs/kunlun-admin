@@ -3,6 +3,7 @@ import { XIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const product = {
   name: 'Basic Tee 6-Pack ',
@@ -49,17 +50,9 @@ export default function ProductQuickview2() {
           className="flex min-h-screen text-center md:block md:px-2 lg:px-4"
           style={{ fontSize: 0 }}
         >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+          <KLTransitionChild>
             <Dialog.Overlay className="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block" />
-          </Transition.Child>
+          </KLTransitionChild>
 
           {/* This element is to trick the browser into centering the modal contents. */}
           <span

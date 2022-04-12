@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import { Fragment, useState } from 'react'
+import { KLTransitionChild } from '@/components/Animation'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 const navigation = {
@@ -107,17 +108,9 @@ export default function StoreNavigation1() {
           className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+          <KLTransitionChild isLinear>
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
+          </KLTransitionChild>
 
           <Transition.Child
             as={Fragment}

@@ -99,6 +99,7 @@ module.exports = defineConfig({
         'jsx-a11y/anchor-is-valid': 'off',
         'jsx-a11y/no-redundant-roles': 'off',
 
+        '@typescript-eslint/ban-types': ['off'],
         '@typescript-eslint/ban-ts-comment': ['off'],
         '@typescript-eslint/no-unused-vars': ['off'],
         '@typescript-eslint/no-var-requires': ['off'],

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { ExclamationCircleIcon, PencilAltIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
@@ -6,6 +7,9 @@ import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette4Props {}
+export const config = {
+  title: 'With images and descriptions'
+}
 const items = [
   {
     id: 1,

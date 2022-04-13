@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Step4Props {}
+export const config = {
+  title: 'Panels with border'
+}
 const steps = [
   {
     id: '01',

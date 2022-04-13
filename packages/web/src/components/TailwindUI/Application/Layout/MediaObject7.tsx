@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject7Props {}
 
+export const config = {
+  title: 'Wide responsive'
+}
 const MediaObject7: FC<MediaObject7Props> = () => {
   return (
     <div className="sm:flex">

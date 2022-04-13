@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject2Props {}
 
+export const config = {
+  title: 'Aligned to center'
+}
 const MediaObject2: FC<MediaObject2Props> = () => {
   return (
     <div className="flex">

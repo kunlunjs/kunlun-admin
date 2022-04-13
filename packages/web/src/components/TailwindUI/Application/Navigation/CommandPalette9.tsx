@@ -10,6 +10,9 @@ import { Fragment, useState } from 'react'
 import type { FC } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette9Props {}
+export const config = {
+  title: 'With footer'
+}
 const projects = [
   {
     id: 1,

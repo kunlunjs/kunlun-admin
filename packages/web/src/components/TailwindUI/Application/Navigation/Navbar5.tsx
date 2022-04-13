@@ -1,10 +1,13 @@
+/* eslint-disable prettier/prettier */
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar5Props {}
-
+export const config = {
+  title: 'Simple'
+}
 const Navbar5: FC<Navbar5Props> = () => {
   return (
     <Disclosure as="nav" className="bg-white shadow">

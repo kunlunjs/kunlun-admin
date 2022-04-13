@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 interface Dividers5Props {}
 
+export const config = {
+  title: 'With title on left'
+}
 const Dividers5: FC<Dividers5Props> = () => {
   return (
     <div className="relative">

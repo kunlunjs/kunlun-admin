@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 interface Dividers2Props {}
 
+export const config = {
+  title: 'With icon'
+}
 const Dividers2: FC<Dividers2Props> = () => {
   return (
     <div className="relative">

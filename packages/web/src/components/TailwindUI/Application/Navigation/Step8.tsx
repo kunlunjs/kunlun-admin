@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Step8Props {}
+export const config = {
+  title: 'Progress bar'
+}
 const Step8: FC<Step8Props> = () => {
   return (
     <div>

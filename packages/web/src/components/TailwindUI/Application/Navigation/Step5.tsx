@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Step5Props {}
+export const config = {
+  title: 'Circles'
+}
 const steps = [
   { name: 'Step 1', href: '#', status: 'complete' },
   { name: 'Step 2', href: '#', status: 'complete' },

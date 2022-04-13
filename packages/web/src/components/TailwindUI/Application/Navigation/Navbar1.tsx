@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -6,6 +7,9 @@ import type { FC } from 'react'
 import { Fragment } from 'react'
 import { KLTransition } from '@/components/Animation'
 interface Navbar1Props {}
+export const config = {
+  title: 'Simple dark with menu button on left'
+}
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Team', href: '#', current: false },

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Disclosure, Menu } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
@@ -6,6 +7,9 @@ import type { FC } from 'react'
 import { Fragment } from 'react'
 import { KLTransition } from '@/components/Animation'
 interface Navbar10Props {}
+export const config = {
+  title: 'With centered search and secondary links'
+}
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',

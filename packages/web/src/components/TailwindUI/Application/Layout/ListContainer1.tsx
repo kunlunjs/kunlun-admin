@@ -1,6 +1,10 @@
 import type { FC } from 'react'
 
 interface ListContainers1Props {}
+
+export const config = {
+  title: 'Simple with dividers'
+}
 const items = [{ id: 1 }]
 const ListContainer1: FC<ListContainers1Props> = () => {
   return (

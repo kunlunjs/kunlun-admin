@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Step6Props {}
+export const config = {
+  title: 'Bullets and text'
+}
 const steps = [
   { name: 'Create account', href: '#', status: 'complete' },
   { name: 'Profile information', href: '#', status: 'current' },

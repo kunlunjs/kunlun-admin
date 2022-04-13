@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   CreditCardIcon,
   OfficeBuildingIcon,
@@ -8,7 +9,9 @@ import {
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tab2Props {}
-
+export const config = {
+  title: 'Tabs with underline and icons'
+}
 const tabs = [
   { name: 'My Account', href: '#', icon: UserIcon, current: false },
   { name: 'Company', href: '#', icon: OfficeBuildingIcon, current: false },

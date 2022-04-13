@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject8Props {}
 
+export const config = {
+  title: 'Nested'
+}
 const MediaObject8: FC<MediaObject8Props> = () => {
   return (
     <div className="flex">

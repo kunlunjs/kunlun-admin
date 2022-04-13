@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Menu, Popover } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
@@ -6,6 +7,9 @@ import type { FC } from 'react'
 import { Fragment } from 'react'
 import { KLTransition } from '@/components/Animation'
 interface Navbar11Props {}
+export const config = {
+  title: 'With search in column layout'
+}
 const user = {
   name: 'Chelsea Hagon',
   email: 'chelsea.hagon@example.com',

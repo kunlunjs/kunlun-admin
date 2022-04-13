@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { PlusSmIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Dividers7Props {}
 
+export const config = {
+  title: 'With title and button'
+}
 const Dividers7: FC<Dividers7Props> = () => {
   return (
     <div className="relative">

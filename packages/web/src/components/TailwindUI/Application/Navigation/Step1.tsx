@@ -1,6 +1,9 @@
 import type { FC } from 'react'
 
 interface Step1Props {}
+export const config = {
+  title: 'Simple'
+}
 const steps = [
   { id: 'Step 1', name: 'Job details', href: '#', status: 'complete' },
   { id: 'Step 2', name: 'Application form', href: '#', status: 'current' },

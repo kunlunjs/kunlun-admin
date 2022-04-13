@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { ChatAltIcon, TagIcon, UserCircleIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { Fragment } from 'react'

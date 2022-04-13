@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { CheckIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Step2Props {}
+export const config = {
+  title: 'Panels'
+}
 const steps = [
   { id: '01', name: 'Job details', href: '#', status: 'complete' },
   { id: '02', name: 'Application form', href: '#', status: 'current' },

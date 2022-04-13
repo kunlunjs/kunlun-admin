@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { UsersIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
@@ -5,6 +6,9 @@ import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette2Props {}
+export const config = {
+  title: 'Simple with padding'
+}
 const people = [
   { id: 1, name: 'Leslie Alexander', url: '#' }
   // More people...

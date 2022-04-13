@@ -1,6 +1,10 @@
 import type { FC } from 'react'
 
 interface ListContainers3Props {}
+
+export const config = {
+  title: 'Card with dividers, full-width on mobile'
+}
 const items = [
   { id: 1 }
   // More items...

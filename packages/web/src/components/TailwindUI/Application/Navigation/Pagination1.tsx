@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Pagination1Props {}
+export const config = {
+  title: 'Card footer with page buttons'
+}
 const Pagination1: FC<Pagination1Props> = () => {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">

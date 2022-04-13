@@ -2,6 +2,10 @@ import type { FC } from 'react'
 
 interface ListContainers7Props {}
 
+export const config = {
+  title: 'Simple with dividers, full-width on mobile'
+}
+
 const items = [{ id: 1 }]
 
 const ListContainer7: FC<ListContainers7Props> = () => {

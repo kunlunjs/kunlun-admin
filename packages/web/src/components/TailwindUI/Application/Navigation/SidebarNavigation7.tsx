@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react'
 import {
@@ -11,6 +12,9 @@ import {
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation7Props {}
+export const config = {
+  title: 'With icons and expandable sections'
+}
 const navigation = [
   { name: 'Dashboard', icon: HomeIcon, current: true, href: '#' },
   {

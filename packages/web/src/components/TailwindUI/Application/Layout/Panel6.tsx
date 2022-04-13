@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Panels6Props {}
 
+export const config = {
+  title: 'Card with gray footer'
+}
 const Panel6: FC<Panels6Props> = () => {
   return (
     <>

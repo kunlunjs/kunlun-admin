@@ -2,6 +2,9 @@ import { PlusSmIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Dividers6Props {}
 
+export const config = {
+  title: 'With button'
+}
 const Dividers6: FC<Dividers6Props> = () => {
   return (
     <div className="relative">

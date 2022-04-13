@@ -2,6 +2,9 @@ import type { FC } from 'react'
 
 interface Panels10Props {}
 
+export const config = {
+  title: 'Well, edge-to-edge on mobile'
+}
 const Panel10: FC<Panels10Props> = () => {
   return (
     <>

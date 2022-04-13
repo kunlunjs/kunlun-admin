@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tab4Props {}
+export const config = {
+  title: 'Tabs in pills on gray'
+}
 const tabs = [
   { name: 'My Account', href: '#', current: false },
   { name: 'Company', href: '#', current: false },

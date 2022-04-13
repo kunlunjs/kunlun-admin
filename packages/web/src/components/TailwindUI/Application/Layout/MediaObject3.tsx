@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject3Props {}
 
+export const config = {
+  title: 'Aligned to bottom'
+}
 const MediaObject3: FC<MediaObject3Props> = () => {
   return (
     <div className="flex">

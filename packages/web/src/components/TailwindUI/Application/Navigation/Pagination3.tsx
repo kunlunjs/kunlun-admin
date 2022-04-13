@@ -1,6 +1,9 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 interface Pagination3Props {}
-
+export const config = {
+  title: 'Simple card footer'
+}
 const Pagination3: FC<Pagination3Props> = () => {
   return (
     <nav

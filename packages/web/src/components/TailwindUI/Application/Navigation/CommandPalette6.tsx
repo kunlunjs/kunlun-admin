@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import {
   DocumentAddIcon,
@@ -12,6 +13,9 @@ import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette6Props {}
+export const config = {
+  title: 'Semi-transparent with icons'
+}
 const projects = [
   { id: 1, name: 'Workflow Inc. / Website Redesign', url: '#' }
   // More projects...

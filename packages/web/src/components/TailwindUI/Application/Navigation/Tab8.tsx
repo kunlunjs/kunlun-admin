@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tab8Props {}
+export const config = {
+  title: 'Tabs with underline and badges'
+}
 const tabs = [
   { name: 'Applied', href: '#', count: '52', current: false },
   { name: 'Phone Screening', href: '#', count: '6', current: false },

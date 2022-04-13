@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Panels7Props {}
 
+export const config = {
+  title: 'Card with gray body'
+}
 const Panel7: FC<Panels7Props> = () => {
   return (
     <>

@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject4Props {}
 
+export const config = {
+  title: 'Stretched to fit'
+}
 const MediaObject4: FC<MediaObject4Props> = () => {
   return (
     <div className="flex">

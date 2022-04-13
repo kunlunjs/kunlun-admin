@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -6,7 +7,9 @@ import type { FC } from 'react'
 import { Fragment } from 'react'
 import { KLTransition } from '@/components/Animation'
 interface Navbar3Props {}
-
+export const config = {
+  title: 'Simple dark'
+}
 const Navbar3: FC<Navbar3Props> = () => {
   return (
     <Disclosure as="nav" className="bg-gray-800">

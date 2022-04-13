@@ -1,6 +1,9 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface VerticalNavigation2Props {}
+export const config = {
+  title: 'Full-width three-column'
+}
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Team', href: '#', current: false },

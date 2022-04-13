@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject6Props {}
 
+export const config = {
+  title: 'Basic responsive'
+}
 const MediaObject6: FC<MediaObject6Props> = () => {
   return (
     <div className="sm:flex">

@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { Disclosure } from '@headlessui/react'
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation6Props {}
+export const config = {
+  title: 'With expandable sections'
+}
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   {

@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tab7Props {}
+export const config = {
+  title: 'Bar with underline'
+}
 const tabs = [
   { name: 'My Account', href: '#', current: true },
   { name: 'Company', href: '#', current: false },

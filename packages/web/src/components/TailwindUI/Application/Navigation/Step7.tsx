@@ -1,8 +1,12 @@
+/* eslint-disable prettier/prettier */
 import { CheckIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import type { FC } from 'react'
 
 interface Step7Props {}
+export const config = {
+  title: 'Circles with text'
+}
 const steps = [
   {
     name: 'Create account',

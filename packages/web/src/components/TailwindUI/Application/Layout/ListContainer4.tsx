@@ -1,6 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface ListContainers4Props {}
+
+export const config = {
+  title: 'Separate cards'
+}
 const items = [{ id: 1 }]
 const ListContainer4: FC<ListContainers4Props> = () => {
   return (

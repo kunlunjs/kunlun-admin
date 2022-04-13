@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
@@ -5,6 +6,9 @@ import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette1Props {}
+export const config = {
+  title: 'Simple'
+}
 const people = [
   { id: 1, name: 'Leslie Alexander', url: '#' }
   // More people...

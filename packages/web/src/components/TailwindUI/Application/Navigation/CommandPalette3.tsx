@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { UsersIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
@@ -8,7 +9,9 @@ import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 
 interface CommandPalette3Props {}
-
+export const config = {
+  title: 'With preview'
+}
 const people = [
   {
     id: 1,

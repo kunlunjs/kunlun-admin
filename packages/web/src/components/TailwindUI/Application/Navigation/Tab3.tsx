@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface Tab3Props {}
+export const config = {
+  title: 'Tabs in pills'
+}
 const tabs = [
   { name: 'My Account', href: '#', current: false },
   { name: 'Company', href: '#', current: false },

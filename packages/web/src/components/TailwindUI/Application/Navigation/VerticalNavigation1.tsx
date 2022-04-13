@@ -9,6 +9,9 @@ import {
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface VerticalNavigation1Props {}
+export const config = {
+  title: 'Full-width three-column'
+}
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true, count: '5' },
   { name: 'Team', href: '#', icon: UsersIcon, current: false },

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import {
   CalendarIcon,
@@ -10,6 +11,9 @@ import {
 import clsx from 'clsx'
 import type { FC } from 'react'
 interface SidebarNavigation8Props {}
+export const config = {
+  title: 'With secondary navigation'
+}
 const navigation = [
   { name: 'Dashboard', icon: HomeIcon, href: '#', current: true },
   { name: 'Team', icon: UsersIcon, href: '#', current: false },

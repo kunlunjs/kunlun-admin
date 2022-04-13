@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import {
   ArrowNarrowLeftIcon,
@@ -6,6 +7,9 @@ import {
 
 import type { FC } from 'react'
 interface Pagination2Props {}
+export const config = {
+  title: 'Centered page numbers'
+}
 const Pagination2: FC<Pagination2Props> = () => {
   return (
     <nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">

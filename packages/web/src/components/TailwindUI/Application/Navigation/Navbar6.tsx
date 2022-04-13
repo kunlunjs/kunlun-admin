@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -6,7 +7,9 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar6Props {}
-
+export const config = {
+  title: 'With quick action'
+}
 const Navbar6: FC<Navbar6Props> = () => {
   return (
     <Disclosure as="nav" className="bg-white shadow">

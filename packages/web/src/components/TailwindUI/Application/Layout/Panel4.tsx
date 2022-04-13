@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Panels4Props {}
 
+export const config = {
+  title: 'Card with footer'
+}
 const Panel4: FC<Panels4Props> = () => {
   return (
     <>

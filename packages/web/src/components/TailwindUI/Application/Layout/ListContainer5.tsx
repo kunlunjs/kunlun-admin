@@ -1,6 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface ListContainers5Props {}
+
+export const config = {
+  title: 'Separate cards, full-width on mobile'
+}
 const items = [{ id: 1 }]
 const ListContainer5: FC<ListContainers5Props> = () => {
   return (

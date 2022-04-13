@@ -13,7 +13,8 @@ module.exports = {
         'cyan': colors.cyan,
         'rose': colors.rose,
         'orange': colors.orange,
-        'warm-gray': colors.stone
+        'warm-gray': colors.stone,
+        'sky': colors.sky
       },
       gridTemplateRows: {
         '[auto,auto,1fr]': 'auto auto 1fr'

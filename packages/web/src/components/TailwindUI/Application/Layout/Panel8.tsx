@@ -2,6 +2,9 @@ import type { FC } from 'react'
 
 interface Panels8Props {}
 
+export const config = {
+  title: 'Well'
+}
 const Panel8: FC<Panels8Props> = () => {
   return (
     <>

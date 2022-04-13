@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   AnnotationIcon,
   PaperClipIcon,
@@ -7,6 +8,9 @@ import {
 import type { FC } from 'react'
 interface Dividers8Props {}
 
+export const config = {
+  title: 'With toolbar'
+}
 const Dividers8: FC<Dividers8Props> = () => {
   return (
     <div className="relative">

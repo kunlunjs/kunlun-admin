@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { HomeIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Breadcrumb4Props {}
-
+export const config = {
+  title: 'Simple with slashes'
+}
 const pages = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Project Nero', href: '#', current: true }

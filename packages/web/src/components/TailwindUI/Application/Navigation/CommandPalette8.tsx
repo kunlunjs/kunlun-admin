@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { EmojiSadIcon, GlobeIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
@@ -6,6 +7,9 @@ import type { FC } from 'react'
 import { Fragment, useState } from 'react'
 import { KLTransitionChild } from '@/components/Animation'
 interface CommandPalette8Props {}
+export const config = {
+  title: 'With groups'
+}
 const items = [
   { id: 1, name: 'Workflow Inc.', category: 'Clients', url: '#' }
   // More items...

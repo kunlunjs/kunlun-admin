@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface MediaObject5Props {}
 
+export const config = {
+  title: 'Media on right'
+}
 const MediaObject5: FC<MediaObject5Props> = () => {
   return (
     <div className="flex">

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { PlusSmIcon } from '@heroicons/react/solid'
@@ -5,6 +6,9 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
 interface Navbar2Props {}
+export const config = {
+  title: 'Dark with quick action'
+}
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',

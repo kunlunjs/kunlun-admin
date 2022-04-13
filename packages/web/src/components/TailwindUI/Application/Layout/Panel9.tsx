@@ -1,7 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Panels9Props {}
 
+export const config = {
+  title: 'Well on gray'
+}
 const Panel9: FC<Panels9Props> = () => {
   return (
     <>

@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface Step3Props {}
+export const config = {
+  title: 'Bullets'
+}
 const steps = [
   { name: 'Step 1', href: '#', status: 'complete' },
   { name: 'Step 2', href: '#', status: 'current' },

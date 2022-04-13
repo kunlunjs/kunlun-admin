@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
@@ -8,7 +9,6 @@ interface Notification2Props {}
 export const config = {
   title: 'Condensed'
 }
-
 export const Notification2: FC<Notification2Props> = () => {
   const [show, setShow] = useState(true)
 

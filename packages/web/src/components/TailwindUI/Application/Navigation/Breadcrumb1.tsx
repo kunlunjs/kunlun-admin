@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { HomeIcon } from '@heroicons/react/solid'
 import type { FC } from 'react'
 interface Breadcrumb1Props {}
-
+export const config = {
+  title: 'Contained'
+}
 const pages = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Project Nero', href: '#', current: true }

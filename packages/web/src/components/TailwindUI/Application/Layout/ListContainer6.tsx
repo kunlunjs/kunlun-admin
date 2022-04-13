@@ -1,6 +1,11 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 interface ListContainers6Props {}
+
+export const config = {
+  title: 'Flat card with dividers'
+}
 const items = [{ id: 1 }]
 const ListContainer6: FC<ListContainers6Props> = () => {
   return (

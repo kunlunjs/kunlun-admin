@@ -1,4 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+import type { FC } from 'react'
+
 /* eslint-disable prettier/prettier */
 const notificationMethods = [
   { id: 'email', title: 'Email' },

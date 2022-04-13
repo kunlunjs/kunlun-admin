@@ -13,7 +13,7 @@ const min = 5
   paths.forEach(i => {
     const classes = readFileSync(i)
       .toString()
-      .match(/className="([a-zA-Z-\d\s:]+)"/g)
+      .match(/className="([a-zA-Z\d\s-:]+)"/g)
       ?.map(i => i.slice(11, -1))
     classes?.forEach(j => {
       if (counters[j]) {
@@ -21,14 +21,13 @@ const min = 5
       } else {
         counters[j] = 1
       }
-      // counters[j] += counters[j] ?? 1
     })
   })
   writeFileSync(
     resolve(__dirname, 'count.json'),
     JSON.stringify(
       Object.entries(counters)
-        .filter(i => i[1] >= min)
+        .filter(i => i[1] >= min && /[a-zA-Z\d-:]+\s[a-zA-Z\d-:]+\s/.test(i[0]))
         .reduce((a, c) => {
           a[c[0]] = c[1]
           return a

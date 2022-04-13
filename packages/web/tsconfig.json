@@ -14,7 +14,7 @@
     // "rootDir": "",
     // "rootDirs": [],
     "typeRoots": ["./types", "./node_modules/@types"], // Related: types
-    // "types": ["./types/raw.d.ts"], // Related: typeRoots
+    // "types": [], // Related: typeRoots
     /* Emit */
     // "declaration": true, // Related: declarationDir emitDeclarationOnly
     "emitDeclarationOnly": false, // Only emit .d.ts files; do not emit .js files. Related: declaration

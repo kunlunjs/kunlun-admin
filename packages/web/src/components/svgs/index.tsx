@@ -6,6 +6,30 @@ import {
 } from '@heroicons/react/outline'
 import type { SVGProps } from 'react'
 
+export const avatarSvg = (
+  <svg
+    className="h-full w-full text-gray-300"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+  </svg>
+)
+export const badgeDotSvg = (
+  <svg
+    className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
+    fill="currentColor"
+    viewBox="0 0 8 8"
+  >
+    <circle cx={4} cy={4} r={3} />
+  </svg>
+)
+export const badgeCloseSvg = (
+  <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+    <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
+  </svg>
+)
+
 const svgs = {
   Facebook: (props: SVGProps<SVGSVGElement>) => (
     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>

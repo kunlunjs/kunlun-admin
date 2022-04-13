@@ -31,15 +31,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
           <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
         </KLTransitionChild>
 
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
+        <KLTransitionChild isEaseOutEaseInOpacityScale>
           <Combobox
             as="div"
             className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
@@ -84,7 +76,7 @@ const CommandPalette1: FC<CommandPalette1Props> = () => {
               <p className="p-4 text-sm text-gray-500">No people found.</p>
             )}
           </Combobox>
-        </Transition.Child>
+        </KLTransitionChild>
       </Dialog>
     </Transition.Root>
   )

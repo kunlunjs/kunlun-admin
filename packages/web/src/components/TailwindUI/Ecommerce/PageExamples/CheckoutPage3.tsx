@@ -160,11 +160,11 @@ export default function CheckoutPage3() {
 
               <Transition.Root as={Fragment}>
                 <div>
-                  <KLTransitionChild isLinear>
+                  <KLTransitionChild isEaseLinear>
                     <Popover.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
                   </KLTransitionChild>
 
-                  <KLTransitionChild isEaseInOut>
+                  <KLTransitionChild isEaseInOutTranslateX>
                     <Popover.Panel className="relative bg-white px-4 py-6 sm:px-6">
                       <dl className="mx-auto max-w-lg space-y-6">
                         <div className="flex items-center justify-between">

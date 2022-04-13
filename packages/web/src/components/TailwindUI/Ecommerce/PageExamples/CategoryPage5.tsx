@@ -273,11 +273,11 @@ export default function CategoryPage5() {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileMenuOpen}
           >
-            <KLTransitionChild isLinear>
+            <KLTransitionChild isEaseLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
             </KLTransitionChild>
 
-            <KLTransitionChild isEaseInOut>
+            <KLTransitionChild isEaseInOutTranslateX>
               <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
                 <div className="flex px-4 pt-5 pb-2">
                   <button
@@ -656,11 +656,11 @@ export default function CategoryPage5() {
             className="fixed inset-0 z-40 flex lg:hidden"
             onClose={setMobileFiltersOpen}
           >
-            <KLTransitionChild isLinear>
+            <KLTransitionChild isEaseLinear>
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
             </KLTransitionChild>
 
-            <KLTransitionChild isEaseInOut>
+            <KLTransitionChild isEaseInOutTranslateX>
               <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                 <div className="flex items-center justify-between px-4">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>

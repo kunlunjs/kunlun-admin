@@ -55,20 +55,12 @@ const SidebarLayout6: FC<SidebarLayout6Props> = () => {
             className="fixed inset-0 z-40 flex md:hidden"
             onClose={setSidebarOpen}
           >
-            <KLTransitionChild isLinear>
+            <KLTransitionChild isEaseLinear>
               <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
             </KLTransitionChild>
-            <KLTransitionChild isEaseInOut>
+            <KLTransitionChild isEaseInOutTranslateX>
               <div className="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-in-out duration-300"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in-out duration-300"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-                >
+                <KLTransitionChild isEaseInOutOpacity>
                   <div className="absolute top-0 right-0 -mr-12 pt-2">
                     <button
                       type="button"
@@ -82,7 +74,7 @@ const SidebarLayout6: FC<SidebarLayout6Props> = () => {
                       />
                     </button>
                   </div>
-                </Transition.Child>
+                </KLTransitionChild>
                 <div className="flex flex-shrink-0 items-center px-4">
                   <img
                     className="h-8 w-auto"

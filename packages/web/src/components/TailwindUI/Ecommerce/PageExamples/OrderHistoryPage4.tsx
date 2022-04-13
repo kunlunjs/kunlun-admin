@@ -142,11 +142,11 @@ export default function OrderHistoryPage4() {
           className="fixed inset-0 z-40 flex lg:hidden"
           onClose={setOpen}
         >
-          <KLTransitionChild isLinear>
+          <KLTransitionChild isEaseLinear>
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
           </KLTransitionChild>
 
-          <KLTransitionChild isEaseInOut>
+          <KLTransitionChild isEaseInOutTranslateX>
             <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
               <div className="flex px-4 pt-5 pb-2">
                 <button

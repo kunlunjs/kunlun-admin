@@ -208,7 +208,7 @@ const MultiColumnLayout5: FC<MultiColumnLayout5Props> = () => {
               className="fixed inset-0 z-40 md:hidden"
               onClose={setMobileMenuOpen}
             >
-              <KLTransitionChild isLinear>
+              <KLTransitionChild isEaseLinear>
                 <Dialog.Overlay className="hidden sm:fixed sm:inset-0 sm:block sm:bg-gray-600 sm:bg-opacity-75" />
               </KLTransitionChild>
 

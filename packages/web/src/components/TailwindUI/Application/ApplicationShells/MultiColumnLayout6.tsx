@@ -90,20 +90,12 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
         <Transition.Root show={mobileMenuOpen} as={Fragment}>
           <Dialog as="div" className="md:hidden" onClose={setMobileMenuOpen}>
             <div className="fixed inset-0 z-40 flex">
-              <KLTransitionChild isLinear>
+              <KLTransitionChild isEaseLinear>
                 <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
               </KLTransitionChild>
-              <KLTransitionChild isEaseInOut>
+              <KLTransitionChild isEaseInOutTranslateX>
                 <div className="relative flex w-full max-w-xs flex-1 flex-col bg-indigo-700 pt-5 pb-4">
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-in-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in-out duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
+                  <KLTransitionChild isEaseInOutOpacity>
                     <div className="absolute right-0 top-1 -mr-14 p-1">
                       <button
                         type="button"
@@ -117,7 +109,7 @@ const MultiColumnLayout6: FC<MultiColumnLayout6Props> = () => {
                         <span className="sr-only">Close sidebar</span>
                       </button>
                     </div>
-                  </Transition.Child>
+                  </KLTransitionChild>
                   <div className="flex flex-shrink-0 items-center px-4">
                     <img
                       className="h-8 w-auto"

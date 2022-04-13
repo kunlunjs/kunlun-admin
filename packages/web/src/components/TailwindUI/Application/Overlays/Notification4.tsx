@@ -8,7 +8,7 @@ export const config = {
   title: 'With avatar'
 }
 
-export const Notification4: FC<Notification4Props> = () => {
+const Notification4: FC<Notification4Props> = () => {
   const [show, setShow] = useState(true)
 
   return (
@@ -67,3 +67,5 @@ export const Notification4: FC<Notification4Props> = () => {
     </>
   )
 }
+
+export default Notification4

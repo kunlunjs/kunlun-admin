@@ -9,7 +9,7 @@ export const config = {
   title: 'With background overlay'
 }
 
-export const SlideOver3: FC<SlideOver3Props> = () => {
+const SlideOver3: FC<SlideOver3Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -81,3 +81,5 @@ export const SlideOver3: FC<SlideOver3Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver3

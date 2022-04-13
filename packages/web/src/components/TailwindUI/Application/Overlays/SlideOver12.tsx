@@ -10,7 +10,7 @@ export const config = {
   title: 'Empty'
 }
 
-export const SlideOver12: FC<SlideOver12Props> = () => {
+const SlideOver12: FC<SlideOver12Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -218,3 +218,5 @@ export const SlideOver12: FC<SlideOver12Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver12

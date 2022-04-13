@@ -9,7 +9,7 @@ export const config = {
   title: 'With actions below'
 }
 
-export const Notification3: FC<Notification3Props> = () => {
+const Notification3: FC<Notification3Props> = () => {
   const [show, setShow] = useState(true)
 
   return (
@@ -83,3 +83,5 @@ export const Notification3: FC<Notification3Props> = () => {
     </>
   )
 }
+
+export default Notification3

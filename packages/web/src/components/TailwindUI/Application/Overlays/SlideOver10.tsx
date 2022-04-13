@@ -10,7 +10,7 @@ export const config = {
   title: 'Wide horizontal user profile example'
 }
 
-export const SlideOver10: FC<SlideOver10Props> = () => {
+const SlideOver10: FC<SlideOver10Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -211,3 +211,4 @@ export const SlideOver10: FC<SlideOver10Props> = () => {
     </Transition.Root>
   )
 }
+export default SlideOver10

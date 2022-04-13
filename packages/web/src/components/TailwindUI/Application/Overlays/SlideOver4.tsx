@@ -9,7 +9,7 @@ export const config = {
   title: 'With close button on outside'
 }
 
-export const SlideOver4: FC<SlideOver4Props> = () => {
+const SlideOver4: FC<SlideOver4Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -88,3 +88,5 @@ export const SlideOver4: FC<SlideOver4Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver4

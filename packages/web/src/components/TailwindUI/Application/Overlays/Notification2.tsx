@@ -9,7 +9,7 @@ interface Notification2Props {}
 export const config = {
   title: 'Condensed'
 }
-export const Notification2: FC<Notification2Props> = () => {
+const Notification2: FC<Notification2Props> = () => {
   const [show, setShow] = useState(true)
 
   return (
@@ -65,3 +65,5 @@ export const Notification2: FC<Notification2Props> = () => {
     </>
   )
 }
+
+export default Notification2

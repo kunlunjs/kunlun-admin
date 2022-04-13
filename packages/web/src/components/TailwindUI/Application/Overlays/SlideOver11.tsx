@@ -27,7 +27,7 @@ const team = [
   // More people...
 ]
 
-export const SlideOver11: FC<SlideOver11Props> = () => {
+const SlideOver11: FC<SlideOver11Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -206,3 +206,5 @@ export const SlideOver11: FC<SlideOver11Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver11

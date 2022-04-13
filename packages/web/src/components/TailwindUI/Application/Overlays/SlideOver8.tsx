@@ -52,7 +52,7 @@ const team = [
   }
 ]
 
-export const SlideOver8: FC<SlideOver8Props> = () => {
+const SlideOver8: FC<SlideOver8Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -338,3 +338,5 @@ export const SlideOver8: FC<SlideOver8Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver8

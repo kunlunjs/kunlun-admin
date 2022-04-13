@@ -8,7 +8,7 @@ export const config = {
   title: 'With split buttons'
 }
 
-export const Notification5: FC<Notification5Props> = () => {
+const Notification5: FC<Notification5Props> = () => {
   const [show, setShow] = useState(true)
 
   return (
@@ -72,3 +72,5 @@ export const Notification5: FC<Notification5Props> = () => {
     </>
   )
 }
+
+export default Notification5

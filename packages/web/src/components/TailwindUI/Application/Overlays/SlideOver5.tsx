@@ -9,7 +9,7 @@ export const config = {
   title: 'With branded header'
 }
 
-export const SlideOver5: FC<SlideOver5Props> = () => {
+const SlideOver5: FC<SlideOver5Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -77,3 +77,4 @@ export const SlideOver5: FC<SlideOver5Props> = () => {
     </Transition.Root>
   )
 }
+export default SlideOver5

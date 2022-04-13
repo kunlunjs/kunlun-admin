@@ -9,7 +9,7 @@ export const config = {
   title: 'Wide empty'
 }
 
-export const SlideOver2: FC<SlideOver2Props> = () => {
+const SlideOver2: FC<SlideOver2Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -71,3 +71,5 @@ export const SlideOver2: FC<SlideOver2Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver2

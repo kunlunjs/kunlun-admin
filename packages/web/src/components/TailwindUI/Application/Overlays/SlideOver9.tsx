@@ -10,7 +10,7 @@ export const config = {
   title: 'User profile example'
 }
 
-export const SlideOver9: FC<SlideOver9Props> = () => {
+const SlideOver9: FC<SlideOver9Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -210,3 +210,5 @@ export const SlideOver9: FC<SlideOver9Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver9

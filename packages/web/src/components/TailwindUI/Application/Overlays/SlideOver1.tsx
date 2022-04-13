@@ -9,7 +9,7 @@ export const config = {
   title: 'Empty'
 }
 
-export const SlideOver1: FC<SlideOver1Props> = () => {
+const SlideOver1: FC<SlideOver1Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -71,3 +71,5 @@ export const SlideOver1: FC<SlideOver1Props> = () => {
     </Transition.Root>
   )
 }
+
+export default SlideOver1

@@ -9,7 +9,7 @@ export const config = {
   title: 'With sticky footer'
 }
 
-export const SlideOver6: FC<SlideOver6Props> = () => {
+const SlideOver6: FC<SlideOver6Props> = () => {
   const [open, setOpen] = useState(true)
 
   return (
@@ -86,3 +86,4 @@ export const SlideOver6: FC<SlideOver6Props> = () => {
     </Transition.Root>
   )
 }
+export default SlideOver6

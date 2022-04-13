@@ -6,6 +6,7 @@
   "scripts": {
     "start": "kunlun start",
     "build": "cross-env BUNDLE_ANALYZER=true kunlun build",
+    "count:classes": "ts-node ./scripts/countSameClasses.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -42,6 +43,7 @@
     "@types/webpack-env": "^1.16.3",
     "cross-env": "^7.0.3",
     "cypress": "^9.5.3",
+    "globby": "^13.1.1",
     "is-ci": "^3.0.1",
     "is-ci-cli": "^2.2.0",
     "msw": "^0.39.2",
@@ -49,6 +51,7 @@
     "react-test-renderer": "^18.0.0",
     "serve": "^13.0.2",
     "tailwindcss": "^3.0.23",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {

@@ -42,14 +42,22 @@ describe('buildWher', () => {
       createdAt: '2020-01-01 11:11:11'
     }
     expect(buildWhere('MenuModel', rest)).toEqual({
-      createdAt: new Date('2020-01-01 11:11:11')
+      createdAt: {
+        gte: new Date('2020-01-01'),
+        lt: new Date('2020-01-02')
+      }
     })
   })
 
   it('能够 查询日期范围', () => {
     const rest: Model<'findMany'>['where'] = {
-      createdAt: '2020-01-01 11:11:11'
+      createdAt: '2020-01-01 11:11:11_2020-02-02 11:11:11'
     }
-    expect(buildWhere('MenuModel', rest)).toEqual({})
+    expect(buildWhere('MenuModel', rest)).toEqual({
+      createdAt: {
+        gte: new Date('2020-01-01 11:11:11'),
+        lte: new Date('2020-02-02 11:11:11')
+      }
+    })
   })
 })

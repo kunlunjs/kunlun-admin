@@ -35,13 +35,19 @@ export function buildWhere(
       } else if (
         currentField.type === 'DateTime' &&
         typeof v === 'string' &&
-        /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/.test(v)
+        /^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}:\d{2})?_\d{4}-\d{2}-\d{2}( \d{2}:\d{2}:\d{2})?/.test(
+          v
+        )
       ) {
-        acc[k] = new Date(v.slice(0, 19))
+        const [cdate, ndate] = v.split('_')
+        acc[k] = {
+          gte: new Date(cdate),
+          lte: new Date(ndate)
+        }
       } else if (
-        currentField.isDateTime &&
+        currentField.type === 'DateTime' &&
         typeof v === 'string' &&
-        /^\d{4}-\d{2}-\d{2}/.test(v)
+        /^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}:\d{2})?/.test(v)
       ) {
         const cdate = new Date(v.slice(0, 10))
         const ndate = new Date(

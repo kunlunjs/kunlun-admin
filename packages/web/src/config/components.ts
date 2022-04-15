@@ -424,14 +424,846 @@ export const componentConfigs: Partial<
         type: 'boolean',
         default: true,
         title: '是否关闭虚拟滚动'
+      },
+      labelInValue: {
+        type: 'boolean',
+        default: false,
+        title: '是否把每个选项的 label 包装到 value 中'
+      },
+      listHeight: {
+        type: 'number',
+        default: 256,
+        title: '设置弹窗滚动高度'
+      },
+      loading: {
+        type: 'boolean',
+        default: false,
+        title: '加载中状态'
       }
     }
   },
   /*----------------------------------------------------------------*/
-  Slider: {},
+  Slider: {
+    properties: {
+      allowClear: {
+        type: 'boolean',
+        default: false,
+        title: '支持清除,单选模式有效'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '滑块是否为禁用状态'
+      },
+      dots: {
+        type: 'boolean',
+        default: false,
+        title: '是否只能拖拽到刻度上'
+      },
+      max: {
+        type: 'number',
+        default: 100,
+        title: '最大值'
+      },
+      min: {
+        type: 'number',
+        default: 0,
+        title: '最小值'
+      },
+      range: {
+        type: 'boolean',
+        default: false,
+        title: '双滑块模式'
+      },
+      reverse: {
+        type: 'boolean',
+        default: false,
+        title: '反向坐标轴'
+      },
+      slider: {
+        type: 'boolean',
+        default: false,
+        title: 'slider垂直方向设置'
+      }
+    }
+  },
   /*----------------------------------------------------------------*/
-  Table: {},
+  Table: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '中', value: 'middle' },
+          { label: '默认', value: 'default' }
+        ],
+        default: 'default',
+        title: '表格大小'
+      },
+      bordered: {
+        type: 'boolean',
+        default: false,
+        title: '是否展示外边框和列边框'
+      },
+      loading: {
+        type: 'boolean',
+        default: false,
+        title: '页面是否加载中'
+      },
+      showHeader: {
+        type: 'boolean',
+        default: true,
+        title: '是否显示表头'
+      }
+    }
+  },
   /*----------------------------------------------------------------*/
-  Image: {}
+
+  Image: {
+    properties: {
+      alt: {
+        type: 'string',
+        title: '图像描述'
+      },
+      fallback: {
+        type: 'string',
+        title: '加载失败容错地址'
+      },
+      height: {
+        type: 'number',
+        title: '图像高度'
+      },
+      preview: {
+        type: 'boolean',
+        default: true,
+        title: '是否预览参数'
+      },
+      src: {
+        type: 'string',
+        title: '图片地址'
+      },
+      width: {
+        type: 'number',
+        title: '图像宽度'
+      }
+    }
+  },
   /*----------------------------------------------------------------*/
+  Pagination: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '默认', value: 'default' }
+        ],
+        default: 'default',
+        title: '尺寸分页'
+      },
+      current: {
+        type: 'number',
+        title: '当前页数'
+      },
+      defaultCurrent: {
+        type: 'number',
+        default: 1,
+        title: '默认的当前页数'
+      },
+      defaultPageSize: {
+        type: 'number',
+        default: 10,
+        title: '默认的每页条数'
+      },
+      pageSize: {
+        type: 'number',
+        title: '每页条数'
+      },
+      total: {
+        type: 'number',
+        title: '数据总数'
+      },
+      fixed: {
+        type: 'boolean',
+        default: false,
+        title: '列是否固定'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '每页条数'
+      },
+      hideOnSinglePage: {
+        type: 'boolean',
+        default: false,
+        title: '只有一页时是否隐藏分页器'
+      },
+      responsive: {
+        type: 'boolean',
+        default: false,
+        title: '当size未指定时，根据屏幕宽度自动调整尺寸'
+      },
+      showLessItems: {
+        type: 'boolean',
+        default: false,
+        title: '是否显示较少页面内容'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  AutoComplete: {
+    properties: {
+      allowClear: {
+        type: 'boolean',
+        default: false,
+        title: '是否支持清除'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      backfill: {
+        type: 'boolean',
+        default: false,
+        title: '使用键盘选择选项的时候是否把选中项回填到输入框中'
+      },
+      defaultActiveFirstOption: {
+        type: 'boolean',
+        default: true,
+        title: '是否默认高亮第一个选项'
+      },
+      defaultOpen: {
+        type: 'boolean',
+        default: false,
+        title: '是否默认展开下拉菜单'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '是否禁用'
+      },
+      defaultValue: {
+        type: 'string',
+        title: '指定默认选中的条目'
+      },
+      open: {
+        type: 'boolean',
+        default: false,
+        title: '是否展开下拉菜单'
+      },
+      dropdownClassName: {
+        type: 'string',
+        title: '下拉菜单的className属性'
+      },
+      placeholder: {
+        type: 'string',
+        title: '输入框提示'
+      },
+      value: {
+        type: 'string',
+        title: '指定当前选中的条目'
+      }
+    }
+  },
+
+  /*----------------------------------------------------------------*/
+  Calendar: {
+    properties: {
+      fullscreen: {
+        type: 'boolean',
+        default: true,
+        title: '是否全屏显示'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Carousel: {
+    properties: {
+      dotPosition: {
+        enum: [
+          { label: '头部', value: 'top' },
+          { label: '底部', value: 'bottom' },
+          { label: '左边', value: 'left' },
+          { label: '右边', value: 'right' }
+        ],
+        default: 'bottom',
+        title: '面板指示点位置'
+      },
+      autoplay: {
+        type: 'boolean',
+        default: false,
+        title: '是否自动切换'
+      },
+      easing: {
+        type: 'string',
+        default: 'linear',
+        title: '动画效果'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Cascader: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '中', value: 'middle' },
+          { label: '大', value: 'large' }
+        ],
+        default: 'middle',
+        title: '输入框大小'
+      },
+      allowClear: {
+        type: 'boolean',
+        default: true,
+        title: '是否支持清除'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否有边框'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      className: {
+        type: 'string',
+        title: '自定义类名'
+      },
+      dropdownClassName: {
+        type: 'string',
+        title: '自定义浮层类名'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Checkbox: {
+    properties: {
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      checked: {
+        type: 'boolean',
+        default: false,
+        title: '指定当前是否选中'
+      },
+      defaultChecked: {
+        type: 'boolean',
+        default: false,
+        title: '初始是否选中'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '失效状态'
+      }
+    }
+  },
+
+  /*----------------------------------------------------------------*/
+  Collapse: {
+    properties: {
+      expandIconPosition: {
+        enum: [
+          { label: '左边', value: 'left' },
+          { label: '右边', value: 'right' }
+        ],
+        default: '',
+        title: '设置图标位置'
+      },
+      accordion: {
+        type: 'boolean',
+        default: false,
+        title: '手风琴模式'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '带边框风格的折叠面板'
+      },
+      destroyInactivePanel: {
+        type: 'boolean',
+        default: false,
+        title: '销毁折叠隐藏的面板'
+      },
+      ghost: {
+        type: 'boolean',
+        default: false,
+        title: '使折叠面板透明且无边框'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  DatePicker: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '中', value: 'middle' },
+          { label: '大', value: 'large' }
+        ],
+        default: 'middle',
+        title: '输入框大小'
+      },
+      allowClear: {
+        type: 'boolean',
+        default: true,
+        title: '是否支持清除'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否有边框'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      dropdownClassName: {
+        type: 'string',
+        title: '额外的弹出日历'
+      },
+      inputReadOnly: {
+        type: 'boolean',
+        default: false,
+        title: '设置输入框为只读'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Descriptions: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '中', value: 'middle' },
+          { label: '默认', value: 'default' }
+        ],
+        default: 'default',
+        title: '设置列表的大小'
+      },
+      layout: {
+        enum: [
+          { label: '水平', value: 'horizontal' },
+          { label: '垂直', value: 'vertical' }
+        ],
+        default: 'horizontal',
+        title: '描述布局'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否有边框'
+      }
+    }
+  },
+
+  /*----------------------------------------------------------------*/
+  Dropdown: {
+    properties: {
+      placement: {
+        enum: [
+          { label: '底部', value: 'bottom' },
+          { label: '底部靠左', value: 'bottomLeft' },
+          { label: '底部靠右', value: 'bottomRight' },
+          { label: '头部', value: 'top' },
+          { label: '头部靠左', value: 'topLeft' },
+          { label: '头部靠右', value: 'topRight' }
+        ],
+        default: 'default',
+        title: '设置列表的大小'
+      },
+      arrow: {
+        type: 'boolean',
+        default: false,
+        title: '下拉框箭头是否显示'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      destroyPopupOnHide: {
+        type: 'boolean',
+        default: false,
+        title: '关闭后是否销毁'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Mentions: {
+    properties: {
+      placement: {
+        enum: [
+          { label: '底部', value: 'bottom' },
+          { label: '头部', value: 'top' }
+        ],
+        default: 'bottom',
+        title: '弹出层展示位置'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获得焦点'
+      },
+      defaultValue: {
+        type: 'string',
+        title: '输入框默认内容'
+      },
+      split: {
+        type: 'string',
+        title: '设置选中项前后分隔符'
+      },
+      value: {
+        type: 'string',
+        title: '输入框内容'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  List: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'large' },
+          { label: '默认', value: 'default' },
+          { label: '大', value: 'small' }
+        ],
+        default: 'default',
+        title: 'list的尺寸'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否展示边框'
+      },
+      split: {
+        type: 'boolean',
+        default: true,
+        title: '是否展示分割线'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Layout: {
+    properties: {
+      className: {
+        type: 'string',
+        title: '容器'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+
+  Menu: {
+    properties: {
+      mode: {
+        enum: [
+          { label: '垂直', value: 'vertical' },
+          { label: '水平', value: 'horizontal' },
+          { label: '内嵌模式', value: 'inline' }
+        ],
+        default: 'vertical',
+        title: '菜单类型'
+      },
+      forceSubMenuRender: {
+        type: 'boolean',
+        default: false,
+        title: '在子菜单展示之前就渲染进DOM'
+      },
+      multiple: {
+        type: 'boolean',
+        default: false,
+        title: '是否允许多选'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  PageHeader: {
+    properties: {
+      ghost: {
+        type: 'boolean',
+        default: true,
+        title: '是否改变背景颜色'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Steps: {
+    properties: {
+      direction: {
+        enum: [
+          { label: '垂直', value: 'vertical' },
+          { label: '水平', value: 'horizontal' }
+        ],
+        default: 'horizontal',
+        title: '指定步骤条方向'
+      },
+      size: {
+        enum: [
+          { label: '默认', value: 'default' },
+          { label: '小', value: 'small' }
+        ],
+        default: 'default',
+        title: '大小'
+      },
+      type: {
+        enum: [
+          { label: '默认', value: 'default' },
+          { label: '导航', value: 'navigation' }
+        ],
+        default: 'default',
+        title: '步骤条类型'
+      },
+      className: {
+        type: 'string',
+        title: '步骤条类名'
+      },
+      current: {
+        type: 'number',
+        default: 0,
+        title: '指定当前步骤'
+      },
+      initial: {
+        type: 'number',
+        default: 0,
+        title: '起始序号'
+      },
+      percent: {
+        type: 'number',
+        title: '当前 process 步骤显示的进度条进度'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Radio: {
+    properties: {
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      checked: {
+        type: 'boolean',
+        default: false,
+        title: '指定当前是否选中'
+      },
+      defaultChecked: {
+        type: 'boolean',
+        default: false,
+        title: '初始是否选中'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Switch: {
+    properties: {
+      size: {
+        enum: [
+          { label: '默认', value: 'default' },
+          { label: '小', value: 'small' }
+        ],
+        default: 'default',
+        title: '开关大小'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      checked: {
+        type: 'boolean',
+        default: false,
+        title: '指定当前是否选中'
+      },
+      className: {
+        type: 'string',
+        title: 'Switch器类名'
+      },
+      defaultChecked: {
+        type: 'boolean',
+        default: false,
+        title: '初始是否选中'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      loading: {
+        type: 'boolean',
+        default: false,
+        title: '加载中的开关'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Upload: {
+    properties: {
+      listType: {
+        enum: [
+          { label: '文本', value: 'text' },
+          { label: '图片', value: 'picture' },
+          { label: '图片卡片', value: 'picture-card' }
+        ],
+        default: 'text',
+        title: '上传列表的内建样式'
+      },
+      accept: {
+        type: 'string',
+        title: '接受上传的文件类型'
+      },
+      directory: {
+        type: 'boolean',
+        default: false,
+        title: '支持上传文件夹'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      maxCount: {
+        type: 'number',
+        title: '限制上传数量'
+      },
+      method: {
+        type: 'string',
+        default: 'post',
+        title: '上传请求的http method'
+      },
+      multiple: {
+        type: 'boolean',
+        default: false,
+        title: '是否支持多选文件'
+      },
+      name: {
+        type: 'string',
+        default: 'file',
+        title: '发到后台的文件参数名'
+      },
+      openFileDialogOnClick: {
+        type: 'boolean',
+        default: true,
+        title: '点击打开文件对话框'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Tabs: {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'large' },
+          { label: '默认', value: 'default' },
+          { label: '大', value: 'small' }
+        ],
+        default: 'default',
+        title: '大小'
+      },
+      type: {
+        enum: [
+          { label: '线性', value: 'line' },
+          { label: '卡片', value: 'card' },
+          { label: '可编辑的卡片', value: 'editable-card' }
+        ],
+        default: 'line',
+        title: '页签的基本样式'
+      },
+      activeKey: {
+        type: 'string',
+        title: '当前激活tab面板的key'
+      },
+      defaultActiveKey: {
+        type: 'string',
+        title: '初始化选中面板的key'
+      },
+      centered: {
+        type: 'boolean',
+        default: false,
+        title: '标签居中展示'
+      },
+      hideAdd: {
+        type: 'boolean',
+        default: false,
+        title: '是否隐藏加号图标'
+      },
+      tabBarGutter: {
+        type: 'number',
+        title: 'tabs之间的间隙'
+      },
+      destroyInactiveTabPane: {
+        type: 'boolean',
+        default: false,
+        title: '被隐藏时是否销毁DOM结构'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Skeleton: {
+    properties: {
+      active: {
+        type: 'boolean',
+        default: false,
+        title: '是否展示动画效果'
+      },
+      avatar: {
+        type: 'boolean',
+        default: false,
+        title: '是否显示头像占位图'
+      },
+      paragraph: {
+        type: 'boolean',
+        default: true,
+        title: '是否显示段落占位图'
+      },
+      round: {
+        type: 'boolean',
+        default: true,
+        title: '段落和标题是否显示圆角'
+      },
+      title: {
+        type: 'boolean',
+        default: true,
+        title: '是否显示标题占位图'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  Tag: {
+    properties: {
+      closable: {
+        type: 'boolean',
+        default: false,
+        title: '标签是否可以关闭(点击默认关闭)'
+      },
+      visible: {
+        type: 'boolean',
+        default: true,
+        title: '是否显示标签'
+      },
+      color: {
+        type: 'string',
+        title: '标签色'
+      }
+    }
+  }
 }

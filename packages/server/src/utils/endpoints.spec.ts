@@ -42,7 +42,7 @@ describe('buildWher', () => {
       createdAt: '2020-01-01 11:11:11'
     }
     expect(buildWhere('MenuModel', rest)).toEqual({
-      created_at: '2020-01-01 11:11:11'
+      createdAt: new Date('2020-01-01 11:11:11')
     })
   })
 

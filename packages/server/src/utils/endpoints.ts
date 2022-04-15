@@ -33,6 +33,12 @@ export function buildWhere(
       if (currentField.isList) {
         acc[k] = _like ? { hasEvery: v.split(',') } : { in: v.split(',') }
       } else if (
+        currentField.type === 'DateTime' &&
+        typeof v === 'string' &&
+        /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/.test(v)
+      ) {
+        acc[k] = new Date(v.slice(0, 19))
+      } else if (
         currentField.isDateTime &&
         typeof v === 'string' &&
         /^\d{4}-\d{2}-\d{2}/.test(v)

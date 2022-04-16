@@ -8,7 +8,6 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import type { Column, Row } from 'react-table'
 import { useTable } from 'react-table'
 import styled from 'styled-components'
-import { mock } from '@/utils'
 
 export type Item = {
   id: string
@@ -226,14 +225,9 @@ export const ReactTable = () => {
     []
   )
 
-  const data = useMemo(
-    () =>
-      mock<Item>(
-        ['id', 'firstName', 'lastName', 'age', 'progress', 'visits'],
-        100
-      ),
-    []
-  )
+  const data = useMemo(() => {
+    return []
+  }, [])
   console.log(data)
   return (
     <Styles>

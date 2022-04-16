@@ -5,10 +5,10 @@ import {
   ViewListIcon
 } from '@heroicons/react/outline'
 import { ChevronRightIcon } from '@heroicons/react/solid'
+import { faker } from '@kunlunjs/mock'
 import type { FC } from 'react'
 import { getSvg } from '@/components/svgs'
 import type { GetSvgProps } from '@/components/svgs'
-import { faker } from '@/utils'
 
 const icons = [BookmarkAltIcon, BookOpenIcon, RssIcon, ViewListIcon]
 

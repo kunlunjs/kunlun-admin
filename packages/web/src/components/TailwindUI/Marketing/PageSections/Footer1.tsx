@@ -1,8 +1,8 @@
+import { faker } from '@kunlunjs/mock'
 import clsx from 'clsx'
 import { chunk } from 'lodash'
 import type { FC } from 'react'
 import { socials } from '@/components/svgs'
-import { faker } from '@/utils'
 
 const navigations: Record<string, { name: string; href: string }[]> = [
   ...Array(4)

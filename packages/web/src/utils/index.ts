@@ -1,4 +1,3 @@
-export * from './faker'
 export * from './format'
 export * from './formItem'
 export * from './getFingerPrint'

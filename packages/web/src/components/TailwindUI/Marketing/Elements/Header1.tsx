@@ -14,10 +14,10 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { faker } from '@kunlunjs/mock'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { Fragment } from 'react'
-import { faker } from '@/utils'
 
 const icons = [
   BookmarkAltIcon,

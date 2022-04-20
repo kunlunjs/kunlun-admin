@@ -10,8 +10,8 @@ generator client {
 }
 
 generator NestJSRESTfulAPI {
-  // provider = "ts-node ../../../kunlun-cli/lib/generate-nestjs/index.ts"
-  provider = "kunlun generate"
+  provider = "ts-node ../../../kunlun-cli/lib/generate-nestjs/index.ts"
+  // provider = "kunlun generate"
 }
 
 model UserModel {

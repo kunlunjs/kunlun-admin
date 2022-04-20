@@ -4,7 +4,7 @@ import type { klComponents } from '@/types'
 export const componentConfigs: Partial<
   Record<typeof klComponents[number], JSONSchema7>
 > = {
-  Button: {
+  'Button': {
     properties: {
       type: {
         enum: [
@@ -52,8 +52,7 @@ export const componentConfigs: Partial<
       htmlType: {
         type: 'string',
         title: '原生type值',
-        description:
-          '设置 button 原生的 type 值，可选值请参考[ HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type)'
+        description: '设置 button原生的type值'
       },
       icon: {
         type: 'string',
@@ -75,7 +74,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Card: {
+  'Card': {
     properties: {
       title: {
         type: 'string',
@@ -101,7 +100,181 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Divider: {
+  'Grid': {
+    properties: {
+      align: {
+        enum: [
+          { label: '头部', value: 'top' },
+          { label: '中间', value: 'middle' },
+          { label: '底部', value: 'bottom' }
+        ],
+        default: 'top',
+        title: '垂直对齐方式'
+      },
+      span: {
+        type: 'number',
+        default: 0,
+        title: '栅格占位格数'
+      },
+
+      wrap: {
+        type: 'boolean',
+        default: true,
+        title: '是否自动换行'
+      },
+      offset: {
+        type: 'number',
+        default: 0,
+        title: '栅格左侧的间隔格数'
+      },
+      order: {
+        type: 'number',
+        default: 0,
+        title: '栅格顺序'
+      },
+      pull: {
+        type: 'number',
+        default: 0,
+        title: '栅格向左移动格数'
+      },
+      push: {
+        type: 'number',
+        default: 0,
+        title: '栅格向右移动格数'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Typography.Text': {
+    properties: {
+      type: {
+        enum: [
+          { label: '中级', value: 'secondary' },
+          { label: '成功', value: 'success' },
+          { label: '警告', value: 'warning' },
+          { label: '危险', value: 'danger' }
+        ],
+        default: 'success',
+        title: '文本类型'
+      },
+      code: {
+        type: 'boolean',
+        default: false,
+        title: '添加代码样式'
+      },
+      delete: {
+        type: 'boolean',
+        default: false,
+        title: '添加删除线样式'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      editable: {
+        type: 'boolean',
+        default: false,
+        title: '是否可编辑'
+      },
+      keyboard: {
+        type: 'boolean',
+        default: false,
+        title: '添加键盘样式'
+      },
+      mark: {
+        type: 'boolean',
+        default: false,
+        title: '添加标记样式'
+      },
+      strong: {
+        type: 'boolean',
+        default: false,
+        title: '是否加粗'
+      },
+      italic: {
+        type: 'boolean',
+        default: false,
+        title: '是否斜体'
+      },
+      underline: {
+        type: 'boolean',
+        default: false,
+        title: '添加下划线样式'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Typography.Title': {
+    properties: {
+      type: {
+        enum: [
+          { label: '中级', value: 'secondary' },
+          { label: '成功', value: 'success' },
+          { label: '警告', value: 'warning' },
+          { label: '危险', value: 'danger' }
+        ],
+        default: 'success',
+        title: '文本类型'
+      },
+      code: {
+        type: 'boolean',
+        default: false,
+        title: '添加代码样式'
+      },
+      delete: {
+        type: 'boolean',
+        default: false,
+        title: '添加删除线样式'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '禁用'
+      },
+      editable: {
+        type: 'boolean',
+        default: false,
+        title: '是否可编辑'
+      },
+      keyboard: {
+        type: 'boolean',
+        default: false,
+        title: '添加键盘样式'
+      },
+      mark: {
+        type: 'boolean',
+        default: false,
+        title: '添加标记样式'
+      },
+      strong: {
+        type: 'boolean',
+        default: false,
+        title: '是否加粗'
+      },
+      italic: {
+        type: 'boolean',
+        default: false,
+        title: '是否斜体'
+      },
+      underline: {
+        type: 'boolean',
+        default: false,
+        title: '添加下划线样式'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Comment': {
+    properties: {
+      content: {
+        type: 'string',
+        title: '评论'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Divider': {
     properties: {
       orientation: {
         enum: [
@@ -137,7 +310,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Input: {
+  'Input': {
     properties: {
       size: {
         enum: [
@@ -182,7 +355,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Badge: {
+  'Badge': {
     properties: {
       size: {
         enum: [
@@ -190,7 +363,7 @@ export const componentConfigs: Partial<
           { label: '大', value: 'small' }
         ],
         default: 'default',
-        title: '在设置了count的前提下有效，设置小圆点的大小'
+        title: '设置小圆点的大小'
       },
       status: {
         enum: [
@@ -210,7 +383,7 @@ export const componentConfigs: Partial<
       dot: {
         type: 'boolean',
         default: false,
-        title: '不展示数字，只有一个小红点'
+        title: '只展示数字小红点'
       },
       overflowCount: {
         type: 'string',
@@ -220,7 +393,7 @@ export const componentConfigs: Partial<
       showZero: {
         type: 'boolean',
         default: false,
-        title: '当数值为 0 时，是否展示'
+        title: '当数值为0时，是否展示'
       },
       title: {
         type: 'string',
@@ -230,7 +403,16 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Avatar: {
+  'Empty': {
+    properties: {
+      name: {
+        type: 'string',
+        default: '标题'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Avatar': {
     properties: {
       size: {
         enum: [
@@ -251,11 +433,11 @@ export const componentConfigs: Partial<
       },
       src: {
         type: 'string',
-        title: '图片类头像的资源地址或者图片元素'
+        title: '资源地址或图片元素'
       },
       srcSet: {
         type: 'string',
-        title: '设置图片类头像响应式资源地址'
+        title: '头像资源地址'
       },
       draggable: {
         type: 'boolean',
@@ -264,17 +446,219 @@ export const componentConfigs: Partial<
       },
       alt: {
         type: 'string',
-        title: '图像无法显示时的替代文本'
+        title: '图像无法显示的替代文本'
       },
       gap: {
         type: 'number',
         default: 4,
-        title: '字符类型距离左右两侧边界单位像素'
+        title: '字符类型距两侧像素'
       }
     }
   },
   /*----------------------------------------------------------------*/
-  Affix: {
+  'Breadcrumb.Item': {
+    properties: {
+      className: {
+        type: 'string',
+        title: '自定义类名'
+      },
+      href: {
+        type: 'string',
+        title: '链接的目的地'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Transfer': {
+    properties: {
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '是否禁用状态'
+      },
+      oneWay: {
+        type: 'boolean',
+        default: false,
+        title: '是否展示为单向样式'
+      },
+      showSearch: {
+        type: 'boolean',
+        default: false,
+        title: '是否显示搜索框'
+      },
+      showSelectAll: {
+        type: 'boolean',
+        default: true,
+        title: '是否展示全选勾选框'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'TimePicker': {
+    properties: {
+      placement: {
+        enum: [
+          { label: '左下方', value: 'bottomLeft' },
+          { label: '右下方', value: 'bottomRight' },
+          { label: '左上方', value: 'topLeft' },
+          { label: '右上方', value: 'topRight' }
+        ],
+        default: 'placement',
+        title: '选择框弹出的位置'
+      },
+      allowClear: {
+        type: 'boolean',
+        default: true,
+        title: '是否展示清除按钮'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获取焦点'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否有边框'
+      },
+      className: {
+        type: 'string',
+        title: '选择器类名'
+      },
+      clearText: {
+        type: 'string',
+        default: 'clear',
+        title: '清除按钮的提示文案'
+      },
+      format: {
+        type: 'string',
+        default: 'HH:mm:ss',
+        title: '展示的时间格式'
+      },
+      popupClassName: {
+        type: 'string',
+        title: '弹出层类名'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '是否禁用全部操作'
+      },
+      hideDisabledOptions: {
+        type: 'boolean',
+        default: false,
+        title: '是否隐藏禁止选择的选项'
+      },
+      inputReadOnly: {
+        type: 'boolean',
+        default: false,
+        title: '是否设置输入框为只读'
+      },
+      open: {
+        type: 'boolean',
+        default: false,
+        title: '面板是否打开'
+      },
+      use12Hours: {
+        type: 'boolean',
+        default: 'h:mm:ss',
+        title: '使用12小时制'
+      },
+      hourStep: {
+        type: 'number',
+        default: 1,
+        title: '小时选项间隔'
+      },
+      minuteStep: {
+        type: 'number',
+        default: 1,
+        title: '分钟选项间隔'
+      },
+      secondStep: {
+        type: 'number',
+        default: 1,
+        title: '秒选项间隔'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'TreeSelect': {
+    properties: {
+      size: {
+        enum: [
+          { label: '小', value: 'large' },
+          { label: '中', value: 'middle' },
+          { label: '大', value: 'small' }
+        ],
+        default: 'middle',
+        title: '	选择框大小'
+      },
+      allowClear: {
+        type: 'boolean',
+        default: true,
+        title: '显示清除按钮'
+      },
+      autoClearSearchValue: {
+        type: 'boolean',
+        default: true,
+        title: '自动清空搜索框'
+      },
+      bordered: {
+        type: 'boolean',
+        default: true,
+        title: '是否显示边框'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '是否禁用'
+      },
+      treeCheckable: {
+        type: 'boolean',
+        default: false,
+        title: '显示Checkbox'
+      },
+      dropdownClassName: {
+        type: 'string',
+        title: '下拉菜单的className属性'
+      },
+      listHeight: {
+        type: 'number',
+        default: 256,
+        title: '设置弹窗滚动高度'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Statistic': {
+    properties: {
+      name: {
+        type: 'string',
+        title: '统计数值'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+
+  'Timeline': {
+    properties: {
+      mode: {
+        enum: [
+          { label: '左', value: 'left' },
+          { label: '可替代', value: 'alternate' },
+          { label: '右', value: 'right' }
+        ],
+        title: '时间轴和内容的位置'
+      },
+      reverse: {
+        type: 'boolean',
+        default: false,
+        title: '节点排序'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Affix': {
     properties: {
       offsetBottom: {
         type: 'number',
@@ -288,7 +672,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  InputNumber: {
+  'InputNumber': {
     properties: {
       size: {
         enum: [
@@ -347,7 +731,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Progress: {
+  'Progress': {
     properties: {
       type: {
         enum: [
@@ -387,7 +771,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Select: {
+  'Select': {
     properties: {
       size: {
         enum: [
@@ -443,7 +827,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Slider: {
+  'Slider': {
     properties: {
       allowClear: {
         type: 'boolean',
@@ -488,7 +872,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Table: {
+  'Table': {
     properties: {
       size: {
         enum: [
@@ -518,7 +902,7 @@ export const componentConfigs: Partial<
   },
   /*----------------------------------------------------------------*/
 
-  Image: {
+  'Image': {
     properties: {
       alt: {
         type: 'string',
@@ -548,7 +932,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Pagination: {
+  'Pagination': {
     properties: {
       size: {
         enum: [
@@ -598,7 +982,7 @@ export const componentConfigs: Partial<
       responsive: {
         type: 'boolean',
         default: false,
-        title: '当size未指定时，根据屏幕宽度自动调整尺寸'
+        title: '未指定size，自动调整尺寸'
       },
       showLessItems: {
         type: 'boolean',
@@ -608,7 +992,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  AutoComplete: {
+  'AutoComplete': {
     properties: {
       allowClear: {
         type: 'boolean',
@@ -623,7 +1007,7 @@ export const componentConfigs: Partial<
       backfill: {
         type: 'boolean',
         default: false,
-        title: '使用键盘选择选项的时候是否把选中项回填到输入框中'
+        title: '是否把选中项填到输入框'
       },
       defaultActiveFirstOption: {
         type: 'boolean',
@@ -663,9 +1047,58 @@ export const componentConfigs: Partial<
       }
     }
   },
-
   /*----------------------------------------------------------------*/
-  Calendar: {
+  'Form': {
+    properties: {
+      labelAlign: {
+        enum: [
+          { label: '左边', value: 'left' },
+          { label: '右边', value: 'right' }
+        ],
+        default: 'right',
+        title: 'label标签的文本对齐方式'
+      },
+      size: {
+        enum: [
+          { label: '小', value: 'small' },
+          { label: '中', value: 'middle' },
+          { label: '大', value: 'large' }
+        ],
+        default: 'middle',
+        title: '设置字段组件的尺寸'
+      },
+      layout: {
+        enum: [
+          { label: '水平', value: 'horizontal' },
+          { label: '垂直', value: 'vertical' },
+          { label: '内联', value: 'inline' }
+        ],
+        default: 'horizontal',
+        title: '表单布局'
+      },
+      colon: {
+        type: 'boolean',
+        default: false,
+        title: '是否显示label后面的冒号'
+      },
+      labelWrap: {
+        type: 'boolean',
+        default: true,
+        title: 'label标签的文本换行方式'
+      },
+      preserve: {
+        type: 'boolean',
+        default: true,
+        title: '当字段被删除时保留字段值'
+      },
+      name: {
+        type: 'string',
+        title: '表单名称'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Calendar': {
     properties: {
       fullscreen: {
         type: 'boolean',
@@ -675,7 +1108,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Carousel: {
+  'Carousel': {
     properties: {
       dotPosition: {
         enum: [
@@ -700,7 +1133,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Cascader: {
+  'Cascader': {
     properties: {
       size: {
         enum: [
@@ -742,7 +1175,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Checkbox: {
+  'Checkbox': {
     properties: {
       autoFocus: {
         type: 'boolean',
@@ -768,7 +1201,7 @@ export const componentConfigs: Partial<
   },
 
   /*----------------------------------------------------------------*/
-  Collapse: {
+  'Collapse': {
     properties: {
       expandIconPosition: {
         enum: [
@@ -801,7 +1234,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  DatePicker: {
+  'DatePicker': {
     properties: {
       size: {
         enum: [
@@ -844,7 +1277,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Descriptions: {
+  'Descriptions': {
     properties: {
       size: {
         enum: [
@@ -870,9 +1303,71 @@ export const componentConfigs: Partial<
       }
     }
   },
-
   /*----------------------------------------------------------------*/
-  Dropdown: {
+  'Rate': {
+    properties: {
+      allowClear: {
+        type: 'boolean',
+        default: true,
+        title: '是否允许再次点击后清除'
+      },
+      allowHalf: {
+        type: 'boolean',
+        default: false,
+        title: '是否允许半选'
+      },
+      autoFocus: {
+        type: 'boolean',
+        default: false,
+        title: '自动获得焦点'
+      },
+      disabled: {
+        type: 'boolean',
+        default: false,
+        title: '只读'
+      },
+      className: {
+        type: 'string',
+        title: '自定义样式类名'
+      },
+      count: {
+        type: 'number',
+        default: 5,
+        title: 'star总数'
+      },
+      defaultValue: {
+        type: 'number',
+        default: 0,
+        title: '默认值'
+      },
+      value: {
+        type: 'number',
+        title: '当前数，受控值'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Result': {
+    properties: {
+      status: {
+        enum: [
+          { label: '成功', value: 'success' },
+          { label: '错误', value: 'error' },
+          { label: '信息', value: 'info' },
+          { label: '警告', value: 'warning' },
+          { label: '404', value: '404' },
+          { label: '403', value: '403' },
+          { label: '500', value: '500' }
+        ],
+        default: 'error',
+        title: '结果的状态，决定图标和颜色'
+      }
+    }
+  },
+  /*----------------------------------------------------------------*/
+  'Popconfirm': {},
+  /*----------------------------------------------------------------*/
+  'Dropdown': {
     properties: {
       placement: {
         enum: [
@@ -904,7 +1399,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Mentions: {
+  'Mentions': {
     properties: {
       placement: {
         enum: [
@@ -934,7 +1429,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  List: {
+  'List': {
     properties: {
       size: {
         enum: [
@@ -958,7 +1453,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Layout: {
+  'Layout': {
     properties: {
       className: {
         type: 'string',
@@ -968,7 +1463,7 @@ export const componentConfigs: Partial<
   },
   /*----------------------------------------------------------------*/
 
-  Menu: {
+  'Menu': {
     properties: {
       mode: {
         enum: [
@@ -992,7 +1487,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  PageHeader: {
+  'PageHeader': {
     properties: {
       ghost: {
         type: 'boolean',
@@ -1002,7 +1497,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Steps: {
+  'Steps': {
     properties: {
       direction: {
         enum: [
@@ -1049,7 +1544,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Radio: {
+  'Radio': {
     properties: {
       autoFocus: {
         type: 'boolean',
@@ -1074,7 +1569,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Switch: {
+  'Switch': {
     properties: {
       size: {
         enum: [
@@ -1116,7 +1611,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Upload: {
+  'Upload': {
     properties: {
       listType: {
         enum: [
@@ -1168,7 +1663,7 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Tabs: {
+  'Tabs': {
     properties: {
       size: {
         enum: [
@@ -1183,18 +1678,18 @@ export const componentConfigs: Partial<
         enum: [
           { label: '线性', value: 'line' },
           { label: '卡片', value: 'card' },
-          { label: '可编辑的卡片', value: 'editable-card' }
+          { label: '可编辑卡片', value: 'editable-card' }
         ],
         default: 'line',
         title: '页签的基本样式'
       },
       activeKey: {
         type: 'string',
-        title: '当前激活tab面板的key'
+        title: '当前激活面板的key'
       },
       defaultActiveKey: {
         type: 'string',
-        title: '初始化选中面板的key'
+        title: '初始化选中面板key'
       },
       centered: {
         type: 'boolean',
@@ -1213,12 +1708,12 @@ export const componentConfigs: Partial<
       destroyInactiveTabPane: {
         type: 'boolean',
         default: false,
-        title: '被隐藏时是否销毁DOM结构'
+        title: '否销毁DOM结构'
       }
     }
   },
   /*----------------------------------------------------------------*/
-  Skeleton: {
+  'Skeleton': {
     properties: {
       active: {
         type: 'boolean',
@@ -1248,12 +1743,12 @@ export const componentConfigs: Partial<
     }
   },
   /*----------------------------------------------------------------*/
-  Tag: {
+  'Tag': {
     properties: {
       closable: {
         type: 'boolean',
         default: false,
-        title: '标签是否可以关闭(点击默认关闭)'
+        title: '标签是否关闭'
       },
       visible: {
         type: 'boolean',

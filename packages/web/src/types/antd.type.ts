@@ -61,14 +61,16 @@ import type { ComponentProps } from 'react'
 /* ---------------- 通用 ---------------- */
 export type ButtonProps = ComponentProps<typeof Button>
 export type TypographyProps = ComponentProps<typeof Typography>
+export type TypographyTitleProps = ComponentProps<typeof Typography.Title>
+export type TypographyTextProps = ComponentProps<typeof Typography.Text>
 /* ---------------- 布局 ---------------- */
 export type DividerProps = ComponentProps<typeof Divider>
-// export type GridProps = ComponentProps<typeof Grid>
 export type LayoutProps = ComponentProps<typeof Layout>
 export type SpaceProps = ComponentProps<typeof Space>
 /* ---------------- 导航 ---------------- */
 export type AffixProps = ComponentProps<typeof Affix>
 export type BreadcrumbProps = ComponentProps<typeof Breadcrumb>
+export type BreadcrumbItemProps = ComponentProps<typeof Breadcrumb.Item>
 export type DropdownProps = ComponentProps<typeof Dropdown>
 export type MenuProps = ComponentProps<typeof Menu>
 export type PageHeaderProps = ComponentProps<typeof PageHeader>
@@ -145,6 +147,7 @@ export const klComponents = [
   'Space',
   'Affix',
   'Breadcrumb',
+  'Breadcrumb.Item',
   'Dropdown',
   'Menu',
   'PageHeader',
@@ -196,7 +199,9 @@ export const klComponents = [
   'Skeleton',
   'Spin',
   'Anchor',
-  'BackTop'
+  'BackTop',
+  'Typography.Text',
+  'Typography.Title'
   // TODO: 扩展自定义组件
 ] as const
 

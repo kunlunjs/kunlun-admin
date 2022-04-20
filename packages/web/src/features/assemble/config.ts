@@ -36,7 +36,7 @@ export const components: DragItems = {
       source: 'antd',
       type: 'Component',
       category: '布局',
-      name: 'Layout',
+      name: 'Grid',
       title: '栅格',
       isBlock: true,
       draggable: true,

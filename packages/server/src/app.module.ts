@@ -11,6 +11,8 @@ import { config } from './common/configs'
 import { PrismaModule, prismaLoggingMiddleware } from './common/prisma'
 import { GqlConfigService } from './gql-config.service'
 // import { AuthModule } from './modules/auth/auth.module'
+import { MenuModule } from './modules/menu'
+import { AnnouncementModule } from './modules/announcement'
 
 @Module({
   imports: [
@@ -49,7 +51,9 @@ import { GqlConfigService } from './gql-config.service'
     GraphQLModule.forRootAsync({
       driver: ApolloDriver,
       useClass: GqlConfigService
-    })
+    }),
+    AnnouncementModule,
+    MenuModule
     // AuthModule
   ],
   controllers: [AppController],
